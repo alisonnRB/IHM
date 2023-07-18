@@ -1,0 +1,59 @@
+#fechar{
+    cursor: pointer;
+}
+fieldset{
+    height: 400px;
+    padding: 40px;
+    border-radius: 20px;
+    background-color: #66BFD1;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    bottom: -25px;
+    z-index: 1;
+    animation: aparece 1.5s;
+}
+span{
+    display: flex;
+    flex-direction: row;
+}
+#infos{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+h1{
+    font-size: 2em;
+    padding-right: 160px;
+}
+.cad{
+    padding-left: 8px;
+    border-radius: 10px;
+    height: 40px; ;
+    width: 350px;
+}
+.cad::placeholder{
+    color: #66BFD1 ;
+}
+.cad_button{
+    cursor: pointer;
+    color: white;
+    background-color: blue;
+}
+input.cad{
+    color:#66BFD1;
+}
+#box_cadastro{
+    position: absolute;
+    bottom: 1px;
+    z-index: 1;
+    animation: aparece 1.5s;
+}
+
+@keyframes aparece {
+    0%{opacity: 0; bottom: 600px;}
+    80%{bottom: -25px;}
+    100%{opacity: 1; }
+}

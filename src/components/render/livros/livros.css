@@ -1,0 +1,62 @@
+.boxLivros{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+#titleLivro{
+    font-size: 3em;
+    margin-top: 30px;
+}
+#search{
+    position: relative;
+    left: 350px;
+    top: 45px;
+    height: 30px;
+    width: 200px;
+
+}
+.buscaLivros{
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+
+}
+.cardLivro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+
+}
+.buscaLivros img{
+    height: 250px;
+    width: 250px;
+}
+#searchImg{
+    height: 30px;
+    width: 40px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background-color: black;
+    cursor: pointer;
+}
+#searchText{
+    padding-left: 1em;
+    color: white;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.titleCard{
+    font-size: 1.5em;
+}
+.local{
+    color: #9FD6DB;
+}

@@ -1,0 +1,10 @@
+#barra{
+    display: block;
+    height: 100%;
+    width: 140px;
+    background-color: #EFF8FF;
+}
+#barra img{
+    height: 120px;
+    width: 120px;
+}

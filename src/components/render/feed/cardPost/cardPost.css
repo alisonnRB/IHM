@@ -1,0 +1,26 @@
+.cardPost{
+    margin-bottom: 20px;
+}
+.cardPost span{
+    background-color: #98BEC1;
+    padding-left: 30px;
+    display: flex;
+    align-items: center;
+    height: 80px;
+    width: 100%;
+}
+.cardPost span img{
+    height: 60px;
+    width: 60px;
+}
+.cardPost span div p:first-child{
+    color: #57868C;
+}
+.cardPost span div p:last-child{
+    color: #ffffff;
+}
+.contentPost{
+
+    min-height: 500px;
+    width: 100%;
+}

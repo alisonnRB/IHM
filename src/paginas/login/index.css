@@ -1,0 +1,113 @@
+
+#cadastro{
+    position: absolute;
+    left: 25%;
+    bottom:-25px;
+    cursor: pointer;
+
+}
+#box {
+    height: 100vh;
+    width: 100vw;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #60ddee;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.box_form{
+    position: relative;
+    top: 70px;
+    animation: subir 1.5s, formularis 3s;
+    z-index: 4;
+}
+
+.form_pass,
+.form_email {
+    border-radius: 10px;
+    border: none;
+    height: 50px;
+    width: 400px;
+    padding: 0;
+    padding-left: 1em;
+    margin: 0;
+}
+
+.form_email::placeholder,
+.form_pass::placeholder {
+    color: #66BFD1;
+}
+
+.form_button {
+    cursor: pointer;
+    border-radius: 10px;
+    height: 40px;
+    width: 150px;
+    background-color: blue;
+    color: white;
+}
+#logo{
+    position: relative;
+    top: 60px;
+    width: 300px;
+    height: 300px;
+    animation: subir 1.5s;
+    z-index: 4;
+}
+
+#fundo{
+    position: absolute;
+    z-index: 2;
+    width: 100vw;
+    height: 100vh;
+    margin: auto;
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    animation: formularis 3.5s;
+    background: linear-gradient(0, #60ddee 0, #65d1e4 25%, #65bed1 50%, #64acbe 75%, #6dadc0 100%);
+}
+
+.form_pass,
+.form_email {
+    border-radius: 10px;
+    border: none;
+    height: 50px;
+    width: 400px;
+    padding: 0;
+    padding-left: 1em;
+    margin: 0;
+}
+
+.form_button {
+    cursor: pointer;
+    border-radius: 10px;
+    height: 40px;
+    width: 150px;
+    background-color: blue;
+    color: white;
+}
+
+.form_email::placeholder,
+.form_pass::placeholder {
+    color: #66BFD1;
+}
+
+@keyframes subir {
+    0% {transform: translateY(500px);}
+    80%{transform: translateY(-100px)}
+    100% {transform: translateY(0);}
+  }
+@keyframes formularis{
+    0%{opacity: 0;}
+    50%{ opacity: 0;}
+    100%{opacity: 2;}
+}

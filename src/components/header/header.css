@@ -1,0 +1,12 @@
+header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #BACFD2;
+    height: 130px;
+}
+#logoH{
+    height: 280px;
+    width: 280px;
+}

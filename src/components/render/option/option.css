@@ -1,0 +1,81 @@
+.option{
+    display: flex;
+    flex-direction: column;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+.option select{
+    padding: 5px;
+}
+.option .optionConfig select{
+    background: linear-gradient(90deg, rgba(51,146,166,1) 80%, rgba(17,109,122,1) 80%);
+    margin: 10px 10px 10px 150px;
+    font-size: 1.5em;
+    height: 40px;
+    width: 180px;
+    color: white;
+}
+.tittleConfig{
+    height: 90px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tittleConfig p{
+    font-size: 3em;
+}
+.optionConfig{
+    background-color: #98BEC1;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    margin-top: 40px;
+}
+.optionConfig p:first-child{
+    margin-left: 30px;
+    font-size: 2em;
+}
+.btTema{
+    margin: 10px;
+    height: 70%;
+    width: 60px;
+    background: none;
+    cursor: pointer;
+}
+#tema{
+    margin-right: 200px;
+}
+.privConfig{
+    background-color: #98BEC1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+#priv{
+    font-size: 1.5em;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+.privConfig span{
+    color: white;
+    background-color: #013F4A;
+    align-items: center;
+    margin-bottom: 20px;
+    height: 50px;
+    width: 100%;
+}
+.privConfig span p{
+    font-size: 1.5em;
+    margin-left: 30px;
+    margin-right: 150px;
+}
+.privConfig span select{
+    background: linear-gradient(90deg, rgba(51,146,166,1) 80%, rgba(17,109,122,1) 80%);
+    height: 65%;
+    color: white;
+    margin-right: 30px;
+}
+select option{
+    background-color:rgba(51,146,166,1) ;
+}
