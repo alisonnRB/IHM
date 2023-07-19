@@ -1,3 +1,4 @@
+@media screen and (min-width: 1199px){
 .cardPost{
     margin-bottom: 20px;
 }
@@ -23,4 +24,4 @@
 
     min-height: 500px;
     width: 100%;
-}
+}}

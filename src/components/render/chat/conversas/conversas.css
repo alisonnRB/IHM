@@ -1,3 +1,4 @@
+@media screen and (min-width: 1199px){
 .conversas{
     margin-top: 50px;
     margin-left: 10px;
@@ -32,4 +33,4 @@
 .conversas::-webkit-scrollbar-thumb{
     background-color: #bfe6ec;
     border-radius: 30px;
-}
+}}

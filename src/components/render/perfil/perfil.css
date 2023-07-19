@@ -1,3 +1,4 @@
+@media screen and (min-width: 1199px){
 .boxName{
     height: 500px;
     display: flex;
@@ -69,4 +70,5 @@
     background-color: rgb(13, 22, 22);
     height: 200px;
     width: 250px;
+}
 }

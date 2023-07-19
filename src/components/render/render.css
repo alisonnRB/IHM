@@ -1,6 +1,8 @@
+@media screen and (min-width: 1199px){
 .render{
     display: block;
     height: 100%;
     width: 100%;
     font-family: Georgia, 'Times New Roman', Times, serif;
+}
 }
