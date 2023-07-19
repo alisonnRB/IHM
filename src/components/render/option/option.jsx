@@ -1,6 +1,9 @@
 import React from 'react';
 import './option.css';
 
+import sol from '../../../imgs/sol.png';
+import lua from '../../../imgs/lua.png';
+
 
 
 function Option() {
@@ -22,8 +25,8 @@ function Option() {
 
       <span className='optionConfig'>
         <p id='tema'>tema</p>
-        <button className='btTema'>sol</button>
-        <button className='btTema'>lua</button>
+        <button className='btTema'><img src={sol} alt="" /></button>
+        <button className='btTema'><img src={lua} alt="" /></button>
       </span>
 
       <div className='privConfig'>

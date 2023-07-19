@@ -8,7 +8,11 @@ import chat from '../../imgs/chat.png';
 import feed from '../../imgs/feed.png';
 import config from '../../imgs/config.png';
 
+
 function Barraop() {
+
+
+  
  return (
     <div id='barra'>
       <Link to='/'>

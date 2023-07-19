@@ -1,6 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 
+
 import './render.css';
 
 import Perfil from './perfil/perfil';
@@ -10,7 +11,11 @@ import Feed from './feed/feed';
 import Option from './option/option';
 
 
+
+
 function Render() {
+
+
   
   return (
     <div className='render'>

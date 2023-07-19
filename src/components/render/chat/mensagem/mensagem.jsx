@@ -1,13 +1,15 @@
 import React from 'react';
 import './mensagem.css';
 
+import perfil from '../../../../imgs/perfil.png';
+import send from '../../../../imgs/enviar.png';
 
 
 function Mensagem() {
   return (
     <div className='mensagem'>
       <span className='perfilMsg'>
-        <img src="logo.png" alt="" />
+        <img src={perfil} alt="" />
         <div id='chatOption'>⁝</div>
         </span>
       <div className='renderMsg'>
@@ -17,7 +19,10 @@ function Mensagem() {
       <span className='caixaEnviar'>
         <form action="POST">
         <input className='inputEnvio' type="text" />
-        <input type="submit" value="&#62;" />
+
+        <button type='submit'>
+          <img src={send} alt="" />
+        </button>
         </form>
 
       </span>

@@ -5,6 +5,7 @@ import edit from '../../../imgs/editar-texto.png';
 
 
 function Perfil() {
+
   return (
     <div>
         <section className='boxName'>

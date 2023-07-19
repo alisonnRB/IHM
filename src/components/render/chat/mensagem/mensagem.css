@@ -27,8 +27,8 @@
     color: white;
 }
 .mensagem .perfilMsg img{
-    height: 50px;
-    width: 80px;
+    height: 60px;
+    width: 60px;
 }
 .caixaEnviar{
     display: flex;
@@ -51,6 +51,17 @@
     color: black;
     background-color: white;
     overflow-y: scroll;
+}
+.caixaEnviar button{    
+    position: relative;
+    left: 5px;    
+    top: 8px;
+    background: none;    
+    cursor: pointer;
+}
+.caixaEnviar form img{
+    height: 24px;
+    width: 24px;
 }
 .caixaEnviar form input{
     color: white;
