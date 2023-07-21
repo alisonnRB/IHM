@@ -9,4 +9,8 @@
     height: 20%;
     width: 90%;
 }
+.optionP:hover{
+    background-color: #85B2B7;
+
+}
 }

@@ -6,8 +6,12 @@ import Conversas from './conversas/conversas';
 
 
 
+
 function Chat() {
+  
+
   return (
+  
     <div className='chat'>
       <Carrossel />
       <span>
