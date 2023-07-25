@@ -1,7 +1,6 @@
 export default {
-    enviar: async (nome, email, senha) => {
-      let user = {
-        nome: nome,
+    enviar: async (email, senha) => {
+      let login = {
         email: email,
         senha: senha,
       };
@@ -9,16 +8,13 @@ export default {
       let requisição = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(user),
+        body: JSON.stringify(login),
       };
   
-      const response = await fetch('http://localhost/api/cadastro.php', requisição);
+      const response = await fetch('http://localhost/api/login.php', requisição);
       const data = await response.json();
       return data;
     },
   };
-  
-  
-  
   
   
