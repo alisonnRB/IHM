@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 import './index.css';
+import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+
 import Cadastro from '../login/forms/form_cadastro';
-import api from '../../backend/controler/api_login'
+import api from '../../backend/controler/api_login';
 
 
 export default function Login() {
@@ -15,12 +17,7 @@ export default function Login() {
 
     const resposta = await api.enviar(email, senha);
 
-    console.log(resposta);
 
-    
-    if(resposta.ok === true){
-      window.location.href = '/homePage';
-    }
 
   };
 
@@ -31,6 +28,7 @@ export default function Login() {
       };
 
     return (
+      
         <div id="box">
        <div>
            <div id="fundo"></div>
