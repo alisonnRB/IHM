@@ -1,9 +1,7 @@
 export default {
-    enviar: async (nome, usuario, dataNasc, email, senha) => {
+    enviar: async (nome, email, senha) => {
       let user = {
         nome: nome,
-        usuario: usuario,
-        dataNasc: dataNasc,
         email: email,
         senha: senha,
       };

@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
 import './form_cadastro.css';
-import api from '../../../api';
+import api from '../../../backend/controler/api_cadastro';
 
 export default function Cadastro(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     const nome = event.target.nome.value;
-    const usuario = event.target.usuario.value;
-    const dataNasc = event.target.dataNasc.value;
     const email = event.target.email.value;
     const senha = event.target.senha.value;
 
-    const resposta = await api.enviar(nome, usuario, dataNasc, email, senha);
+    const resposta = await api.enviar(nome, email, senha);
 
     if (resposta.ok) {
       // Exibe uma caixa de diálogo de confirmação
@@ -37,13 +35,6 @@ export default function Cadastro(props) {
           </span>
           <div id="infos">
             <input className="cad" type="text" name="nome" placeholder="Nome:" />
-            <input
-              className="cad"
-              type="text"
-              name="usuario"
-              placeholder="Nome de Usuário:"
-            />
-            <input className="cad" type="date" name="dataNasc" />
             <input className="cad" type="email" name="email" placeholder="E-mail:" />
             <input className="cad" type="password" name="senha" placeholder="Senha: " />
             <input className="cad cad_button" type="submit" value="Cadastrar" />
