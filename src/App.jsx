@@ -1,10 +1,13 @@
 import React from 'react';
-import Page from './rotas/rotas';
+import Login from './paginas/login';
+import Homepage from './paginas/homepage/homePage';
+
+import './App.css';
 
 
 function App() {
  return (
-    <Page />
+    <Login />
  );
 }
 
