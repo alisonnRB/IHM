@@ -1,23 +1,29 @@
 import React, {useState} from 'react';
 import './index.css';
-import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+
+import { useNavigate } from 'react-router-dom';
 
 import Cadastro from '../login/forms/form_cadastro';
 import api from '../../backend/controler/api_login';
 
 
 export default function Login() {
+  const navigate = useNavigate();
+
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     const email = event.target.email.value;
     const senha = event.target.senha.value;
-    console.log(email);
-    console.log(senha);
 
     const resposta = await api.enviar(email, senha);
-
-
+    
+    console.log(resposta.authorization)
+    localStorage.setItem('Authorization', resposta.authorization);
+    if(localStorage.getItem('Authorization') === 'logado'){
+      navigate('/');
+    }
 
   };
 

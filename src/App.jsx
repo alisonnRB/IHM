@@ -1,13 +1,22 @@
 import React from 'react';
 import Login from './paginas/login';
 import Homepage from './paginas/homepage/homePage';
+import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import PrivateRoute from './privateRoute';
+
 
 import './App.css';
 
 
 function App() {
  return (
-    <Login />
+   <Router>
+      <Routes>
+         <Route path='/login' element={ <Login />}/>
+         <Route path='*' element={<PrivateRoute><Homepage /></PrivateRoute>}/>
+      </Routes>
+   </Router>
+  
  );
 }
 

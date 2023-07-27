@@ -5,7 +5,7 @@ import Barraop from '../../components/optionPage/optionPage';
 import Render from '../../components/render/render';
 
 
-import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+
 
 
 
@@ -16,8 +16,6 @@ function Home() {
         <Head />
       </div>
 
-      <Router>
-        
       <div className='pagina'>
         <Barraop />
         <div className='boxOnPage'>
@@ -25,8 +23,7 @@ function Home() {
         </div>
       </div>
 
-      </Router>
-      
+
     </div>
   );
 }
