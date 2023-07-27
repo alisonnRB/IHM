@@ -11,7 +11,7 @@ export default {
         body: JSON.stringify(login),
       };
   
-      const response = await fetch('http://localhost/api/login.php', requisição);
+      const response = await fetch('http://localhost/server/login.php', requisição);
       const data = await response.json();
       return data;
     },

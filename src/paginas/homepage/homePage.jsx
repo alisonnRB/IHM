@@ -21,9 +21,8 @@ function Home() {
         <div className='boxOnPage'>
           <Render />
         </div>
+
       </div>
-
-
     </div>
   );
 }

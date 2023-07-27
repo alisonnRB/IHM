@@ -12,7 +12,7 @@ export default {
         body: JSON.stringify(user),
       };
   
-      const response = await fetch('http://localhost/api/cadastro.php', requisição);
+      const response = await fetch('http://localhost/server/cadastro.php', requisição);
       const data = await response.json();
       return data;
     },
