@@ -3,6 +3,7 @@ import './perfil.css';
 import perfil from '../../../imgs/perfilLight.png';
 import edit from '../../../imgs/editar-texto.png';
 
+import {Link} from 'react-router-dom';
 
 function Perfil() {
 
@@ -13,7 +14,7 @@ function Perfil() {
         <img id='fotoPerfil' src={perfil}></img>
             <span>
                 <div id='nome'><p>alison</p></div>
-                <img className='edit' src={edit} alt="" />
+                <Link to='/Perfil/Edit'><img className='edit' src={edit} alt="" /></Link>
             </span>
         </section>
 

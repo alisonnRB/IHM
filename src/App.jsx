@@ -1,7 +1,7 @@
 import React from 'react';
 import Login from './paginas/login';
 import Homepage from './paginas/homepage/homePage';
-import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import PrivateRoute from './privateRoute';
 
 

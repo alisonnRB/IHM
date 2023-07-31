@@ -1,7 +1,7 @@
 #fechar{
     cursor: pointer;
 }
-fieldset{
+.field_cad{
     height: 400px;
     padding: 40px;
     border-radius: 20px;
@@ -14,10 +14,6 @@ fieldset{
     bottom: -25px;
     z-index: 1;
     animation: aparece 1.5s;
-}
-span{
-    display: flex;
-    flex-direction: row;
 }
 #infos{
     display: flex;

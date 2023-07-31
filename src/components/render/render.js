@@ -1,10 +1,11 @@
 import React from 'react';
-import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom';
 
 
 import './render.css';
 
 import Perfil from './perfil/perfil';
+  import Edit from './perfil/edit/edit'
 import Livros from './livros/livros';
 import Chat from './chat/chat';
 import Feed from './feed/feed';
@@ -20,7 +21,8 @@ function Render() {
   return (
     <div className='render'>
       <Routes>
-        <Route exact path='/' element={<Perfil />}></Route>
+        <Route path='/Perfil' element={<Perfil />}></Route>
+          <Route path='/Perfil/Edit' element={<Edit />}></Route>
         <Route path='/Livros' element={<Livros />}></Route>
         <Route path='/Chat' element={<Chat />}></Route>
         <Route path='/Feed' element={<Feed />}></Route>

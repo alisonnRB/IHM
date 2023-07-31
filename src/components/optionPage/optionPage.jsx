@@ -14,7 +14,7 @@ function Barraop() {
   
  return (
     <div id='barra'>
-      <Link to='/'>
+      <Link to='/Perfil'>
       <div className='optionP'>
         <img src={perfil} alt="" />
       </div>

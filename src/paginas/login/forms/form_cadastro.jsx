@@ -28,7 +28,7 @@ export default function Cadastro(props) {
   return (
     <div id="box_cadastro">
       <form onSubmit={handleSubmit}>
-        <fieldset>
+        <fieldset className='field_cad'>
           <span>
             <h1>Cadastre-se</h1>
             <p id="fechar" onClick={props.fecharCadastro}>X</p>
