@@ -21,6 +21,8 @@ export default function Login() {
     
     console.log(resposta.authorization)
     localStorage.setItem('Authorization', resposta.authorization);
+    localStorage.setItem('id', resposta.userInfo.userInfo);
+    
     if(localStorage.getItem('Authorization') === 'logado'){
       navigate('/');
     }
