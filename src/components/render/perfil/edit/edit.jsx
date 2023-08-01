@@ -38,6 +38,7 @@ export default function Edit() {
         const id = localStorage.getItem('id');
 
         const resposta = await api.enviar(id, file, nome);
+        localStorage
     };
 
 
