@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +69,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+=======
+# IHM
+Projeto de criação e uma rede social para leitores, com publicação de textos, comentarios e resenhas assim como opção para procurar por pessoas que tenham interesse de trocar livros
+>>>>>>> bd54abc8cc54f82540d73372e6d8577ead8b6b67
