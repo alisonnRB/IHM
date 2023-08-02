@@ -7,7 +7,7 @@ export default {
       };
 
       let requisição = {
-        method: 'PUT',
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(edit),
       };
