@@ -8,10 +8,11 @@ import api from '../../../../backend/controler/api_edição';
 export default function Edit() {
     const [imagePreview, setImagePreview] = useState(null);
     const [userName, setUserName] = useState('');
-    const [files, setFiles] = useState([]);
+    const [files, setFiles] = useState(null);
 
     const handleImageChange = (event) => {
         const file = event.target.files[0];
+
         setFiles(file);
         const reader = new FileReader();
 
@@ -30,16 +31,28 @@ export default function Edit() {
     };
 
     const alterar = async (event) => {
-        
         event.preventDefault();
+    
+        const formData = new FormData();
+        formData.append('image', files);
+    
 
-        const file = files;
-        const nome = userName;
-        const id = localStorage.getItem('id');
+        const idUsuario = localStorage.getItem('id');
 
-        const resposta = await api.enviar(id, file, nome);
+    
+        try {
+
+            const resposta = await api.enviar(idUsuario, formData, userName);
+    
+
+            setFiles(null);
+            setImagePreview(null);
+            setUserName('');
+        } catch (erro) {
+
+            console.error('Erro ao enviar para a API:', erro);
+        }
     };
-
 
     return (
         <div className="box_editP">

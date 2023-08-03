@@ -6,6 +6,7 @@ export default {
         nome: nome,
       };
 
+
       let requisição = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
