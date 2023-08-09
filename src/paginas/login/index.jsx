@@ -8,7 +8,7 @@ import api from '../../backend/controler/api_login';
 
 
 export default function Login() {
-  const [cu, setCu] = useState(null);
+  const [erro, setErro] = useState(null);
   const navigate = useNavigate();
 
 
@@ -25,7 +25,7 @@ export default function Login() {
     localStorage.setItem('id', resposta.userInfo.id);
 
     if(resposta.ok == false){
-      setCu(resposta.msg)
+      setErro(resposta.msg)
     }
     
     if(localStorage.getItem('Authorization') === 'logado'){
@@ -49,7 +49,7 @@ export default function Login() {
       </div>
       <div className="box_form">
       <form className="form" onSubmit={handleSubmit}>
-          <p>{cu}</p>
+          <p>{erro}</p>
           <input className="form_email" type="email" name="email" placeholder="Email"></input>
           <input className="form_pass" type="password" name="senha" placeholder="Senha"></input>
           <input className="form_button" type="submit" value="Entrar"></input> 
