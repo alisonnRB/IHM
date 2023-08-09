@@ -29,7 +29,7 @@ export default function Login() {
     }
     
     if(localStorage.getItem('Authorization') === 'logado'){
-      navigate('/');
+      navigate('/Perfil');
     }
 
   };
