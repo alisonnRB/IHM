@@ -3,6 +3,7 @@ import './form_cadastro.css';
 import api from '../../../backend/controler/api_cadastro';
 
 export default function Cadastro(props) {
+  const [Erro, setErro] = useState('');
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -13,15 +14,14 @@ export default function Cadastro(props) {
     const resposta = await api.enviar(nome, email, senha);
 
     if (resposta.ok) {
-      // Exibe uma caixa de diálogo de confirmação
-      const confirmacao = window.confirm('Cadastro realizado com sucesso! ');
+      const confirmacao = window.confirm('Cadastro realizado com sucesso!');
 
       if (confirmacao) {
-        // Chama a função desejada
+
         props.fecharCadastro();
       }
     } else {
-      alert('Erro ao cadastrar: ' + resposta.msg);
+      setErro(resposta.msg);
     }
   };
 
@@ -34,6 +34,7 @@ export default function Cadastro(props) {
             <p id="fechar" onClick={props.fecharCadastro}>X</p>
           </span>
           <div id="infos">
+            <span className='Error_msg'><p>{Erro}</p></span>
             <input className="cad" type="text" name="nome" placeholder="Nome:" />
             <input className="cad" type="email" name="email" placeholder="E-mail:" />
             <input className="cad" type="password" name="senha" placeholder="Senha: " />
