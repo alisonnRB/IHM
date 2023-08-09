@@ -12,8 +12,8 @@ export default function Edit() {
 
     const handleImageChange = (event) => {
         const file = event.target.files[0];
-
         setFiles(file);
+
         const reader = new FileReader();
 
         reader.onloadend = () => {
