@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 09/08/2023 às 22:07
+-- Tempo de geração: 10/08/2023 às 19:27
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -81,7 +81,8 @@ INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `fotoPerfil`) VALUES
 (6, 'janainaa', 'jana@gmail.com', 'janinha', ''),
 (7, 'junio', 'junio@gmat.cum', 'ninfets', ''),
 (8, 'yuri', 'yurizinha@gmail.com', 'yuriko', ''),
-(9, 'mirela de schoringer', 'junio@gmat.cum', 'gdhtvyjy', '');
+(9, 'mirela de schoringer', 'junio@gmat.cum', 'gdhtvyjy', ''),
+(10, 'Yuri Henrique', 'opa@gmail.com', '12345', '');
 
 --
 -- Índices para tabelas despejadas
@@ -127,7 +128,7 @@ ALTER TABLE `livro_publi`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
