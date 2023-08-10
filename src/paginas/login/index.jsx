@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './index.css';
 
 import { useNavigate } from 'react-router-dom';
@@ -10,7 +10,7 @@ import api from '../../backend/controler/api_login';
 export default function Login() {
   const [erro, setErro] = useState(null);
   const navigate = useNavigate();
-
+  const [mostrarCadastro, setMostrarCadastro] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -19,46 +19,43 @@ export default function Login() {
     const senha = event.target.senha.value;
 
     const resposta = await api.enviar(email, senha);
-    
+
     console.log(resposta.authorization)
     localStorage.setItem('Authorization', resposta.authorization);
     localStorage.setItem('id', resposta.userInfo.id);
 
-    if(resposta.ok == false){
+    if (resposta.ok == false) {
       setErro(resposta.msg)
     }
-    
-    if(localStorage.getItem('Authorization') === 'logado'){
+
+    if (localStorage.getItem('Authorization') === 'logado') {
       navigate('/Perfil');
     }
 
   };
 
-    const [mostrarCadastro, setMostrarCadastro] = useState(false);
+  const fecharCadastro = () => {
+    setMostrarCadastro(false);
+  };
 
-    const fecharCadastro = () => {
-        setMostrarCadastro(false);
-      };
-
-    return (
-      
-        <div id="box">
-       <div>
-           <div id="fundo"></div>
-           <img id="logo" src="logo.png"></img>
+  return (
+    <div id="box">
+      <div>
+        <div id="fundo"></div>
+        <img id="logo" src="logo.png"></img>
       </div>
       <div className="box_form">
-      <form className="form" onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit}>
           <p>{erro}</p>
           <input className="form_email" type="email" name="email" placeholder="Email"></input>
           <input className="form_pass" type="password" name="senha" placeholder="Senha"></input>
-          <input className="form_button" type="submit" value="Entrar"></input> 
+          <input className="form_button" type="submit" value="Entrar"></input>
         </form>
-        
-          <p id="cadastro" onClick={() => setMostrarCadastro(true)}>Ainda não posssui uma conta</p>
-           {mostrarCadastro && <Cadastro fecharCadastro={fecharCadastro} />}
-      
+
+        <p id="cadastro" onClick={() => setMostrarCadastro(true)}>Ainda não posssui uma conta</p>
+        {mostrarCadastro && <Cadastro fecharCadastro={fecharCadastro} />}
+
       </div>
-   </div>
-    );
-   }
+    </div>
+  );
+}

@@ -1,18 +1,19 @@
 import { useState } from 'react';
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 import './edit.css';
 
 import api from '../../../../backend/controler/api_edição';
 
-
 export default function Edit() {
     const [imagePreview, setImagePreview] = useState(null);
     const [userName, setUserName] = useState('');
-    const [files, setFiles] = useState(null);
+    const [file, setFile] = useState(null);
+    const navigate = useNavigate();
 
     const handleImageChange = (event) => {
         const file = event.target.files[0];
-        setFiles(file);
+        setFile(file);
 
         const reader = new FileReader();
 
@@ -23,36 +24,31 @@ export default function Edit() {
         if (file) {
             reader.readAsDataURL(file);
         }
-
     };
-        
+
     const handleNameChange = (event) => {
         setUserName(event.target.value);
     };
 
     const alterar = async (event) => {
         event.preventDefault();
-    
+
         const formData = new FormData();
-        formData.append('image', files);
-    
+        formData.append('image', file);
 
         const idUsuario = localStorage.getItem('id');
 
-    
-        try {
+        const resposta = await api.enviar(idUsuario, formData, userName);
 
-            const resposta = await api.enviar(idUsuario, formData, userName);
-    
+        setFile(null);
+        setImagePreview(null);
+        setUserName('');
 
-            setFiles(null);
-            setImagePreview(null);
-            setUserName('');
-        } catch (erro) {
-
-            console.error('Erro ao enviar para a API:', erro);
+        if(resposta.ok == true){
+            navigate('/Perfil');
         }
     };
+        
 
     return (
         <div className="box_editP">
@@ -66,7 +62,7 @@ export default function Edit() {
                 <div className="view_P">
                     <p>Preview</p>
                     <div className='ft_P'>
-                    {imagePreview && <img src={imagePreview} alt="Preview" style={{ width: '200px', height: '200px'}} />}
+                        {imagePreview && <img src={imagePreview} alt="Preview" style={{ width: '200px', height: '200px'}} />}
                     </div>
                     <div className="nome_P"><p>{userName}</p></div>
                 </div>
