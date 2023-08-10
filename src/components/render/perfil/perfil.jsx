@@ -1,22 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './perfil.css';
 import perfil from '../../../imgs/perfilLight.png';
 import edit from '../../../imgs/editar-texto.png';
 
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-function Perfil() {
+function Perfil(props) {
+  const [name, setName] = useState('');
+  const [Perfil, setPerfil] = useState('')
+
+  useEffect(() => {
+    if (props.user) {
+      setName(props.user.nome);
+      setPerfil("http://localhost/imagens/"+props.user.fotoPerfil);
+    } else {
+      setName('...');
+      setName(perfil);
+    }
+  }, [props.user]);
 
   return (
     <div>
-        <section className='boxName'>
+      <section className='boxName'>
         <p id='titlePerfil'>Perfil</p>
-        <img id='fotoPerfil' src={perfil}></img>
-            <span>
-                <div id='nome'><p>alison</p></div>
-                <Link to='/Perfil/Edit'><img className='edit' src={edit} alt="" /></Link>
-            </span>
-        </section>
+        <img id='fotoPerfil' src={Perfil} alt='Foto de Perfil' />
+        <span>
+          <div id='nome'>
+            <p>{name}</p>
+          </div>
+          <Link to='/Perfil/Edit'>
+            <img className='edit' src={edit} alt='Editar' />
+          </Link>
+        </span>
+      </section>
 
         <section className='boxGenero'>
             <span>

@@ -20,7 +20,6 @@ export default function Login() {
 
     const resposta = await api.enviar(email, senha);
 
-    console.log(resposta.authorization)
     localStorage.setItem('Authorization', resposta.authorization);
     localStorage.setItem('id', resposta.userInfo.id);
 
