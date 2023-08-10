@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21/07/2023 às 00:07
+-- Tempo de geração: 10/08/2023 às 19:27
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -66,15 +66,23 @@ CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `nome` varchar(45) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `senha` varchar(45) NOT NULL
+  `senha` varchar(45) NOT NULL,
+  `fotoPerfil` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`) VALUES
-(1, 'Alison', 'alisonkpops@gmail.com', 'minhasenha833');
+INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `fotoPerfil`) VALUES
+(1, 'Alison', 'alisonkpops@gmail.com', 'minhasenha833', ''),
+(3, 'jaqueline', 'derozadobatistaalison@gmail.com', 'senhadelah', ''),
+(4, 'ALISON DE ROZADO BATISTA', 'bucetamolhadinha@gmail.com', 'nhaiiii', ''),
+(6, 'janainaa', 'jana@gmail.com', 'janinha', ''),
+(7, 'junio', 'junio@gmat.cum', 'ninfets', ''),
+(8, 'yuri', 'yurizinha@gmail.com', 'yuriko', ''),
+(9, 'mirela de schoringer', 'junio@gmat.cum', 'gdhtvyjy', ''),
+(10, 'Yuri Henrique', 'opa@gmail.com', '12345', '');
 
 --
 -- Índices para tabelas despejadas
@@ -120,7 +128,7 @@ ALTER TABLE `livro_publi`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

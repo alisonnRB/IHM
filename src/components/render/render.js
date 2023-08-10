@@ -14,15 +14,13 @@ import Option from './option/option';
 
 
 
-function Render() {
-
-
+function Render(props) {
   
   return (
     <div className='render'>
       <Routes>
-        <Route path='/Perfil' element={<Perfil />}></Route>
-          <Route path='/Perfil/Edit' element={<Edit />}></Route>
+        <Route path='/Perfil' element={<Perfil user={props.user}/>}></Route>
+        <Route path='/Perfil/Edit' element={<Edit />}></Route>
         <Route path='/Livros' element={<Livros />}></Route>
         <Route path='/Chat' element={<Chat />}></Route>
         <Route path='/Feed' element={<Feed />}></Route>

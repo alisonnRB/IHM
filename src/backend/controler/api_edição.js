@@ -1,21 +1,14 @@
 export default {
-    enviar: async (id, file, nome) => {
-      let edit = {
-        id: id,
-        file: file,
-        nome: nome,
-      };
+  enviar: async (id, formData, nome) => {
+      formData.append('id', id);
+      formData.append('nome', nome);
 
-      let requisição = {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(edit),
-      };
-  
-      const response = await fetch('http://localhost/server/config_perfil.php', requisição);
+      const response = await fetch('http://localhost/server/config_perfil.php', {
+          method: 'POST',
+          body: formData,
+      });
+
       const data = await response.json();
       return data;
-    },
-  };
-  
-  
+  },
+};

@@ -47,7 +47,16 @@ input.cad{
     z-index: 1;
     animation: aparece 1.5s;
 }
-
+.Error_msg{
+    display: flex;
+    justify-content: center;
+    color: rgb(255, 0, 0);
+    -webkit-text-stroke-width: .5px;
+    -webkit-text-stroke-color: #000000;
+}
+.Error_msg p{
+    font-size: 1.5rem;
+}
 @keyframes aparece {
     0%{opacity: 0; bottom: 600px;}
     80%{bottom: -25px;}
