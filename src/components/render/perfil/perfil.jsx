@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 function Perfil(props) {
   const [name, setName] = useState('');
-  const [Perfil, setPerfil] = useState('')
+  const [Perfil, setPerfil] = useState(perfil);
 
   useEffect(() => {
     if (props.user) {
