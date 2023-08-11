@@ -26,7 +26,8 @@ function Home() {
     //?executa a função responsavel pela busca de dados
     Busca();
   }, []);
-
+  
+  //TODO passa como propriedades as informações(user) do usuario para os elementos filhos acessarem
   return (
     <div className='boxHome'>
       <div>
@@ -35,7 +36,7 @@ function Home() {
       <div className='pagina'>
         <Barraop />
         <div className='boxOnPage'>
-          //TODO passa como propriedades as informações(user) do usuario para os elementos filhos acessarem
+          
           <Render user={infos}/>
         </div>
       </div>
