@@ -14,26 +14,32 @@ export default function Login() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    
+    //? prepara os valores para enviar a api
     const email = event.target.email.value;
     const senha = event.target.senha.value;
 
     const resposta = await api.enviar(email, senha);
-
+    
+    //TODO salva no localstorage as resposta do server
     localStorage.setItem('Authorization', resposta.authorization);
     localStorage.setItem('id', resposta.userInfo.id);
 
+    
     if (resposta.ok == false) {
       setErro(resposta.msg)
     }
 
     if (localStorage.getItem('Authorization') === 'logado') {
+      //? navega para o perfil caso a authorização seja correta
+      //! este metodo é temporario, deve ser construido o sistema de token
       navigate('/Perfil');
     }
 
   };
 
   const fecharCadastro = () => {
+    //? responsavel por fechar o componente de cadastro
     setMostrarCadastro(false);
   };
 
@@ -50,7 +56,7 @@ export default function Login() {
           <input className="form_pass" type="password" name="senha" placeholder="Senha"></input>
           <input className="form_button" type="submit" value="Entrar"></input>
         </form>
-
+        //TODO abre a janela de cadastro caso click
         <p id="cadastro" onClick={() => setMostrarCadastro(true)}>Ainda não posssui uma conta</p>
         {mostrarCadastro && <Cadastro fecharCadastro={fecharCadastro} />}
 

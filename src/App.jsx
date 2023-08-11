@@ -1,7 +1,10 @@
 import React from 'react';
 import Login from './paginas/login';
 import Homepage from './paginas/homepage/homePage';
+
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+//? importa da biblioteca do react o sistema de rotas
+
 import PrivateRoute from './privateRoute';
 
 
@@ -10,9 +13,13 @@ import './App.css';
 
 function App() {
  return (
+   //? a tag Router acomoda os caminhos da pagina
    <Router>
       <Routes>
          <Route path='/login' element={ <Login />}/>
+
+         //TODO o elemento privateRoute é um elemento que criei para que só seja possivel acessar os elementos
+         //TODO da HomePage apenas se o token for valido!!
          <Route path='*' element={<PrivateRoute><Homepage /></PrivateRoute>}/>
       </Routes>
    </Router>

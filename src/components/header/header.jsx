@@ -1,7 +1,7 @@
 import React from 'react';
 import './header.css';
 
-
+//? este é o componete de cabeçalho da pagina
 
 function Header() {
  return (

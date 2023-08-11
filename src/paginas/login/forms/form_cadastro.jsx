@@ -2,25 +2,31 @@ import React, { useState } from 'react';
 import './form_cadastro.css';
 import api from '../../../backend/controler/api_cadastro';
 
+
+//* as propriedades do elemento pai são recebidas no args props
 export default function Cadastro(props) {
+
   const [Erro, setErro] = useState('');
   const handleSubmit = async (event) => {
-    event.preventDefault();
-
+    event.preventDefault(); //? previne o comportamento padrão da pagina de recarregar ao envio de form
+    
+    //? prepara os avlores para a api
     const nome = event.target.nome.value;
     const email = event.target.email.value;
     const senha = event.target.senha.value;
-    const confirmasenha = event.target.confsenha.value;
 
-    if (senha !== confirmasenha) {
-      setErro('As senhas precisam ser iguais');
-      return;
-    }
+    //const confirmaSenha = event.target.confSenha.value;
+
+    //if (senha !== confirmasenha) {
+      //setErro('As senhas precisam ser iguais');
+      //return;
+    //}     deve estar a nivel servidor
 
     const resposta = await api.enviar(nome, email, senha);
 
     if (resposta.ok) {
       const confirmacao = window.confirm('Cadastro realizado com sucesso!');
+      //? caso a resposta do server seja positiva emite um alert e fecha a janela
 
       if (confirmacao) {
 
