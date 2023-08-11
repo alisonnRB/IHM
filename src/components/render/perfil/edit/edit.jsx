@@ -14,6 +14,8 @@ export default function Edit() {
     const [imagePreview, setImagePreview] = useState(null);
     const [userName, setUserName] = useState('');
     const [file, setFile] = useState(null);
+    const [respost, setRespost] = useState(null);
+
     const navigate = useNavigate();
 
 
@@ -56,6 +58,8 @@ export default function Edit() {
         //? volta para o perfil
         if(resposta.ok == true){
             navigate('/Perfil');
+        }else{
+            setRespost(resposta.msg);
         }
     };
         
@@ -66,6 +70,7 @@ export default function Edit() {
                 <form className="form_op" onSubmit={alterar}>
                     <label>Escolha uma foto<input type="file" name="file" onChange={handleImageChange} /></label>
                     <label>Quer alterar seu nome<input type="text" onChange={handleNameChange} /></label>
+                    <p>{respost}</p>
 
                     <input type="submit" id='sub' value='confirmar'/>
                 </form>
