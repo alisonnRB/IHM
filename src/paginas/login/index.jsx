@@ -43,6 +43,8 @@ export default function Login() {
     setMostrarCadastro(false);
   };
 
+
+  //TODO abre a janela de cadastro caso click
   return (
     <div id="box">
       <div>
@@ -56,7 +58,7 @@ export default function Login() {
           <input className="form_pass" type="password" name="senha" placeholder="Senha"></input>
           <input className="form_button" type="submit" value="Entrar"></input>
         </form>
-        //TODO abre a janela de cadastro caso click
+        
         <p id="cadastro" onClick={() => setMostrarCadastro(true)}>Ainda não posssui uma conta</p>
         {mostrarCadastro && <Cadastro fecharCadastro={fecharCadastro} />}
 
