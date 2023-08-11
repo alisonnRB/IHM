@@ -11,14 +11,10 @@ import Chat from './chat/chat';
 import Feed from './feed/feed';
 import Option from './option/option';
 
-// ! kllkjljl
-// TODO: fhiodfheifgh
-// * funfanuu
-// ? miau?
+//? o componente render é reponsavel por renderizar as paginas do site
 
 function Render(props) {
-  const a = "a";
-  
+  //? o render está recebendo os paramentors por props para fazer ac onstrução
   return (
     <div className='render'>
       <Routes>
