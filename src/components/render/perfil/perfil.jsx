@@ -5,10 +5,15 @@ import edit from '../../../imgs/editar-texto.png';
 
 import { Link } from 'react-router-dom';
 
+//? componente que comporta o perfil
+
 function Perfil(props) {
   const [name, setName] = useState('');
   const [Perfil, setPerfil] = useState('')
 
+
+
+  //TODO responsavel por controlar as informações mostradas na tela de acordo com o carregamento da page sem ficar recarregando infinitamente
   useEffect(() => {
     if (props.user) {
       setName(props.user.nome);

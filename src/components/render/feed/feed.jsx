@@ -1,8 +1,10 @@
+//! PAGE A SER TRABALHADA
+
 import React from 'react';
 import './feed.css';
 import Card from './cardPost/cardPost';
 
-
+//? page reponsavel por mostrar as postagens 
 function Feed() {
   return (
     <div className='feed'>

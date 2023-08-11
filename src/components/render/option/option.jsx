@@ -1,10 +1,12 @@
+//! PAGE A SER TRABALHADA
+
 import React from 'react';
 import './option.css';
 
 import sol from '../../../imgs/sol.png';
 import lua from '../../../imgs/lua.png';
 
-
+//? componente que comporta as opções
 
 function Option() {
   return (

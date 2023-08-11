@@ -1,3 +1,6 @@
+//! PRECISA CONSTRUIR UM ESTILO PARA A PAGE
+
+
 import { useState } from 'react';
 import React from "react";
 import { useNavigate } from 'react-router-dom';
@@ -5,16 +8,21 @@ import './edit.css';
 
 import api from '../../../../backend/controler/api_edição';
 
+//? renderiza a pageina de edição do perfil
+
 export default function Edit() {
     const [imagePreview, setImagePreview] = useState(null);
     const [userName, setUserName] = useState('');
     const [file, setFile] = useState(null);
     const navigate = useNavigate();
 
+
+        //TODO função que atualiza dos estados da imagem e nome em tempo real para ter uma preview
     const handleImageChange = (event) => {
         const file = event.target.files[0];
         setFile(file);
-
+        
+        
         const reader = new FileReader();
 
         reader.onloadend = () => {
@@ -30,6 +38,7 @@ export default function Edit() {
         setUserName(event.target.value);
     };
 
+    //TODO manda para a api para que seja feito o update no banco de dados
     const alterar = async (event) => {
         event.preventDefault();
 
@@ -44,6 +53,7 @@ export default function Edit() {
         setImagePreview(null);
         setUserName('');
 
+        //? volta para o perfil
         if(resposta.ok == true){
             navigate('/Perfil');
         }

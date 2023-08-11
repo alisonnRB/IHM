@@ -14,7 +14,7 @@ import Option from './option/option';
 //? o componente render é reponsavel por renderizar as paginas do site
 
 function Render(props) {
-  //? o render está recebendo os paramentors por props para fazer ac onstrução
+  //? o render está recebendo os paramentors por props para fazer a construção da page
   return (
     <div className='render'>
       <Routes>
