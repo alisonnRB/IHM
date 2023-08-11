@@ -14,15 +14,11 @@ export default function Cadastro(props) {
     const nome = event.target.nome.value;
     const email = event.target.email.value;
     const senha = event.target.senha.value;
+    const confSenha = event.target.confsenha.value;
 
-    //const confirmaSenha = event.target.confSenha.value;
 
-    //if (senha !== confirmasenha) {
-      //setErro('As senhas precisam ser iguais');
-      //return;
-    //}     deve estar a nivel servidor
 
-    const resposta = await api.enviar(nome, email, senha);
+    const resposta = await api.enviar(nome, email, senha, confSenha);
 
     if (resposta.ok) {
       const confirmacao = window.confirm('Cadastro realizado com sucesso!');

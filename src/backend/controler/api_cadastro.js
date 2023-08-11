@@ -1,11 +1,12 @@
 export default {
   //TODO de maneira assincrona a api recebe os paramentros e envia
-    enviar: async (nome, email, senha) => {
+    enviar: async (nome, email, senha, confSenha) => {
       //? prepara o objeto para enviar no padrão RESTful
       let user = {
         nome: nome,
         email: email,
         senha: senha,
+        confSenha: confSenha,
       };
 
       //? prepara as informações de methodo e cabeçalhos para fazer a requisição
