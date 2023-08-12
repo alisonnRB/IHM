@@ -89,11 +89,17 @@
         width: 150px;
         background-color: blue;
         color: white;
+        margin-bottom: 20px;
     }
 
     .form_email::placeholder,
     .form_pass::placeholder {
         color: #66BFD1;
+    }
+    #content_cad{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
     }
 
     @keyframes subir {
@@ -145,7 +151,7 @@
     .box_form{
         position: relative;
         top: -13%;
-        height: 70%;
+        height: 100%;
         width: 100%;
         animation: subir 1.5s, formularis 3s;
     }
@@ -156,7 +162,7 @@
         position: relative;
         flex-direction: column;
         align-items: center;
-        gap: 12%;
+        gap: 40px;
         
 
     }
@@ -179,7 +185,7 @@
     .form_button {
         cursor: pointer;
         border-radius: 15px;
-        height: 35px;
+        height: 50px;
         width: 150px;
         margin-top: 15%;
         background-color: blue;
