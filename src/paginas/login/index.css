@@ -148,8 +148,8 @@
     .box_form{
         position: relative;
         top: -16%;
-        height: 20%;
-        width: 80%;
+        height: 40%;
+        width: 90%;
         animation: subir 1.5s, formularis 3s;
     }
     .form {
@@ -159,8 +159,39 @@
         position: relative;
         flex-direction: column;
         align-items: center;
-        gap: 20px;
-        background-color: violet;
+        gap: 25px;
+        
+
+    }
+    .form_pass,
+    .form_email {
+        border-radius: 15px;
+        border: none;
+        height: 35px;
+        width: 220px;
+        padding: 0;
+        padding-left: 1em;
+        margin: 0;
+    }
+
+    .form_email::placeholder,
+    .form_pass::placeholder {
+        color: #66BFD1;
+    }
+
+    .form_button {
+        cursor: pointer;
+        border-radius: 10px;
+        height: 35px;
+        width: 150px;
+        margin-top: 8%;
+        background-color: blue;
+        color: white;
+    }
+    #cadastro{
+       position: relative;
+       top: 11.5%;
+
 
     }
 
@@ -174,4 +205,5 @@
         50%{ opacity: 0;}
         100%{opacity: 2;}
     }
+
 }

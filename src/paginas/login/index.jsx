@@ -57,10 +57,11 @@ export default function Login() {
           <input className="form_email" type="email" name="email" placeholder="Email"></input>
           <input className="form_pass" type="password" name="senha" placeholder="Senha"></input>
           <input className="form_button" type="submit" value="Entrar"></input>
+          <p id="cadastro" onClick={() => setMostrarCadastro(true)}>Ainda não posssui uma conta</p>
+        {mostrarCadastro && <Cadastro fecharCadastro={fecharCadastro} />}
         </form>
         
-        <p id="cadastro" onClick={() => setMostrarCadastro(true)}>Ainda não posssui uma conta</p>
-        {mostrarCadastro && <Cadastro fecharCadastro={fecharCadastro} />}
+        
 
       </div>
     </div>
