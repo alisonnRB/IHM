@@ -5,7 +5,8 @@ export default {
       formData.append('nome', nome);
 
       //TODO faz a requisição
-      const response = await fetch('http://localhost/server/config_perfil.php', {
+      //! coloque o seu ip ali
+      const response = await fetch('http://192.168.255.56/server/config_perfil.php', {
           method: 'POST',
           body: formData,
       });
