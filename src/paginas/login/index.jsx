@@ -47,7 +47,7 @@ export default function Login() {
   //TODO abre a janela de cadastro caso click
   return (
     <div id="box">
-      <div>
+      <div className='animaLogin'>
         <div id="fundo"></div>
         <img id="logo" src="logo.png"></img>
       </div>
