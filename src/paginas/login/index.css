@@ -1,8 +1,5 @@
 @media screen and (min-width: 1199px){
     #cadastro{
-        position: relative;
-        left: 25%;
-        bottom:-25px;
         cursor: pointer;
 
     }
@@ -147,9 +144,9 @@
     }
     .box_form{
         position: relative;
-        top: -16%;
-        height: 40%;
-        width: 90%;
+        top: -13%;
+        height: 70%;
+        width: 100%;
         animation: subir 1.5s, formularis 3s;
     }
     .form {
@@ -159,16 +156,16 @@
         position: relative;
         flex-direction: column;
         align-items: center;
-        gap: 25px;
+        gap: 12%;
         
 
     }
     .form_pass,
     .form_email {
-        border-radius: 15px;
+        border-radius: 25px;
         border: none;
-        height: 35px;
-        width: 220px;
+        height: 50px;
+        width: 85%;
         padding: 0;
         padding-left: 1em;
         margin: 0;
@@ -181,16 +178,16 @@
 
     .form_button {
         cursor: pointer;
-        border-radius: 10px;
+        border-radius: 15px;
         height: 35px;
         width: 150px;
-        margin-top: 8%;
+        margin-top: 15%;
         background-color: blue;
         color: white;
     }
     #cadastro{
        position: relative;
-       top: 11.5%;
+       top: 8.5%;
 
 
     }
