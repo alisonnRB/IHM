@@ -1,104 +1,33 @@
-#fechar{
-    cursor: pointer;
-}
-@media screen and (min-width: 1199px){
+/*? telas desktop tem essa resolução */
+@media screen and ((min-width: 1024px) and (min-height: 768px) and (max-width: 1920px) and (max-height: 1080px)) {
+    #box_cadastro {
+        position: absolute;
+        height: 120%;
+        width: 50%;
+        animation: aparece 1.5s;
+        top: -50%;
+    }
 
-.field_cad{
-    height: 400px;
-    padding: 40px;
-    border-radius: 20px;
-    background-color: #66BFD1;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    position: absolute;
-    bottom: -25px;
-    z-index: 1;
-    animation: aparece 1.5s;
-}
-#infos{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-h1{
-    font-size: 2em;
-    padding-right: 160px;
-}
-.cad{
-    padding-left: 8px;
-    border-radius: 10px;
-    height: 40px; ;
-    width: 350px;
-}
-.cad::placeholder{
-    color: #66BFD1 ;
-}
-.cad_button{
-    cursor: pointer;
-    color: white;
-    background-color: blue;
-}
-input.cad{
-    color:#66BFD1;
-}
-#box_cadastro{
-    position: absolute;
-    bottom: 1px;
-    z-index: 1;
-    animation: aparece 1.5s;
-}
-.Error_msg{
-    display: flex;
-    justify-content: center;
-    color: rgb(255, 0, 0);
-    -webkit-text-stroke-width: .5px;
-    -webkit-text-stroke-color: #000000;
-}
-.Error_msg p{
-    font-size: 1.5rem;
-}
-@keyframes aparece {
-    0%{opacity: 0; bottom: 600px;}
-    80%{bottom: -25px;}
-    100%{opacity: 1; }
-}
-}
-@media screen and ((min-width: 320px) and (max-width: 414px)){
-    #box_cadastro form{
+    #box_cadastro form {
         display: flex;
         justify-content: center;
         height: 100%;
         width: 100%;
     }
-    
-    #box_cadastro{
-        position: absolute;
-        height: 100%;
-        width: 100vw;
-        z-index: 1;
-        animation: aparece 1.5s;
-        top: -10%;
-        
 
-    }
-    .field_cad{
+    .field_cad {
         height: 100%;
-        width: 90%;
+        width: 100%;
         border-radius: 20px;
         background-color: #66BFD1;
         color: white;
         display: flex;
         flex-direction: column;
-        
         position: absolute;
-        bottom: -25px;
-        z-index: 1;
         animation: aparece 1.5s;
-        
     }
-    #infos{
+
+    #infos {
         height: 100%;
         width: 100%;
         display: flex;
@@ -106,51 +35,192 @@ input.cad{
         gap: 6.5%;
         align-items: center;
         justify-content: center;
-        
     }
-    h1{
+
+    h1 {
         font-size: 1.5em;
         padding-right: 40%;
         padding-left: 5%;
 
     }
-    span p{
-        display: flex;
-    }
-    .field_cad span{
-        padding-top: 4%;
-        
-    }
-    .cad{
 
-        padding-left: 8px;
+    .field_cad .titleCad {
+        display: flex;
+        align-items: center;
+        height: 10%;
+        margin-top: 5%;
+        background-color: #85B2B7;
+        justify-content: space-between;
+    }
+
+    .field_cad .titleCad p {
+        margin-right: 5%;
+        cursor: pointer;
+    }
+
+    .cad {
+        padding-left: 3%;
         border-radius: 10px;
-        height: 10%; 
+        height: 10%;
         width: 80%;
     }
-    .cad::placeholder{
-        color: #66BFD1 ;
+
+    .cad::placeholder {
+        color: #66BFD1;
     }
-    .cad_button{
+
+    .cad_button {
+        border-radius: 15px;
         cursor: pointer;
         color: white;
         background-color: blue;
-        height: 40px;
-        width: 100px;
+        height: 10%;
+        width: 20%;
+    }
 
+    input.cad {
+        color: #66BFD1;
     }
-    input.cad{
-        color:#66BFD1;
-    }
-    .Error_msg{
+
+    .Error_msg {
         display: flex;
         justify-content: center;
         color: rgb(255, 0, 0);
         -webkit-text-stroke-width: .5px;
         -webkit-text-stroke-color: #000000;
     }
-    .Error_msg p{
+
+    .Error_msg p {
         font-size: 1.5rem;
     }
-    
+
+
+    @keyframes aparece {
+        0% {
+            opacity: 0;
+            bottom: 200%;
+        }
+
+        80% {
+            bottom: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+}
+
+/*? telas mobile tem essa resolução*/
+@media screen and ((min-width: 320px) and (max-width: 414px)) {
+    #box_cadastro {
+        position: absolute;
+        height: 125%;
+        width: 100%;
+        animation: aparece 1.5s;
+    }
+
+    #box_cadastro form {
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+    }
+
+    .field_cad {
+        height: 100%;
+        width: 100%;
+        background-color: #66BFD1;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        animation: aparece 1.5s;
+
+    }
+
+    .field_cad .titleCad {
+        display: flex;
+        align-items: center;
+        height: 10%;
+        margin-top: 5%;
+        background-color: #85B2B7;
+        justify-content: space-between;
+    }
+
+    .field_cad .titleCad p {
+        margin-right: 5%;
+        cursor: pointer;
+    }
+
+    #infos {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 6.5%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h1 {
+        font-size: 1.5em;
+        padding-right: 40%;
+        padding-left: 5%;
+
+    }
+
+    .cad {
+        padding-left: 3%;
+        border-radius: 10px;
+        height: 10%;
+        width: 80%;
+    }
+
+    .cad::placeholder {
+        color: #66BFD1;
+    }
+
+    .cad_button {
+        cursor: pointer;
+        color: white;
+        background-color: blue;
+        height: 13%;
+        width: 30%;
+
+    }
+
+    input.cad {
+        color: #66BFD1;
+    }
+
+    .Error_msg {
+        display: flex;
+        justify-content: center;
+        color: rgb(255, 0, 0);
+        -webkit-text-stroke-width: .5px;
+        -webkit-text-stroke-color: #000000;
+    }
+
+    .Error_msg p {
+        font-size: 1.5rem;
+    }
+
+    @keyframes aparece {
+        0% {
+            opacity: 0;
+            bottom: 200%;
+        }
+
+        80% {
+            bottom: -12%;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+
 }

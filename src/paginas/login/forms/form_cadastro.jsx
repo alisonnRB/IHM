@@ -37,7 +37,7 @@ export default function Cadastro(props) {
     <div id="box_cadastro">
       <form onSubmit={handleSubmit}>
         <fieldset className='field_cad'>
-          <span>
+          <span className='titleCad'>
             <h1>Cadastre-se</h1>
             <p id="fechar" onClick={props.fecharCadastro}>X</p>
           </span>
@@ -47,7 +47,7 @@ export default function Cadastro(props) {
             <input className="cad" type="email" name="email" placeholder="E-mail:" />
             <input className="cad" type="password" name="senha" placeholder="Senha: " />
             <input className="cad" type="password" name="confsenha" placeholder="Confirmar Senha: " />
-            <input className="cad cad_button" type="submit" value="Cadastrar" />
+            <input className="cad_button" type="submit" value="Cadastrar" />
           </div>
         </fieldset>
       </form>
