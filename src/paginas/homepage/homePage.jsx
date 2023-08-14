@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Head from '../../components/header/header';
 import './homepage.css';
 import Barraop from '../../components/optionPage/optionPage';
@@ -7,6 +8,9 @@ import Render from '../../components/render/render';
 import api from '../../backend/controler/api_info';
 
 function Home() {
+  const navigate = useNavigate();
+  
+
   //? busca o valor do id do usario que foi salvo no storage
   const id = localStorage.getItem('id');
 
@@ -24,6 +28,7 @@ function Home() {
   //TODO o useEffect permite executar algo apenas em um evento especifico, aqui é quando a page é construida
   useEffect(() => {
     //?executa a função responsavel pela busca de dados
+    navigate('/perfil');
     Busca();
   }, []);
   

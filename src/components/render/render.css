@@ -3,7 +3,7 @@
 .render{
     display: block;
     height: 100%;
-    width: 100vw;
+    width: 100%;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 }

@@ -9,6 +9,8 @@ header{
     height: 130px;
 }
 #logoH{
+    position: relative;
+    left: 3%;
     height: 280px;
     width: 280px;
 }

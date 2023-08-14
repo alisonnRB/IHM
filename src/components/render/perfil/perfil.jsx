@@ -43,7 +43,7 @@ function Perfil(props) {
             <span>
                 <p id='titleGen'>Gêneros favoritos</p>
                 <img className='edit' src={edit} alt="" />
-            </span><br />
+            </span>
             <span>
                 <div className='boxGen'><p>Ação</p></div>
                 <div className='boxGen'><p>Romance</p></div>
