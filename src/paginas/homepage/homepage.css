@@ -8,7 +8,7 @@
     .pagina{
         display: flex;
         flex-direction: row;
-        height: calc(100% - 300px);
+        height: calc(100% - 130px);
         width: 100%;
     }
     .boxOnPage{

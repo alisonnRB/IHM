@@ -6,7 +6,7 @@ export default {
 
       //TODO faz a requisição
       //! coloque o seu ip ali
-      const response = await fetch('http://192.168.255.56/server/config_perfil.php', {
+      const response = await fetch('http://192.168.1.7/server/config_perfil.php', {
           method: 'POST',
           body: formData,
       });
