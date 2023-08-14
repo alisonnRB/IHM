@@ -1,4 +1,5 @@
-@media screen and (min-width: 1199px){
+/*? pcs*/
+@media screen and (min-width: 1280px){
 .boxHome{
     display: block;
     height: 100vh;
@@ -15,4 +16,106 @@
     background-color: #FFFFFF;
     height: 100%;
     width: 100%;
-}}
+}
+}
+
+/*? notebooks*/
+@media screen and (min-width: 1024px) and (max-width: 1279px){
+    .boxHome{
+        display: block;
+        height: 100vh;
+        width: 100vw;
+    }
+    .pagina{
+        display: flex;
+        flex-direction: row;
+        height: calc(100% - 130px);
+        width: 100%;
+    }
+    .boxOnPage{
+        overflow-y: scroll;
+        background-color: #FFFFFF;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+/*? telas deitadas cell e tablet*/
+@media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape){
+    .boxHome{
+        display: block;
+        height: 100vh;
+        width: 100vw;
+    }
+    .pagina{
+        display: flex;
+        flex-direction: row;
+        height: calc(100% - 130px);
+        width: 100%;
+    }
+    .boxOnPage{
+        background-color: #FFFFFF;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+/*? telas tablet*/
+@media screen and (min-width: 768px) and (max-width: 1023px){
+    .boxHome{
+        display: block;
+        height: 100vh;
+        width: 100vw;
+    }
+    .pagina{
+        display: flex;
+        flex-direction: column-reverse;
+        height: calc(100% - 130px);
+        width: 100%;
+    }
+    .boxOnPage{
+        background-color: #FFFFFF;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+/*? telas mobile hotizontal*/
+@media screen and ((max-height: 767px) and (max-width: 999px)){
+    .boxHome{
+        display: block;
+        height: 100vh;
+        width: 100vw;
+    }
+    .pagina{
+        display: flex;
+        flex-direction: column-reverse;
+        height: calc(100% - 130px);
+        width: 100%;
+    }
+    .boxOnPage{
+        background-color: #FFFFFF;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+/*? telas mobile*/
+@media screen and (min-width: 360px) and (max-width: 767px){
+    .boxHome{
+        display: block;
+        height: 100vh;
+        width: 100vw;
+    }
+    .pagina{
+        display: flex;
+        flex-direction: column-reverse;
+        height: calc(100% - 130px);
+        width: 100%;
+    }
+    .boxOnPage{
+        background-color: #FFFFFF;
+        height: 100%;
+        width: 100%;
+    }
+}

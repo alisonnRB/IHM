@@ -1,4 +1,5 @@
-@media screen and (min-width: 1199px){
+/*? pcs*/
+@media screen and (min-width: 1280px){
 .boxName{
     height: 500px;
     display: flex;
@@ -71,4 +72,387 @@
     height: 200px;
     width: 250px;
 }
+}
+
+/*? notebooks*/
+@media screen and (min-width: 1024px) and (max-width: 1279px){
+    .boxName{
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2em;
+    }
+    #titlePerfil{
+        font-size: 5em;
+    }
+    
+    .boxName #fotoPerfil{
+        background-color: black;
+        border-radius: 100%;
+        height: 250px;
+        width: 250px;
+    }
+    .edit{
+        height: 20px;
+        width: 20px;
+    }
+    #nome{
+        display: flex;
+        justify-content: center;
+        color: white;
+        background-color: black;
+        height: 20px;
+        min-width: 200px;
+    }
+    .boxGenero{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 300px;
+    }
+    #titleGen, #titleLivro{
+        margin-bottom: 2.5rem;
+        font-size: 2.5em;
+    }
+    .boxGenero span, .boxMeulivro span{
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    
+    }
+    .boxGen{
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #78adb8;
+        border-radius: 50px;
+        height: 30px;
+        min-width: 125px;
+    }
+    .boxMeulivro{
+        gap: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 600px;
+        width: 100%;
+    
+    }
+    .livros{
+        background-color: rgb(13, 22, 22);
+        height: 200px;
+        width: 250px;
+    }
+}
+
+/*? telas deitadas cell e tablet*/
+@media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape){
+    .boxName{
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2em;
+    }
+    #titlePerfil{
+        font-size: 5em;
+    }
+    
+    .boxName #fotoPerfil{
+        background-color: black;
+        border-radius: 100%;
+        height: 250px;
+        width: 250px;
+    }
+    .edit{
+        height: 20px;
+        width: 20px;
+    }
+    #nome{
+        display: flex;
+        justify-content: center;
+        color: white;
+        background-color: black;
+        height: 20px;
+        min-width: 200px;
+    }
+    .boxGenero{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 300px;
+    }
+    #titleGen, #titleLivro{
+        margin-bottom: 2.5rem;
+        font-size: 2.5em;
+    }
+    .boxGenero span, .boxMeulivro span{
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    
+    }
+    .boxGen{
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #78adb8;
+        border-radius: 50px;
+        height: 30px;
+        min-width: 125px;
+    }
+    .boxMeulivro{
+        gap: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 600px;
+        width: 100%;
+    
+    }
+    .livros{
+        background-color: rgb(13, 22, 22);
+        height: 200px;
+        width: 250px;
+    }
+}
+
+/*? telas tablet*/
+@media screen and (min-width: 768px) and (max-width: 1023px){
+    .perfilpagep{
+        padding-bottom: 11.5vh;
+    }
+    .boxName{
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2em;
+    }
+    #titlePerfil{
+        font-size: 5em;
+    }
+    
+    .boxName #fotoPerfil{
+        background-color: black;
+        border-radius: 100%;
+        height: 250px;
+        width: 250px;
+    }
+    .edit{
+        height: 20px;
+        width: 20px;
+    }
+    #nome{
+        display: flex;
+        justify-content: center;
+        color: white;
+        background-color: black;
+        height: 20px;
+        min-width: 200px;
+    }
+    .boxGenero{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 300px;
+    }
+    #titleGen, #titleLivro{
+        margin-bottom: 2.5rem;
+        font-size: 2.5em;
+    }
+    .boxGenero span, .boxMeulivro span{
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    
+    }
+    .boxGen{
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #78adb8;
+        border-radius: 50px;
+        height: 30px;
+        min-width: 125px;
+    }
+    .boxMeulivro{
+        gap: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 600px;
+        width: 100%;
+    
+    }
+    .livros{
+        background-color: rgb(13, 22, 22);
+        height: 200px;
+        width: 250px;
+    }
+}
+
+/*? telas mobile hotizontal*/
+@media screen and ((max-height: 767px) and (max-width: 999px)){
+    .boxName{
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2em;
+    }
+    #titlePerfil{
+        font-size: 5em;
+    }
+    
+    .boxName #fotoPerfil{
+        background-color: black;
+        border-radius: 100%;
+        height: 250px;
+        width: 250px;
+    }
+    .edit{
+        height: 20px;
+        width: 20px;
+    }
+    #nome{
+        display: flex;
+        justify-content: center;
+        color: white;
+        background-color: black;
+        height: 20px;
+        min-width: 200px;
+    }
+    .boxGenero{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 300px;
+    }
+    #titleGen, #titleLivro{
+        margin-bottom: 2.5rem;
+        font-size: 2.5em;
+    }
+    .boxGenero span, .boxMeulivro span{
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    
+    }
+    .boxGen{
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #78adb8;
+        border-radius: 50px;
+        height: 30px;
+        min-width: 125px;
+    }
+    .boxMeulivro{
+        gap: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 600px;
+        width: 100%;
+    
+    }
+    .livros{
+        background-color: rgb(13, 22, 22);
+        height: 200px;
+        width: 250px;
+    }
+}
+
+/*? telas mobile*/
+@media screen and (min-width: 360px) and (max-width: 767px){
+    .boxName{
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2em;
+    }
+    #titlePerfil{
+        font-size: 5em;
+    }
+    
+    .boxName #fotoPerfil{
+        background-color: black;
+        border-radius: 100%;
+        height: 250px;
+        width: 250px;
+    }
+    .edit{
+        height: 20px;
+        width: 20px;
+    }
+    #nome{
+        display: flex;
+        justify-content: center;
+        color: white;
+        background-color: black;
+        height: 20px;
+        min-width: 200px;
+    }
+    .boxGenero{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 300px;
+    }
+    #titleGen, #titleLivro{
+        margin-bottom: 2.5rem;
+        font-size: 2.5em;
+    }
+    .boxGenero span, .boxMeulivro span{
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    
+    }
+    .boxGen{
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #78adb8;
+        border-radius: 50px;
+        height: 30px;
+        min-width: 125px;
+    }
+    .boxMeulivro{
+        gap: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 600px;
+        width: 100%;
+    
+    }
+    .livros{
+        background-color: rgb(13, 22, 22);
+        height: 200px;
+        width: 250px;
+    }
 }

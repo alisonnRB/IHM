@@ -25,7 +25,7 @@ function Perfil(props) {
   }, [props.user]);
 
   return (
-    <div>
+    <div className='perfilpagep'>
       <section className='boxName'>
         <p id='titlePerfil'>Perfil</p>
         <img id='fotoPerfil' src={Perfil} alt='Foto de Perfil' />
