@@ -1,60 +1,65 @@
-/*? pcs*/
-@media screen and (min-width: 1280px){
-    #barra{
-    display: block;
-    height: 100%;
-    width: 140px;
-    background-color: #EFF8FF;
-}
-    #barra img{
-    height: 20%;
-    width: 90%;
-}
-    .optionP:hover{
-    background-color: #85B2B7;
+/*? telas grandes*/
+@media screen and (min-width: 2300px){
+    #barra {
+        display: block;
+        height: 100%;
+        width: 180px;
+        background-color: #EFF8FF;
+    }
 
+    #barra img {
+        height: 20%;
+        width: 90%;
+    }
+
+    .optionP:hover {
+        background-color: #85B2B7;
+
+    }
 }
+/*? pcs*/
+@media screen and (min-width: 1280px) and (max-width: 2300px){
+    #barra {
+        display: block;
+        height: 100%;
+        width: 140px;
+        background-color: #EFF8FF;
+    }
+
+    #barra img {
+        height: 20%;
+        width: 90%;
+    }
+
+    .optionP:hover {
+        background-color: #85B2B7;
+
+    }
 }
 
 /*? notebooks*/
 @media screen and (min-width: 1024px) and (max-width: 1279px){
-    #barra{
+    #barra {
         display: block;
         height: 100%;
-        width: 110px;
+        width: 100px;
         background-color: #EFF8FF;
     }
-    #barra img{
-        height: 20%;
-        width: 90%;
-    }
-    .optionP:hover{
-        background-color: #85B2B7;
-    
-    }
-}
 
-/*? telas deitadas cell e tablet*/
-@media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape){
-    #barra{
-        display: block;
-        height: 100%;
-        width: 110px;
-        background-color: #EFF8FF;
-    }
-    #barra img{
+    #barra img {
         height: 20%;
-        width: 90%;
+        width: 100%;
     }
-    .optionP:hover{
+
+    .optionP:hover {
         background-color: #85B2B7;
-    
+
     }
 }
 
 /*? telas tablet*/
 @media screen and (min-width: 768px) and (max-width: 1023px){
-    #barra{
+    #barra {
         position: fixed;
         bottom: 0;
         display: flex;
@@ -62,39 +67,61 @@
         width: 100vw;
         background-color: #EFF8FF;
     }
-    #barra img{
+
+    #barra img {
         height: 100%;
         width: 100%;
     }
-    .optionP:hover{
+
+    .optionP:hover {
         background-color: #85B2B7;
-    
+
     }
 
 }
 
 /*? telas mobile hotizontal*/
 @media screen and ((max-height: 767px) and (max-width: 999px)){
+    #barra {
+        display: block;
+        height: 100%;
+        width: 90px;
+        background-color: #EFF8FF;
+    }
 
+    #barra img {
+        position: relative;
+        left: 8px;
+        height: 30%;
+        width: 85%;
+    }
+
+    .optionP:hover {
+        background-color: #85B2B7;
+
+    }
 }
 
 /*? telas mobile*/
-@media screen and (min-width: 360px) and (max-width: 767px){
-    #barra{
+@media screen and (max-width: 767px){
+    #barra {
         position: fixed;
         bottom: 0;
         display: flex;
-        height: 11.5vh;
+        height: 11vh;
         width: 100vw;
         background-color: #EFF8FF;
     }
-    #barra img{
+
+    #barra img {
         height: 100%;
         width: 100%;
     }
-    .optionP:hover{
+
+    .optionP:hover {
         background-color: #85B2B7;
-    
+
     }
+
 
 }

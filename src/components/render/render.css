@@ -1,5 +1,16 @@
+/*? telas grandes*/
+@media screen and (min-width: 2300px){
+    .render{
+        display: block;
+        height: 100%;
+        width: 100%;
+        margin-left: calc(20% - 180px);
+        margin-right: 20%;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+}
 /*? pcs*/
-@media screen and (min-width: 1280px){
+@media screen and (min-width: 1280px) and (max-width: 2300px){
 .render{
     display: block;
     height: 100%;
@@ -12,26 +23,17 @@
     .render{
         display: block;
         height: 100%;
-        width: 100vw;
+        width: 100%;
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
 }
 
-/*? telas deitadas cell e tablet*/
-@media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape){
-    .render{
-        display: block;
-        height: 100%;
-        width: 100vw;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-    }
-}
 /*? telas tablet*/
 @media screen and (min-width: 768px) and (max-width: 1023px){
     .render{
         display: block;
         height: 100%;
-        width: 100vw;
+        width: 100%;
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
 }
@@ -40,17 +42,17 @@
     .render{
         display: block;
         height: 100%;
-        width: 100vw;
+        width: 100%;
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
 }
 
 /*? telas mobile*/
-@media screen and (min-width: 360px) and (max-width: 767px){
+@media screen and (max-width: 767px){
     .render{
         display: block;
         height: 100%;
-        width: 100vw;
+        width: 100%;
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
 }

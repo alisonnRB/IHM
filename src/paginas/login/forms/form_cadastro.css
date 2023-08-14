@@ -1,5 +1,117 @@
+@media screen and (min-width: 2300px){
+    #box_cadastro {
+        position: absolute;
+        height: 120%;
+        width: 50%;
+        animation: aparece 1.5s;
+        top: -50%;
+    }
+
+    #box_cadastro form {
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+    }
+
+    .field_cad {
+        height: 100%;
+        width: 100%;
+        border-radius: 20px;
+        background-color: #66BFD1;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        animation: aparece 1.5s;
+    }
+
+    #infos {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 6.5%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h1 {
+        font-size: 1.5em;
+        padding-right: 40%;
+        padding-left: 5%;
+
+    }
+
+    .field_cad .titleCad {
+        display: flex;
+        align-items: center;
+        height: 10%;
+        margin-top: 5%;
+        background-color: #85B2B7;
+        justify-content: space-between;
+    }
+
+    .field_cad .titleCad p {
+        margin-right: 5%;
+        cursor: pointer;
+    }
+
+    .cad {
+        padding-left: 3%;
+        border-radius: 10px;
+        height: 10%;
+        width: 80%;
+    }
+
+    .cad::placeholder {
+        color: #66BFD1;
+    }
+
+    .cad_button {
+        border-radius: 15px;
+        cursor: pointer;
+        color: white;
+        background-color: blue;
+        height: 10%;
+        width: 20%;
+    }
+
+    input.cad {
+        color: #66BFD1;
+    }
+
+    .Error_msg {
+        display: flex;
+        justify-content: center;
+        color: rgb(255, 0, 0);
+        -webkit-text-stroke-width: .5px;
+        -webkit-text-stroke-color: #000000;
+    }
+
+    .Error_msg p {
+        font-size: 1.5rem;
+    }
+
+
+    @keyframes aparece {
+        0% {
+            opacity: 0;
+            bottom: 200%;
+        }
+
+        80% {
+            bottom: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+}
+
 /*? pcs*/
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1280px) and (max-width: 2300px){
     #box_cadastro {
         position: absolute;
         height: 120%;
@@ -114,120 +226,6 @@
 
 /*? notebooks*/
 @media screen and (min-width: 1024px) and (max-width: 1279px){
-    #box_cadastro {
-        position: absolute;
-        height: 120%;
-        width: 50%;
-        animation: aparece 1.5s;
-        top: -50%;
-    }
-
-    #box_cadastro form {
-        display: flex;
-        justify-content: center;
-        height: 100%;
-        width: 100%;
-    }
-
-    .field_cad {
-        height: 100%;
-        width: 100%;
-        border-radius: 20px;
-        background-color: #66BFD1;
-        color: white;
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        animation: aparece 1.5s;
-    }
-
-    #infos {
-        height: 100%;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 6.5%;
-        align-items: center;
-        justify-content: center;
-    }
-
-    h1 {
-        font-size: 1.5em;
-        padding-right: 40%;
-        padding-left: 5%;
-
-    }
-
-    .field_cad .titleCad {
-        display: flex;
-        align-items: center;
-        height: 10%;
-        margin-top: 5%;
-        background-color: #85B2B7;
-        justify-content: space-between;
-    }
-
-    .field_cad .titleCad p {
-        margin-right: 5%;
-        cursor: pointer;
-    }
-
-    .cad {
-        padding-left: 3%;
-        border-radius: 10px;
-        height: 10%;
-        width: 80%;
-    }
-
-    .cad::placeholder {
-        color: #66BFD1;
-    }
-
-    .cad_button {
-        border-radius: 15px;
-        cursor: pointer;
-        color: white;
-        background-color: blue;
-        height: 10%;
-        width: 20%;
-    }
-
-    input.cad {
-        color: #66BFD1;
-    }
-
-    .Error_msg {
-        display: flex;
-        justify-content: center;
-        color: rgb(255, 0, 0);
-        -webkit-text-stroke-width: .5px;
-        -webkit-text-stroke-color: #000000;
-    }
-
-    .Error_msg p {
-        font-size: 1.5rem;
-    }
-
-
-    @keyframes aparece {
-        0% {
-            opacity: 0;
-            bottom: 200%;
-        }
-
-        80% {
-            bottom: 0;
-        }
-
-        100% {
-            opacity: 1;
-        }
-    }
-
-}
-
-/*? telas deitadas cell e tablet*/
-@media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
     #box_cadastro {
         position: absolute;
         height: 120%;
@@ -475,7 +473,7 @@
         display: flex;
         flex-direction: column;
         position: absolute;
-        top: 40%;
+        top: -20px;
 
     }
 

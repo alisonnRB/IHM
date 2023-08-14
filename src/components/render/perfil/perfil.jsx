@@ -17,7 +17,7 @@ function Perfil(props) {
   useEffect(() => {
     if (props.user) {
       setName(props.user.nome);
-      setPerfil("http://localhost/imagens/"+props.user.fotoPerfil);
+      setPerfil("http://192.168.255.56/imagens/" + props.user.fotoPerfil);
     } else {
       setName('...');
       setName(perfil);
@@ -39,40 +39,41 @@ function Perfil(props) {
         </span>
       </section>
 
-        <section className='boxGenero'>
-            <span>
-                <p id='titleGen'>Gêneros favoritos</p>
-                <img className='edit' src={edit} alt="" />
-            </span>
-            <span>
-                <div className='boxGen'><p>Ação</p></div>
-                <div className='boxGen'><p>Romance</p></div>
-            </span><br />
-            <span>
-                <div className='boxGen'><p>Comunismo</p></div>
-                <div className='boxGen'><p>Fisioterapia</p></div>
-                <div className='boxGen'><p>Fantasia</p></div>
-            </span><br />
-            <span>
-                <div className='boxGen'><p>Literatura</p></div>
-                <div className='boxGen'><p>Resenha</p></div>
-            </span>
-        </section>
+      <section className='boxGenero'>
+        <span>
+          <p id='titleGen'>Gêneros favoritos</p>
+          <img className='edit' src={edit} alt="" />
+        </span>
+        <div className='favGen'>
+          <span>
+            <div className='boxGen'><p>Ação</p></div>
+            <div className='boxGen'><p>Romance</p></div>
+          </span>
+          <span>
+            <div className='boxGen'><p>Comunismo</p></div>
+            <div className='boxGen'><p>Fisioterapia</p></div>
+          </span>
+          <span>
+            <div className='boxGen'><p>Literatura</p></div>
+            <div className='boxGen'><p>Resenha</p></div>
+          </span>
+        </div>
+      </section>
 
-        <section className='boxMeulivro'>
-            <span>
-                <p id='titleLivro'>Meus Lívros</p>
-                <img className='edit' src={edit} alt="" />
-            </span>
-            <span>
-                <div className='livros'></div>
-                <div className='livros'></div>
-            </span>
-            <span>
-                <div className='livros'></div>
-                <div className='livros'></div>
-            </span>
-        </section>
+      <section className='boxMeulivro'>
+        <span>
+          <p id='titleLivro'>Meus Lívros</p>
+          <img className='edit' src={edit} alt="" />
+        </span>
+        <span>
+          <div className='livros'></div>
+          <div className='livros'></div>
+        </span>
+        <span>
+          <div className='livros'></div>
+          <div className='livros'></div>
+        </span>
+      </section>
 
     </div>
   );

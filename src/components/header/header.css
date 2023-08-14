@@ -1,5 +1,22 @@
+/*? telas grandes*/
+@media screen and (min-width: 2300px){
+    header{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: #BACFD2;
+        height: 300px;
+    }
+    #logoH{
+        position: relative;
+        left: 3%;
+        height: 300px;
+        width: 300px;
+    }
+}
 /*? pcs*/
-@media screen and (min-width: 1280px){
+@media screen and (min-width: 1280px) and (max-width: 2300px){
 header{
     display: flex;
     flex-direction: row;
@@ -26,22 +43,8 @@ header{
         height: 90px;
     }
     #logoH{
-        height: 200px;
-        width: 200px;
-    }
-}
-
-/*? telas deitadas cell e tablet*/
-@media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape){
-    header{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        background-color: #BACFD2;
-        height: 90px;
-    }
-    #logoH{
+        position: relative;
+        left: 3%;
         height: 200px;
         width: 200px;
     }
@@ -56,21 +59,16 @@ header{
         align-items: center;
         justify-content: center;
         background-color: #BACFD2;
-        height: 90px;
+        height: 120px;
     }
     #logoH{
-        height: 200px;
-        width: 200px;
+        height: 250px;
+        width: 250px;
     }
 }
 
 /*? telas mobile hotizontal*/
 @media screen and ((max-height: 767px) and (max-width: 999px)){
-
-}
-
-/*? telas mobile*/
-@media screen and (min-width: 360px) and (max-width: 767px){
     header{
         position: sticky;
         display: flex;
@@ -78,10 +76,29 @@ header{
         align-items: center;
         justify-content: center;
         background-color: #BACFD2;
-        height: 90px;
+        height: 100px;
     }
     #logoH{
-        height: 200px;
-        width: 200px;
+        position: relative;
+        left: 5%;
+        height: 170px;
+        width: 170px;
+    }
+}
+
+/*? telas mobile*/
+@media screen and (max-width: 767px){
+    header{
+        position: sticky;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: #BACFD2;
+        height: 120px;
+    }
+    #logoH{
+        height: 250px;
+        width: 250px;
     }
 }
