@@ -1,5 +1,8 @@
 /*? telas grandes*/
 @media screen and (min-width: 2300px){
+    .perfilpagep{
+        width: 80%;
+    }
     .boxName{
         height: 100%;
         width: 100%;
