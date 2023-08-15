@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './perfil.css';
-import perfil from '../../../imgs/perfilLight.png';
-import edit from '../../../imgs/editar-texto.png';
+import perfil from '../../../imgs/perfiledit.png';
+import edit from '../../../imgs/lapis.png';
+import Edicao from './edicao/edicao';
 
 import { Link } from 'react-router-dom';
 
@@ -9,36 +10,37 @@ import { Link } from 'react-router-dom';
 
 function Perfil(props) {
   const [name, setName] = useState('');
-  const [Perfil, setPerfil] = useState('')
+  const [Perfil, setPerfil] = useState('');
+  const [edita, setEdita] = useState(false);
 
-
-
+  
   //TODO responsavel por controlar as informações mostradas na tela de acordo com o carregamento da page sem ficar recarregando infinitamente
   useEffect(() => {
     if (props.user) {
       setName(props.user.nome);
       setPerfil("http://192.168.255.56/imagens/" + props.user.fotoPerfil);
-    } else {
-      setName('...');
-      setName(perfil);
     }
   }, [props.user]);
+
+  const fecharEdicao = () => {
+    setEdita(false);
+  };
 
   return (
     <div className='perfilpagep'>
       <section className='boxName'>
         <p id='titlePerfil'>Perfil</p>
-        <img id='fotoPerfil' src={Perfil} alt='Foto de Perfil' />
+        <img id='fotoPerfil' src={Perfil} onClick={()=>setEdita(true)}/>
         <span>
-          <div id='nome'>
+          <div id='nome' >
             <p>{name}</p>
           </div>
-          <Link to='/Perfil/Edit'>
-            <img className='edit' src={edit} alt='Editar' />
-          </Link>
+            <img className='edit' src={edit} alt='Editar' onClick={()=>setEdita(true)}/>
         </span>
       </section>
 
+      {edita && <Edicao fecharEdicao={fecharEdicao} />}
+      
       <section className='boxGenero'>
         <span>
           <p id='titleGen'>Gêneros favoritos</p>

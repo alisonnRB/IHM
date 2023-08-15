@@ -491,7 +491,7 @@
 }
 
 /*? telas mobile hotizontal*/
-@media screen and ((max-height: 767px) and (max-width: 999px) and (orientation: landscape)){
+@media screen and ((max-height: 767px) and (max-width: 999px)){
     #box {
         height: 100vh;
         width: 100vw;
