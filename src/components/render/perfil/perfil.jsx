@@ -39,7 +39,7 @@ function Perfil(props) {
         </span>
       </section>
 
-      {edita && <Edicao fecharEdicao={fecharEdicao} />}
+      {edita && <Edicao fecharEdicao={fecharEdicao} user={props.user.nome} ft={Perfil}/>}
       
       <section className='boxGenero'>
         <span>

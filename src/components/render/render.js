@@ -16,7 +16,7 @@ import Option from './option/option';
 function Render(props) {
   //? o render está recebendo os paramentors por props para fazer a construção da page
   return (
-    <div className='render'>
+    <div className='render' id='render'>
       <Routes>
         <Route path='/Perfil' element={<Perfil user={props.user}/>}></Route>
         <Route path='/Perfil/Edit' element={<Edit />}></Route>
