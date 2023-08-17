@@ -27,7 +27,11 @@
 .boxEdita input[type='file']{
     display: none;
 }
-
+.msgEdicao{
+    position: absolute;
+    color: aliceblue;
+    top: 20%;
+}
 #fileBox{
     background-color: antiquewhite;
     border-radius: 100%;

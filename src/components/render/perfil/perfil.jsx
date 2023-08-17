@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './perfil.css';
-import perfil from '../../../imgs/perfiledit.png';
 import edit from '../../../imgs/lapis.png';
 import Edicao from './edicao/edicao';
 
-import { Link } from 'react-router-dom';
 
 //? componente que comporta o perfil
 
@@ -24,6 +22,7 @@ function Perfil(props) {
 
   const fecharEdicao = () => {
     setEdita(false);
+    window.location.reload();
   };
 
   return (

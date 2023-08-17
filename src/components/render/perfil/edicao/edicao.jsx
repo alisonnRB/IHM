@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import React from "react";
-import { useNavigate } from 'react-router-dom';
 import './edicao.css';
 
 import envio from "../../../../imgs/bandeira.png";
@@ -10,10 +9,9 @@ import sair from '../../../../imgs/sair.png';
 export default function Edit(props) {
     const [imagePreview, setImagePreview] = useState(props.ft.Perfil);
     const [file, setFile] = useState(null);
-    const [respost, setRespost] = useState(null);
+    const [respost, setRespost] = useState('');
 
 
-    const navigate = useNavigate();
 
     //TODO função que atualiza dos estados da imagem e nome em tempo real para ter uma preview
     const handleImageChange = (event) => {
@@ -42,16 +40,17 @@ export default function Edit(props) {
         const userName = event.target.newName.value;
 
         const idUsuario = localStorage.getItem('id');
-        console.log(idUsuario);
+        
 
         const resposta = await api.enviar(idUsuario, formData, userName);
+        console.log(resposta);
 
         setFile(null);
         setImagePreview(null);
 
         //? volta para o perfil
         if (resposta.ok == true) {
-            navigate('/Perfil');
+            props.fecharEdicao();
         } else {
             setRespost(resposta.msg);
         }
@@ -73,12 +72,13 @@ export default function Edit(props) {
 
                     <input type="text" id="editNome" name="newName" placeholder={props.user}/>
 
+                    <p className='msgEdicao'>{respost}</p>
+
                     <div className='enviaBox'>
                         <input type='image' className='enviarEdit' src={envio} />
                         <p className='textEnviaBox'>Enviar</p>
                     </div>
-                    <p>{respost}</p>
-
+                    
                 </form>
             </div>
         </div>
