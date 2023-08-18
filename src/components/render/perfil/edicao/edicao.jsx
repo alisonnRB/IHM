@@ -50,15 +50,16 @@ export default function Edit(props) {
 
         //? volta para o perfil
         if (resposta.ok == true) {
-            props.fecharEdicao();
+            props.fecharEdicao(true);
         } else {
             setRespost(resposta.msg);
         }
     };
     return (
-        <div className='edicao'>
-            <div className='boxEdita'>
-                <span id='fechaEdita' onClick={props.fecharEdicao}><img src={sair} id='sairEdita' /></span>
+        <div className='edicao' onClick={()=>{props.fecharEdicao(false)}}>
+
+            <div className='boxEdita' onClick={(event) => event.stopPropagation()}>
+                <span id='fechaEdita' ><img src={sair} id='sairEdita' onClick={props.fecharEdicao}/></span>
                 <form onSubmit={alterar}>
 
                     <div id='fileBox'>

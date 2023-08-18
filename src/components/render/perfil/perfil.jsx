@@ -20,9 +20,12 @@ function Perfil(props) {
     }
   }, [props.user]);
 
-  const fecharEdicao = () => {
+  const fecharEdicao = (e) => {
     setEdita(false);
-    window.location.reload();
+    if(e == true){
+      window.location.reload();
+    }
+    
   };
 
   return (
