@@ -1,8 +1,56 @@
-@media screen and (min-width: 1199px){
+/*? telas grandes*/
+@media screen and (min-width: 2300px){
+    .render{
+        display: block;
+        height: 100%;
+        width: 100%;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+}
+/*? pcs*/
+@media screen and (min-width: 1280px) and (max-width: 2300px){
 .render{
     display: block;
     height: 100%;
     width: 100%;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+}
+/*? notebooks*/
+@media screen and (min-width: 1024px) and (max-width: 1279px){
+    .render{
+        display: block;
+        height: 100%;
+        width: 100%;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+}
+
+/*? telas tablet*/
+@media screen and (min-width: 768px) and (max-width: 1023px){
+    .render{
+        display: block;
+        height: 100%;
+        width: 100%;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+}
+/*? telas mobile hotizontal*/
+@media screen and ((max-height: 767px) and (max-width: 999px)){
+    .render{
+        display: block;
+        height: 100%;
+        width: 100%;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+}
+
+/*? telas mobile*/
+@media screen and (max-width: 767px){
+    .render{
+        display: block;
+        height: 100%;
+        width: 100%;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
 }

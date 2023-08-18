@@ -1,9 +1,11 @@
+//! PAGE A SER TRABALHADA
+
 import React from 'react';
 import './livros.css';
 import Livro from '../../../imgs/manifesto.PNG';
 import Lupa from '../../../imgs/lupa.png';
 
-
+//? componente que comporta os livros a serem encontrados
 
 function Livros() {
   return (

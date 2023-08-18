@@ -1,5 +1,22 @@
-@media screen and (min-width: 1199px){
-
+/*? telas grandes*/
+@media screen and (min-width: 2300px){
+    header{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: #BACFD2;
+        height: 130px;
+    }
+    #logoH{
+        position: relative;
+        left: 3%;
+        height: 280px;
+        width: 280px;
+    }
+}
+/*? pcs*/
+@media screen and (min-width: 1280px) and (max-width: 2300px){
 header{
     display: flex;
     flex-direction: row;
@@ -9,6 +26,79 @@ header{
     height: 130px;
 }
 #logoH{
+    position: relative;
+    left: 3%;
     height: 280px;
     width: 280px;
-}}
+}
+}
+/*? notebooks*/
+@media screen and (min-width: 1024px) and (max-width: 1279px){
+    header{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: #BACFD2;
+        height: 90px;
+    }
+    #logoH{
+        position: relative;
+        left: 3%;
+        height: 200px;
+        width: 200px;
+    }
+}
+
+/*? telas tablet*/
+@media screen and (min-width: 768px) and (max-width: 1023px){
+    header{
+        position: sticky;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: #BACFD2;
+        height: 120px;
+    }
+    #logoH{
+        height: 250px;
+        width: 250px;
+    }
+}
+
+/*? telas mobile hotizontal*/
+@media screen and ((max-height: 767px) and (max-width: 999px)){
+    header{
+        position: sticky;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: #BACFD2;
+        height: 100px;
+    }
+    #logoH{
+        position: relative;
+        left: 5%;
+        height: 170px;
+        width: 170px;
+    }
+}
+
+/*? telas mobile*/
+@media screen and (max-width: 767px){
+    header{
+        position: sticky;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: #BACFD2;
+        height: 120px;
+    }
+    #logoH{
+        height: 250px;
+        width: 250px;
+    }
+}

@@ -9,10 +9,12 @@ import chat from '../../imgs/chat.png';
 import feed from '../../imgs/feed.png';
 import config from '../../imgs/config.png';
 
+//? este é o componente que carrega os caminhos da pagina
 
 function Barraop() {
   
  return (
+    //TODO a tag LINK faz o redirecionamento para as rotas de acord com os clicks
     <div id='barra'>
       <Link to='/Perfil'>
       <div className='optionP'>

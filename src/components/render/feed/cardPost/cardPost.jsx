@@ -1,3 +1,6 @@
+//! PAGE A SER TRABALHADA
+//! IDEIA DE PADRONIZAÇÃO DE POSTAGENS
+
 import React from 'react';
 import './cardPost.css';
 
