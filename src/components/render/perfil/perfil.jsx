@@ -8,12 +8,8 @@ import Edicao from './edicao/edicao';
 
 function Perfil(props) {
   const [name, setName] = useState('');
-<<<<<<< HEAD
-  const [Perfil, setPerfil] = useState(perfil);
-=======
   const [Perfil, setPerfil] = useState('');
   const [edita, setEdita] = useState(false);
->>>>>>> develop
 
   
   //TODO responsavel por controlar as informações mostradas na tela de acordo com o carregamento da page sem ficar recarregando infinitamente
