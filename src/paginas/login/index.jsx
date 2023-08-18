@@ -23,9 +23,9 @@ export default function Login() {
     
     //TODO salva no localstorage as resposta do server
     localStorage.setItem('Authorization', resposta.authorization);
-    localStorage.setItem('id', resposta.userInfo.id);
+    localStorage.setItem('id', resposta.id);
 
-    
+    console.log(localStorage.getItem('Authorization'));
     if (resposta.ok == false) {
       setErro(resposta.msg)
     }

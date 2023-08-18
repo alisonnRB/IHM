@@ -33,7 +33,6 @@
     top: 20%;
 }
 #fileBox{
-    background-color: antiquewhite;
     border-radius: 100%;
 }
 .custom-input{
@@ -71,18 +70,22 @@
     width: 35px;
 }
 .enviaBox{
-    cursor: pointer;
+    
     position: relative;
+    height: 150px;
+    width: 130px;
     bottom: 72.3%;
     right: 38%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../../../../imgs/bandeira.png');
+    background-size: 100% 100%;
 }
-.enviarEdit{
-    height: 180px;
-    width: 120px;
-}
-.textEnviaBox{
+.btOculto{
     color: white;
-    position: relative;
-    bottom: 50%;
-    left: 30%;
+    cursor: pointer;
+    background-color: #0A6E7D;
+    height: 50%;
+    width: 58.5%;
 }

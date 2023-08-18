@@ -64,7 +64,7 @@ export default function Edit(props) {
                     <div id='fileBox'>
                         <label htmlFor="editFile" className='labelBt'>
                             <div className="custom-input">
-                                {imagePreview && <img src={imagePreview} alt="Preview" style={{ width: '100%', height: '100%', borderRadius: '100%' }} />}
+                                {imagePreview && <img src={imagePreview}  style={{ width: '100%', height: '100%', borderRadius: '100%' }} />}
                             </div>
                         </label>
                     </div>
@@ -75,8 +75,8 @@ export default function Edit(props) {
                     <p className='msgEdicao'>{respost}</p>
 
                     <div className='enviaBox'>
-                        <input type='image' className='enviarEdit' src={envio} />
-                        <p className='textEnviaBox'>Enviar</p>
+
+                        <input type="submit" className="btOculto" value="enviar"/>
                     </div>
                     
                 </form>
