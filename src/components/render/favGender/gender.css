@@ -23,7 +23,7 @@
 #imgVoltaG{
     cursor: pointer;
     height: 100%;
-    width: 3%;
+    width: 100%;
 }
 .gender{
     color: #3392a6;
@@ -77,4 +77,8 @@
 #submitImgG{
     height: 100%;
     width: 100%;
+}
+#linkVolta{
+    height: 100%;
+    width: 3%;
 }

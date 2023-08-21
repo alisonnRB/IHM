@@ -1,4 +1,3 @@
-
 import React from 'react';
 import './gender.css';
 
@@ -6,6 +5,7 @@ import volta from '../../../imgs/voltar.jpeg';
 import api from '../../../backend/controler/api_gender';
 import apiEdit from '../../../backend/controler/api_GenderEdit'
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 export default function Gender(props) {
@@ -44,7 +44,6 @@ export default function Gender(props) {
     useEffect(() => {
         if (props.user) {
             const generos = JSON.parse(props.user.genero)
-            console.log(generos);
             for(let i = 0; i<generos.length; i++){
                 selecao(generos[i]);
             }
@@ -83,7 +82,7 @@ export default function Gender(props) {
             }));
         }
     }
-    const alterar = async (event) => {
+    const alterar = async () => {
         const id = localStorage.getItem('id');
 
         await apiEdit.enviar(id, selecionados);
@@ -98,7 +97,7 @@ export default function Gender(props) {
     return (
         <div className='boxGender'>
             <span id='boxTittleGender'>
-                <img src={volta} id='imgVoltaG' />
+                <Link to='/perfil' id='linkVolta'><img src={volta} id='imgVoltaG' /></Link>
                 <p>GÊNEROS FAVORITOS</p>
                 <p>{limit + '/7'}</p>
             </span>
