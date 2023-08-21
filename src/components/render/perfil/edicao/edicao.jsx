@@ -43,7 +43,6 @@ export default function Edit(props) {
         
 
         const resposta = await api.enviar(idUsuario, formData, userName);
-        console.log(resposta);
 
         setFile(null);
         setImagePreview(null);

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './perfil.css';
 import edit from '../../../imgs/lapis.png';
 import Edicao from './edicao/edicao';
@@ -46,7 +47,7 @@ function Perfil(props) {
       <section className='boxGenero'>
         <span>
           <p id='titleGen'>Gêneros favoritos</p>
-          <img className='edit' src={edit} alt="" />
+          <Link to='/gender'><img className='edit' src={edit} alt="" /></Link>
         </span>
         <div className='favGen'>
           <span>
