@@ -1,0 +1,65 @@
+.boxNewBookC{
+    height: 100%;
+    width: 80%;
+    background-color: black;
+}
+#xSair{
+    position: relative;
+    cursor: pointer;
+    left: 40%;
+    height: 70%;
+    width: 3%;
+}
+.boxNewBookC span{
+    width: 100%;
+    height: 10%;
+    background-color: blueviolet;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.boxNewBookC span p{
+    font-size: 2em;
+}
+.formCreateBook{
+    display: block;
+    height: 90%;
+    width: 100%;
+    background-color: aqua;
+}
+.nomeDoLivro{
+    width: 100%;
+    height: 15%;
+    background-color: chartreuse;
+}
+.capaDoLivro{
+    width: 100%;
+    height: 25%;
+    background-color: rgb(0, 17, 255);
+}
+.generosLivro{
+    width: 100%;
+    height: 45%;
+    background-color: rgb(251, 255, 0);
+}
+.salvaLivro{
+    width: 100%;
+    height: 15%;
+    background-color: rgb(255, 0, 179);
+}
+#fileBox {
+    border-radius: 100%;
+}
+
+.formCreateBook .custom-input {
+    cursor: pointer;
+    height: 230px;
+    width: 230px;
+    background-color: blueviolet;
+    background-image: url('');
+    background-size: contain;
+}
+.formCreateBook input[type='file'] {
+    display: none;
+}

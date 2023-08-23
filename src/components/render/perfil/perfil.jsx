@@ -55,6 +55,7 @@ function Perfil(props) {
 
   };
 
+
   const mostraGender = (index) => { 
     return  generos[parseInt(listF[index]) + 1] ? generos[parseInt(listF[index]) + 1] : '...';
   }

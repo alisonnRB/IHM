@@ -14,18 +14,18 @@ export default function FloatBt() {
 
 
     return (
-        <div class="fab">
-            <button class="main" onClick={() => toggleFAB('.fab')}>
+        <div className="fab">
+            <button className="main" onClick={() => toggleFAB('.fab')}>
             </button>
             <ul>
                 <li>
-                    <label for="opcao1">Livro</label>
-                    <Link>
+                    <label htmlFor="opcao1">Livro</label>
+                    <Link to='/novo-livro'>
                         <button id="opcao1"></button>
                     </Link>
                 </li>
                 <li>
-                    <label for="opcao2">Publi</label>
+                    <label htmlFor="opcao2">Publi</label>
                     <Link>
                         <button id="opcao2">
                         </button>

@@ -25,37 +25,6 @@
     height: 100%;
     width: 100%;
 }
-.gender{
-    color: #3392a6;
-    border: solid #3392a6;
-    cursor: pointer;
-    height: 80%;
-    width: 20%;
-    max-width: 20%;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.gender:hover{
-    background-color: #3393a65f;
-    color: white;
-}
-.genderTable{
-    height: 100%;
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.genderTable span{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    width: 100%;
-    height: 10%;
-}
 .submitGenderF{
     display: flex;
     align-items: center;
@@ -66,6 +35,7 @@
     background-image: url('../../../imgs/submitGender.jpeg');
     background-size: cover;
 }
+
 .submitGenderF button{
     cursor: pointer;
     color: white;
@@ -81,4 +51,19 @@
 #linkVolta{
     height: 100%;
     width: 3%;
+}
+.genderTable{
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.genderTable span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    height: 10%;
 }
