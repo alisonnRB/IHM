@@ -34,7 +34,7 @@ export default function Gender(props) {
 
 
     useEffect(() => {
-        if (props.user) {
+        if(props.user && props.user.genero && Object.keys(props.user.genero).length > 0){
             const generos = JSON.parse(props.user.genero);
             setgeneros(generos);
         }

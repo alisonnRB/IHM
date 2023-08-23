@@ -3,11 +3,34 @@ import './createLivro.css';
 import { useState } from "react";
 
 import x from '../../../imgs/sair.png';
-
+import Selecao from '../.././../components/seleçãoGenero/seleciona';
+import api from '../../../backend/controler/api_newLivro';
 
 export default function NovoLivro() {
     const [imagePreview, setImagePreview] = useState('');
     const [file, setFile] = useState(null);
+
+    const [conta, setConta] = useState(0);
+    const [selecao, setSelecao] = useState('');
+
+
+    const enviar = async (event) => {
+
+        event.preventDefault();
+
+        const formData = new FormData();
+        formData.append('image', file);
+
+        const nameBook = event.target.livroNome.value;
+
+        const idUsuario = localStorage.getItem('id');
+        
+        const resposta = await api.enviar(idUsuario, formData, nameBook, selecao);
+
+        setFile(null);
+        setImagePreview(null);
+
+    };
 
     const handleImageChange = (event) => {
         const file = event.target.files[0];
@@ -26,32 +49,38 @@ export default function NovoLivro() {
 
     return (
         <div className="boxNewBookC">
-            <span>
+            <span className="topTitle">
                 <p>LIVRO NOVO</p>
                 <img src={x} id="xSair" />
             </span>
-            <form className="formCreateBook">
+            <form className="formCreateBook" onSubmit={enviar}>
 
                 <div className="nomeDoLivro">
-                    <label htmlFor="livroNome">nome:</label>
-                    <input type="text" name="livroNome" />
+                    <input type="text" name="livroNome" className="livroNome"/>
                 </div>
 
                 <div className="capaDoLivro">
-                    <div id='fileBox'>
+                    <div id='fileBoxC'>
                         <label htmlFor="editFile" className='labelBt'>
                             <div className="custom-input">
-                                {imagePreview && <img src={imagePreview} style={{ width: '100%', height: '100%', borderRadius: '100%' }} />}
+                                <p>+</p>
+                                {imagePreview && <img src={imagePreview} style={{ width: '100%', height: '100%'}} />}
                             </div>
                         </label>
                     </div>
+
                     <input type="file" id="editFile" name="editFile" onChange={handleImageChange} />
                 </div>
 
-            
+                <span id="contadora"><p>{conta + '/3'}</p></span>
+                
+                <div className="generosLivro">
+                    <Selecao Limit={3} setConta={setConta} setSelecao={setSelecao}/>
+
+                </div>
 
                 <div className="salvaLivro">
-                    <button>a</button>
+                    <button type="submit">CONTINUAR</button>
                 </div>
             </form>
         </div>

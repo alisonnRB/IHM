@@ -28,10 +28,15 @@ function Perfil(props) {
   //TODO responsavel por controlar as informações mostradas na tela de acordo com o carregamento da page sem ficar recarregando infinitamente
   useEffect(() => {
     if (props.user) {
-      const genero = JSON.parse(props.user.genero);
-      setaFavoritos(genero);
+      if (props.user.genero) {
+        const genero = JSON.parse(props.user.genero);
+        setaFavoritos(genero);
+      }
       setName(props.user.nome);
-      setPerfil("http://192.168.255.56/imagens/" + props.user.fotoPerfil);
+      if(props.user.fotoPerfil){
+        setPerfil("http://192.168.255.56/imagens/" + props.user.fotoPerfil);
+      }
+      
     }
   }, [props.user]);
 
@@ -56,8 +61,8 @@ function Perfil(props) {
   };
 
 
-  const mostraGender = (index) => { 
-    return  generos[parseInt(listF[index]) + 1] ? generos[parseInt(listF[index]) + 1] : '...';
+  const mostraGender = (index) => {
+    return generos[parseInt(listF[index]) + 1] ? generos[parseInt(listF[index]) + 1] : '...';
   }
 
   return (
