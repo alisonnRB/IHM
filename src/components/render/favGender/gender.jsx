@@ -42,7 +42,6 @@ export default function Gender(props) {
 
 
 
-
     const alterar = async () => {
         const id = localStorage.getItem('id');
 

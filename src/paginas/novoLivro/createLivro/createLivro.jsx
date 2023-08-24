@@ -2,7 +2,7 @@ import React from "react";
 import './createLivro.css';
 import { useState } from "react";
 
-import x from '../../../imgs/sair.png';
+import x from '../../../imgs/x.jpeg';
 import Selecao from '../.././../components/seleçãoGenero/seleciona';
 import api from '../../../backend/controler/api_newLivro';
 
@@ -11,13 +11,30 @@ export default function NovoLivro() {
     const [file, setFile] = useState(null);
 
     const [conta, setConta] = useState(0);
-    const [selecao, setSelecao] = useState('');
+    const [selecao, setSelecao] = useState({
+        0: false,
+        1: false,
+        2: false,
+        3: false,
+        4: false,
+        5: false,
+        6: false,
+        7: false,
+        8: false,
+        9: false,
+        10: false,
+        11: false,
+        12: false,
+        13: false,
+        14: false,
+        15: false,
+        16: false,
+
+    });
+
 
 
     const enviar = async (event) => {
-
-        event.preventDefault();
-
         const formData = new FormData();
         formData.append('image', file);
 
@@ -63,7 +80,6 @@ export default function NovoLivro() {
                     <div id='fileBoxC'>
                         <label htmlFor="editFile" className='labelBt'>
                             <div className="custom-input">
-                                <p>+</p>
                                 {imagePreview && <img src={imagePreview} style={{ width: '100%', height: '100%'}} />}
                             </div>
                         </label>
