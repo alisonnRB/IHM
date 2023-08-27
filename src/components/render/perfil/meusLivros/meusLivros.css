@@ -1,0 +1,27 @@
+.boxCardMeusLivro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.titleMeusLivros{
+    font-size: 2em;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.boxCardLivros{
+    height: 100%;
+    width: 80%;
+}
+.boxCardLivros th{
+    width: 50%;
+    display: none;
+}
+.boxCardLivros td{
+    width: 50%;
+    height: 350px;
+}

@@ -5,7 +5,7 @@ export default {
             headers: { 'Content-Type': 'application/json' },
         };
 
-        const response = await fetch('http://192.168.255.56/server/gender.php', requisição);
+        const response = await fetch('http://192.168.255.131/server/gender.php', requisição);
 
         const data = await response.json();
         return data;

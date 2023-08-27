@@ -15,7 +15,7 @@ export default {
       
       //TODO faz a requisição
       //! coloque o seu ip ali
-      const response = await fetch('http://192.168.255.56/server/login.php', requisição);
+      const response = await fetch('http://192.168.255.131/server/login.php', requisição);
 
       //TODO espera a resposta do servidor e armazena para retornar ao cliente
       const data = await response.json();

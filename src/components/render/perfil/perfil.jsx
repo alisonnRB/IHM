@@ -34,7 +34,7 @@ function Perfil(props) {
       }
       setName(props.user.nome);
       if(props.user.fotoPerfil){
-        setPerfil("http://192.168.255.56/imagens/" + props.user.fotoPerfil);
+        setPerfil("http://192.168.255.131/imagens/" + props.user.fotoPerfil);
       }
       
     }
@@ -105,7 +105,7 @@ function Perfil(props) {
       <section className='boxMeulivro'>
         <span>
           <p id='titleLivro'>Meus Lívros</p>
-          <img className='edit' src={edit} alt="" />
+          <Link to='/MeusLivros'><img className='edit' src={edit} /></Link>
         </span>
         <span>
           <div className='livros'></div>

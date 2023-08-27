@@ -2,7 +2,7 @@ import React from 'react';
 import './gender.css';
 
 import volta from '../../../imgs/voltar.jpeg';
-import apiEdit from '../../../backend/controler/api_GenderEdit'
+import apiEdit from '../../../backend/controler/api_GenderEdit';
 import Seleciona from '../../seleçãoGenero/seleciona';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -42,7 +42,8 @@ export default function Gender(props) {
 
 
 
-    const alterar = async () => {
+    const alterar = async (event) => {
+        event.preventDefault();
         const id = localStorage.getItem('id');
 
         await apiEdit.enviar(id, selecao);
