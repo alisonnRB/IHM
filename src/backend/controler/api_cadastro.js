@@ -17,7 +17,7 @@ export default {
         //? converte para json
         body: JSON.stringify(user),
       };
-      
+
       //TODO faz a requisição
       //! coloque o seu ip ali
       const response = await fetch('http://192.168.255.131/server/cadastro.php', requisição);
