@@ -1,0 +1,28 @@
+.CardLivro{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.Livro{
+    margin-top: 2%;
+    margin-bottom: 1%;
+    height: 70%;
+    width: 30%;
+    background-color: black;
+    border-radius: 15px;
+}
+.CardLivro .Edicao{
+    cursor: pointer;
+    color: white;
+    width: 100%;
+    height: 100%;
+    background-color: #087F97;
+    border-radius: 10px;
+}
+#link{
+    height: 10%;
+    width: 30%;
+}

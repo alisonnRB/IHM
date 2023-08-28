@@ -1,0 +1,139 @@
+.boxNewBookC {
+    height: 100%;
+    width: 80%;
+}
+
+#xSair {
+    background-color: rgb(194, 191, 191);
+    position: relative;
+    cursor: pointer;
+    left: 30%;
+    height: 60%;
+    width: 3%;
+}
+
+.boxNewBookC .topTitle {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1%;
+}
+
+.boxNewBookC .topTitle p {
+    position: relative;
+    left: 25px;
+    font-size: 2em;
+}
+
+.formCreateBook {
+    display: block;
+    height: 90%;
+    width: 100%;
+}
+
+.nomeDoLivro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 7%;
+}
+
+.nomeDoLivro::before{
+    content: 'NOME:';
+    font-size: 1.5em;
+}
+
+.livroNome {
+    padding-left: 2%;
+    background-color: none;
+    border-radius: 30px;
+    border: solid #087F97;
+    height: 100%;
+    width: 30%;
+}
+
+.capaDoLivro {
+    margin-top: 1.3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 30%;
+}
+
+.capaDoLivro #fileBoxC {
+    height: 90%;
+    width: 10%;
+}
+
+.capaDoLivro .custom-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+    border: solid;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    background-color: #BACFD1;
+    background-image: url('../../../imgs/MaisBranco.png');
+    background-size: 100% 100%;
+}
+
+.capaDoLivro input[type='file'] {
+    display: none;
+}
+
+#contadora {
+    display: flex;
+    justify-content: right;
+    height: 3%;
+    width: 100%;
+}
+
+#contadora p {
+    color: #087F97;
+    font-size: 1.5em;
+    margin-right: 25%;
+}
+
+.generosLivro {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.generosLivro span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 60%;
+    height: 15%;
+}
+
+.salvaLivro {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    height: 10%;
+}
+.salvaLivro button{
+    all: unset;
+    background-color: none;
+    cursor: pointer;
+    height: 10%;
+    cursor: pointer;
+    color: #087F97;
+    font-size: 1.8em;
+    margin-right: 10%;
+}

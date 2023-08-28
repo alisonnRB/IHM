@@ -2,7 +2,6 @@ import { useState } from 'react';
 import React from "react";
 import './edicao.css';
 
-import envio from "../../../../imgs/bandeira.png";
 import api from '../../../../backend/controler/api_edição';
 import sair from '../../../../imgs/sair.png';
 
@@ -43,7 +42,6 @@ export default function Edit(props) {
         
 
         const resposta = await api.enviar(idUsuario, formData, userName);
-        console.log(resposta);
 
         setFile(null);
         setImagePreview(null);
