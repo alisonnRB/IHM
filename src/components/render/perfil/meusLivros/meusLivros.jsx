@@ -27,7 +27,7 @@ export default function MeusLivros() {
         let tempRow = [];
     
         for (let i = 0; i < livro.length; i++) {
-          tempRow.push(<td key={i}><Livro info={livro[i]} /></td>);
+          tempRow.push(<td key={i}><Livro mine={true}info={livro[i]} /></td>);
     
           if ((i + 1) % 2 === 0 || i === livro.length - 1) {
             elementos.push(<tr key={i}>{tempRow}</tr>);
@@ -54,9 +54,7 @@ export default function MeusLivros() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
                         {renderizarItens()}
-                    </tr>
                 </tbody>
             </table>
             <FloatBt />
