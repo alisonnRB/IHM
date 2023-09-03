@@ -2,6 +2,8 @@ import React from "react";
 import './createLivro.css';
 import { useState } from "react";
 
+import { Link } from "react-router-dom";
+
 import x from '../../../imgs/x.jpeg';
 import Selecao from '../.././../components/seleçãoGenero/seleciona';
 import api from '../../../backend/controler/api_newLivro';
@@ -68,7 +70,7 @@ export default function NovoLivro() {
         <div className="boxNewBookC">
             <span className="topTitle">
                 <p>LIVRO NOVO</p>
-                <img src={x} id="xSair" />
+                <Link to='/perfil' id="xSair"><img src={x} id="xSairImg" /></Link>
             </span>
             <form className="formCreateBook" onSubmit={enviar}>
 

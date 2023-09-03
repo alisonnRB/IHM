@@ -17,11 +17,13 @@ export default function Livro(props) {
     const [livro, setLivro] = useState('');
     const [generos, setGeneros] = useState('');
 
-    console.log(generos);
-
     const Busca = async () => {
         const resposta = await api.enviar(nome);
-        setGeneros(resposta.generos);
+        if (resposta.ok) {
+            setGeneros(resposta.generos);
+
+        }
+
     }
 
     useEffect(() => {
@@ -37,10 +39,10 @@ export default function Livro(props) {
         }
         Busca();
         setLivro(props.info["id"]);
-        
-    }, [props.info]);
 
-        
+    }, [props]);
+
+
 
 
     function botao(mine) {
@@ -50,6 +52,16 @@ export default function Livro(props) {
                     <button className="Edicao">editar</button>
                 </Link>
             );
+        }
+    }
+
+    const mostraGender = (index) => {
+        const keys = Object.keys(generos)
+        if (index < keys.length) {
+            const chave = keys[index];
+            return generos[chave];
+        } else {
+            return '...';
         }
     }
 
@@ -70,16 +82,15 @@ export default function Livro(props) {
                 </div>
                 <div id="sinopse">
                     <div className="infosL">
-                        <img src={Visu} className="IMGinfoL"/>1 <img src={Fav} className="IMGinfoL"/>2 <img src={Curti}className="IMGinfoL"/>3
+                        <img src={Visu} className="IMGinfoL" />1 <img src={Fav} className="IMGinfoL" />2 <img src={Curti} className="IMGinfoL" />3
                     </div>
                     <div className="sinopse">
-                    Celaena é uma assassina, e a melhor de Adarlan. Aprisionada e fraca, ela está quase perdendo as esperanças quando recebe uma proposta. Terá de volta sualiberdade se representar o príncipe de Adarlan em uma competição, lutando contra os mais habilidosos assassinos e larápios do reino.
+                        Celaena é uma assassina, e a melhor de Adarlan. Aprisionada e fraca, ela está quase perdendo as esperanças quando recebe uma proposta. Terá de volta sualiberdade se representar o príncipe de Adarlan em uma competição, lutando contra os mais habilidosos assassinos e larápios do reino.
                     </div>
                     <div className="generoL">
-                    {Object.keys(generos).map((index) => (
-                    <div key={index} className='gender'>
-                        {generos[index]}
-                    </div>))}
+                        <div className='boxGen'>{mostraGender(0)}</div>
+                        <div className='boxGen'>{mostraGender(1)}</div>
+                        <div className='boxGen'>{mostraGender(2)}</div>
                     </div>
                 </div>
             </span>

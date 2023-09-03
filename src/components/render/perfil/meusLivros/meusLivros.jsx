@@ -17,7 +17,10 @@ export default function MeusLivros() {
         const id = localStorage.getItem('id');
 
         const resposta = await api.enviar(id);
-        setLivro(resposta.livros);
+        if(resposta.ok){
+          setLivro(resposta.livros);  
+        }
+        
 
     }
 
@@ -26,7 +29,7 @@ export default function MeusLivros() {
         let tempRow = [];
     
         for (let i = 0; i < livro.length; i++) {
-          tempRow.push(<td key={i}><Livro mine={true}info={livro[i]} /></td>);
+          tempRow.push(<td key={i}><Livro mine={true} info={livro[i]} /></td>);
     
           if ((i + 1) % 2 === 0 || i === livro.length - 1) {
             elementos.push(<tr key={i}>{tempRow}</tr>);

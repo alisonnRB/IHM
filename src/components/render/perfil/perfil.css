@@ -195,9 +195,14 @@
 
 }
 .boxMeulivro .boxTitle{
+    position: relative;
     height: 10%;
     width: 50%;
     justify-content: center;
+}
+#link{
+    height: 100%;
+    width: 100%;
 }
 }
 

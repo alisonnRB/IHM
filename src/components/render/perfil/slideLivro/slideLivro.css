@@ -5,11 +5,9 @@
 }
 .slidersLivros .caixaDeLivros{
     border-radius: 20px;
-
     position: relative;
     height: 90%;
     width: 90%;
-    animation: meusLivros 1.5s normal;
 }
 .caixaDeLivros .animation{
     border-radius: 20px;
@@ -84,13 +82,6 @@
     }
 }
 
-@keyframes meusLivros {
-    0%{width: 0;background-color: #BACFD2; }
-    25%{background-color: #7eaeb8;}
-    50%{background-color: #246e7c;}
-    75%{background-color: #7eaeb8;}
-    100%{width: 90%;background-color: #BACFD2;}
-}
 @keyframes bgalterna {
     0%{background-color: #BACFD2; }
     25%{background-color: #7eaeb8;}

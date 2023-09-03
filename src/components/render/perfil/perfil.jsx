@@ -123,7 +123,7 @@ function Perfil(props) {
           </span>
         </span>
 
-        <MeusLivros meusOrFav={'meus'} livro={livro} comp={'1'}/>
+        <Link to='/MeusLivros' id='link'><MeusLivros meusOrFav={'meus'} livro={livro} comp={'1'}/></Link>
 
       </section>
 
@@ -135,7 +135,7 @@ function Perfil(props) {
           </span>
         </span>
         
-        <MeusLivros  meusOrFav={'fav'} comp={'2'}/>
+        <Link to='/MeusFavoritos' id='link'><MeusLivros  meusOrFav={'fav'} comp={'2'}/></Link>
 
       </section>
       
