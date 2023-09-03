@@ -12,7 +12,6 @@ import api from "../../../../backend/controler/api_meusLivros";
 
 export default function MeusLivros() {
     const [livro, setLivro] = useState('');
-    console.log(livro);
 
     const Busca = async () => {
         const id = localStorage.getItem('id');

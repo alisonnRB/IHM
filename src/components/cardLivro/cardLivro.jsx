@@ -3,12 +3,26 @@ import './cardLivro.css';
 
 import { Link } from "react-router-dom";
 
+import api from "../../backend/controler/api_generoLivro";
+
+import Visu from "../../imgs/olho.png";
+import Fav from "../../imgs/estrela.png";
+import Curti from "../../imgs/coracao.png";
+
 
 export default function Livro(props) {
     const id = localStorage.getItem('id');
     const [fotoCapa, setFotoCapa] = useState('');
     const [nome, setNome] = useState('...')
     const [livro, setLivro] = useState('');
+    const [generos, setGeneros] = useState('');
+
+    console.log(generos);
+
+    const Busca = async () => {
+        const resposta = await api.enviar(nome);
+        setGeneros(resposta.generos);
+    }
 
     useEffect(() => {
         if (props.info && props.info['imagem']) {
@@ -21,8 +35,13 @@ export default function Livro(props) {
         } else {
             setNome('...');
         }
+        Busca();
         setLivro(props.info["id"]);
+        
     }, [props.info]);
+
+        
+
 
     function botao(mine) {
         if (mine == true) {
@@ -35,11 +54,15 @@ export default function Livro(props) {
     }
 
 
+
     return (
         <span className="CardLivro">
             <span id="title">
                 <h1>{nome}</h1>
-                <p>publicada</p>
+                <span>
+                    <p>publicado</p>
+                    <div className="publico"></div>
+                </span>
             </span>
             <span id="boxBox">
                 <div id="boxIMG">
@@ -47,15 +70,16 @@ export default function Livro(props) {
                 </div>
                 <div id="sinopse">
                     <div className="infosL">
-                        visu fav curti
+                        <img src={Visu} className="IMGinfoL"/>1 <img src={Fav} className="IMGinfoL"/>2 <img src={Curti}className="IMGinfoL"/>3
                     </div>
                     <div className="sinopse">
                     Celaena é uma assassina, e a melhor de Adarlan. Aprisionada e fraca, ela está quase perdendo as esperanças quando recebe uma proposta. Terá de volta sualiberdade se representar o príncipe de Adarlan em uma competição, lutando contra os mais habilidosos assassinos e larápios do reino.
                     </div>
                     <div className="generoL">
-                        <div className='gender' >fantasia</div>
-                        <div className='gender' >humor</div>
-                        <div className='gender' >selar</div>
+                    {Object.keys(generos).map((index) => (
+                    <div key={index} className='gender'>
+                        {generos[index]}
+                    </div>))}
                     </div>
                 </div>
             </span>
