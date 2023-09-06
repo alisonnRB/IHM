@@ -16,12 +16,14 @@
 .boxCardLivros{
     height: 100%;
     width: 80%;
+    border-collapse: separate;
+    border-spacing: 20px;
 }
 .boxCardLivros th{
     width: 50%;
     display: none;
 }
-.boxCardLivros td{
+.boxCardLivros tbody tr{
     width: 50%;
-    height: 350px;
+    height: 380px;
 }

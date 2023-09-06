@@ -111,6 +111,9 @@
     border-radius: 100%;
     height: 250px;
     width: 250px;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
 }
 .edit{
     cursor: pointer;
@@ -125,6 +128,7 @@
     width: 20px;
 }
 #nome{
+    border-radius: 20px;
     display: flex;
     justify-content: center;
     color: white;
@@ -190,10 +194,15 @@
     width: 100%;
 
 }
-.livros{
-    background-color: rgb(13, 22, 22);
-    height: 200px;
-    width: 250px;
+.boxMeulivro .boxTitle{
+    position: relative;
+    height: 10%;
+    width: 50%;
+    justify-content: center;
+}
+#link{
+    height: 60%;
+    width: 90%;
 }
 }
 

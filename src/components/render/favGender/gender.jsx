@@ -42,8 +42,7 @@ export default function Gender(props) {
 
 
 
-    const alterar = async (event) => {
-        event.preventDefault();
+    const alterar = async () => {
         const id = localStorage.getItem('id');
 
         await apiEdit.enviar(id, selecao);

@@ -1,20 +1,101 @@
-.CardLivro{
+.CardLivro {
     height: 100%;
     width: 100%;
+    display: block;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+}
+
+.CardLivro #title {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    height: 13%;
+    width: 100%;
+}
+
+.CardLivro #title h1 {
+    font-size: 0.7;
+}
+
+.CardLivro #title p {
+    margin-left: 28px;
+}
+#title span{
     align-items: center;
+    gap: 5px;
 }
-.Livro{
-    margin-top: 2%;
-    margin-bottom: 1%;
+#title .publico{
+    border-radius: 100%;
+    height: 10px;
+    width: 10px;
+    background-color: green;
+}
+
+.CardLivro #boxBox {
     height: 70%;
-    width: 30%;
-    background-color: black;
-    border-radius: 15px;
+    width: 100%;
 }
-.CardLivro .Edicao{
+
+#boxBox #boxIMG {
+    margin-left: 28px;
+    height: 90%;
+    width: 35%;
+}
+
+#boxBox #sinopse {
+    margin-left: 10px;
+    height: 100%;
+    width: 55%;
+}
+
+#sinopse .infosL {
+    gap: 5px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    height: 10%;
+    width: 100%;
+}
+.IMGinfoL{
+    height: 60%;
+    width: 15px;
+}
+
+#sinopse .sinopse {
+    overflow-y: auto;
+    height: 60%;
+    width: 100%;
+    word-break: break-all;
+}
+
+#sinopse .generoL {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+    width: 100%;
+    height: 10%;
+}
+
+#buttons {
+    background-color: #61a5b370;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 17%;
+    width: 100%;
+}
+
+.Livro {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+
+.CardLivro .Edicao,
+.CardLivro .Read {
     cursor: pointer;
     color: white;
     width: 100%;
@@ -22,7 +103,16 @@
     background-color: #087F97;
     border-radius: 10px;
 }
-#link{
-    height: 10%;
-    width: 30%;
+.link {
+    height: 50%;
+    width: 20%;
+}
+.generoL .gender{
+    font-size: 0.7em;
+    cursor: default;
+    color: white;
+    background-color: #087F97;
+    border: none;
+    min-width: 95px;
+    max-width: 95px;
 }

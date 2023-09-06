@@ -6,6 +6,10 @@ import Edicao from './edicao/edicao';
 import apiGender from '../../../backend/controler/api_gender';
 import FloatBt from '../../BtFloat/btFloat';
 
+import apiCapa from "../../../backend/controler/api_meusLivros";
+
+import MeusLivros from './slideLivro/slideLivro';
+
 
 //? componente que comporta o perfil
 
@@ -16,14 +20,23 @@ function Perfil(props) {
   const [generos, setGeneros] = useState([]);
   const [listF, setListF] = useState([]);
 
+  const [livro, setLivro] = useState([]);
+
+
   const Busca = async () => {
+    const id = localStorage.getItem('id');
+
     const resposta = await apiGender.enviar();
     if (resposta.ok == true) {
       setGeneros(resposta.gender);
     }
+
+    const respostaIMG = await apiCapa.enviar(id);
+    if (respostaIMG.ok == true) {
+      setLivro(respostaIMG.livros);
+    }
+    
   };
-
-
 
   //TODO responsavel por controlar as informações mostradas na tela de acordo com o carregamento da page sem ficar recarregando infinitamente
   useEffect(() => {
@@ -33,10 +46,10 @@ function Perfil(props) {
         setaFavoritos(genero);
       }
       setName(props.user.nome);
-      if(props.user.fotoPerfil){
-        setPerfil("http://192.168.255.131/imagens/" + props.user.fotoPerfil);
+      if (props.user.fotoPerfil) {
+        setPerfil("http://192.168.255.56/imagens/" + props.user.fotoPerfil);
       }
-      
+
     }
   }, [props.user]);
 
@@ -60,10 +73,10 @@ function Perfil(props) {
 
   };
 
-
   const mostraGender = (index) => {
     return generos[parseInt(listF[index]) + 1] ? generos[parseInt(listF[index]) + 1] : '...';
   }
+
 
   return (
     <div className='perfilpagep'>
@@ -103,19 +116,29 @@ function Perfil(props) {
       </section>
 
       <section className='boxMeulivro'>
-        <span>
-          <p id='titleLivro'>Meus Lívros</p>
-          <Link to='/MeusLivros'><img className='edit' src={edit} /></Link>
+        <span className='boxTitle'>
+          <span>
+            <p id='titleLivro'>Meus Livros</p>
+            <Link to='/MeusLivros'><img className='edit' src={edit} /></Link>
+          </span>
         </span>
-        <span>
-          <div className='livros'></div>
-          <div className='livros'></div>
-        </span>
-        <span>
-          <div className='livros'></div>
-          <div className='livros'></div>
-        </span>
+
+        <Link to='/MeusLivros' id='link'><MeusLivros meusOrFav={'meus'} livro={livro} comp={'1'}/></Link>
+
       </section>
+
+      <section className='boxMeulivro'>
+        <span className='boxTitle'>
+          <span>
+            <p id='titleLivro'>Meus Favoritos</p>
+            <Link to='/MeusFavoritos'><img className='edit' src={edit} /></Link>
+          </span>
+        </span>
+        
+        <Link to='/MeusFavoritos' id='link'><MeusLivros  meusOrFav={'fav'} comp={'2'}/></Link>
+
+      </section>
+      
       <FloatBt />
     </div>
   );

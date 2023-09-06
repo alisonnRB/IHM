@@ -4,12 +4,16 @@
 }
 
 #xSair {
-    background-color: rgb(194, 191, 191);
     position: relative;
     cursor: pointer;
     left: 30%;
     height: 60%;
     width: 3%;
+    height: 70%;
+}
+#xSair #xSairImg{
+    height: 100%;
+    width: 100%;
 }
 
 .boxNewBookC .topTitle {
