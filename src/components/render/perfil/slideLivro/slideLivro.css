@@ -1,13 +1,13 @@
 .boxMeulivro .slidersLivros{
     justify-content: center;
-    height: 70%;
+    height: 100%;
     width: 100%;
 }
 .slidersLivros .caixaDeLivros{
     border-radius: 20px;
     position: relative;
-    height: 90%;
-    width: 90%;
+    height: 100%;
+    width: 100%;
 }
 .caixaDeLivros .animation{
     border-radius: 20px;

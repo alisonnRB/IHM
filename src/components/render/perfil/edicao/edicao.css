@@ -144,7 +144,7 @@
         color: aliceblue;
     }
 
-    #fileBox {
+    .custom-input, #fileBox, .labelBt {
         border-radius: 100%;
     }
 
@@ -153,7 +153,8 @@
         height: 230px;
         width: 230px;
         background-image: url('../../../../imgs/perfiledit.png');
-        background-size: contain;
+        background-size: cover;
+        background-color: white;
     }
 
     #editNome {
@@ -165,6 +166,7 @@
         width: 65%;
         height: 60px;
         padding-left: 5%;
+
     }
 
     #editNome::placeholder {

@@ -47,7 +47,7 @@ function Perfil(props) {
       }
       setName(props.user.nome);
       if (props.user.fotoPerfil) {
-        setPerfil("http://192.168.255.131/imagens/" + props.user.fotoPerfil);
+        setPerfil("http://192.168.255.56/imagens/" + props.user.fotoPerfil);
       }
 
     }

@@ -11,15 +11,15 @@ export default function MeusLivros(props) {
 
     function createStar(classe, i) {
         const style = {
-          left: `${Math.random() * 100}%`,
-          animationDelay: `${Math.random() * 5 + 1}s`,
+            left: `${Math.random() * 100}%`,
+            animationDelay: `${Math.random() * 5 + 1}s`,
         };
 
         return (
-          <div key={`star-${i}${props.comp}`} className={`${classe} ${mineOrFav}`} style={style}></div>
+            <div key={`star-${i}${props.comp}`} className={`${classe} ${mineOrFav}`} style={style}></div>
         );
-      }
-      
+    }
+
     useEffect(() => {
         const classe = ['star', 'starFundo'];
         const numStars = 10;
@@ -47,15 +47,20 @@ export default function MeusLivros(props) {
     }, [props]);
 
     const passarLiga = () => {
-        setHover('hover');
-    }
 
-    const passarDesliga = () => {
-        setHover('');
+        setHover('hover');
+
+        setTimeout(() => {
+            if (hover != 'hover') {
+                setHover('');
+                console.log('oi');
+            }
+        }, 10000);
+
     }
 
     const meusLivros = (livros, id) => {
-        const a = "http://192.168.255.131/livros/" + id + '/';
+        const a = "http://192.168.255.56/livros/" + id + '/';
         const tempRow = [];
         for (let i = 0; i < livros.length; i++) {
             tempRow.push(<img key={`livro-${i}`} className='imagemCapa' src={a + livros[i]['imagem']} />);
@@ -64,12 +69,12 @@ export default function MeusLivros(props) {
             }
         }
         return tempRow;
-    }   
+    }
 
     return (
         <span className='slidersLivros'>
 
-            <div className={'caixaDeLivros'} onMouseEnter={passarLiga} onMouseLeave={passarDesliga}>
+            <div className={'caixaDeLivros'} onMouseEnter={passarLiga}>
                 <div className='animation'>
                     {starDeFront}{starDeFundo}
 
