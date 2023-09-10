@@ -1,0 +1,38 @@
+.barraControl{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.barraControl span:first-child{
+    gap: 40px;
+    margin-left: 10%;
+}
+.barraControl span img{
+    height: 40px;
+    width: 40px;
+}
+.barraControl span img:hover{
+    background-color: rgba(207, 206, 206, 0.589);
+}
+.barraControl span:last-child{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    gap: 40px;
+}
+.barraControl span:last-child div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid #3392A6 1px;
+    font-size: 2em;
+    height: 70px;
+    width: 65px;
+    border-radius: 100%;
+}
+.barraControl span:last-child div:hover{
+    background-color: #3392A6;
+}

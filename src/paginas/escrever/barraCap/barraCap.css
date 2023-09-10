@@ -1,0 +1,23 @@
+.barraCap{
+    background-color: #F0F8FF;
+    height: calc(100% - 40px);
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+}
+.barraCap span{
+    width: 90%;
+    height: 8%;
+    font-size: 1.2em;
+    margin-bottom: 25px;
+    color: #087F97;
+    border-bottom: solid #688eed50 0.5px;
+    align-items: center;
+    justify-content: center;
+}
+.barraCap img{
+    height: 45px;
+    width: 45px;
+}

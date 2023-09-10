@@ -48,7 +48,7 @@ export default function Livro(props) {
     function botao(mine) {
         if (mine == true) {
             return (
-                <Link to={{ pathname: '/editaLivros', state: { livro } }} className="link">
+                <Link to={{ pathname: '/escreva', state: { livro } }} className="link">
                     <button className="Edicao">editar</button>
                 </Link>
             );

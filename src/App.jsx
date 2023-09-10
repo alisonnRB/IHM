@@ -2,6 +2,7 @@ import React from 'react';
 import Login from './paginas/login';
 import Homepage from './paginas/homepage/homePage';
 import NovoLivro from './paginas/novoLivro/novoLivro';
+import Escrever from './paginas/escrever/escrever';
 
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 //? importa da biblioteca do react o sistema de rotas
@@ -23,6 +24,7 @@ function App() {
          //TODO da HomePage apenas se o token for valido!!
          <Route path='*' element={<PrivateRoute><Homepage /></PrivateRoute>}/>
          <Route path='/novo-livro' element={<PrivateRoute><NovoLivro /></PrivateRoute>}></Route>
+         <Route path='/escreva' element={<PrivateRoute><Escrever /></PrivateRoute>}></Route>
       </Routes>
    </Router>
   
