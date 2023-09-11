@@ -37,6 +37,7 @@ export default function NovoLivro() {
 
 
     const enviar = async (event) => {
+        event.preventDefault();
         const formData = new FormData();
         formData.append('image', file);
 
@@ -45,6 +46,10 @@ export default function NovoLivro() {
         const idUsuario = localStorage.getItem('id');
         
         const resposta = await api.enviar(idUsuario, formData, nameBook, selecao);
+
+        if(resposta.ok){
+            window.location.reload();
+        }
 
         setFile(null);
         setImagePreview(null);
