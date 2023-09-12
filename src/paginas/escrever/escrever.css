@@ -1,3 +1,13 @@
+.abinha{
+    position: absolute;
+    height: 80px;
+    width: 11%;
+    top: -43px;
+    left: 45.2%;
+    border-bottom-right-radius: 100%;
+    border-bottom-left-radius: 100%;
+    cursor: pointer;
+}
 .boxAttBook{
     height: 100vh;
     width: 100vw;
@@ -7,58 +17,25 @@
 .tela{
     height: 69.3%;
     display: flex;
-    flex-direction: row;
+    flex-direction: block;
 }
 .infosDoLivro{
+    display: inline-block;
     background-color: #BACFD1;
     color: white;
-    height: 20%;
+    height: 16%;
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: space-between;
 }
-.infosDoLivro .boxIMG{
-    height: 100%;
-    width: 9%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
+.infosDoLivro .boxLogo{
+    height: 85%;
+    width: 6.5%;
+    margin-left: 1%;
 }
-.infosDoLivro .boxIMG IMG{
-    height: 90%;
-    width: 80%;
-    border-radius: 10px;
-
-}
-.infos-text{
-    height: 100%;
-    width: 25%;
-    display: block;
-}
-.infosDoLivro .boxNAME{
-    padding: 5px;
-    height: 20%;
-    width: 100%;
-}
-.infosDoLivro .boxNAME p{
-    font-weight: bolder;
-    font-size: 2em;
-}
-.infosDoLivro .boxGEN{
-    display: flex;
-    align-items: center;
-    height: 80%;
-    width: 100%;
-    gap: 15px;
-}
-.boxGEN .gender{
-    cursor: initial;
-    background-color: #3392a6;
-    color: white;
-    height: 20%;
-    min-width: 25%;
-}
-.boxGEN .gender:hover{
-    background-color: #3392a6;
+.infosDoLivro p{
+    font-size: 3em;
+    font-weight: 900;
+    position: relative;
+    margin-right: 30px;
 }
