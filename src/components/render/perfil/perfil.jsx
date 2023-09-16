@@ -96,7 +96,7 @@ function Perfil(props) {
       <section className='boxGenero'>
         <span className='boxtitleGender'>
           <p id='titleGen'>Gêneros favoritos</p>
-          <Link to='/gender'><img className='edit' src={edit} /></Link>
+          <Link to='/Perfil/gender'><img className='edit' src={edit} /></Link>
         </span>
         <div className='favGen'>
           <span>
@@ -119,11 +119,11 @@ function Perfil(props) {
         <span className='boxTitle'>
           <span>
             <p id='titleLivro'>Meus Livros</p>
-            <Link to='/MeusLivros'><img className='edit' src={edit} /></Link>
+            <Link to='/Perfil/MeusLivros'><img className='edit' src={edit} /></Link>
           </span>
         </span>
 
-        <Link to='/MeusLivros' id='link'><MeusLivros meusOrFav={'meus'} livro={livro} comp={'1'}/></Link>
+        <Link to='/Perfil/MeusLivros' id='link'><MeusLivros meusOrFav={'meus'} livro={livro} comp={'1'}/></Link>
 
       </section>
 
@@ -131,11 +131,11 @@ function Perfil(props) {
         <span className='boxTitle'>
           <span>
             <p id='titleLivro'>Meus Favoritos</p>
-            <Link to='/MeusFavoritos'><img className='edit' src={edit} /></Link>
+            <Link to='/Perfil/MeusFavoritos'><img className='edit' src={edit} /></Link>
           </span>
         </span>
         
-        <Link to='/MeusFavoritos' id='link'><MeusLivros  meusOrFav={'fav'} comp={'2'}/></Link>
+        <Link to='/Perfil/MeusFavoritos' id='link'><MeusLivros  meusOrFav={'fav'} comp={'2'}/></Link>
 
       </section>
       

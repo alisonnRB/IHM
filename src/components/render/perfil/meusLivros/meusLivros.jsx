@@ -11,6 +11,8 @@ import api from "../../../../backend/controler/api_meusLivros";
 
 
 export default function MeusLivros() {
+    
+
     const [livro, setLivro] = useState('');
 
     const Busca = async () => {
@@ -21,8 +23,8 @@ export default function MeusLivros() {
           setLivro(resposta.livros);  
         }
         
-
     }
+    
 
     const renderizarItens = () => {
         const elementos = [];

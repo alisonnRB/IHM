@@ -24,7 +24,7 @@ function App() {
          //TODO da HomePage apenas se o token for valido!!
          <Route path='*' element={<PrivateRoute><Homepage /></PrivateRoute>}/>
          <Route path='/novo-livro' element={<PrivateRoute><NovoLivro /></PrivateRoute>}></Route>
-         <Route path='/escreva' element={<PrivateRoute><Escrever /></PrivateRoute>}></Route>
+         <Route path='/Perfil/MeusLivros/escreva/*' element={<PrivateRoute><Escrever /></PrivateRoute>}></Route>
       </Routes>
    </Router>
   

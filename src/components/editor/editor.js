@@ -1,9 +1,15 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import JoditEditor from "jodit-react";
 import './editor.css';
 
-const Editor = ({ placeholder }) => {
+const Editor = (props, { placeholder }) => {
   const [content, setContent] = useState('');
+  useEffect(()=>{
+    props.setContent(content);
+  }, [content]);
+  console.log(content);
+
+
 
   const config = useMemo(
     () => ({

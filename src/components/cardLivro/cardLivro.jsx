@@ -9,10 +9,12 @@ import Curti from "../../imgs/coracao.png";
 
 
 export default function Livro(props) {
+
     const id = localStorage.getItem('id');
     const [fotoCapa, setFotoCapa] = useState('');
-    const [nome, setNome] = useState('...')
+    const [nome, setNome] = useState('...');
     const [livro, setLivro] = useState('');
+
 
     useEffect(() => {
         if (props.info && props.info['imagem']) {
@@ -25,9 +27,9 @@ export default function Livro(props) {
         } else {
             setNome('...');
         }
-        setLivro(props.info["id"]);
+        setLivro(props.info);
 
-    }, [props]);
+    }, [props.info]);
 
 
 
@@ -35,7 +37,7 @@ export default function Livro(props) {
     function botao(mine) {
         if (mine == true) {
             return (
-                <Link to={{ pathname: '/escreva', state: { livro } }} className="link">
+                <Link to={`/Perfil/MeusLivros/escreva?id=${encodeURIComponent(JSON.stringify(livro.id))}`} className="link">
                     <button className="Edicao bt">Editar</button>
                 </Link>
             );
