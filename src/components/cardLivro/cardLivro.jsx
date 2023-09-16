@@ -18,7 +18,7 @@ export default function Livro(props) {
 
     useEffect(() => {
         if (props.info && props.info['imagem']) {
-            setFotoCapa("http://192.168.255.56/livros/" + id + '/' + props.info['imagem']);
+            setFotoCapa("http://192.168.255.56/livros/" + id + '/' + props.info['nome'] + '/' + props.info['imagem']);
         } else {
             setFotoCapa('');
         }

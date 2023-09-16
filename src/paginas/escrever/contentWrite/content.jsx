@@ -5,16 +5,28 @@ import Editor from "../../../components/editor/editor";
 
 export default function Paginas(props) {
     const [content, setContent] = useState('');
-    useEffect(()=>{
+    const [titulo, setTitulo] = useState('');
+
+
+    useEffect(() => {
         props.setContent(content);
-      }, [content]);    
+    }, [content]);
+
+    useEffect(() => {
+        props.setTitulo(titulo);
+    }, [titulo]);
+
+    const title = (event) => {
+        setTitulo(event.target.value);
+    };
 
     return (
         <div className="content-page">
-            <span className="caixaCap">
-                <input type="text" />
-            </span>
-                <Editor setContent={setContent}/>
+            {props.cap != 0 ? <span className="caixaCap">
+                <input type="text" value={titulo} onChange={title}/>
+            </span> : <span className="caixaCap"></span>}
+
+            <Editor setContent={setContent} />
         </div>
     );
 }

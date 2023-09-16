@@ -18,7 +18,8 @@
 #root > div > div.tela > div.content-page > div > div > div > div.jodit-status-bar{
     background-color: #f5f5f5;
 }
-
+#root > div > div.content-page > div > div > div > div.jodit-toolbar__box > div > div:nth-child(3) > div.jodit-ui-group.jodit-ui-group_separated_true.jodit-ui-group_group_clipboard.jodit-ui-group_size_middle > span.jodit-toolbar-button.jodit-toolbar-button_size_middle.jodit-toolbar-button_variant_initial.jodit-toolbar-button_copyformat.jodit-ui-group__copyformat,
+#root > div > div.content-page > div > div > div > div.jodit-toolbar__box > div > div:nth-child(2) > div.jodit-ui-group.jodit-ui-group_separated_true.jodit-ui-group_group_media.jodit-ui-group_size_middle,
 #root > div > div.content-page > div > div > div > div.jodit-toolbar__box > div > div:nth-child(3) > div.jodit-ui-group.jodit-ui-group_separated_true.jodit-ui-group_group_source.jodit-ui-group_size_middle > span,
 #root > div > div.content-page > div > div > div > div.jodit-toolbar__box > div > div:nth-child(3) > div.jodit-ui-group.jodit-ui-group_separated_true.jodit-ui-group_group_color.jodit-ui-group_size_middle.jodit-ui-group_before-spacer_true > span,
 .jodit-container a.jodit-status-bar-link,

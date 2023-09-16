@@ -7,7 +7,6 @@ const Editor = (props, { placeholder }) => {
   useEffect(()=>{
     props.setContent(content);
   }, [content]);
-  console.log(content);
 
 
 
@@ -20,7 +19,7 @@ const Editor = (props, { placeholder }) => {
   );
 
   return (
-    <div className="minha-div-pai"> {/* Certifique-se de definir a classe na div pai */}
+    <div className="minha-div-pai">
       <JoditEditor
         value={content}
         config={config}

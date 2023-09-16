@@ -35,13 +35,22 @@ export default function Escreve() {
 
     const [content, setContent] = useState('');
     const [cap, setCap] = useState(0);
+    const [titulo, setTitulo] = useState('');
+
+    const [salvar, setSalvar] = useState(false);
 
     const Salva = async () => {
-        const resposta = await apiEscreve.enviar(content, cap, idLivro);
+        const resposta = await apiEscreve.enviar(content, cap, idLivro, titulo, id);
         if (resposta.ok == true) {
-          
         }
-      };
+    };
+
+    useEffect(() => {
+        if (salvar) {
+            Salva();
+            setSalvar(false);
+        }
+    }, [salvar]);
 
     useEffect(() => {
         const idLivroG = new URLSearchParams(location.search).get('id');
@@ -61,7 +70,6 @@ export default function Escreve() {
 
 
     const Busca = async () => {
-
         const resposta = await api.enviar();
         if (resposta.ok == true) {
             setGenero(resposta.gender);
@@ -86,7 +94,7 @@ export default function Escreve() {
                     <span className="caixa-info">
 
                         <div className="boxIMG">
-                            <img src={`http://192.168.255.56/livros/${id}/${info.imagem}`} />
+                            <img src={`http://192.168.255.56/livros/${id}/${info.nome}/${info.imagem}`} />
                         </div>
 
                         <div className="boxGEN">
@@ -121,9 +129,9 @@ export default function Escreve() {
                 <img className="boxLogo" src={logo} />
                 <p>Sinopse</p>
             </span>
-            <BarraCap />
-            <Paginas setContent={setContent} cap={cap}/>
-            <BtFloat />
+            <BarraCap setCap={setCap} cap={cap}/>
+            <Paginas setContent={setContent} cap={cap} setTitulo={setTitulo}/>
+            <BtFloat setSalvar={setSalvar} />
         </div>
     );
 
