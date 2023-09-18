@@ -4,9 +4,18 @@ import './editor.css';
 
 const Editor = (props, { placeholder }) => {
   const [content, setContent] = useState('');
+
   useEffect(()=>{
     props.setContent(content);
   }, [content]);
+
+  useEffect(()=>{
+    setContent(props.sinopse);
+  }, [props.sinopse])
+
+  useEffect(()=>{
+    setContent(props.content);
+  }, [props.content])
 
 
 

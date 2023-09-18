@@ -27,9 +27,9 @@ export default function Escreve() {
     const [fecharAba, setFechar] = useState('');
     const [genero, setGenero] = useState(['...']);
     const [qualGen, setGen] = useState([0, 1, 2]);
+    const [capSelected, setCapSelected] = useState(0);
 
     const [idLivro, setIdLivro] = useState('');
-
     const [info, setInfo] = useState({});
     const id = localStorage.getItem('id');
 
@@ -37,10 +37,15 @@ export default function Escreve() {
     const [cap, setCap] = useState(0);
     const [titulo, setTitulo] = useState('');
 
+    const [titleCap, setTitleCap] = useState({});
     const [salvar, setSalvar] = useState(false);
 
+    const [Sinopse, setSinopse] = useState('');
+
+    console.log(titulo);
+
     const Salva = async () => {
-        const resposta = await apiEscreve.enviar(content, cap, idLivro, titulo, id);
+        const resposta = await apiEscreve.enviar(content, capSelected, idLivro, titulo, id);
         if (resposta.ok == true) {
         }
     };
@@ -66,20 +71,34 @@ export default function Escreve() {
             let gender = JSON.parse(info.genero);
             setGen(gender);
         }
-    }, [info])
-
+    }, [info]);
 
     const Busca = async () => {
         const resposta = await api.enviar();
-        if (resposta.ok == true) {
+        if (resposta.ok === true) {
             setGenero(resposta.gender);
         }
         const respostaBook = await apiBook.enviar(idLivro);
-        if (respostaBook.ok == true) {
+        if (respostaBook.ok === true) {
             setInfo(respostaBook.infos);
 
+            if (respostaBook.infos && respostaBook.infos.sinopse) {
+                setSinopse(respostaBook.infos.sinopse);
+            }
+
+            if (respostaBook.infos && respostaBook.infos.texto) {
+                setTitleCap(respostaBook.infos.texto);
+
+                const cont = Object.keys(JSON.parse(respostaBook.infos.texto));
+                let contador = 0;
+                for (let chaves of cont) {
+                    contador++;
+                }
+                setCap(contador);
+            }
         }
-    }
+    };
+
     const informações = () => {
         return (
             <div id="content-aba">
@@ -116,6 +135,8 @@ export default function Escreve() {
             </div>);
     }
 
+
+
     return (
         <div className="boxAttBook">
 
@@ -127,10 +148,10 @@ export default function Escreve() {
 
             <span className="infosDoLivro">
                 <img className="boxLogo" src={logo} />
-                <p>Sinopse</p>
+                <p>{capSelected == 0 ? 'Sinopse' : 'Capitulo ' + capSelected}</p>
             </span>
-            <BarraCap setCap={setCap} cap={cap}/>
-            <Paginas setContent={setContent} cap={cap} setTitulo={setTitulo}/>
+            <BarraCap setCap={setCap} cap={cap} setCapSelected={setCapSelected} />
+            <Paginas idLivro={idLivro} info={info} setContent={setContent} cap={cap} setTitulo={setTitulo} titulo={titleCap} selected={capSelected} sinopse={Sinopse} />
             <BtFloat setSalvar={setSalvar} />
         </div>
     );

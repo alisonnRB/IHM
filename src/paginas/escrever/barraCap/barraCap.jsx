@@ -14,7 +14,7 @@ export default function BarraCap(props) {
     const capitulos = () => {
         const list = [];
         for (let i = 1; i <= numCaps; i++) {
-            let a = <span key={i} onClick={() => props.setCap(i)}>{`capitulo ${i}`}</span>;
+            let a = <span key={i} onClick={()=>{props.setCapSelected(i)}}>{`capitulo ${i}`}</span>;
             list.push(a);
         }
         return list;
@@ -24,7 +24,7 @@ export default function BarraCap(props) {
     return (
         <>
             <div className="barraCap">
-                <span onClick={() => { props.setCap(0) }}>Sinopse</span>
+                <span onClick={() => {props.setCapSelected(0)}}>Sinopse</span>
 
                 {capitulos()}
 
