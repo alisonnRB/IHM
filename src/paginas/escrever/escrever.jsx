@@ -42,11 +42,14 @@ export default function Escreve() {
 
     const [Sinopse, setSinopse] = useState('');
 
-    console.log(titulo);
+    const [ultimo, setUltimo] = useState(0);
+
+    console.log(ultimo);
 
     const Salva = async () => {
-        const resposta = await apiEscreve.enviar(content, capSelected, idLivro, titulo, id);
+        const resposta = await apiEscreve.enviar(content, ultimo, idLivro, titulo, id);
         if (resposta.ok == true) {
+            Busca();
         }
     };
 
@@ -64,6 +67,7 @@ export default function Escreve() {
 
     useEffect(() => {
         Busca();
+
     }, [idLivro]);
 
     useEffect(() => {
@@ -135,8 +139,6 @@ export default function Escreve() {
             </div>);
     }
 
-
-
     return (
         <div className="boxAttBook">
 
@@ -150,7 +152,7 @@ export default function Escreve() {
                 <img className="boxLogo" src={logo} />
                 <p>{capSelected == 0 ? 'Sinopse' : 'Capitulo ' + capSelected}</p>
             </span>
-            <BarraCap setCap={setCap} cap={cap} setCapSelected={setCapSelected} />
+            <BarraCap setCap={setCap} cap={cap} setCapSelected={setCapSelected} titulo={titleCap} setUltimo={setUltimo} setSalvar={setSalvar}/>
             <Paginas idLivro={idLivro} info={info} setContent={setContent} cap={cap} setTitulo={setTitulo} titulo={titleCap} selected={capSelected} sinopse={Sinopse} />
             <BtFloat setSalvar={setSalvar} />
         </div>

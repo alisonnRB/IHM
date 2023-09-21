@@ -14,14 +14,19 @@
 
 .barraCap span {
     min-width: 200px;
-    min-height: 80%;
+    min-height: 100%;
     font-size: 1.2em;
-    margin-left: 15px;
     color: #087F97;
-    border-right: solid #688eed50 0.5px;
+    border-right: solid #087f9744 0.5px;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    
+}
+.barraCap span.Selecionado{
+    background-color: #BACFD1;
+    color: white;
+    border-right: white solid 1px;
 }
 
 .caixaMais {
@@ -40,4 +45,49 @@
     cursor: pointer;
     height: 50%;
     width: 50%;
+}
+.abaApaga{
+    display: none;
+    position: absolute;
+    top: 150px;
+    z-index: -1;
+    border-radius: 100%;
+    height: 100px;
+    width: 100px;
+    background-color: #BACFD1;
+    align-items: end;
+    justify-content: center;
+    cursor: pointer;
+}
+.abaApaga img{
+    position: relative;
+    bottom: 10px;
+    height: 20px;
+    width: 35px;
+    
+}
+.abaApaga.Selecionado{
+    display: flex;
+    animation: aparece .5s ease;
+}
+.abaApaga.some{
+    
+    animation: some .5s ease;
+}
+
+@keyframes aparece {
+    0%{
+        transform: translateY(-50px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+@keyframes some {
+    0%{
+        transform: translateY(0);display: flex;
+    }
+    100%{
+        transform: translateY(-50px);display: none;
+    }
 }

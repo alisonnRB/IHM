@@ -5,12 +5,9 @@ import { Link } from "react-router-dom";
 
 
 
-export default function BtFloat(props) {
+export default function BtFloat() {
     return (
         <>
-            <div className="btSave" onClick={()=>{props.setSalvar(true)}}>
-
-            </div>
             <Link id="linnk" to='/perfil'>
                 <div className="btFloat">
 
