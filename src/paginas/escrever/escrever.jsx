@@ -8,6 +8,7 @@ import './escrever.css';
 import api from '../../backend/controler/api_gender';
 import apiBook from '../../backend/controler/api_InfosLivro';
 import apiEscreve from '../../backend/controler/api_salvaLivro';
+import apiDell from '../../backend/controler/api_DellCap';
 
 import BarraCap from './barraCap/barraCap';
 import Paginas from "./contentWrite/content";
@@ -23,59 +24,64 @@ import fechaAba from '../../imgs/abinha-fecha.png';
 export default function Escreve() {
     const location = useLocation();
 
+    //TODO aba livro
     const [aberto, setAberto] = useState(false);
     const [fecharAba, setFechar] = useState('');
     const [genero, setGenero] = useState(['...']);
     const [qualGen, setGen] = useState([0, 1, 2]);
-    const [capSelected, setCapSelected] = useState(0);
-
-    const [idLivro, setIdLivro] = useState('');
     const [info, setInfo] = useState({});
+    //TODO aba livro
+
+    //TODO infos user
+    const [idLivro, setIdLivro] = useState('');
     const id = localStorage.getItem('id');
+    //TODO infos user
 
-    const [content, setContent] = useState('');
-    const [cap, setCap] = useState(0);
+    //TODO estado de conteudo    
     const [titulo, setTitulo] = useState('');
-
-    const [titleCap, setTitleCap] = useState({});
-    const [salvar, setSalvar] = useState(false);
-
     const [Sinopse, setSinopse] = useState('');
+    const [content, setContent] = useState('');
+    //TODO estado de conteudo
+
+    //TODO controle
+    const [Save, setSave] = useState(false);
+    const [Delete, setDelete] = useState(false);
+    const [New, setNew] = useState(false);
+    const [numCaps, setNumCaps] = useState(0);
 
     const [ultimo, setUltimo] = useState(0);
+    const [capSelected, setCapSelected] = useState(0);
+    const [cap, setCap] = useState(0);
+    const [titleCap, setTitleCap] = useState({});
+    //TODO controle
 
-    console.log(ultimo);
 
-    const Salva = async () => {
-        const resposta = await apiEscreve.enviar(content, ultimo, idLivro, titulo, id);
+    const Deleta = async () => {
+        const resposta = await apiDell.enviar(capSelected, idLivro, titulo, id);
         if (resposta.ok == true) {
-            Busca();
+            window.location.reload();
         }
     };
-
-    useEffect(() => {
-        if (salvar) {
-            Salva();
-            setSalvar(false);
+    const Salva = async (i) => {
+        if (i == 'i') {
+            const resposta = await apiEscreve.enviar(content, capSelected, idLivro, titulo, id);
+            if (resposta.ok == true) {
+                Busca();
+            }
+        } else {
+            const resposta = await apiEscreve.enviar(content, ultimo, idLivro, titulo, id);
+            if (resposta.ok == true) {
+                Busca();
+            }
         }
-    }, [salvar]);
 
-    useEffect(() => {
-        const idLivroG = new URLSearchParams(location.search).get('id');
-        setIdLivro(idLivroG);
-    }, []);
-
-    useEffect(() => {
-        Busca();
-
-    }, [idLivro]);
-
-    useEffect(() => {
-        if (info.genero != NaN && info.genero != undefined) {
-            let gender = JSON.parse(info.genero);
-            setGen(gender);
+    };
+    const Novo = async () => {
+        const resposta = await apiEscreve.enviar('', numCaps, idLivro, 'capitulo Novo', id);
+        if (resposta.ok == true) {
+            Salva('i');
         }
-    }, [info]);
+    }
 
     const Busca = async () => {
         const resposta = await api.enviar();
@@ -102,6 +108,44 @@ export default function Escreve() {
             }
         }
     };
+
+
+    useEffect(() => {
+        const idLivroG = new URLSearchParams(location.search).get('id');
+        setIdLivro(idLivroG);
+    }, []);
+    useEffect(() => {
+        Busca();
+
+    }, [idLivro]);
+    useEffect(() => {
+        if (info.genero != NaN && info.genero != undefined) {
+            let gender = JSON.parse(info.genero);
+            setGen(gender);
+        }
+    }, [info]);
+
+    useEffect(() => {
+        if (Save) {
+            Salva();
+            setSave(false);
+        }
+    }, [Save]);
+    useEffect(() => {
+        Salva();
+    }, [capSelected])
+    useEffect(() => {
+        if (Delete) {
+            Deleta();
+            setDelete(false);
+        }
+    }, [Delete]);
+    useEffect(() => {
+        if (New) {
+            Novo();
+            setNew(false);
+        }
+    }, [New]);
 
     const informações = () => {
         return (
@@ -152,9 +196,29 @@ export default function Escreve() {
                 <img className="boxLogo" src={logo} />
                 <p>{capSelected == 0 ? 'Sinopse' : 'Capitulo ' + capSelected}</p>
             </span>
-            <BarraCap setCap={setCap} cap={cap} setCapSelected={setCapSelected} titulo={titleCap} setUltimo={setUltimo} setSalvar={setSalvar}/>
-            <Paginas idLivro={idLivro} info={info} setContent={setContent} cap={cap} setTitulo={setTitulo} titulo={titleCap} selected={capSelected} sinopse={Sinopse} />
-            <BtFloat setSalvar={setSalvar} />
+            <BarraCap
+                setNumCaps={setNumCaps}
+                setCap={setCap}
+                cap={cap}
+                setCapSelected={setCapSelected}
+                titulo={titleCap}
+                setUltimo={setUltimo}
+                setSave={setSave}
+                setDelete={setDelete}
+                setTitulo={setTitulo}
+                setNew={setNew} />
+
+            <Paginas
+                idLivro={idLivro}
+                info={info}
+                setContent={setContent}
+                cap={cap}
+                setTitulo={setTitulo}
+                titulo={titleCap}
+                selected={capSelected}
+                sinopse={Sinopse} />
+
+            <BtFloat />
         </div>
     );
 

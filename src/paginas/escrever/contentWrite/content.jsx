@@ -36,7 +36,7 @@ export default function Paginas(props) {
     useEffect(() => {
         if (props.selected == 0) {
             setSinopse(props.sinopse);
-            setContent(props.sinopse)
+            setContent(props.sinopse);
         } else {
             if (id && props.selected && props.idLivro && props.info.nome) {
                 conteudo();
