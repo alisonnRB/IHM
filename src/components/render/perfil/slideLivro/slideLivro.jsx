@@ -53,7 +53,6 @@ export default function MeusLivros(props) {
         setTimeout(() => {
             if (hover != 'hover') {
                 setHover('');
-                console.log('oi');
             }
         }, 10000);
 
@@ -63,7 +62,7 @@ export default function MeusLivros(props) {
         const a = "http://192.168.255.56/livros/" + id + '/';
         const tempRow = [];
         for (let i = 0; i < livros.length; i++) {
-            tempRow.push(<img key={`livro-${i}`} className='imagemCapa' src={a + livros[i]['imagem']} />);
+            tempRow.push(<img key={`livro-${i}`} className='imagemCapa' src={a + livros[i]['nome'] + '/' + livros[i]['imagem']} />);
             if (i >= 6) {
                 break;
             }

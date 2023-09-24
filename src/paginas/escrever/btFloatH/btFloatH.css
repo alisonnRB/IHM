@@ -1,0 +1,19 @@
+.btFloat{
+    cursor: pointer;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    border-radius: 100%;
+    background-image: url("../../../imgs/casa.png");
+    background-size: 120% 65%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #0B6E7D;
+    z-index: 80;
+    height: 80px;
+    width: 80px;
+
+}
+.btFloat:hover{
+    box-shadow: 0px 0px 15px 0px #0b6e7dd5;
+}

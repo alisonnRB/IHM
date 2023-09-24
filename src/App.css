@@ -21,12 +21,10 @@ body {
 }
 ::-webkit-scrollbar{
     background-color: #C2D1D6;
-    width: 10px;
-    border-radius: 30px;
+    width: 7px;
 }
 ::-webkit-scrollbar-thumb{
     background-color: black;
-    border-radius: 30px;
 }
 input:focus{
     box-shadow: 0 0 0 0;
