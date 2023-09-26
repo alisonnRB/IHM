@@ -57,11 +57,11 @@ export default function Escreve() {
     const [primeira, setPrimeira] = useState(false);
     //TODO controle
 
-    useEffect(()=>{
-        if(primeira){
+    useEffect(() => {
+        if (primeira) {
             salvarDadosLocalmente();
         }
-    },[content, titulo]);
+    }, [content, titulo]);
 
     const salvarDadosLocalmente = () => {
         const dadosParaSalvar = {
@@ -78,6 +78,8 @@ export default function Escreve() {
     const Deleta = async () => {
         const resposta = await apiDell.enviar(capSelected, idLivro, titulo, id);
         if (resposta.ok == true) {
+            localStorage.removeItem('dadosUsuario');
+
             window.location.reload();
         }
     };
