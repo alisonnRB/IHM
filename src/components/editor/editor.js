@@ -26,6 +26,7 @@ const Editor = (props, { placeholder }) => {
     }),
     [placeholder]
   );
+  
 
   return (
     <div className="minha-div-pai">
@@ -33,7 +34,7 @@ const Editor = (props, { placeholder }) => {
         value={content}
         config={config}
         tabIndex={1}
-        onBlur={newContent => setContent(newContent)}
+        onChange={newContent => setContent(newContent)}
       />
     </div>
   );

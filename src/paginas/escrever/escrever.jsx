@@ -53,8 +53,27 @@ export default function Escreve() {
     const [capSelected, setCapSelected] = useState(0);
     const [cap, setCap] = useState(0);
     const [titleCap, setTitleCap] = useState({});
+
+    const [primeira, setPrimeira] = useState(false);
     //TODO controle
 
+    useEffect(()=>{
+        if(primeira){
+            salvarDadosLocalmente();
+        }
+    },[content, titulo]);
+
+    const salvarDadosLocalmente = () => {
+        const dadosParaSalvar = {
+            content: content,
+            capSelected: capSelected,
+            idLivro: idLivro,
+            titulo: titulo,
+            id: id,
+        };
+        const dadosString = JSON.stringify(dadosParaSalvar);
+        localStorage.setItem("dadosUsuario", dadosString);
+    };
 
     const Deleta = async () => {
         const resposta = await apiDell.enviar(capSelected, idLivro, titulo, id);
@@ -81,8 +100,17 @@ export default function Escreve() {
         if (resposta.ok == true) {
             Salva('i');
         }
-    }
-
+    };
+    const SalvaSai = async () => {
+        const dadosString = localStorage.getItem("dadosUsuario");
+        if (dadosString) {
+            const dadosSalvos = JSON.parse(dadosString);
+            const resposta = await apiEscreve.enviar(dadosSalvos.content, dadosSalvos.capSelected, dadosSalvos.idLivro, dadosSalvos.titulo, dadosSalvos.id);
+            if (resposta.ok == true) {
+                return;
+            }
+        }
+    };
     const Busca = async () => {
         const resposta = await api.enviar();
         if (resposta.ok === true) {
@@ -108,15 +136,14 @@ export default function Escreve() {
             }
         }
     };
-
-
     useEffect(() => {
         const idLivroG = new URLSearchParams(location.search).get('id');
         setIdLivro(idLivroG);
     }, []);
     useEffect(() => {
         Busca();
-
+        SalvaSai();
+        setPrimeira(true);
     }, [idLivro]);
     useEffect(() => {
         if (info.genero != NaN && info.genero != undefined) {
@@ -124,7 +151,6 @@ export default function Escreve() {
             setGen(gender);
         }
     }, [info]);
-
     useEffect(() => {
         if (Save) {
             Salva();
