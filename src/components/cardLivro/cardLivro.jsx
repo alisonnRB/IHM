@@ -34,68 +34,42 @@ export default function Livro(props) {
 
 
 
-    function botao(mine) {
-        if (mine == true) {
-            return (
-                <Link to={`/Perfil/MeusLivros/escreva?id=${encodeURIComponent(JSON.stringify(livro.id))}`} className="link">
-                    <button className="Edicao bt">Editar</button>
-                </Link>
-            );
-        }
-    }
-
 
 
     return (
         <span className="CardLivro">
-            <span id="title">
-                <h1>{nome}</h1>
-                <span>
-                    <p>publicado</p>
-                    <div className="publico"></div>
+
+            <div className="IMGbox">
+                <span className="IMGbox_Classifica">
+                    <img id="classifica" src="" />
                 </span>
-            </span>
-            <span id="boxBox">
-                <div id="boxIMG">
-                    <img className="Livro" src={fotoCapa}></img>
-                </div>
-                <div id="sinopse">
-                    <div className="infosL">
+                <img id="capa" src={fotoCapa} />
+            </div>
 
-                        <div className="info-info">
-                            <div>
-                                <img src={Visu} className="IMGinfoL" />
-                                leituras
-                            </div>
-                            1
-                        </div>
+            <div className="infos">
 
-                        <div className="info-info">
-                            <div>
-                                <img src={Fav} className="IMGinfoL" />
-                                favoritos
-                            </div>
-                            1
-                        </div>
+                <span id="nomeLivro">
+                    {nome}
+                </span>
 
-                        <div className="info-info">
-                            <div>
-                                <img src={Curti} className="IMGinfoL" />
-                                curtidas
-                            </div>
-                            1
-                        </div>
-
+                <span id="VisuLivro">
+                    <div className="BoxVisu visu">
+                        <span><img src={Visu} /></span><span>5</span>
                     </div>
-                    <div className="sinopse">
-                        Celaena é uma assassina, e a melhor de Adarlan. Aprisionada e fraca, ela está quase perdendo as esperanças quando recebe uma proposta. Terá de volta sualiberdade se representar o príncipe de Adarlan em uma competição, lutando contra os mais habilidosos assassinos e larápios do reino.
+                    <div className="BoxVisu fav">
+                        <span><img src={Fav} /></span><span>5</span>
                     </div>
+                    <div className="BoxVisu curti">
+                        <span><img src={Curti} /></span><span>5</span>
+                    </div>
+                </span>
+
+                <div id="Box_text">
+
                 </div>
-            </span>
-            <span id="buttons">
-                {botao(props.mine)}
-                <Link className="link"><button className="Read bt">Ler</button></Link>
-            </span>
+
+                <span id="BTs"></span>
+            </div>
         </span>
     );
 }

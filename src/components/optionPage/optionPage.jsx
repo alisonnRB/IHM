@@ -16,7 +16,7 @@ function Barraop() {
  return (
     //TODO a tag LINK faz o redirecionamento para as rotas de acord com os clicks
     <div id='barra'>
-      <Link to='/Perfil'>
+      <Link to='/perfil'>
       <div className='optionP'>
         <img src={perfil} alt="" />
       </div>

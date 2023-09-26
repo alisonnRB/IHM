@@ -1,139 +1,95 @@
 .CardLivro {
-    height: 100%;
-    width: 100%;
-    display: block;
+    height: calc(100% - 40px);
+    width: calc(100% - 40px);
+    padding: 20px;
+    display: flex;
     box-shadow: 0px 0px 20px 0px #13505c80;
     border-radius: 10px;
 }
 
-.CardLivro #title {
-    display: flex;
-    flex-direction: column;
-    height: 13%;
-    width: 100%;
-}
-
-.CardLivro #title h1 {
-    font-size: 0.7;
-}
-
-.CardLivro #title p {
-    margin-left: 28px;
-}
-#title span{
-    align-items: center;
-    gap: 5px;
-}
-#title .publico{
-    border-radius: 100%;
-    height: 10px;
-    width: 10px;
-    background-color: green;
-}
-
-.CardLivro #boxBox {
-    height: 70%;
-    width: 100%;
-}
-
-#boxBox #boxIMG {
-    margin-left: 28px;
-    height: 90%;
-    width: 35%;
-}
-
-#boxBox #sinopse {
-    margin-left: 10px;
+.CardLivro .IMGbox {
     height: 100%;
-    width: 55%;
+    width: 40%;
 }
 
-#sinopse .infosL {
-    gap: 5px;
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
+.CardLivro .IMGbox #capa {
+    position: relative;
+    bottom: 28px;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+}
+
+.CardLivro .IMGbox .IMGbox_Classifica {
+    position: relative;
+    z-index: 2;
     height: 10%;
     width: 100%;
+}
+
+.CardLivro .IMGbox .IMGbox_Classifica #classifica {
+    background-color: green;
+    height: 100%;
+    width: 15%;
+}
+
+.CardLivro .infos {
+    background-color: blueviolet;
+    height: 100%;
+    width: 60%;
+}
+
+.CardLivro .infos #nomeLivro {
+    background-color: bisque;
+    height: 15%;
+    align-items: center;
     justify-content: center;
-}
-.IMGinfoL{
-    height: 60%;
-    width: 15px;
-}
-
-#sinopse .sinopse {
-    overflow-y: auto;
-    padding-top: 20px;
-    height: 70%;
-    width: 100%;
-    word-break: break-all;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #087F97;
 }
 
-#sinopse .generoL {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-    margin-top: 15px;
-    width: 100%;
-    height: 10%;
-}
-
-#buttons {
-    background-color: #61a5b370;
+.CardLivro .infos #VisuLivro {
+    background-color: chartreuse;
+    height: 13%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    height: 17%;
-    width: 100%;
 }
 
-.Livro {
+.CardLivro .infos #VisuLivro .BoxVisu {
+    background-color: blue;
     height: 100%;
-    width: 95%;
-    margin-top: 10px;
-    box-shadow: 0px 0px 20px 0px #13505c80;
-    border-radius: 5px;
+    width: 25%;
+    border-radius: 30px;
+    display: flex;
 }
 
-.CardLivro .Edicao,
-.CardLivro .Read {
-    cursor: pointer;
-    color: white;
-    width: 100%;
-    height: 100%;
-    background-color: #13505C;
-    
-}
-.CardLivro .Edicao:hover,
-.CardLivro .Read:hover {
-    background-color: #154f5ad5;
-    
-}
-.CardLivro .Edicao{
-    border-bottom-left-radius: 5px;
-    border-right: 0.2px solid white;
-}
-.CardLivro .Read{
-    border-bottom-right-radius: 5px;
-}
-.link {
+.BoxVisu span {
     height: 100%;
     width: 50%;
-}
-.info-info{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin-bottom: 10px;
-    padding-right: 5px;
-    border-right: solid 0.5px black;
+    justify-content: center;
 }
-.info-info:last-of-type{
-    border: none;
+
+.BoxVisu span:last-child{
+    position: relative;
+    bottom: 3px;
 }
-.info-info img{
-    margin-right: 5px;
+
+.BoxVisu span img {
+    height: 20px;
+    width: 20px;
+}
+
+.CardLivro .infos #Box_text {
+    height: calc(60% - 20px);
+    width: calc(100% - 20px);;
+    padding: 10px;
+    background-color: aquamarine;
+}
+
+.CardLivro .infos #BTs{
+    height: 12%;
+    background-color: chocolate;
 }

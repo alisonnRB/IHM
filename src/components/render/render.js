@@ -20,10 +20,10 @@ function Render(props) {
   return (
     <div className='render' id='render'>
       <Routes>
-        <Route path='/Perfil' element={<Perfil user={props.user}/>}></Route>
-        <Route path='/Perfil/gender' element={<Gender user={props.user}/>}></Route>
-        <Route path='/Perfil/MeusLivros' element={<MeusLivros/> }></Route>
-        <Route path='/Perfil/editaLivros' element={<EditaLivros/> }></Route>
+        <Route path='/perfil' element={<Perfil user={props.user}/>}></Route>
+        <Route path='/perfil/gender' element={<Gender user={props.user}/>}></Route>
+        <Route path='/perfil/MeusLivros' element={<MeusLivros/> }></Route>
+        <Route path='/perfil/editaLivros' element={<EditaLivros/> }></Route>
         <Route path='/Livros' element={<Livros />}></Route>
         <Route path='/Chat' element={<Chat />}></Route>
         <Route path='/Feed' element={<Feed />}></Route>
