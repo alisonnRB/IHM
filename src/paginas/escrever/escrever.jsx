@@ -61,9 +61,13 @@ export default function Escreve() {
         if (primeira) {
             salvarDadosLocalmente();
         }
+        SalvaSai();
     }, [content, titulo]);
 
     const salvarDadosLocalmente = () => {
+        if(capSelected === 0){
+            setTitulo('');
+        }
         const dadosParaSalvar = {
             content: content,
             capSelected: capSelected,

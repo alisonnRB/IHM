@@ -12,18 +12,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 40px;
 }
-.boxCardLivros{
-    height: 100%;
-    width: 80%;
-    border-collapse: separate;
-    border-spacing: 20px;
+.linha{
+    margin-bottom: 50px;
+    max-width: 100%;
+    min-height: 300px;
 }
-.boxCardLivros th{
-    width: 50%;
-    display: none;
+.linha .coluna{
+    margin-right: 40px;
 }
-.boxCardLivros tbody tr{
-    width: 50%;
-    height: 320px;
+#margem{
+    min-height: 10px;
+    min-width: 40px;
 }

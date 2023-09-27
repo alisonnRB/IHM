@@ -33,7 +33,7 @@ export default function Login() {
     if (localStorage.getItem('Authorization') === 'logado') {
       //? navega para o perfil caso a authorização seja correta
       //! este metodo é temporario, deve ser construido o sistema de token
-      navigate('/Perfil');
+      navigate('/perfil');
     }
 
   };

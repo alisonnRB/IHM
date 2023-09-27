@@ -1,9 +1,10 @@
 export default {
-    enviar: async (id, formData, nome, selecao) => {
+    enviar: async (id, formData, nome, selecao, classificacao) => {
         //? recebe um objeto formData e adiciona as informações que faltam 
         formData.append('id', id);
         formData.append('nome', nome);
         formData.append('selecao', JSON.stringify(selecao));
+        formData.append('classificacao', classificacao);
   
         //TODO faz a requisição
         //! coloque o seu ip ali

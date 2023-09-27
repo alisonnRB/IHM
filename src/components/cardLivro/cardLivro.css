@@ -1,15 +1,25 @@
 .CardLivro {
-    height: calc(100% - 40px);
-    width: calc(100% - 40px);
-    padding: 20px;
+    height: calc(100% - 10px);
+    max-width: 200px;
+    padding: 10px;
     display: flex;
+    flex-direction: row;
     box-shadow: 0px 0px 20px 0px #13505c80;
-    border-radius: 10px;
+    background-color: #f5f5f5;
+    overflow: hidden;
+    transition: max-width 1s ease;
+}
+
+.CardLivro.abre{
+    max-width: 500px;
+    padding-right: 30px;
 }
 
 .CardLivro .IMGbox {
     height: 100%;
-    width: 40%;
+    min-width: 200px;
+    max-width: 200px;
+    margin-right: 20px;
 }
 
 .CardLivro .IMGbox #capa {
@@ -22,25 +32,25 @@
 
 .CardLivro .IMGbox .IMGbox_Classifica {
     position: relative;
+    bottom: 5px;
+    right: 5px;
     z-index: 2;
-    height: 10%;
+    height: 12%;
     width: 100%;
 }
 
 .CardLivro .IMGbox .IMGbox_Classifica #classifica {
-    background-color: green;
     height: 100%;
-    width: 15%;
+    width: 30%;
 }
 
 .CardLivro .infos {
-    background-color: blueviolet;
+    position: relative;
     height: 100%;
-    width: 60%;
+    min-width: 300px;
 }
 
 .CardLivro .infos #nomeLivro {
-    background-color: bisque;
     height: 15%;
     align-items: center;
     justify-content: center;
@@ -50,21 +60,27 @@
 }
 
 .CardLivro .infos #VisuLivro {
-    background-color: chartreuse;
     height: 13%;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 .CardLivro .infos #VisuLivro .BoxVisu {
-    background-color: blue;
     height: 100%;
     width: 25%;
     border-radius: 30px;
     display: flex;
 }
-
+.BoxVisu.visu{
+    background-color: #087F97;
+}
+.BoxVisu.fav{
+    background-color: #FFBD59;
+}
+.BoxVisu.curti{
+    background-color: #FF7070;
+}
 .BoxVisu span {
     height: 100%;
     width: 50%;
@@ -83,13 +99,33 @@
 }
 
 .CardLivro .infos #Box_text {
-    height: calc(60% - 20px);
-    width: calc(100% - 20px);;
+    max-height: calc(60% - 20px);
+    min-height: calc(60% - 20px);
+    width: 100%;
     padding: 10px;
-    background-color: aquamarine;
+    overflow: auto;
+    word-wrap: break-word;
 }
 
 .CardLivro .infos #BTs{
+    align-items: center;
+    justify-content: space-evenly;
     height: 12%;
-    background-color: chocolate;
+}
+
+#BTs .link{
+    display: inherit;
+    text-decoration: none;
+}
+#BTs .link .bt{
+    cursor: pointer;
+    font-size: 0.9em;
+    color: white;
+    font-weight: lighter;
+    background-color: #087F97;
+    padding: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 100%;
+    width: 100%;
 }

@@ -1,77 +1,26 @@
 .boxNewBookC {
     height: 100%;
-    width: 80%;
-}
-
-#xSair {
-    position: relative;
-    cursor: pointer;
-    left: 30%;
-    height: 60%;
-    width: 3%;
-    height: 70%;
-}
-#xSair #xSairImg{
-    height: 100%;
     width: 100%;
-}
-
-.boxNewBookC .topTitle {
-    width: 100%;
-    height: 10%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1%;
-}
-
-.boxNewBookC .topTitle p {
-    position: relative;
-    left: 25px;
-    font-size: 2em;
 }
 
 .formCreateBook {
-    display: block;
-    height: 90%;
-    width: 100%;
-}
-
-.nomeDoLivro {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 7%;
-}
-
-.nomeDoLivro::before{
-    content: 'NOME:';
-    font-size: 1.5em;
-}
-
-.livroNome {
-    padding-left: 2%;
-    background-color: none;
-    border-radius: 30px;
-    border: solid #087F97;
+    flex-direction: row;
     height: 100%;
-    width: 30%;
+    width: 100%;
 }
 
 .capaDoLivro {
-    margin-top: 1.3%;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    width: 100%;
-    height: 30%;
+    width: 35%;
+    height: 100%;
 }
 
 .capaDoLivro #fileBoxC {
-    height: 90%;
-    width: 10%;
+    height: 100%;
+    width: 100%;
 }
 
 .capaDoLivro .custom-input {
@@ -79,24 +28,129 @@
     align-items: center;
     justify-content: center;
     color: white;
-
     border-radius: 0;
-    border: solid;
     cursor: pointer;
     height: 100%;
     width: 100%;
     background-color: #BACFD1;
     background-image: url('../../../imgs/MaisBranco.png');
-    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 75%;
+}
+
+.quad {
+    position: absolute;
+    z-index: 10;
+    left: 30px;
+    top: 120px;
+    height: 70px;
+    width: 70px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: solid black 3px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.fundo{
+    position: fixed;
+    height: 100vh;    
+    z-index: 1;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.534);
+}
+.opsClass{
+    position: absolute;
+    left: 10px;
+    top: 200px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 500px;
+    width: 110px;
+    overflow: hidden;
+}
+
+.opsClass .imgC{
+    height: 70px;
+    width: 110px;
+    z-index: 1;
+
+    animation: abrir .8s linear reverse;
+}
+
+.opsClass .imgC.close{
+    animation: fechar .73s linear;
 }
 
 .capaDoLivro input[type='file'] {
     display: none;
 }
 
-#contadora {
+.Infos {
+    height: 100%;
+    width: 65%;
+}
+
+.Infos #Nome {
+    height: 15%;
+    width: 90%;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10%;
+}
+
+.Infos #Nome .nomeDoLivro {
     display: flex;
-    justify-content: right;
+    width: 70%;
+    height: 50%;
+    align-items: center;
+}
+
+.Infos #Nome .nomeDoLivro::before {
+    content: 'NOME:';
+    font-size: 2em;
+}
+
+.Infos #Nome .livroNome {
+    border-bottom: solid 1px #087F97;
+    padding-left: 20px;
+    font-size: 2em;
+    height: 100%;
+    width: 80%;
+}
+
+.Infos #Nome .xis {
+    height: 100%;
+    width: 10%;
+    display: flex;
+    align-items: center;
+}
+
+.Infos #Nome .xis img {
+    height: 40%;
+    width: 40%;
+}
+
+.GenBoxL {
+    display: flex;
+    position: relative;
+    top: 10%;
+    left: 5%;
+    height: 70%;
+    width: 40%;
+}
+
+#contadora {
+    position: relative;
+    left: 30px;
+    top: 10px;
+    display: flex;
     height: 3%;
     width: 100%;
 }
@@ -104,41 +158,50 @@
 #contadora p {
     color: #087F97;
     font-size: 1.5em;
+    font-weight: bold;
     margin-right: 25%;
 }
 
-.generosLivro {
-    width: 100%;
-    height: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.generosLivro span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 60%;
-    height: 15%;
-}
-
 .salvaLivro {
-    display: flex;
-    justify-content: end;
-    width: 100%;
-    height: 10%;
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
 }
-.salvaLivro button{
+
+.salvaLivro button {
     all: unset;
     background-color: none;
     cursor: pointer;
     height: 10%;
     cursor: pointer;
     color: #087F97;
-    font-size: 1.8em;
+    font-size: 2.5em;
+    font-weight: bold;
     margin-right: 10%;
+}
+.trans{
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    height: 200px;
+    width: 200px;
+    background-color: #ffffff09;
+}
+@keyframes abrir {
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(-500px);
+    }
+}
+
+@keyframes fechar {
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(-500px);
+    }
 }
