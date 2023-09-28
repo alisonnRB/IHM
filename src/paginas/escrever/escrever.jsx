@@ -19,6 +19,14 @@ import abinha from '../../imgs/abinha.png';
 import config from '../../imgs/config.png';
 import fechaAba from '../../imgs/abinha-fecha.png';
 
+import livre from '../../imgs/livre.jpeg';
+import dez from '../../imgs/dez.jpeg';
+import doze from '../../imgs/doze.jpeg';
+import quatorze from '../../imgs/quatorze.jpeg';
+import dezeseis from '../../imgs/dezeseis.jpeg';
+import dezoito from '../../imgs/dezoito.jpeg';
+
+
 
 
 export default function Escreve() {
@@ -48,6 +56,8 @@ export default function Escreve() {
     const [Delete, setDelete] = useState(false);
     const [New, setNew] = useState(false);
     const [numCaps, setNumCaps] = useState(0);
+    const [classificacao, setClassificacao] = useState('');
+    const [visuClass, setVisuClass] = useState(livre);
 
     const [ultimo, setUltimo] = useState(0);
     const [capSelected, setCapSelected] = useState(0);
@@ -65,7 +75,7 @@ export default function Escreve() {
     }, [content, titulo]);
 
     const salvarDadosLocalmente = () => {
-        if(capSelected === 0){
+        if (capSelected === 0) {
             setTitulo('');
         }
         const dadosParaSalvar = {
@@ -129,6 +139,9 @@ export default function Escreve() {
             if (respostaBook.infos && respostaBook.infos.sinopse) {
                 setSinopse(respostaBook.infos.sinopse);
             }
+            if (respostaBook.infos && respostaBook.infos.classificacao) {
+                setClassificacao(respostaBook.infos.classificacao);
+            }
 
             if (respostaBook.infos && respostaBook.infos.texto) {
                 setTitleCap(respostaBook.infos.texto);
@@ -179,6 +192,41 @@ export default function Escreve() {
         }
     }, [New]);
 
+    useEffect(()=>{
+        switch(classificacao){
+            case 'livre':
+                setVisuClass(livre);
+                break;
+            case 'dez':
+                setVisuClass(dez);
+                break;
+            case 'doze':
+                setVisuClass(doze);
+                break;
+            case 'quatorze':
+                setVisuClass(quatorze);
+                break;
+            case 'dezeseis':
+                setVisuClass(dezeseis);
+                break;
+            case 'dezoito':
+                setVisuClass(dezoito);
+                break;
+        }
+    }, [classificacao]);
+
+
+    function GeraGen(){
+        const list = [];
+        for(let i = 0; i<3; i++){
+            if(genero[qualGen[i]]){
+                let a = <div className='gender'>{genero[qualGen[i]]}</div>;
+                list.push(a);
+            }
+        }
+        return list;
+    }
+
     const informações = () => {
         return (
             <div id="content-aba">
@@ -193,13 +241,14 @@ export default function Escreve() {
                     <span className="caixa-info">
 
                         <div className="boxIMG">
+                            <img id="classifica" src={visuClass} />
                             <img src={`http://192.168.255.56/livros/${id}/${info.nome}/${info.imagem}`} />
                         </div>
 
                         <div className="boxGEN">
-                            <div className='gender'>{genero[qualGen[0]]}</div>
-                            <div className='gender'>{genero[qualGen[1]]}</div>
-                            <div className='gender'>{genero[qualGen[2]]}</div>
+                            <div className="DisplayG">
+                                {GeraGen()}
+                            </div>
                         </div>
 
                     </span>

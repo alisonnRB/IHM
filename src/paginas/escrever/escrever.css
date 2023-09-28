@@ -124,16 +124,32 @@
     justify-content: center;
     height: 100%;
     width: 50%;
-    gap: 20px;
 }
-.caixa-info .boxGEN .gender{
+.caixa-info .boxGEN .DisplayG{
+    height: 60%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.caixa-info .boxGEN .DisplayG .gender{
     cursor: inherit;
     color: white;
-    height: 10%;
-    min-width: 60%;
+    height: 17%;
+    min-width: 80%;
     border: none;
     background-color: #087F97;
     font-size: 0.8em;
+    font-weight: bolder;
+}
+.boxIMG #classifica{
+    border-radius: 2px;
+    position: relative;
+    bottom: 26%;
+    left: 27px;
+    height: 30px;
+    width: 30px;
 }
 @keyframes abre{
     to{

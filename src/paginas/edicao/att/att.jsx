@@ -10,12 +10,12 @@ import x from '../../../imgs/x.jpeg';
 import Selecao from '../.././../components/livroSelectGen/select';
 import api from '../../../backend/controler/api_UpdateLivro';
 
-import livre from '../../../imgs/livre.png';
-import dez from '../../../imgs/dez.png';
-import doze from '../../../imgs/doze.png';
-import quatorze from '../../../imgs/quatorze.png';
-import dezeseis from '../../../imgs/dezeseis.png';
-import dezoito from '../../../imgs/dezoito.png';
+import livre from '../../../imgs/livre.jpeg';
+import dez from '../../../imgs/dez.jpeg';
+import doze from '../../../imgs/doze.jpeg';
+import quatorze from '../../../imgs/quatorze.jpeg';
+import dezeseis from '../../../imgs/dezeseis.jpeg';
+import dezoito from '../../../imgs/dezoito.jpeg';
 
 import Interruptor from '../../../components/interruptor/interruptor';
 
@@ -141,11 +141,13 @@ export default function NovoLivro() {
         }
         setNome(info.nome);
         setClassificacao(info.classificacao);
-        if (typeof info.publico == 'boolean') {
-            setPublico(info.publico);
+        if (info.publico) {
+            let a = info.publico == 1 ? true : false; 
+            setPublico(a);
         }
-        if (typeof info.finalizado == 'boolean') {
-            setFinalizado(info.finalizado);
+        if (typeof info.finalizado) {
+            let a = info.finalizado == 1 ? true : false; 
+            setFinalizado(a);
         }
     }, [info, Gen]);
 
@@ -231,9 +233,9 @@ export default function NovoLivro() {
                 </div>
 
                 <div className="caixaInter">
-                    <Interruptor id={1} title={'Público'} alvo={publico} setAlvo={setPublico} />
+                    <Interruptor key={1} id={1} title={'Público'} alvo={publico} setAlvo={setPublico} />
 
-                    <Interruptor id={2} title={'Finalizado'} alvo={finalizado} setAlvo={setFinalizado} />
+                    <Interruptor key={2} id={2} title={'Finalizado'} alvo={finalizado} setAlvo={setFinalizado} />
                 </div>
 
                 <div className="salvaLivro">

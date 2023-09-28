@@ -39,6 +39,10 @@ export default function Selecao(props) {
             for (let i = 0; i < props.Gen.length; i++) {
                 if (!isNaN(props.Gen[i])) {
                     let ind = parseInt(props.Gen[i]);
+                    if(!isNaN(props.Gen[i + 1])){
+                        ind = ind + props.Gen[i + 1];
+                        i = i + 1;
+                    }
                     if (ind != 0) {
                         conta++;
                         selecionando(ind);

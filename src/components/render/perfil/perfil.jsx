@@ -82,7 +82,7 @@ function Perfil(props) {
     <div className='perfilpagep'>
       <section className='boxName'>
         <p id='titlePerfil'>Perfil</p>
-        <img id='fotoPerfil' src={Perfil} onClick={() => setEdita(true)} />
+        <img id='fotoPerfil' src={Perfil} style={Perfil !== '' ? { backgroundColor: 'transparent', backgroundImage: 'none' } : null} onClick={() => setEdita(true)} />
         <span>
           <div id='nome' >
             <p>{name}</p>

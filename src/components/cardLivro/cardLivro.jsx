@@ -7,12 +7,12 @@ import Visu from "../../imgs/olho.png";
 import Fav from "../../imgs/estrela.png";
 import Curti from "../../imgs/coracao.png";
 
-import livre from '../../imgs/livre.png';
-import dez from '../../imgs/dez.png';
-import doze from '../../imgs/doze.png';
-import quatorze from '../../imgs/quatorze.png';
-import dezeseis from '../../imgs/dezeseis.png';
-import dezoito from '../../imgs/dezoito.png';
+import livre from '../../imgs/livre.jpeg';
+import dez from '../../imgs/dez.jpeg';
+import doze from '../../imgs/doze.jpeg';
+import quatorze from '../../imgs/quatorze.jpeg';
+import dezeseis from '../../imgs/dezeseis.jpeg';
+import dezoito from '../../imgs/dezoito.jpeg';
 
 
 export default function Livro(props) {

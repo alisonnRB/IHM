@@ -34,7 +34,7 @@ export default function MeusLivros() {
             count++;
             tempRow.push(<div className="coluna" key={i}><Livro mine={true} info={livro[i]} /></div>);
 
-            if (count === 3 || i === livro.length - 1) {
+            if (count === 4 || i === livro.length - 1) {
                 count = 0;
                 elementos.push(<span className="linha" key={i}>{tempRow}</span>);
                 tempRow = [];

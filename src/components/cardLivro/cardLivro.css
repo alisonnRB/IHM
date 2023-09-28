@@ -24,7 +24,7 @@
 
 .CardLivro .IMGbox #capa {
     position: relative;
-    bottom: 28px;
+    bottom: 35px;
     z-index: 1;
     height: 100%;
     width: 100%;
@@ -35,13 +35,14 @@
     bottom: 5px;
     right: 5px;
     z-index: 2;
-    height: 12%;
+    height: 13%;
     width: 100%;
 }
 
 .CardLivro .IMGbox .IMGbox_Classifica #classifica {
     height: 100%;
-    width: 30%;
+    width: 20%;
+    border-radius: 5px;
 }
 
 .CardLivro .infos {

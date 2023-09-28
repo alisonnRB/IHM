@@ -5,7 +5,8 @@
 }
 .boxNewBook header{
     height: 100px;
-    background: linear-gradient(90deg, rgba(106,142,237,1) 27%, rgba(181,203,211,1) 98%);
+    background: rgb(104,141,237);
+background: linear-gradient(75deg, rgba(104,141,237,1) 0%, rgba(137,176,234,1) 25%, rgba(214,225,241,0.5914740896358543) 50%, rgba(148,187,233,1) 75%, rgba(104,141,237,1) 100%);
 }
 .boxNewBook header #logoH{
     left: 0;

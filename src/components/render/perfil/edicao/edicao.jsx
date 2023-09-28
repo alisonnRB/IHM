@@ -62,7 +62,7 @@ export default function Edit(props) {
 
                     <div id='fileBox'>
                         <label htmlFor="editFile" className='labelBt'>
-                            <div className="custom-input">
+                            <div className="custom-input" style={imagePreview ? {backgroundImage: 'none'} : null}>
                                 {imagePreview && <img src={imagePreview}  style={{ width: '100%', height: '100%', borderRadius: '100%' }} />}
                             </div>
                         </label>

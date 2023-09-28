@@ -8,12 +8,12 @@ import x from '../../../imgs/x.jpeg';
 import Selecao from '../.././../components/livroSelectGen/select';
 import api from '../../../backend/controler/api_newLivro';
 
-import livre from '../../../imgs/livre.png';
-import dez from '../../../imgs/dez.png';
-import doze from '../../../imgs/doze.png';
-import quatorze from '../../../imgs/quatorze.png';
-import dezeseis from '../../../imgs/dezeseis.png';
-import dezoito from '../../../imgs/dezoito.png';
+import livre from '../../../imgs/livre.jpeg';
+import dez from '../../../imgs/dez.jpeg';
+import doze from '../../../imgs/doze.jpeg';
+import quatorze from '../../../imgs/quatorze.jpeg';
+import dezeseis from '../../../imgs/dezeseis.jpeg';
+import dezoito from '../../../imgs/dezoito.jpeg';
 
 import { useEffect } from "react";
 
@@ -164,7 +164,7 @@ export default function NovoLivro() {
                         </div>
 
                         <div className="xis">
-                            <Link className="link"><img src={x} /></Link>
+                            <Link to='/perfil' className="link"><img src={x} /></Link>
                         </div>
                     </span>
 

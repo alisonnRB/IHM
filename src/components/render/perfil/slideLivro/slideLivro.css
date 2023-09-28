@@ -44,11 +44,11 @@
     margin-left: 100%;
 }
 .caixaDeLivros .animation .content .imagemCapa{
-    border-radius: 30px;
+    border-radius: 10px;
     margin-right: 20px;
     z-index: 2;
-    height: 90%;
-    width: 23%;
+    height: 80%;
+    width: 16%;
 }
 
 .star.meus, .starFundo.meus{
