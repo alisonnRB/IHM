@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import './escrever.css';
 
@@ -184,7 +184,7 @@ export default function Escreve() {
             <div id="content-aba">
 
                 <div className={`caixa-aba ${fecharAba}`}>
-                    <span><img src={config} /></span>
+                    <span><Link className="link" to={`/perfil/MeusLivros/escreva/editar?id=${encodeURIComponent(idLivro)}`}><img src={config} /></Link></span>
 
                     <span className="boxNAME">
                         {info.nome}

@@ -77,6 +77,7 @@
 }
 
 .opsClass .imgC{
+    cursor: pointer;
     height: 70px;
     width: 110px;
     z-index: 1;
@@ -160,6 +161,18 @@
     font-size: 1.5em;
     font-weight: bold;
     margin-right: 25%;
+}
+
+.caixaInter{
+    position: absolute;
+    bottom: 100px;
+    right: 40px;
+    height: 150px;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .salvaLivro {

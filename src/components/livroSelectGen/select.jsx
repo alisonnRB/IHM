@@ -33,6 +33,23 @@ export default function Selecao(props) {
         Busca();
     }, []);
 
+    useEffect(() => {
+        let conta = 0;
+        if (props.Gen) {
+            for (let i = 0; i < props.Gen.length; i++) {
+                if (!isNaN(props.Gen[i])) {
+                    let ind = parseInt(props.Gen[i]);
+                    if (ind != 0) {
+                        conta++;
+                        selecionando(ind);
+                    }
+                }
+            }
+        }
+        setLimit(conta);
+        props.setConta(conta);
+    }, [props.Gen]);
+
     const Busca = async () => {
         const resposta = await api.enviar();
         if (resposta.ok == true) {
@@ -80,11 +97,11 @@ export default function Selecao(props) {
 
     }
 
-    function mostraGeneros(){
+    function mostraGeneros() {
         const list = [];
         for (let i = 0; i < Object.keys(selecionados).length; i++) {
-            if(selecionados[i] == true){
-                let a = <span key={i} className="Genero" onClick={()=>{selecionando(i + 1)}}>{genero[i + 1]}</span>;
+            if (selecionados[i] == true) {
+                let a = <span key={i} className="Genero" onClick={() => { selecionando(i + 1) }}>{genero[i + 1]}</span>;
                 list.push(a);
             }
         }

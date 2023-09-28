@@ -79,11 +79,18 @@
     width: 200px;
     animation: abre 1s ease;
 }
+
+#content-aba .link{
+    height: 100%;
+    width: 45px;
+}
 #content-aba .caixa-aba span{
     height: 13%;
 }
-#content-aba .caixa-aba span:first-child img{
+#content-aba .caixa-aba span:first-child .link img{
     cursor: pointer;
+    height: 60px;
+    width: 60px;
 }
 #content-aba .caixa-aba .boxNAME{
     height: 12%;
@@ -128,7 +135,6 @@
     background-color: #087F97;
     font-size: 0.8em;
 }
-
 @keyframes abre{
     to{
         transform: translateY(0);

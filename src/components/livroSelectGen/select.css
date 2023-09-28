@@ -37,6 +37,11 @@
     animation: open 1s ease;
 }
 
+.Genero:hover{
+    background-color: rgb(255, 0, 0);
+    box-shadow: 0px 0px 20px 0px rgba(255, 0, 0, 0.829);
+}
+
 @keyframes open {
     0%{
         width: 0; height: 0; color: transparent;
