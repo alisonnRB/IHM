@@ -51,7 +51,7 @@ export default function NovoLivro() {
     });
     const [idLivro, setIdLivro] = useState('');
 
-    const [classificacao, setClassificacao] = useState('');
+    const [classificacao, setClassificacao] = useState('livre');
 
     const [openClass, setOpenClass] = useState(false);
     const [close, setClose] = useState('');
@@ -136,7 +136,7 @@ export default function NovoLivro() {
     useEffect(() => {
         setGen(info.genero);
         if (id && info.nome && info.imagem) {
-            const foto = "http://192.168.255.56/livros/" + id + "/" + info.nome + '/' + info.imagem;
+            const foto = "http://192.168.255.56/livros/" + id + "/" + info.nome + '_' + info.id + '/' + info.imagem;
             setImagePreview(foto);
         }
         setNome(info.nome);

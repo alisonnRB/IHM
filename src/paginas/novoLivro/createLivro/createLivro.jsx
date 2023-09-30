@@ -43,7 +43,7 @@ export default function NovoLivro() {
 
     });
 
-    const [classificacao, setClassificacao] = useState('');
+    const [classificacao, setClassificacao] = useState('livre');
 
     const [openClass, setOpenClass] = useState(false);
     const [close, setClose] = useState('');
