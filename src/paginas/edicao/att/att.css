@@ -127,16 +127,17 @@
     width: 80%;
 }
 
-.Infos #Nome .xis {
+.Infos #Nome #dell {
     height: 100%;
-    width: 10%;
+    width: 20%;
     display: flex;
     align-items: center;
 }
 
-.Infos #Nome .xis img {
-    height: 40%;
-    width: 40%;
+.Infos #Nome #dell img {
+    cursor: pointer;
+    height: 60%;
+    width: 60%;
 }
 
 .GenBoxL {
@@ -148,6 +149,29 @@
     width: 40%;
 }
 
+#selectColor{
+    position: absolute;
+    right: 33%;
+    top: 32%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+#selectColor #head{
+    height: 40px;
+    width: 40px;
+    background-color:white;
+}
+#head::-webkit-color-swatch{
+    border-radius: 50%;
+    border: none;
+}
+#head::-moz-color-swatch{
+    border-radius: 50%;
+    border: none;
+}
 #contadora {
     position: relative;
     left: 30px;
@@ -182,7 +206,7 @@
     right: 30px;
 }
 
-.salvaLivro button {
+.salvaLivro button, #cancel {
     all: unset;
     background-color: none;
     cursor: pointer;
@@ -192,6 +216,15 @@
     font-size: 2.5em;
     font-weight: bold;
     margin-right: 10%;
+}
+ #cancel{
+    position: absolute;
+    bottom: 0;
+    right: 600px;
+    color: #BACFD1;
+}
+ #cancel:hover{
+    color: red;
 }
 .trans{
     position: absolute;

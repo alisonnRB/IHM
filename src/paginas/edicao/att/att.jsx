@@ -1,14 +1,13 @@
 import React from "react";
 import './att.css';
 import { useState } from "react";
+import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
-import { Link, useLocation } from "react-router-dom";
 
 import apiBook from '../../../backend/controler/api_InfosLivro';
-
-import x from '../../../imgs/x.jpeg';
-import Selecao from '../.././../components/livroSelectGen/select';
 import api from '../../../backend/controler/api_UpdateLivro';
+import apiDell from '../../../backend/controler/api_dellLivro';
 
 import livre from '../../../imgs/livre.jpeg';
 import dez from '../../../imgs/dez.jpeg';
@@ -16,14 +15,18 @@ import doze from '../../../imgs/doze.jpeg';
 import quatorze from '../../../imgs/quatorze.jpeg';
 import dezeseis from '../../../imgs/dezeseis.jpeg';
 import dezoito from '../../../imgs/dezoito.jpeg';
+import deletar from '../../../imgs/delete.png';
 
 import Interruptor from '../../../components/interruptor/interruptor';
+import Selecao from '../.././../components/livroSelectGen/select';
 
-import { useEffect } from "react";
 
 export default function NovoLivro() {
+    const navigate = useNavigate();
     const location = useLocation();
     const id = localStorage.getItem('id');
+
+    const [window, setWindow] = useState(false);
 
     const [imagePreview, setImagePreview] = useState('');
     const [file, setFile] = useState(null);
@@ -63,6 +66,8 @@ export default function NovoLivro() {
     const [Gen, setGen] = useState('');
     const [nome, setNome] = useState('');
 
+    const [color, setColor] = useState('#087F97');
+
     const [publico, setPublico] = useState(false);
     const [finalizado, setFinalizado] = useState(false);
 
@@ -76,16 +81,25 @@ export default function NovoLivro() {
 
         const idUsuario = localStorage.getItem('id');
 
-        const resposta = await api.enviar(idLivro, idUsuario, formData, nameBook, selecao, classificacao, publico, finalizado);
+        const resposta = await api.enviar(idLivro, idUsuario, formData, nameBook, selecao, classificacao, publico, finalizado, color);
 
         if (resposta.ok) {
-            window.location.reload();
+            navigate(-1);
         }
 
         setFile(null);
         setImagePreview(null);
 
     };
+
+    const DeletaLivro = async () => {
+        const idUsuario = localStorage.getItem('id');
+
+        const resposta = await apiDell.enviar(idUsuario, idLivro);
+        if (resposta.ok) {
+            navigate(-1);
+        }
+    }
 
     const handleImageChange = (event) => {
         const file = event.target.files[0];
@@ -140,13 +154,16 @@ export default function NovoLivro() {
             setImagePreview(foto);
         }
         setNome(info.nome);
+        if(info.tema){
+            setColor(info.tema);
+        }
         setClassificacao(info.classificacao);
         if (info.publico) {
-            let a = info.publico == 1 ? true : false; 
+            let a = info.publico == 1 ? true : false;
             setPublico(a);
         }
         if (typeof info.finalizado) {
-            let a = info.finalizado == 1 ? true : false; 
+            let a = info.finalizado == 1 ? true : false;
             setFinalizado(a);
         }
     }, [info, Gen]);
@@ -186,6 +203,27 @@ export default function NovoLivro() {
     const handleChange = (event) => {
         setNome(event.target.value);
     };
+    const colorChange = (event) => {
+        setColor(event.target.value);
+    };
+
+    
+    const Janela = () => {
+        return (
+            <div id="janela">
+                <div className="Conteudo">
+                    <span id="message">
+                        Você realmente quer excluir esse Livro??<br></br>
+                        Será impossível recuperá-lo!!
+                    </span>
+                    <div className="BTcomport">
+                        <button onClick={() => { DeletaLivro(); setWindow(false) }} className="BTS s">SIM</button>
+                        <button onClick={() => { setWindow(false) }} className="BTS n">NÃO</button>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="boxNewBookC">
@@ -217,9 +255,11 @@ export default function NovoLivro() {
                             <input type="text" name="livroNome" value={nome} onChange={handleChange} className="livroNome" />
                         </div>
 
-                        <div className="xis">
-                            <Link to='/perfil' className="link"><img src={x} /></Link>
+                        <div id="dell">
+                            <img src={deletar} onClick={()=>{setWindow(true)}}/>
+                            {window ? Janela() : null}
                         </div>
+
                     </span>
 
                     <div className="GenBoxL">
@@ -232,6 +272,12 @@ export default function NovoLivro() {
                     </div>
                 </div>
 
+                <div id="selectColor">
+                    <label htmlFor="head">Tema: </label>
+                    <input type="color" id="head" name="head" value={color} onChange={colorChange}/>
+                    
+                </div>
+
                 <div className="caixaInter">
                     <Interruptor key={1} id={1} title={'Público'} alvo={publico} setAlvo={setPublico} />
 
@@ -240,9 +286,13 @@ export default function NovoLivro() {
 
                 <div className="salvaLivro">
                     <button type="submit">SALVAR</button>
-                </div>
 
+
+                </div>
             </form >
+
+            <button id="cancel" onClick={() => { navigate(-1) }}>CANCELAR</button>
+
         </div >
     );
 
