@@ -16,6 +16,7 @@ import quatorze from '../../../imgs/quatorze.jpeg';
 import dezeseis from '../../../imgs/dezeseis.jpeg';
 import dezoito from '../../../imgs/dezoito.jpeg';
 import deletar from '../../../imgs/delete.png';
+import mais from '../../../imgs/mais.png';
 
 import Interruptor from '../../../components/interruptor/interruptor';
 import Selecao from '../.././../components/livroSelectGen/select';
@@ -67,6 +68,9 @@ export default function NovoLivro() {
     const [nome, setNome] = useState('');
 
     const [color, setColor] = useState('#087F97');
+    const [maisCor, setMaisCor] = useState(false);
+    const [color2, setColor2] = useState('#087F97');
+
 
     const [publico, setPublico] = useState(false);
     const [finalizado, setFinalizado] = useState(false);
@@ -81,14 +85,17 @@ export default function NovoLivro() {
 
         const idUsuario = localStorage.getItem('id');
 
-        const resposta = await api.enviar(idLivro, idUsuario, formData, nameBook, selecao, classificacao, publico, finalizado, color);
-
-        if (resposta.ok) {
-            navigate(-1);
+        if(maisCor){
+            const resposta = await api.enviar(idLivro, idUsuario, formData, nameBook, selecao, classificacao, publico, finalizado, color, color2);
+            if (resposta.ok) {
+                navigate(-1);
+            }
+        }else{
+            const resposta = await api.enviar(idLivro, idUsuario, formData, nameBook, selecao, classificacao, publico, finalizado, color, '');
+            if (resposta.ok) {
+                navigate(-1);
+            }
         }
-
-        setFile(null);
-        setImagePreview(null);
 
     };
 
@@ -97,7 +104,7 @@ export default function NovoLivro() {
 
         const resposta = await apiDell.enviar(idUsuario, idLivro);
         if (resposta.ok) {
-            navigate(-1);
+            navigate('/perfil/MeusLivros');
         }
     }
 
@@ -154,8 +161,12 @@ export default function NovoLivro() {
             setImagePreview(foto);
         }
         setNome(info.nome);
-        if(info.tema){
+        if (info.tema) {
             setColor(info.tema);
+        }
+        if(info.tema2){
+            setMaisCor(true);
+            setColor2(info.tema2);
         }
         setClassificacao(info.classificacao);
         if (info.publico) {
@@ -206,8 +217,11 @@ export default function NovoLivro() {
     const colorChange = (event) => {
         setColor(event.target.value);
     };
+    const colorChange2 = (event) => {
+        setColor2(event.target.value);
+    };
 
-    
+
     const Janela = () => {
         return (
             <div id="janela">
@@ -256,7 +270,7 @@ export default function NovoLivro() {
                         </div>
 
                         <div id="dell">
-                            <img src={deletar} onClick={()=>{setWindow(true)}}/>
+                            <img src={deletar} onClick={() => { setWindow(true) }} />
                             {window ? Janela() : null}
                         </div>
 
@@ -273,9 +287,22 @@ export default function NovoLivro() {
                 </div>
 
                 <div id="selectColor">
-                    <label htmlFor="head">Tema: </label>
-                    <input type="color" id="head" name="head" value={color} onChange={colorChange}/>
-                    
+                    <div className="contain">
+                        <label htmlFor="head">Tema: </label>
+                        <input type="color" id="head" name="head" value={color} onChange={colorChange} />
+                        {color == '#087F97'? <div className="ocupa"></div>  : <div className="circuloDellCor" onClick={() => { setColor('#087F97') }}></div>}
+                        
+                    </div>
+
+                    {maisCor ? <div className="contain">
+                        <input type="color" id="head" name="head" className="doisCor" value={color2} onChange={colorChange2} />
+                        <div className="circuloDellCor doisCor" onClick={() => { setColor2('#087F97'); setMaisCor(false) }}></div>
+                    </div> :
+                        <div className="contain">
+                            <img src={mais} onClick={() => { setMaisCor(true) }} />
+                        </div>}
+
+
                 </div>
 
                 <div className="caixaInter">
@@ -286,8 +313,6 @@ export default function NovoLivro() {
 
                 <div className="salvaLivro">
                     <button type="submit">SALVAR</button>
-
-
                 </div>
             </form >
 

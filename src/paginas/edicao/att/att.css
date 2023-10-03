@@ -54,16 +54,17 @@
     border-radius: 10px;
 }
 
-.fundo{
+.fundo {
     position: fixed;
-    height: 100vh;    
+    height: 100vh;
     z-index: 1;
     width: 100vw;
     top: 0;
     left: 0;
     background-color: rgba(255, 255, 255, 0.534);
 }
-.opsClass{
+
+.opsClass {
     position: absolute;
     left: 30px;
     top: 200px;
@@ -76,7 +77,7 @@
     overflow: hidden;
 }
 
-.opsClass .imgC{
+.opsClass .imgC {
     cursor: pointer;
     height: 70px;
     width: 75px;
@@ -86,7 +87,7 @@
     animation: abrir .3s linear reverse;
 }
 
-.opsClass .imgC.close{
+.opsClass .imgC.close {
     animation: fechar .33s linear;
 }
 
@@ -149,29 +150,67 @@
     width: 40%;
 }
 
-#selectColor{
+#selectColor {
     position: absolute;
-    right: 33%;
+    right: 32%;
     top: 32%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#selectColor .contain {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 5px;
 }
+.contain img{
+    height: 25px;
+    width:  25px;
+    position: relative;
+    top: 5px;
+    left: 10px;
+    cursor: pointer;
+}
+.doisCor{
+    position: relative;
+    top: 12px;
+    left: 10px;
+}
+.ocupa{
+    height: 10px;
+    width: 10px;
+}
+#selectColor .circuloDellCor {
+    position: relative;
+    height: 10px;
+    width: 10px;
+    background-color: red;
+    background-image: url('../../../imgs/sair.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border-radius: 50%;
+}
 
-#selectColor #head{
+#selectColor #head {
     height: 40px;
     width: 40px;
-    background-color:white;
+    background-color: white;
+    cursor: pointer;
 }
-#head::-webkit-color-swatch{
+
+#head::-webkit-color-swatch {
     border-radius: 50%;
     border: none;
 }
-#head::-moz-color-swatch{
+
+#head::-moz-color-swatch {
     border-radius: 50%;
     border: none;
 }
+
 #contadora {
     position: relative;
     left: 30px;
@@ -188,7 +227,7 @@
     margin-right: 25%;
 }
 
-.caixaInter{
+.caixaInter {
     position: absolute;
     bottom: 100px;
     right: 40px;
@@ -206,7 +245,8 @@
     right: 30px;
 }
 
-.salvaLivro button, #cancel {
+.salvaLivro button,
+#cancel {
     all: unset;
     background-color: none;
     cursor: pointer;
@@ -217,16 +257,19 @@
     font-weight: bold;
     margin-right: 10%;
 }
- #cancel{
+
+#cancel {
     position: absolute;
     bottom: 0;
     right: 600px;
     color: #BACFD1;
 }
- #cancel:hover{
+
+#cancel:hover {
     color: red;
 }
-.trans{
+
+.trans {
     position: absolute;
     z-index: 2;
     top: 0;
@@ -235,20 +278,23 @@
     width: 200px;
     background-color: #ffffff09;
 }
+
 @keyframes abrir {
-    0%{
+    0% {
         transform: translateY(0);
     }
-    100%{
+
+    100% {
         transform: translateY(-500px);
     }
 }
 
 @keyframes fechar {
-    0%{
+    0% {
         transform: translateY(0);
     }
-    100%{
+
+    100% {
         transform: translateY(-500px);
     }
 }

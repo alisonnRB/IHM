@@ -1,8 +1,9 @@
 export default {
-    enviar: async (idLivro, id, formData, nome, selecao, classificacao, publico, finalizado, color) => {
+    enviar: async (idLivro, id, formData, nome, selecao, classificacao, publico, finalizado, color, color2) => {
         //? recebe um objeto formData e adiciona as informações que faltam 
         formData.append('id', id);
         formData.append('color', color);
+        formData.append('color2', color2);
         formData.append('idLivro', idLivro);
         formData.append('nome', nome);
         formData.append('selecao', JSON.stringify(selecao));
