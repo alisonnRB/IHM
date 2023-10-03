@@ -1,12 +1,20 @@
 import React from 'react';
 import './livros.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Selecao from '../../livroSelectGen/select';
 import Interruptor from '../../interruptor/interruptor';
+import MostraLivros from './mostraLivros/mostraLivros';
+
+import api from "../../../backend/controler/api_search";
 
 function Livros() {
     const [conta, setConta] = useState(0);
+    const [Livro, setLivro] = useState('');
+    const [classe, setClasse] = useState('fecha');
+    const [Caracter, setCaracter] = useState(false);
+
+
     const [selecao, setSelecao] = useState({
         0: false,
         1: false,
@@ -27,17 +35,35 @@ function Livros() {
         16: false,
 
     });
-
     const [open, setOpen] = useState(false);
     const [Novo, setNovo] = useState(false);
     const [Finalizado, setFinalizado] = useState(false);
+    const [nome, setNome] = useState('');
+    const [classificacao, setClassificacao] = useState('');
 
+
+    const Busca = async () => {
+        if (!open) {
+            const resposta = await api.enviar(nome, null, null, null, null);
+            if (resposta.ok) {
+                setLivro(resposta.livros);
+            }
+        } else {
+            const resposta = await api.enviar(nome, Novo, Finalizado, classificacao, selecao);
+            if (resposta.ok) {
+                setLivro(resposta.livros);
+            }
+        }
+
+
+
+    }
 
     const Filters = () => {
 
         return (
             <>
-                <span className='BOXS'>
+                <span className={`BOXS ${classe}`}>
 
                     <div className='boxSelection Gener'>
                         <Selecao setConta={setConta} setSelecao={setSelecao} Quantos={1} />
@@ -58,22 +84,44 @@ function Livros() {
         );
     };
 
+    useEffect(() => {
+        Busca();
+    }, []);
+
+    useEffect(() => {
+        Busca();
+    }, [Novo, Finalizado, nome, classificacao, selecao]);
+
+    const abreFilter = () => {
+        if (classe === 'abre') {
+            setClasse('fecha');
+            setCaracter(!Caracter);
+            setTimeout(() => {
+                setOpen(!open);
+            }, 200);
+        } else {
+            setCaracter(!Caracter);
+            setClasse('abre');
+            setOpen(!open);
+        }
+    }
+
     return (
         <div className='TelaLivros'>
             <form>
                 <span className='boxLivros'>
-                    <input type='text' id='searchText' placeholder='Buscar' />
+                    <input type='text' id='searchText' placeholder='Buscar' value={nome} onChange={(e) => { setNome(e.target.value); Busca(); }} />
                     <div id='searchImg'></div>
                 </span>
 
                 <div className='filtros'>
-                    <span id='title'><p onClick={()=>{setOpen(!open)}}>filtros V</p></span>
+                    <span id='title'><p onClick={() => { abreFilter() }}>FILTRO {Caracter ? <>&and;</> : <>&or;</>}</p></span>
                     {open ? Filters() : null}
                 </div>
             </form>
 
             <section className='buscaLivros'>
-
+                <MostraLivros Livro={Livro} />
             </section>
 
 

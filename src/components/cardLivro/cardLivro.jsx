@@ -17,7 +17,7 @@ import dezoito from '../../imgs/dezoito.jpeg';
 
 export default function Livro(props) {
 
-    const id = localStorage.getItem('id');
+    const [id, setId] = useState('')
     const [fotoCapa, setFotoCapa] = useState('');
     const [nome, setNome] = useState('...');
     const [livro, setLivro] = useState('');
@@ -30,10 +30,8 @@ export default function Livro(props) {
     const [timeoutId, setTimeoutId] = useState(null);
 
     useEffect(() => {
-        if (props.info && props.info['imagem']) {
-            setFotoCapa("http://192.168.255.56/livros/" + id + '/' + props.info['nome'] + '_' + props.info['id'] + '/' + props.info['imagem']);
-        } else {
-            setFotoCapa('');
+        if(props.info.user_id){
+            setId(props.info.user_id);
         }
         if (props.info && props.info['nome']) {
             setNome(props.info['nome']);
@@ -49,6 +47,14 @@ export default function Livro(props) {
         setLivro(props.info);
 
     }, [props.info]);
+
+    useEffect(()=>{
+        if (props.info && props.info['imagem'] && id) {
+            setFotoCapa("http://192.168.255.56/livros/" + id + '/' + nome + '_' + props.info['id'] + '/' + props.info['imagem']);
+        } else {
+            setFotoCapa('');
+        }
+    },[id])
 
 
     function botao(mine) {
@@ -135,7 +141,7 @@ export default function Livro(props) {
 
                 <span id="BTs">
 
-                    <Link className="link"><button className="Read bt">Visualizar em Modo Leitura</button></Link>
+                    <Link className="link"><button className="Read bt">{props.mine? `Visualizar em Modo Leitura`: props.text}</button></Link>
 
                     {botao(props.mine)}
 
