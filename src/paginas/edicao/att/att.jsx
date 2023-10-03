@@ -279,7 +279,7 @@ export default function NovoLivro() {
                     <div className="GenBoxL">
 
                         <div className="generosLivro">
-                            <Selecao setConta={setConta} setSelecao={setSelecao} Gen={Gen} />
+                            <Selecao setConta={setConta} setSelecao={setSelecao} Gen={Gen} Quantos={3}/>
 
                         </div>
                         <span id="contadora"><p>{conta + '/3'}</p></span>

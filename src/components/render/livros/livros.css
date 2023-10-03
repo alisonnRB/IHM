@@ -1,63 +1,171 @@
-@media screen and (min-width: 1199px){
-.boxLivros{
+.TelaLivros {
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+.TelaLivros form {
+    width: 100%;
+}
+
+.boxLivros {
+    margin-top: 3%;
+    height: 100px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 
 }
-#titleLivro{
-    font-size: 3em;
-    margin-top: 30px;
-}
-#search{
-    position: relative;
-    left: 350px;
-    top: 45px;
-    height: 30px;
-    width: 200px;
+
+#searchImg {
+    height: 60%;
+    width: 80px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background-color: #EBECF0;
+    cursor: pointer;
+    background-image: url('../../../imgs/lupa.png');
+    background-size: 55% 55%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    box-shadow: 0px 0px 10px 0px  #BACFD2;
 
 }
-.buscaLivros{
+
+.boxLivros #searchText {
+    box-shadow: 0px 0px 10px 0px  #BACFD2;
+    height: 60%;
+    width: 80%;
+    padding-left: 1em;
+    background-color: #EBECF0;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    font-weight: bold;
+}
+
+.filtros {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.filtros #title {
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    height: 50px;
+    width: 84%;
+}
+
+.filtros #title p {
+    font-size: .8em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.BOXS {
+    height: 250px;
+    min-width: 84%;
+    margin-top: 1%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    animation: openFil .2s linear;
+}
+
+.BOXS .boxSelection {
+    box-shadow: 0px 0px 10px 0px  #BACFD2;
+    background-color: #EBECF0;
+    height: 90%;
+    width: 33%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.BOXS .boxSelection.Gener #selecao {
+    background-color: #CFFBFF;
+    position: relative;
+    top: 20px;
+    height: 30px;
+    width: 300px;
+    font-size: 1.1em;
+}
+
+.BOXS .boxSelection.Gener .boxGend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+    height: inherit;
+    width: 300px;
+}
+
+.BOXS .boxSelection.Gener .boxGend .Genero {
+    height: 40px;
+    width: 250px;
+    font-size: 1.2em;
+    animation: none;
+}
+.BOXS .boxSelection .indi{
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 300px;
+    background-color: #CFFBFF;
+    box-shadow: 0px 0px 15px 0px #087f9757;
+    border-radius: 30px;
+}
+
+
+.BOXS .boxSelection.inter {
+    background-color: white;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 25%;
+}
+
+.BOXS .boxSelection.inter center{
+    box-shadow: 0px 0px 10px 0px  #BACFD2;
+    border-radius: 25px;
+    background-color: #EBECF0;
+    justify-content: center;
+    height: 30%;
+    width: 100%;
+}
+.BOXS .boxSelection.inter center h1{
+    position: inherit;
+    font-size: 1em;
+    width: 10px;
+    
+}
+
+.buscaLivros {
     padding-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 500px;
+    height: inherit;
+    background-color: aqua;
 
 }
-.cardLivro{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
 
+@keyframes openFil {
+    0%{
+        height: 0;
+    }
+    100%{
+        height: 250px;
+    }
 }
-.buscaLivros img{
-    height: 250px;
-    width: 250px;
-}
-#searchImg{
-    height: 30px;
-    width: 40px;
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
-    background-color: black;
-    cursor: pointer;
-}
-#searchText{
-    padding-left: 1em;
-    color: white;
-    height: 100%;
-    width: 100%;
-    background-color: black;
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
-}
-.titleCard{
-    font-size: 1.5em;
-}
-.local{
-    color: #9FD6DB;
-}}

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import './barraCap.css';
 
 import mais from '../../../imgs/mais.png';
-import lixo from '../../../imgs/lixeira.png';
+import lixo from '../../../imgs/sair.png';
 
 export default function BarraCap(props) {
     const [numCaps, setNumCaps] = useState(0);

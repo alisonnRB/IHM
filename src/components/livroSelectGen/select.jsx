@@ -8,6 +8,7 @@ import api from '../../backend/controler/api_gender';
 export default function Selecao(props) {
     const [genero, setgenero] = useState('...');
     const [limit, setLimit] = useState(0);
+    const [quantos, setQuantos] = useState(0);
     const [selecionados, setSelecionado] = useState({
         0: false,
         1: false,
@@ -31,6 +32,9 @@ export default function Selecao(props) {
 
     useEffect(() => {
         Busca();
+        if(props.Quantos){
+            setQuantos(props.Quantos);
+        }
     }, []);
 
     useEffect(() => {
@@ -72,7 +76,7 @@ export default function Selecao(props) {
     }
 
     function selecionando(index) {
-        if (limit < 3) {
+        if (limit < quantos) {
             if (selecionados[index - 1] == false) {
                 setLimit(limit + 1);
                 props.setConta(limit + 1);
