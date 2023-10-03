@@ -2,11 +2,12 @@ import React from "react";
 import './createLivro.css';
 import { useState } from "react";
 
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import x from '../../../imgs/x.jpeg';
 import Selecao from '../.././../components/livroSelectGen/select';
 import api from '../../../backend/controler/api_newLivro';
+import apiInfo from '../../../backend/controler/api_meusLivros';
 
 import livre from '../../../imgs/livre.jpeg';
 import dez from '../../../imgs/dez.jpeg';
@@ -18,6 +19,7 @@ import dezoito from '../../../imgs/dezoito.jpeg';
 import { useEffect } from "react";
 
 export default function NovoLivro() {
+    const navigate = useNavigate();
     const [imagePreview, setImagePreview] = useState('');
     const [file, setFile] = useState(null);
 
@@ -63,7 +65,9 @@ export default function NovoLivro() {
         const resposta = await api.enviar(idUsuario, formData, nameBook, selecao, classificacao);
 
         if (resposta.ok) {
-            window.location.reload();
+            const AWid = await apiInfo.enviar(idUsuario);
+            const id = AWid.livros[Object.keys(AWid.livros).length - 1].id;
+            navigate(`/perfil/MeusLivros/escreva?id=${encodeURIComponent(JSON.stringify(id))}`)
         }
 
         setFile(null);
@@ -164,7 +168,7 @@ export default function NovoLivro() {
                         </div>
 
                         <div className="xis">
-                            <Link to='/perfil' className="link"><img src={x} /></Link>
+                            <img src={x} onClick={()=>{navigate(-1)}}/>
                         </div>
                     </span>
 

@@ -287,7 +287,8 @@ export default function Escreve() {
                 setSave={setSave}
                 setDelete={setDelete}
                 setTitulo={setTitulo}
-                setNew={setNew} />
+                setNew={setNew}
+                setContent={setContent} />
 
             <Paginas
                 idLivro={idLivro}
