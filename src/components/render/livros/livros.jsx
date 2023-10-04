@@ -124,7 +124,7 @@ function Livros() {
                     </div>
 
                     <div className='boxSelection'>
-                        <span className='indi' onClick={() => { setOpenClass(!openClass) }}>class Indicativa</span>
+                        <span className='indi' onClick={() => { setOpenClass(!openClass) }}>CLASSIFICAÇÃO INDICATIVA</span>
                         {!openClass && classificacao != '' ? Classificado() : null}
                         {openClass ? selecionaClass() : null}
                     </div>
@@ -177,7 +177,7 @@ function Livros() {
             </form>
 
             <section className='buscaLivros'>
-                <MostraLivros Livro={Livro} />
+                {Livro != '' ? <MostraLivros Livro={Livro}/> : <p id='notFound'>LIVRO NÃO ENCONTRADO :&#40;</p>}
             </section>
 
 
