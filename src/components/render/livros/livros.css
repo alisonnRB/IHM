@@ -169,6 +169,44 @@
 
 }
 
+.boxSelection .opsClass {
+    position: inherit;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    height: 40%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.boxSelection .opsClass .imgC {
+    cursor: pointer;
+    height: 40px;
+    width: 43px;
+    border-radius: 7px;
+
+    animation: abrir .4s ease-in reverse;
+}
+
+.boxSelection .opsClass .caixaDeClass{
+    border-radius: 7px;
+    background-color: green;
+    height: 40px;
+    width: 43px;
+    border: solid black 1px;
+}
+
+.boxSelection .opsClass .caixaDeClass #imagemClass{
+    height: 100%;
+    width: 100%;
+    border-radius: 7px;
+}
+#imagemClass:hover{
+    box-shadow: 0px 0px 20px 0px rgba(255, 0, 0, 0.774);
+}
+
 @keyframes openFil {
     0%{
         height: 0;

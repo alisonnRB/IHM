@@ -6,6 +6,14 @@ import Selecao from '../../livroSelectGen/select';
 import Interruptor from '../../interruptor/interruptor';
 import MostraLivros from './mostraLivros/mostraLivros';
 
+
+import livre from '../../../imgs/livre.jpeg';
+import dez from '../../../imgs/dez.jpeg';
+import doze from '../../../imgs/doze.jpeg';
+import quatorze from '../../../imgs/quatorze.jpeg';
+import dezeseis from '../../../imgs/dezeseis.jpeg';
+import dezoito from '../../../imgs/dezoito.jpeg';
+
 import api from "../../../backend/controler/api_search";
 
 function Livros() {
@@ -36,6 +44,10 @@ function Livros() {
 
     });
     const [open, setOpen] = useState(false);
+    const [openClass, setOpenClass] = useState(false);
+    const [Class, setClass] = useState('');
+
+
     const [Novo, setNovo] = useState(false);
     const [Finalizado, setFinalizado] = useState(false);
     const [nome, setNome] = useState('');
@@ -54,10 +66,52 @@ function Livros() {
                 setLivro(resposta.livros);
             }
         }
-
-
-
     }
+    const selecionaClass = () => {
+        return (
+            <div className="opsClass">
+                <img className={`imgC`} src={livre} onClick={() => { setClassificacao('livre'); setOpenClass(!openClass) }} />
+                <img className={`imgC`} src={dez} onClick={() => { setClassificacao('dez'); setOpenClass(!openClass) }} />
+                <img className={`imgC`} src={doze} onClick={() => { setClassificacao('doze'); setOpenClass(!openClass) }} />
+                <img className={`imgC`} src={quatorze} onClick={() => { setClassificacao('quatorze'); setOpenClass(!openClass) }} />
+                <img className={`imgC`} src={dezeseis} onClick={() => { setClassificacao('dezeseis'); setOpenClass(!openClass) }} />
+                <img className={`imgC`} src={dezoito} onClick={() => { setClassificacao('dezoito'); setOpenClass(!openClass) }} />
+            </div>
+        );
+    };
+
+    const Classificado = () => {
+        return (
+            <div className="opsClass">
+                <div className='caixaDeClass'>
+                    <img src={Class} onClick={()=>{setClassificacao('')}} id='imagemClass'/>
+                </div>
+            </div>
+        );
+    }
+
+    useEffect(() => {
+        switch (classificacao) {
+            case 'livre':
+                setClass(livre);
+                break;
+            case 'dez':
+                setClass(dez);
+                break;
+            case 'doze':
+                setClass(doze);
+                break;
+            case 'quatorze':
+                setClass(quatorze);
+                break;
+            case 'dezeseis':
+                setClass(dezeseis);
+                break;
+            case 'dezoito':
+                setClass(dezoito);
+                break;
+        }
+    }, [classificacao]);
 
     const Filters = () => {
 
@@ -70,7 +124,9 @@ function Livros() {
                     </div>
 
                     <div className='boxSelection'>
-                        <span className='indi'>class Indicativa</span>
+                        <span className='indi' onClick={() => { setOpenClass(!openClass) }}>class Indicativa</span>
+                        {!openClass && classificacao != '' ? Classificado() : null}
+                        {openClass ? selecionaClass() : null}
                     </div>
 
                     <div className='boxSelection inter'>
