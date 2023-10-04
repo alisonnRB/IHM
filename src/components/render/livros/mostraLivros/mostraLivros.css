@@ -1,5 +1,6 @@
 .buscaLivros .boxCardMeusLivro{
-    min-height: 50%;
     position: relative;
-    bottom: 20%;
+    height: 0;
+    bottom: 43%;
+    background-color: aqua;
 }
