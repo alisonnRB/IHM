@@ -164,7 +164,7 @@ function Livros() {
 
     return (
         <div className='TelaLivros'>
-            <form>
+            <div id='pesquisa'>
                 <span className='boxLivros'>
                     <input type='text' id='searchText' placeholder='Buscar' value={nome} onChange={(e) => { setNome(e.target.value); Busca(); }} />
                     <div id='searchImg'></div>
@@ -174,7 +174,7 @@ function Livros() {
                     <span id='title'><p onClick={() => { abreFilter() }}>FILTRO {Caracter ? <>&and;</> : <>&or;</>}</p></span>
                     {open ? Filters() : null}
                 </div>
-            </form>
+            </div>
 
             <section className='buscaLivros'>
                 {Livro != '' ? <MostraLivros Livro={Livro}/> : <p id='notFound'>LIVRO NÃO ENCONTRADO :&#40;</p>}

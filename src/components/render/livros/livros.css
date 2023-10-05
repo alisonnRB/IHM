@@ -4,7 +4,7 @@
     display: block;
 }
 
-.TelaLivros form {
+.TelaLivros #pesquisa {
     width: 100%;
 }
 
@@ -98,13 +98,12 @@
     align-items: center;
     justify-content: center;
 }
-
 .BOXS .boxSelection.Gener #selecao {
     background-color: #CFFBFF;
     position: relative;
-    top: 20px;
     height: 30px;
     width: 300px;
+    margin-bottom: 5px;
     font-size: 1.1em;
 }
 
@@ -112,15 +111,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 80px;
+    position: relative;
     height: inherit;
     width: 300px;
 }
 
 .BOXS .boxSelection.Gener .boxGend .Genero {
+    margin-top: 16%;
     height: 40px;
     width: 250px;
     font-size: 1.2em;
+    position: relative;
+    bottom: 23px;
     animation: none;
 }
 
@@ -140,9 +142,9 @@
     box-shadow: none;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: start;
     width: 25%;
+    gap: 20px;
 }
 
 .BOXS .boxSelection.inter center {
