@@ -141,7 +141,7 @@ export default function Livro(props) {
 
                 <span id="BTs">
 
-                    <Link className="link"><button className="Read bt">{props.mine? `Visualizar em Modo Leitura`: props.text}</button></Link>
+                    <Link className="link" to={`/Ler/?id=${encodeURIComponent(JSON.stringify(livro.id))}`}><button className="Read bt">{props.mine? `Visualizar em Modo Leitura`: props.text}</button></Link>
 
                     {botao(props.mine)}
 
