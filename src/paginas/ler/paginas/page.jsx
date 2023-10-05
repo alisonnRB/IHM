@@ -68,7 +68,7 @@ export default function Ler(props) {
 
     return (
         <>
-            <Aba  Cap={Cap} titleCap={titleCap} setSelecionado={setSelecionado} />
+            <Aba  Cap={Cap} titleCap={titleCap} selecionado={selecionado} setSelecionado={setSelecionado} cor={info.tema2}/>
             <div className="paginaLer">
                 <span className="tituloLer">{selecionado == 0 ? 'Sinopse' : titleCap[selecionado]}</span>
 

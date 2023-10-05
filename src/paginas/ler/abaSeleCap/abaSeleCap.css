@@ -31,8 +31,8 @@
     transition: right .3s linear;
 }
 
-#abaDeCap .abaT:hover{
-    background-color: #BACFD1;
+#abaDeCap .abaT.cap{
+    right: -100px ;
 }
 
 #abaDeCap .abaT.abre{
