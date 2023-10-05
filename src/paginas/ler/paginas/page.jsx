@@ -45,8 +45,6 @@ export default function Ler(props) {
     };
 
 
-    console.log(content);
-
     const conteudo = async () => {
         const response = await apiC.enviar(info.user_id, selecionado, info.id, info.nome);
         if (response.ok === true) {
@@ -56,7 +54,6 @@ export default function Ler(props) {
             setContent('');
         }
     };
-
 
     useEffect(() => {
         Busca();
@@ -71,7 +68,7 @@ export default function Ler(props) {
 
     return (
         <>
-            <Aba key={1} Cap={Cap} titleCap={titleCap} setSelecionado={setSelecionado} />
+            <Aba  Cap={Cap} titleCap={titleCap} setSelecionado={setSelecionado} />
             <div className="paginaLer">
                 <span className="tituloLer">{selecionado == 0 ? 'Sinopse' : titleCap[selecionado]}</span>
 

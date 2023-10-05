@@ -1,16 +1,15 @@
 .paginaLer{
     min-height: calc(1000px - 30px);
     width: calc(55% - 30px);
-    background-color: aliceblue;
     margin-top: 100px;
     padding: 30px;
     border: solid black 1px;
     display: block;
-    z-index: 2;
+    z-index: 2; 
+   background-color: white;
 }
 
 .paginaLer .tituloLer{
-    background-color: aqua;
     height: 70px;
     align-items: center;
     justify-content: center;
@@ -22,6 +21,5 @@
 .paginaLer .contentPagina{
     height: calc(100% - 100px);
     width: 100%;
-    background-color: brown;
     word-break: break-all;
 }

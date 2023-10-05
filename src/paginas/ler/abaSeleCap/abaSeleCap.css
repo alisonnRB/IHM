@@ -1,5 +1,4 @@
 #abaDeCap{
-    background-color: aquamarine;
     height: calc(1000px - 30px);
     width: 200px;
     position: absolute;
@@ -14,7 +13,8 @@
 }
 
 #abaDeCap .abaT{
-    background-color: rgb(94, 32, 32);
+    background-color: white;
+    border: solid black 1px;
     height: 70px;
     width: 100px;
     padding-left: 20px;
@@ -28,7 +28,11 @@
     white-space: nowrap;
     overflow: hidden;
 
-    transition: all .3s linear;
+    transition: right .3s linear;
+}
+
+#abaDeCap .abaT:hover{
+    background-color: #BACFD1;
 }
 
 #abaDeCap .abaT.abre{
