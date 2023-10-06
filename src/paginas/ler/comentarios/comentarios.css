@@ -29,3 +29,7 @@
     width: calc(100% - 20px);
     height: 80px;
 }
+.comentarios .replyBOX{
+    display: block;
+    margin-left: 5%;
+}

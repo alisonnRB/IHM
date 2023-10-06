@@ -34,7 +34,6 @@ export default function Ler(props) {
                     setTitleCap(titulo);
                 }
 
-
                 const cont = Object.keys(JSON.parse(respostaBook.infos.texto));
                 let contador = 0;
                 for (let chaves of cont) {
@@ -95,7 +94,7 @@ export default function Ler(props) {
 
                 <span className="interval">. . .</span>
                 
-                <Comentarios />
+                <Comentarios idLivro={props.idLivro} tipo={'livro'}/>
             </div>
         </>
     );
