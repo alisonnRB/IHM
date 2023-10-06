@@ -67,16 +67,11 @@ export default function Ler(props) {
 
     useEffect(() => {
         if (info.tema) {
-            props.setCor1(info.tema);
+            props.setCor(info.tema);
         } else {
-            props.setCor1('#0A6E7D')
+            props.setCor('#fffff')
         }
-        if (info.tema2) {
-            props.setCor2(info.tema2);
-        } else {
-            props.setCor2('#0A6E7D')
-        }
-    }, [info.tema, info.tema2]);
+    }, [info.tema]);
 
     useEffect(()=>{
         if(info.nome){
@@ -90,12 +85,14 @@ export default function Ler(props) {
 
     return (
         <>
-            <Aba Cap={Cap} titleCap={titleCap} selecionado={selecionado} setSelecionado={setSelecionado} cor={info.tema2} />
+            <Aba Cap={Cap} titleCap={titleCap} selecionado={selecionado} setSelecionado={setSelecionado} cor={info.tema} />
             <div className="paginaLer">
                 <span className="tituloLer">{selecionado == 0 ? 'Sinopse' : titleCap[selecionado]}</span>
 
                 <div className="contentPagina" dangerouslySetInnerHTML={{ __html: selecionado == 0 ? Sinopse : content }}>
                 </div>
+
+                <span className="interval">. . .</span>
             </div>
         </>
     );

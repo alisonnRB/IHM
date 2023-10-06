@@ -6,7 +6,7 @@ export default function Aba(props) {
     const [Caps, setCaps] = useState(0);
     const [titleCap, setTitleCap] = useState('');
 
-    const [cor, setCor] = useState('');
+    const [cor, setCor] = useState('#fffff');
 
     const [ishovered, setIsHovered] = useState(null);
 

@@ -20,8 +20,7 @@ export default function Ler() {
     const [userId, setUserId] = useState(0);
     const [infos, setInfos] = useState('');
 
-    const [cor1, setCor1] = useState('');
-    const [cor2, setCor2] = useState('');
+    const [cor, setCor] = useState('');
 
     const [tituloL, setTituloL] = useState('');
     const [foto, setFoto] = useState('');
@@ -71,13 +70,13 @@ export default function Ler() {
 
             <span className="filtro"></span>
             <div className="BOXLER">
-                <Page idLivro={idLivro} setCor1={setCor1} setCor2={setCor2} setTituloL={setTituloL} setUserId={setUserId} />
+                <Page idLivro={idLivro} setCor={setCor} setTituloL={setTituloL} setUserId={setUserId} />
             </div>
 
             <div className="infosAutor">
-                <img id="perfil" src={foto} style={{border: 'solid 4px' + cor2}}/>
+                <img id="perfil" src={foto} style={{border: 'solid 4px' + cor}}/>
                 <p>{infos.nome && infos.nome != '' ? infos.nome : "Autor"}</p>
-                <div className="btSeguir" style={{backgroundColor: cor2}}>Seguir</div>
+                <div className="btSeguir" style={{backgroundColor: cor}}>Seguir</div>
             </div>
             <BtFloatH />
         </div>
