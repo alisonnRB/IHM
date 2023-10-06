@@ -13,6 +13,8 @@ export default function Ler(props) {
     const [titleCap, setTitleCap] = useState(null);
     const [Cap, setCap] = useState(0);
 
+    console.log(info);
+
 
     const [content, setContent] = useState('');
 
@@ -77,7 +79,13 @@ export default function Ler(props) {
         } else {
             props.setCor2('#0A6E7D')
         }
-    }, [info.tema, info.tema2])
+    }, [info.tema, info.tema2]);
+
+    useEffect(()=>{
+        if(info.nome){
+            props.setTituloL(info.nome);
+        }
+    },[info.nome])
 
 
     return (
