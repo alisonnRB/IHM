@@ -1,23 +1,23 @@
 #abaDeCap{
-    height: calc(1000px - 30px);
+    max-height: 550px;
     width: 200px;
-    position: absolute;
+    position: fixed;
     z-index: 0;
-    left: 13%;
-    top: 250px;
-    overflow: hidden;
+    left: 2%;
+    top: 180px;
+    overflow: auto;
     display: flex;
     flex-direction: column;
-    align-items: end;
-    gap: 5px;
+    align-items: center;
+    gap: 15px;
 }
 
 #abaDeCap .abaT{
-    background-color: white;
-    border: solid black 1px;
-    height: 70px;
-    width: 100px;
-    padding-left: 20px;
+    cursor: pointer;
+    background-color: #F5F5F5;
+    min-height: 40px;
+    min-width: 150px;
+    border-radius: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,13 +26,4 @@
     white-space: nowrap;
     overflow: hidden;
 
-    transition: right .3s linear;
-}
-
-#abaDeCap .abaT.cap{
-    right: -100px ;
-}
-
-#abaDeCap .abaT.abre{
-    right: 50px;
 }

@@ -13,9 +13,6 @@ export default function Ler(props) {
     const [titleCap, setTitleCap] = useState(null);
     const [Cap, setCap] = useState(0);
 
-    console.log(info);
-
-
     const [content, setContent] = useState('');
 
 

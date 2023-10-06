@@ -4,9 +4,7 @@ import { useState, useEffect } from "react";
 
 export default function Aba(props) {
     const [Caps, setCaps] = useState(0);
-    const [open, setOpen] = useState(false);
     const [titleCap, setTitleCap] = useState('');
-    const classe = 'abre';
 
     const [cor, setCor] = useState('');
 
@@ -20,10 +18,10 @@ export default function Aba(props) {
                 key={i}
                 onMouseEnter={() => setIsHovered(i)}
                 onMouseLeave={() => setIsHovered(null)}
-                style={props.selecionado == i || ishovered == i ? { backgroundColor: cor } : null}
-                className={`abaT ${open ? null : 'cap'} ${open ? classe : null}`}
-                onClick={() => { if (open) { setOpen(false); props.setSelecionado(i); } }}>
-                {open ? `Cap ${i} - ${titleCap[i]}` : null}
+                style={props.selecionado == i || ishovered == i ? { backgroundColor: cor, color: "white"  } : null}
+                className={`abaT`}
+                onClick={() => { props.setSelecionado(i) }}>
+                {`Cap ${i} - ${titleCap[i]}`}
             </span>;
             list.push(a);
         }
@@ -52,10 +50,10 @@ export default function Aba(props) {
                 key={0}
                 onMouseEnter={() => setIsHovered(0)}
                 onMouseLeave={() => setIsHovered(null)}
-                className={`abaT ${open ? classe : null}`}
-                style={!open || props.selecionado == 0 || ishovered == 0?{ backgroundColor: cor }: null}
-                onClick={() => { if (open) { setOpen(false); props.setSelecionado(0); } else { setOpen(true); } }}>
-                {open ? 'SINOPSE' : null}
+                className={`abaT`}
+                style={props.selecionado == 0 || ishovered == 0?{ backgroundColor: cor, color: "white" }: null}
+                onClick={() => { props.setSelecionado(0) }}>
+                SINOPSE
             </span>
 
             {Capitulos()}
