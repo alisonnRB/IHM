@@ -82,7 +82,10 @@ export default function Ler(props) {
         if(info.nome){
             props.setTituloL(info.nome);
         }
-    },[info.nome])
+        if(info.user_id){
+            props.setUserId(info.user_id);
+        }
+    },[info.nome, info.user_id])
 
 
     return (

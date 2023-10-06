@@ -4,8 +4,9 @@ import './ler.css';
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
-import logo from '../../imgs/logo.png';
+import api from '../../backend/controler/api_info';
 
+import logo from '../../imgs/logo.png';
 import Fav from "../../imgs/estrela.png";
 import Curti from "../../imgs/coracao.png";
 
@@ -16,22 +17,45 @@ export default function Ler() {
     const location = useLocation();
     const [idLivro, setIdLivro] = useState(0);
 
+    const [userId, setUserId] = useState(0);
+    const [infos, setInfos] = useState('');
+
     const [cor1, setCor1] = useState('');
     const [cor2, setCor2] = useState('');
 
     const [tituloL, setTituloL] = useState('');
+    const [foto, setFoto] = useState('');
+
 
     useEffect(() => {
         const idLivroG = new URLSearchParams(location.search).get('id');
         setIdLivro(idLivroG);
     }, [location]);
 
+    useEffect(() => {
+        if (userId && userId != 0) {
+            Busca();
+        }
+    }, [userId]);
+
+    useEffect(() => {
+        if (infos && infos != '') {
+           setFoto("http://192.168.255.56/imagens/" + infos.fotoPerfil);
+        }
+    }, [infos]);
+
+    const Busca = async () => {
+        const resposta = await api.enviar(userId);
+
+        setInfos(resposta.userInfo);
+    };
+
     return (
         <div className="PageLer">
             <header>
                 <img id="logoP" src={logo} />
                 <div id="CurtiL">
-                    <span className="tituloBox">{tituloL && tituloL != ''? tituloL : 'Nome Do Livro'}</span>
+                    <span className="tituloBox">{tituloL && tituloL != '' ? tituloL : 'Nome Do Livro'}</span>
 
                     <span id="BOXCURTI">
                         <div className="BoxVisu fav">
@@ -47,11 +71,13 @@ export default function Ler() {
 
             <span className="filtro"></span>
             <div className="BOXLER">
-                <Page idLivro={idLivro} setCor1={setCor1} setCor2={setCor2} setTituloL={setTituloL}/>
+                <Page idLivro={idLivro} setCor1={setCor1} setCor2={setCor2} setTituloL={setTituloL} setUserId={setUserId} />
             </div>
 
             <div className="infosAutor">
-
+                <img id="perfil" src={foto} style={{border: 'solid 4px' + cor2}}/>
+                <p>{infos.nome && infos.nome != '' ? infos.nome : "Autor"}</p>
+                <div className="btSeguir" style={{backgroundColor: cor2}}>Seguir</div>
             </div>
             <BtFloatH />
         </div>

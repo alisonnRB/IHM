@@ -97,3 +97,38 @@
 .PageLer .btFloat {
     border: solid black 1px;
 }
+
+.infosAutor{
+    height: 400px;
+    width: 200px;
+    position: fixed;
+    right: 2%;
+    top: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.infosAutor #perfil{
+    border-radius: 50%;
+    height: 120px;
+    width: 120px;
+    cursor: pointer;
+}
+.infosAutor p{
+    font-weight: bold;
+}
+
+.infosAutor .btSeguir{
+    height: 20px;
+    width: 60px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+}
