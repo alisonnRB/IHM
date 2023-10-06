@@ -16,7 +16,6 @@ import quatorze from '../../../imgs/quatorze.jpeg';
 import dezeseis from '../../../imgs/dezeseis.jpeg';
 import dezoito from '../../../imgs/dezoito.jpeg';
 import deletar from '../../../imgs/delete.png';
-import mais from '../../../imgs/mais.png';
 
 import Interruptor from '../../../components/interruptor/interruptor';
 import Selecao from '../.././../components/livroSelectGen/select';
