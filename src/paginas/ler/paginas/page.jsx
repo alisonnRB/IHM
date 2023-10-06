@@ -6,6 +6,7 @@ import api from '../../../backend/controler/api_InfosLivro';
 import apiC from '../../../backend/controler/api_contentCap';
 
 import Aba from '../abaSeleCap/abaSeleCap';
+import Comentarios from "../comentarios/comentarios";
 
 export default function Ler(props) {
     const [info, setInfo] = useState('');
@@ -93,6 +94,8 @@ export default function Ler(props) {
                 </div>
 
                 <span className="interval">. . .</span>
+                
+                <Comentarios />
             </div>
         </>
     );

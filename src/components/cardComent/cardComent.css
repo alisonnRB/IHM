@@ -1,0 +1,49 @@
+#comentary{
+    width: 100%;
+    height: 80%;
+    background-color: rgb(255, 94, 0);
+}
+
+#comentary .userComent{
+    background-color: rgb(160, 179, 92);
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+}
+
+#comentary .boxComent{
+    background-color: blueviolet;
+    height: 100%;
+    width: calc(100% - 120px);
+}
+
+#comentary .boxComent .nomeComent{
+    background-color: darkseagreen;
+    height: 25%;
+    width: 100%;
+    padding-left: 7px;
+}
+
+#comentary .boxComent .coment{
+    background-color: darkturquoise;
+    height: 75%;
+    width: 100%;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    word-break: break-all;
+}
+
+#comentary .btsCurti{
+    background-color: cornflowerblue;
+    height: 100%;
+    width: 60px;
+}
+
+#infosComent{
+    background-color: rgb(255, 185, 234);
+    height: 20%;
+    width: 100%;
+    padding-left: 30px;
+    gap: 5px;
+}
