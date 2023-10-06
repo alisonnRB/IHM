@@ -84,6 +84,16 @@
     justify-content: center;
 }
 
+.PageLer .filtro{
+    position: fixed;
+    z-index: 10;
+    left: 20%;
+    top: 130px;
+    height: 100px;
+    width: 60%;
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 50%);
+}
+
 .PageLer .btFloat {
     border: solid black 1px;
 }

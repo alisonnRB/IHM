@@ -44,8 +44,14 @@ export default function Ler() {
 
                 </div>
             </header>
-            <div className="BOXLER animated-gradient" style={{ background: `linear-gradient(to right, ${cor1}, ${cor2})` }}>
+
+            <span className="filtro"></span>
+            <div className="BOXLER">
                 <Page idLivro={idLivro} setCor1={setCor1} setCor2={setCor2} setTituloL={setTituloL}/>
+            </div>
+
+            <div className="infosAutor">
+
             </div>
             <BtFloatH />
         </div>
