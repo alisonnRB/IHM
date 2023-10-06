@@ -10,7 +10,7 @@ export default function Aba(props) {
 
     const [cor, setCor] = useState('');
 
-    const [ishovered, setIsHovered] = useState(0);
+    const [ishovered, setIsHovered] = useState(null);
 
     const Capitulos = () => {
 
@@ -19,7 +19,7 @@ export default function Aba(props) {
             let a = <span
                 key={i}
                 onMouseEnter={() => setIsHovered(i)}
-                onMouseLeave={() => setIsHovered(0)}
+                onMouseLeave={() => setIsHovered(null)}
                 style={props.selecionado == i || ishovered == i ? { backgroundColor: cor } : null}
                 className={`abaT ${open ? null : 'cap'} ${open ? classe : null}`}
                 onClick={() => { if (open) { setOpen(false); props.setSelecionado(i); } }}>
@@ -41,6 +41,8 @@ export default function Aba(props) {
     useEffect(() => {
         if (props.cor) {
             setCor(props.cor)
+        }else{
+            setCor('#0A6E7D')
         }
     }, [props.cor])
 
@@ -48,8 +50,10 @@ export default function Aba(props) {
         <div id="abaDeCap">
             <span
                 key={0}
+                onMouseEnter={() => setIsHovered(0)}
+                onMouseLeave={() => setIsHovered(null)}
                 className={`abaT ${open ? classe : null}`}
-                style={!open || props.selecionado == 0?{ backgroundColor: cor }: null}
+                style={!open || props.selecionado == 0 || ishovered == 0?{ backgroundColor: cor }: null}
                 onClick={() => { if (open) { setOpen(false); props.setSelecionado(0); } else { setOpen(true); } }}>
                 {open ? 'SINOPSE' : null}
             </span>

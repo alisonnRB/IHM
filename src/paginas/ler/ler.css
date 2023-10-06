@@ -1,5 +1,4 @@
 .PageLer{
-    background-color: #BACFD2;
     width: 100vw;
     height: 100%;
 }
@@ -12,9 +11,11 @@
     background-color: rgb(255, 255, 255);
     width: 100%;
     height: 100%;
-    border-top-right-radius: 30px;
-    border-top-left-radius: 30px;
     padding-bottom: 100px;
     display: flex;
     justify-content: center;
+}
+
+.PageLer .btFloat{
+    border: solid black 1px;
 }

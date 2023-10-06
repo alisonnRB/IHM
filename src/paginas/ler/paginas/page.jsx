@@ -13,6 +13,7 @@ export default function Ler(props) {
     const [titleCap, setTitleCap] = useState(null);
     const [Cap, setCap] = useState(0);
 
+
     const [content, setContent] = useState('');
 
 
@@ -49,7 +50,7 @@ export default function Ler(props) {
         const response = await apiC.enviar(info.user_id, selecionado, info.id, info.nome);
         if (response.ok === true) {
             setContent(response.conteudo);
-            
+
         } else {
             setContent('');
         }
@@ -65,14 +66,27 @@ export default function Ler(props) {
         }
     }, [titleCap, selecionado]);
 
+    useEffect(() => {
+        if (info.tema) {
+            props.setCor1(info.tema);
+        } else {
+            props.setCor1('#0A6E7D')
+        }
+        if (info.tema2) {
+            props.setCor2(info.tema2);
+        } else {
+            props.setCor2('#0A6E7D')
+        }
+    }, [info.tema, info.tema2])
+
 
     return (
         <>
-            <Aba  Cap={Cap} titleCap={titleCap} selecionado={selecionado} setSelecionado={setSelecionado} cor={info.tema2}/>
+            <Aba Cap={Cap} titleCap={titleCap} selecionado={selecionado} setSelecionado={setSelecionado} cor={info.tema2} />
             <div className="paginaLer">
                 <span className="tituloLer">{selecionado == 0 ? 'Sinopse' : titleCap[selecionado]}</span>
 
-                <div className="contentPagina" dangerouslySetInnerHTML={{ __html: selecionado == 0? Sinopse : content }}>
+                <div className="contentPagina" dangerouslySetInnerHTML={{ __html: selecionado == 0 ? Sinopse : content }}>
                 </div>
             </div>
         </>
