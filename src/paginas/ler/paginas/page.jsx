@@ -17,7 +17,19 @@ export default function Ler(props) {
     const [content, setContent] = useState('');
 
 
+
     const [selecionado, setSelecionado] = useState(0);
+
+
+    const [openRes, setOpenRes] = useState('');
+
+    useEffect(() => {
+        props.setOpenRes(openRes);
+    }, [openRes])
+
+    useEffect(()=>{
+        setOpenRes(props.openRes);
+    },[props.openRes]);
 
     const Busca = async () => {
         const respostaBook = await api.enviar(props.idLivro);
@@ -73,14 +85,14 @@ export default function Ler(props) {
         }
     }, [info.tema]);
 
-    useEffect(()=>{
-        if(info.nome){
+    useEffect(() => {
+        if (info.nome) {
             props.setTituloL(info.nome);
         }
-        if(info.user_id){
+        if (info.user_id) {
             props.setUserId(info.user_id);
         }
-    },[info.nome, info.user_id])
+    }, [info.nome, info.user_id])
 
 
     return (
@@ -93,8 +105,8 @@ export default function Ler(props) {
                 </div>
 
                 <span className="interval">. . .</span>
-                
-                <Comentarios idLivro={props.idLivro} tipo={'livro'}/>
+
+                <Comentarios idLivro={props.idLivro} tipo={'livro'} setOpenRes={setOpenRes} openRes={openRes}/>
             </div>
         </>
     );

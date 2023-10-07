@@ -25,6 +25,12 @@ export default function Ler() {
     const [tituloL, setTituloL] = useState('');
     const [foto, setFoto] = useState('');
 
+    const [openRes, setOpenRes] = useState('');
+
+    useEffect(()=>{
+        setOpenRes(openRes);
+    },[openRes])
+
 
     useEffect(() => {
         const idLivroG = new URLSearchParams(location.search).get('id');
@@ -50,7 +56,7 @@ export default function Ler() {
     };
 
     return (
-        <div className="PageLer">
+        <div className="PageLer" onClick={()=>{setOpenRes('fechado')}}>
             <header>
                 <img id="logoP" src={logo} />
                 <div id="CurtiL">
@@ -70,7 +76,7 @@ export default function Ler() {
 
             <span className="filtro"></span>
             <div className="BOXLER">
-                <Page idLivro={idLivro} setCor={setCor} setTituloL={setTituloL} setUserId={setUserId} />
+                <Page idLivro={idLivro} setCor={setCor} setTituloL={setTituloL} setUserId={setUserId} setOpenRes={setOpenRes} openRes={openRes}/>
             </div>
 
             <div className="infosAutor">

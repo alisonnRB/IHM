@@ -17,6 +17,17 @@ export default function Comentarios(props) {
     const [idResposta, setIdResposta] = useState(0);
 
 
+    const [openRes, setOpenRes] = useState('');
+
+    useEffect(()=>{
+        props.setOpenRes(openRes);
+    },[openRes]);
+
+    useEffect(()=>{
+        setOpenRes(props.openRes);
+    },[props.openRes]);
+
+
 
     const Comentar = async (event) => {
         if (event) {
@@ -41,16 +52,16 @@ export default function Comentarios(props) {
 
         for (let i = 0; i < quant; i++) {
             if (!comentarios[i].resposta) {
-                let a = <Card key={i} infos={comentarios[i]} setTexto={setTexto} setResposta={setResposta} setIdResposta={setIdResposta} Comentar={Comentar} res={false} />;
+                let a = <Card key={i} chave={i} infos={comentarios[i]}  openRes={openRes} setOpenRes={setOpenRes}  setTexto={setTexto} setResposta={setResposta} setIdResposta={setIdResposta} Comentar={Comentar} res={false} />;
                 list.push(a);
                 for (let b = i; b < quant; b++) {
                     if (comentarios[b].resposta && comentarios[b].id_resposta == comentarios[i].id && !comentarios[i].resposta) {
-                        let a = <span className="replyBOX"><Card key={i + b} infos={comentarios[b]} idRes={comentarios[i].user} setTexto={setTexto} setResposta={setResposta} setIdResposta={setIdResposta} Comentar={Comentar} res={true} /></span>;
+                        let a = <span className="replyBOX"><Card key={i + b} chave={b} infos={comentarios[b]} idRes={comentarios[i].user} openRes={openRes} setOpenRes={setOpenRes} setTexto={setTexto} setResposta={setResposta} setIdResposta={setIdResposta} Comentar={Comentar} res={true} /></span>;
                         list.push(a);
                     }
                     for (let c = b; c < quant; c++) {
                         if (comentarios[c].resposta && comentarios[b].resposta && comentarios[c].id_resposta == comentarios[b].id) {
-                            let a = <span className="replyBOX"><Card key={b + c} infos={comentarios[c]} idRes={comentarios[b].user} setTexto={setTexto} setResposta={setResposta} setIdResposta={setIdResposta} Comentar={Comentar} res={true} /></span>;
+                            let a = <span className="replyBOX"><Card key={c} chave={c} infos={comentarios[c]} idRes={comentarios[b].user} openRes={openRes} setOpenRes={setOpenRes} setTexto={setTexto} setResposta={setResposta} setIdResposta={setIdResposta} Comentar={Comentar} res={true} /></span>;
                             list.push(a);
                         }
                     }
@@ -65,7 +76,9 @@ export default function Comentarios(props) {
     }
 
     useEffect(() => {
-        Busca();
+        if (props.idLivro) {
+            Busca();
+        }
     }, [props.idLivro])
 
     return (

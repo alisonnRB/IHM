@@ -16,7 +16,6 @@ export default function Comentarios(props) {
     const [resposta, setResposta] = useState('');
 
     const [salva, setSalva] = useState(false);
-    const [open, setOpen] = useState(false);
 
     const [nomeRes, setNomeRes] = useState(false);
 
@@ -126,10 +125,10 @@ export default function Comentarios(props) {
 
             <span id="infosComent">
                 <p>{`${dataTime != 'hoje' ? 'há' : ''} ${dataTime != 'hoje' ? data : ''} ${dataTime}`} </p>
-                <p className="reply" onClick={() => { setOpen(true) }}>RESPONDER</p>
+                <p className="reply" onClick={() => { props.setOpenRes(props.chave) }}>RESPONDER</p>
             </span>
 
-            {open ? <form id="resposta" onSubmit={(event) => { respondendo(event) }}>
+            {props.openRes == props.chave ? <form id="resposta" onSubmit={(event) => { respondendo(event) }}>
                 <input type="text" placeholder="Responder..." value={resposta} onChange={(event) => { setResposta(event.target.value) }} />
             </form> : null}
 
