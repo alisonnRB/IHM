@@ -19,13 +19,13 @@ export default function Comentarios(props) {
 
     const [openRes, setOpenRes] = useState('');
 
-    useEffect(()=>{
+    useEffect(() => {
         props.setOpenRes(openRes);
-    },[openRes]);
+    }, [openRes]);
 
-    useEffect(()=>{
+    useEffect(() => {
         setOpenRes(props.openRes);
-    },[props.openRes]);
+    }, [props.openRes]);
 
 
 
@@ -52,7 +52,7 @@ export default function Comentarios(props) {
 
         for (let i = 0; i < quant; i++) {
             if (!comentarios[i].resposta) {
-                let a = <Card key={i} chave={i} infos={comentarios[i]}  openRes={openRes} setOpenRes={setOpenRes}  setTexto={setTexto} setResposta={setResposta} setIdResposta={setIdResposta} Comentar={Comentar} res={false} />;
+                let a = <span className="comentaP"><Card key={i} chave={i} infos={comentarios[i]} openRes={openRes} setOpenRes={setOpenRes} setTexto={setTexto} setResposta={setResposta} setIdResposta={setIdResposta} Comentar={Comentar} res={false} /></span>;
                 list.push(a);
                 for (let b = i; b < quant; b++) {
                     if (comentarios[b].resposta && comentarios[b].id_resposta == comentarios[i].id && !comentarios[i].resposta) {
@@ -67,9 +67,10 @@ export default function Comentarios(props) {
                     }
                 }
             }
-
-
         }
+        
+        let a = <span className="interval"></span>;
+        list.push(a);
 
         return list;
 
@@ -84,7 +85,7 @@ export default function Comentarios(props) {
     return (
         <div id="boxComent">
             <form className="campoComent" onSubmit={(event) => { Comentar(event) }}>
-                <input type="text" value={coment} onChange={(event) => { setComent(event.target.value); setTexto(event.target.value) }} placeholder="coment..." />
+                <input type="text" value={coment} onChange={(event) => { setComent(event.target.value); setTexto(event.target.value) }} placeholder="Escreva um comentario..." />
             </form>
 
             <div className="comentarios">

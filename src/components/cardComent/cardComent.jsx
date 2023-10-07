@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 
 import api from '../../backend/controler/api_info';
 
+import like from '../../imgs/like.png';
+
 export default function Comentarios(props) {
     const [infos, setInfos] = useState('');
     const [data, setData] = useState('');
@@ -27,7 +29,7 @@ export default function Comentarios(props) {
             if (response) {
                 setUser(response.userInfo);
             }
-        }else{
+        } else {
             const response = await api.enviar(props.idRes);
             if (response) {
                 setNomeRes(response.userInfo.nome);
@@ -46,11 +48,11 @@ export default function Comentarios(props) {
         setSalva(true);
     }
 
-    useEffect(()=>{
-        if(props.res){
+    useEffect(() => {
+        if (props.res) {
             Busca(false);
         }
-    },[props.res])
+    }, [props.res])
 
     useEffect(() => {
         if (salva) {
@@ -99,14 +101,14 @@ export default function Comentarios(props) {
             }
             else {
                 tempo = diasDecorridos;
-                time = tempo < 1 ? 'hoje' : 'dias';
+                time = tempo < 2 ? 'hoje' : 'dias';
+
             }
 
             setData(tempo);
             setDataTime(time);
         }
-    }, [infos.tempo])
-
+    }, [infos.tempo]);
 
     return (
         <>
@@ -114,21 +116,23 @@ export default function Comentarios(props) {
                 <img className="userComent" src={foto} />
 
                 <div className="boxComent">
-                    <span className="nomeComent">{user.nome && !props.res ? user.nome : `${user.nome}>${nomeRes}`}</span>
+                    <span className="nomeComent">{user.nome && !props.res ? user.nome : `${user.nome} > ${nomeRes}`}</span>
                     <div className="coment">{infos.texto ? infos.texto : '...'}</div>
                 </div>
 
                 <div className="btsCurti">
-
+                    <div className="boxDEimg">
+                        <img src={like} />
+                    </div>
                 </div>
             </span>
 
-            <span id="infosComent">
+            <span id="infosComent" onClick={(e) => { e.stopPropagation() }}>
                 <p>{`${dataTime != 'hoje' ? 'há' : ''} ${dataTime != 'hoje' ? data : ''} ${dataTime}`} </p>
                 <p className="reply" onClick={() => { props.setOpenRes(props.chave) }}>RESPONDER</p>
             </span>
 
-            {props.openRes == props.chave ? <form id="resposta" onSubmit={(event) => { respondendo(event) }}>
+            {props.openRes == props.chave ? <form id="resposta" onClick={(e) => { e.stopPropagation() }} onSubmit={(event) => { respondendo(event) }}>
                 <input type="text" placeholder="Responder..." value={resposta} onChange={(event) => { setResposta(event.target.value) }} />
             </form> : null}
 

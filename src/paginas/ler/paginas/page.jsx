@@ -107,6 +107,7 @@ export default function Ler(props) {
                 <span className="interval">. . .</span>
 
                 <Comentarios idLivro={props.idLivro} tipo={'livro'} setOpenRes={setOpenRes} openRes={openRes}/>
+
             </div>
         </>
     );

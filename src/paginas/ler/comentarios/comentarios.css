@@ -1,35 +1,50 @@
 #boxComent{
-    background-color: rgb(77, 190, 190);
     width: 100%;
     display: block;
-    gap: 20px;
 }
 #boxComent .campoComent{
-    background-color: blue;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 30px;
 }
 
 #boxComent .campoComent input{
+    background-color: #EBECF0;
     padding-left: 20px;
     height: 90%;
     width: calc(100% - 20px);
     border-radius: 30px;
-    background-color: rgb(72, 255, 0);
 }
 
 #boxComent .comentarios{
     display: block;
     margin-top: 10px;
-    background-color: antiquewhite;
+    height: 100%;
     padding-left: 10px;
     padding-right: 10px;
     width: calc(100% - 20px);
-    height: 80px;
+}
+.comentarios .comentaP{
+    padding-top: 10px;
+    border-top: solid #EBECF0 2px;
+    display: block;
+    margin-bottom: 10px;
+    height: 100%;
 }
 .comentarios .replyBOX{
     display: block;
+    height: 100%;
     margin-left: 5%;
+}
+
+.comentarios .interval{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 7em;
+    margin-bottom: 100px;
 }
