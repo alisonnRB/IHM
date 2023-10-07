@@ -16,10 +16,9 @@ export default function Ler(props) {
 
     const [content, setContent] = useState('');
 
-
+    const [pronto, setPronto] = useState();
 
     const [selecionado, setSelecionado] = useState(0);
-
 
     const [openRes, setOpenRes] = useState('');
 
@@ -38,6 +37,9 @@ export default function Ler(props) {
 
             if (respostaBook.infos && respostaBook.infos.sinopse) {
                 setSinopse(respostaBook.infos.sinopse);
+            }
+            if (respostaBook.infos && respostaBook.infos.pronto) {
+                setPronto(respostaBook.infos.pronto);
             }
 
             if (respostaBook.infos && respostaBook.infos.texto) {
@@ -97,7 +99,7 @@ export default function Ler(props) {
 
     return (
         <>
-            <Aba Cap={Cap} titleCap={titleCap} selecionado={selecionado} setSelecionado={setSelecionado} cor={info.tema} />
+            <Aba Cap={Cap} titleCap={titleCap} selecionado={selecionado} setSelecionado={setSelecionado} cor={info.tema} pronto={pronto}/>
             <div className="paginaLer">
                 <span className="tituloLer">{selecionado == 0 ? 'Sinopse' : titleCap[selecionado]}</span>
 
