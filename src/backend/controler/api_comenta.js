@@ -1,5 +1,5 @@
 export default {
-    enviar: async (id_user, tipo, id_ref, texto, resposta, idResposta) => {
+    enviar: async (id_user, tipo, id_ref, texto, resposta, idResposta, conversa) => {
         let user = {
             id_user: id_user,
             tipo: tipo,
@@ -7,6 +7,7 @@ export default {
             texto: texto,
             resposta: resposta,
             idResposta: idResposta,
+            conversa: conversa,
         };
 
         let requisição = {

@@ -21,6 +21,8 @@ export default function Comentarios(props) {
 
     const [nomeRes, setNomeRes] = useState(false);
 
+    const [hover, setHover] = useState(false);
+
 
 
     const Busca = async (i) => {
@@ -38,12 +40,16 @@ export default function Comentarios(props) {
 
     }
 
+
     const respondendo = (event) => {
         event.preventDefault();
 
         props.setTexto(resposta);
         props.setResposta(true);
         props.setIdResposta(infos.id);
+        props.setConversa(props.idConv);
+
+
 
         setSalva(true);
     }
@@ -52,7 +58,11 @@ export default function Comentarios(props) {
         if (props.res) {
             Busca(false);
         }
-    }, [props.res])
+    }, [props.res]);
+
+    useEffect(() => {
+        setResposta(props.rest);
+    }, [props.rest])
 
     useEffect(() => {
         if (salva) {
@@ -121,15 +131,15 @@ export default function Comentarios(props) {
                 </div>
 
                 <div className="btsCurti">
-                    <div className="boxDEimg">
-                        <img src={like} />
+                    <div className="boxDEimg" style={hover ? (props.cor ? { backgroundColor: props.cor } : { backgroundColor: '#0A6E7D' }) : { backgroundColor: '#C4BFB2' }}>
+                        <img src={like} onMouseEnter={() => { setHover(true) }} onMouseLeave={() => { setHover(false) }} />
                     </div>
                 </div>
             </span>
 
             <span id="infosComent" onClick={(e) => { e.stopPropagation() }}>
                 <p>{`${dataTime != 'hoje' ? 'há' : ''} ${dataTime != 'hoje' ? data : ''} ${dataTime}`} </p>
-                <p className="reply" onClick={() => { props.setOpenRes(props.chave) }}>RESPONDER</p>
+                <p className="reply" onClick={() => { props.setOpenRes(props.chave) }} style={props.cor && props.cor != '' ? { color: props.cor } : { color: '#0A6E7D' }}>RESPONDER</p>
             </span>
 
             {props.openRes == props.chave ? <form id="resposta" onClick={(e) => { e.stopPropagation() }} onSubmit={(event) => { respondendo(event) }}>
