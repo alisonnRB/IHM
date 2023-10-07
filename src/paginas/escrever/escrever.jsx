@@ -65,6 +65,8 @@ export default function Escreve() {
     const [titleCap, setTitleCap] = useState({});
 
     const [primeira, setPrimeira] = useState(false);
+
+    const [prontos, setProntos] = useState('');
     //TODO controle
 
     useEffect(() => {
@@ -88,7 +90,6 @@ export default function Escreve() {
         const dadosString = JSON.stringify(dadosParaSalvar);
         localStorage.setItem("dadosUsuario", dadosString);
     };
-
     const Deleta = async () => {
         const resposta = await apiDell.enviar(capSelected, idLivro, titulo, id);
         if (resposta.ok == true) {
@@ -141,6 +142,10 @@ export default function Escreve() {
             }
             if (respostaBook.infos && respostaBook.infos.classificacao) {
                 setClassificacao(respostaBook.infos.classificacao);
+            }
+
+            if (respostaBook.infos && respostaBook.infos.pronto) {
+                setProntos(respostaBook.infos.pronto);
             }
 
             if (respostaBook.infos && respostaBook.infos.texto) {
@@ -281,6 +286,7 @@ export default function Escreve() {
                 setNumCaps={setNumCaps}
                 setCap={setCap}
                 cap={cap}
+                idLivro={idLivro}
                 setCapSelected={setCapSelected}
                 titulo={titleCap}
                 setUltimo={setUltimo}
@@ -288,7 +294,8 @@ export default function Escreve() {
                 setDelete={setDelete}
                 setTitulo={setTitulo}
                 setNew={setNew}
-                setContent={setContent} />
+                setContent={setContent}
+                pronto={prontos} />
 
             <Paginas
                 idLivro={idLivro}

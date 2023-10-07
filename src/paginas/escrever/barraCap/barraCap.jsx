@@ -5,6 +5,10 @@ import './barraCap.css';
 import mais from '../../../imgs/mais.png';
 import lixo from '../../../imgs/sair.png';
 
+import Interruptor from '../../../components/interruptor/interruptor';
+
+import api from '../../../backend/controler/api_CapPronto';
+
 export default function BarraCap(props) {
     const [numCaps, setNumCaps] = useState(0);
     const [titulo, setTitulo] = useState('');
@@ -12,9 +16,22 @@ export default function BarraCap(props) {
     const [window, setWindow] = useState(false);
 
 
+    const [pronto, setPronto] = useState(false);
+
     useEffect(() => {
         setNumCaps(props.cap);
-    }, [props])
+    }, [props]);
+
+    useEffect(() => {
+        if (props.pronto != '') {
+            let a = JSON.parse(props.pronto);
+            if (a[Selecionado] == 1) {
+                setPronto(true);
+            }else{
+                setPronto(false);
+            }
+        }
+    }, [props.pronto, Selecionado]);
 
     useEffect(() => {
         if (typeof props.titulo === 'string') {
@@ -26,7 +43,14 @@ export default function BarraCap(props) {
         }
     }, [props.titulo, props.selected]);
 
+    const Change = async () => {
+        const id = localStorage.getItem('id');
 
+        const resposta = await api.enviar(id, pronto, Selecionado, props.idLivro);
+        if (resposta.ok) {
+            console.log(resposta);
+        }
+    }
 
     const capitulos = () => {
 
@@ -69,7 +93,7 @@ export default function BarraCap(props) {
     return (
         <>
             {window ? Janela() : null}
-            
+
             <div className="barraCap">
                 <span className={`SIN ${Selecionado === 0 ? 'Selecionado' : ''}`} onClick={() => {
                     props.setUltimo(Selecionado);
@@ -88,6 +112,10 @@ export default function BarraCap(props) {
                     props.setNew(true);
                 }} />
             </div>
+
+            {Selecionado != 0 ? <div className="caixaINT">
+                <Interruptor id={1} title={'PRONTO'} alvo={pronto} setAlvo={setPronto} func={Change} />
+            </div> : null}
         </>
     );
 

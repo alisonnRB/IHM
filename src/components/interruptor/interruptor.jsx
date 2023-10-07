@@ -8,8 +8,8 @@ export default function Interruptor(props) {
 
 
     return (
-        <>
-            <center>
+
+            <center onClick={props.func ? () => props.func() : null}>
                 <h1>{props.title}</h1>
                 <input
                     type="checkbox"
@@ -20,6 +20,6 @@ export default function Interruptor(props) {
                 <label htmlFor={`switch${props.id}`} className="toggle">
                 </label>
             </center>
-        </>
+   
     );
 }
