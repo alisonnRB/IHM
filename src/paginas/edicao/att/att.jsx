@@ -19,6 +19,7 @@ import deletar from '../../../imgs/delete.png';
 
 import Interruptor from '../../../components/interruptor/interruptor';
 import Selecao from '../.././../components/livroSelectGen/select';
+import Tag from '../tags/tags';
 
 
 export default function NovoLivro() {
@@ -52,6 +53,21 @@ export default function NovoLivro() {
         16: false,
 
     });
+    const [tags, setTags] = useState({
+        0: '',
+        1: '',
+        2: '',
+        3: '',
+        4: '',
+        5: '',
+        6: '',
+        7: '',
+        8: '',
+        9: '',
+        10: '',
+
+    });
+
     const [idLivro, setIdLivro] = useState('');
 
     const [classificacao, setClassificacao] = useState('livre');
@@ -66,7 +82,7 @@ export default function NovoLivro() {
     const [Gen, setGen] = useState('');
     const [nome, setNome] = useState('');
 
-    const [color, setColor] = useState('#fffff');
+    const [color, setColor] = useState('#ffffff');
 
 
     const [publico, setPublico] = useState(false);
@@ -82,7 +98,7 @@ export default function NovoLivro() {
 
         const idUsuario = localStorage.getItem('id');
 
-        const resposta = await api.enviar(idLivro, idUsuario, formData, nameBook, selecao, classificacao, publico, finalizado, color);
+        const resposta = await api.enviar(idLivro, idUsuario, formData, nameBook, selecao, classificacao, publico, finalizado, color, tags);
         if (resposta.ok) {
             navigate(-1);
         }
@@ -162,6 +178,10 @@ export default function NovoLivro() {
         if (typeof info.finalizado) {
             let a = info.finalizado == 1 ? true : false;
             setFinalizado(a);
+        }
+        if (info.tags != undefined && info.tags) {
+            let a = JSON.parse(info.tags);
+            setTags(a);
         }
     }, [info, Gen]);
 
@@ -274,8 +294,6 @@ export default function NovoLivro() {
                         <input type="color" id="head" name="head" value={color} onChange={colorChange} />
                         {color == '#087F97' ? <div className="ocupa"></div> : <div className="circuloDellCor" onClick={() => { setColor('#087F97') }}></div>}
                     </div>
-
-
                 </div>
 
                 <div className="caixaInter">
@@ -287,7 +305,12 @@ export default function NovoLivro() {
                 <div className="salvaLivro">
                     <button type="submit">SALVAR</button>
                 </div>
+
+
             </form >
+
+            <Tag tags={tags} setTags={setTags}/>
+
 
             <button id="cancel" onClick={() => { navigate(-1) }}>CANCELAR</button>
 

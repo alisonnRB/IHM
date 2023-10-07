@@ -152,7 +152,7 @@
 
 #selectColor {
     position: absolute;
-    right: 32%;
+    right: 34%;
     top: 32%;
     display: flex;
     flex-direction: row;
@@ -176,7 +176,6 @@
 .doisCor{
     position: relative;
     top: 12px;
-    left: 10px;
 }
 .ocupa{
     height: 10px;
@@ -278,6 +277,7 @@
     width: 200px;
     background-color: #ffffff09;
 }
+
 
 @keyframes abrir {
     0% {
