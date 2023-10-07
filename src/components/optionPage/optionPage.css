@@ -22,13 +22,25 @@
     #barra {
         display: block;
         height: 100%;
-        width: 140px;
         background-color: #EFF8FF;
     }
 
+    .optionP{
+        height: 108px;
+        width: 115px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #barra #pes{
+        height: 50%;
+        width: 50%;
+    }
+
     #barra img {
-        height: 20%;
-        width: 90%;
+        height: 100%;
+        width: 100%;
     }
 
     .optionP:hover {

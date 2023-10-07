@@ -8,6 +8,7 @@ import livros from '../../imgs/livros.png';
 import chat from '../../imgs/chat.png';
 import feed from '../../imgs/feed.png';
 import config from '../../imgs/config.png';
+import pessoas from '../../imgs/pessoas.png';
 
 //? este é o componente que carrega os caminhos da pagina
 
@@ -19,6 +20,12 @@ function Barraop() {
       <Link to='/perfil'>
       <div className='optionP'>
         <img src={perfil} alt="" />
+      </div>
+      </Link>
+
+      <Link to='/Busca'>
+      <div className='optionP'>
+        <img id='pes' src={pessoas} alt="" />
       </div>
       </Link>
       
