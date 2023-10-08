@@ -6,6 +6,7 @@ import Card from '../../../components/cardComent/cardComent';
 
 import api from '../../../backend/controler/api_comenta';
 import apiBusca from '../../../backend/controler/api_comentarios';
+import enviar from '../../../imgs/enviar.png';
 
 export default function Comentarios(props) {
     const [comentarios, setComentarios] = useState(0);
@@ -154,6 +155,7 @@ export default function Comentarios(props) {
         <div id="boxComent">
             <form className="campoComent" onSubmit={(event) => { Comentar(event) }}>
                 <input type="text" value={coment} onChange={(event) => { setComent(event.target.value); setTexto(event.target.value) }} placeholder="Escreva um comentario..." />
+                <img id="enviaCom" src={enviar} onClick={(event) => { Comentar(event) }}/>
             </form>
 
             <div className="comentarios">

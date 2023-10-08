@@ -31,3 +31,12 @@
     font-size: 7em;
     margin-bottom: 100px;
 }
+
+#enviaRes{
+    height: 30px;
+    width: 50px;
+    position: relative;
+    bottom: 38px;
+    left: 93%;
+    cursor: pointer;
+}

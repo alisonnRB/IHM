@@ -3,6 +3,7 @@
     bottom: calc(100% + 100px);
     left: 97%;
     height: calc(100% + 100px);
+    max-width: 400px;
     width: 400px;
     display: flex;
     flex-direction: row;
@@ -18,8 +19,8 @@
 .abaTAG {
     background-color: #087F97;
     height: 120px;
-    border-top-left-radius: 100%;
-    border-bottom-left-radius: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     width: 15%;
     align-items: center;
     justify-content: center;
@@ -44,6 +45,17 @@
     color: white;
 }
 
+#fechaTAG{
+    width: 60px;
+    height: 40px;
+}
+#enviaTAG{
+    position: absolute;
+    width: 43px;
+    height: 25.5px;
+    right: 13px;
+    cursor: pointer;
+}
 #contentTAG .criaTAG {
     height: 10%;
     display: flex;
@@ -83,6 +95,7 @@
     color: white;
     background-color: #6A8FED;
     align-items: center;
+   
     padding-left: 20px;
     padding-right: 20px;
     border-radius: 20px;
@@ -90,7 +103,9 @@
 }
 
 .contentTAGt p{
-    font-weight: bold;
+    font-weight: bold; 
+    max-width: 230px;
+    overflow: hidden;
 }
 
 .contentTAGt img{

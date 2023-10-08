@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import api from '../../backend/controler/api_info';
 
 import like from '../../imgs/like.png';
+import enviar from '../../imgs/enviar.png';
 
 export default function Comentarios(props) {
     const [infos, setInfos] = useState('');
@@ -143,7 +144,7 @@ export default function Comentarios(props) {
             </span>
 
             {props.openRes == props.chave ? <form id="resposta" onClick={(e) => { e.stopPropagation() }} onSubmit={(event) => { respondendo(event) }}>
-                <input type="text" placeholder="Responder..." value={resposta} onChange={(event) => { setResposta(event.target.value) }} />
+                <input type="text" placeholder="Responder..." value={resposta} onChange={(event) => { setResposta(event.target.value) }} /><img id="enviaRes" onClick={(event) => { respondendo(event) }} src={enviar}/>
             </form> : null}
 
 

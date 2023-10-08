@@ -3,6 +3,9 @@ import './tags.css';
 
 
 import x from '../../../imgs/sair.png';
+import fecha from '../../../imgs/tags_fecha.png';
+import abre from '../../../imgs/tags_abre.png';
+import enviar from '../../../imgs/enviar.png'
 
 export default function Tags(props) {
     const [abreTag, setAbreTag] = useState(false);
@@ -83,14 +86,14 @@ export default function Tags(props) {
     return (
         <div className={`tag ${abreTag? 'abre' : null}`}>
             <span className='abaTAG' onClick={() => { setAbreTag(!abreTag) }}>
-                <img src="" alt="" />
+                <img id="fechaTAG" src={abreTag ? abre : fecha}/>
             </span>
 
             <div id="contentTAG">
                 <span className="titleTAG"> TAGS </span>
                 <form className="criaTAG" onSubmit={(event) => { updateValue(event, novaTag, 'chave') }}>
                     <input type="text" name="tag" placeholder="escreva..." value={novaTag} onChange={(e) => { setNovaTag(e.target.value) }} />
-                    <img src="" type='submit' />
+                    <img id="enviaTAG" src={enviar} onClick={(event) => { updateValue(event, novaTag, 'chave') }}/>
                 </form>
                 <span className="contTAG"> <p>{`${conta}/10`}</p> </span>
                 <div className="mostraTAG">
