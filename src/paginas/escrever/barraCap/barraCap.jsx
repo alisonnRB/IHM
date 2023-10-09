@@ -17,6 +17,7 @@ export default function BarraCap(props) {
 
 
     const [pronto, setPronto] = useState(false);
+    const [listP, setListP] = useState();
 
     useEffect(() => {
         setNumCaps(props.cap);
@@ -25,6 +26,7 @@ export default function BarraCap(props) {
     useEffect(() => {
         if (props.pronto != '') {
             let a = JSON.parse(props.pronto);
+            setListP(a);
             if (a[Selecionado] == 1) {
                 setPronto(true);
             }else{
@@ -32,6 +34,7 @@ export default function BarraCap(props) {
             }
         }
     }, [props.pronto, Selecionado]);
+
 
     useEffect(() => {
         if (typeof props.titulo === 'string') {
@@ -48,9 +51,10 @@ export default function BarraCap(props) {
 
         const resposta = await api.enviar(id, pronto, Selecionado, props.idLivro);
         if (resposta.ok) {
-            console.log(resposta);
         }
     }
+
+    console.log(listP);
 
     const capitulos = () => {
 
@@ -67,6 +71,7 @@ export default function BarraCap(props) {
 
                 </span>
                 <div className={`abaApaga ${Selecionado === i && Selecionado != 0 ? 'Selecionado' : 'some'}`} onClick={() => { setWindow(true) }}><img src={lixo} /></div>
+                {listP[i] == 1 ? <div className="prontiCAP"></div> : null}
             </div>;
             list.push(a);
         }
