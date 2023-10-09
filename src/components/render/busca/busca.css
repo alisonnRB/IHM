@@ -1,5 +1,4 @@
 .TelaBusca{
-    background-color: aquamarine;
     width: 100%;
     height: 100%;
     display: block;
@@ -14,7 +13,7 @@
     width: 74%;
 }
 .TelaBusca .searchUSER{
-    background-color: blueviolet;
+
     height: 100px;
     width: 100%;
     display: flex;
@@ -24,29 +23,27 @@
 }
 
 .TelaBusca .pessoasBOX{
-    background-color: darkolivegreen;
     width: 100%;
     height: 100%;
     display: block;
     margin-top: 30px;
+    padding-bottom: 50px;
 }
 
 .BoxCardPessoas{
-    background-color: tomato;
     height: 200px;
     display: flex;
     justify-content: center;
 }
 
 .cardPessoa{
-    background-color: blue;
+    padding-top: 10px;
     height: 100%;
     width: 80%;
     border-bottom: solid 1px rgba(0, 0, 0, 0.300);
 }
 
 .cardPessoa #perfilPessoa{
-    background-color: lightgray;
     width: 23%;
     height: 100%;
     display: flex;
@@ -55,43 +52,40 @@
 }
 
 .cardPessoa #perfilPessoa img{
-    background-color: orange;
-    height: 80%;
-    width: 80%;
+    height: 170px;
+    width: 170px;
     border-radius: 50%;
 }
 
 .cardPessoa .infosPessoa{
-    background-color: cornflowerblue;
     height: 100%;
     width: 100%;
 }
 
 .cardPessoa .infosPessoa .nomePessoa{
-    background-color: brown;
     height: 30%;
     align-items: center;
+    font-weight: 2em;
+    font-size: 2em;
 }
 
 .cardPessoa .infosPessoa .nomePessoa{
-    background-color: brown;
     height: 40%;
     align-items: center;
 }
 
 .cardPessoa .infosPessoa .catPessoa{
-    background-color: aqua;
     height: 60%;
 }
 
 .cardPessoa .infosPessoa .catPessoa .categoria{
-    background-color: gainsboro;
     height: 100%;
     width: 20%;
 }
 
 .cardPessoa .infosPessoa .catPessoa .opSeguir{
-    background-color: rgb(13, 99, 10);
     height: 100%;
     width: 20%;
+    display: flex;
+    padding-top: 20px;
 }
