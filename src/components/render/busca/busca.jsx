@@ -12,7 +12,6 @@ export default function Busca() {
     const Busca = async () => {
         const resposta = await api.enviar(pesquisa);
         if (resposta.ok) {
-            console.log(resposta.users);
             setUsers(resposta.users);
         }
     }

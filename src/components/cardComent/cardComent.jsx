@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 
 import api from '../../backend/controler/api_info';
-
+import curtida from '../../backend/controler/api_curtir';
 import like from '../../imgs/like.png';
 import enviar from '../../imgs/enviar.png';
 
@@ -24,6 +24,7 @@ export default function Comentarios(props) {
 
     const [hover, setHover] = useState(false);
 
+    const [curtido, setCurtido] = useState(false);
 
 
     const Busca = async (i) => {
@@ -38,7 +39,6 @@ export default function Comentarios(props) {
                 setNomeRes(response.userInfo.nome);
             }
         }
-
     }
 
 
@@ -50,10 +50,30 @@ export default function Comentarios(props) {
         props.setIdResposta(infos.id);
         props.setConversa(props.idConv);
 
-
-
         setSalva(true);
     }
+
+    const curtir = async () => {
+        let id = localStorage.getItem('id');
+        const resposta = await curtida.enviar(id, infos.id_ref, 'livro', infos.id);
+        if(resposta.ok){
+            props.setCurtindo(true);
+        }
+    }
+
+    useEffect(()=>{
+        if(props.curtidas != 'none'){
+            let keys = Object.keys(props.curtidas).length;
+            for (let i = 0; i < keys; i++) {
+                if (props.curtidas[i].coment == infos.id) {
+                    console.log(props.curtidas[i]);
+                    setCurtido(true);
+                    return;
+                }
+            }
+        }
+        setCurtido(false);
+    }, [props.curtidas]);
 
     useEffect(() => {
         if (props.res) {
@@ -121,6 +141,12 @@ export default function Comentarios(props) {
         }
     }, [infos.tempo]);
 
+    const style = {
+        backgroundColor: curtido
+            ? (props.cor ? props.cor : '#C4BFB2')
+            : (hover ? (props.cor ? props.cor : '#0A6E7D') : '#C4BFB2'),
+    };
+
     return (
         <>
             <span id="comentary">
@@ -132,8 +158,8 @@ export default function Comentarios(props) {
                 </div>
 
                 <div className="btsCurti">
-                    <div className="boxDEimg" style={hover ? (props.cor ? { backgroundColor: props.cor } : { backgroundColor: '#0A6E7D' }) : { backgroundColor: '#C4BFB2' }}>
-                        <img src={like} onMouseEnter={() => { setHover(true) }} onMouseLeave={() => { setHover(false) }} />
+                    <div className="boxDEimg" style={style}>
+                        <img src={like} onClick={() => { curtir();}} onMouseEnter={() => { setHover(true) }} onMouseLeave={() => { setHover(false) }} />
                     </div>
                 </div>
             </span>
@@ -144,7 +170,7 @@ export default function Comentarios(props) {
             </span>
 
             {props.openRes == props.chave ? <form id="resposta" onClick={(e) => { e.stopPropagation() }} onSubmit={(event) => { respondendo(event) }}>
-                <input type="text" placeholder="Responder..." value={resposta} onChange={(event) => { setResposta(event.target.value) }} /><img id="enviaRes" onClick={(event) => { respondendo(event) }} src={enviar}/>
+                <input type="text" placeholder="Responder..." value={resposta} onChange={(event) => { setResposta(event.target.value) }} /><img id="enviaRes" onClick={(event) => { respondendo(event) }} src={enviar} />
             </form> : null}
 
 

@@ -23,6 +23,7 @@ export default function Comentarios(props) {
 
 
     const [openRes, setOpenRes] = useState('fechado');
+    const [curtindo, setCurtindo] = useState(false);
 
     useEffect(() => {
         props.setOpenRes(openRes);
@@ -36,15 +37,20 @@ export default function Comentarios(props) {
         setCor(props.cor);
     }, [props.cor]);
 
+    useEffect(() => {
+        if (curtindo) {
+            props.setCurtindo(true);
+            setCurtindo(false);
+        }
+    }, [curtindo]);
+
 
 
     const Comentar = async (event) => {
         if (event) {
             event.preventDefault();
         }
-
         const id = localStorage.getItem('id');
-        console.log(id, props.tipo, props.idLivro, texto, resposta, idResposta, conversa);
         const response = await api.enviar(id, props.tipo, props.idLivro, texto, resposta, idResposta, conversa);
         if (response.ok) {
             setTexto('');
@@ -54,8 +60,6 @@ export default function Comentarios(props) {
             setRest('');
             Busca();
         }
-
-
     }
 
     const Busca = async () => {
@@ -86,6 +90,9 @@ export default function Comentarios(props) {
                     setIdResposta={setIdResposta}
                     Comentar={Comentar}
                     res={false}
+                    setCurtindo={setCurtindo}
+                    curtindo={curtindo}
+                    curtidas={props.curtidas ? props.curtidas : "none"}
                 /></span>;
                 list.push(a);
 
@@ -107,7 +114,11 @@ export default function Comentarios(props) {
                                 setResposta={setResposta}
                                 setIdResposta={setIdResposta}
                                 Comentar={Comentar}
-                                res={true} /></span>;
+                                res={true}
+                                curtindo={curtindo}
+                                setCurtindo={setCurtindo}
+                                curtidas={props.curtidas ? props.curtidas : "none"}
+                            /></span>;
                         list.push(a);
 
                     }
@@ -129,6 +140,9 @@ export default function Comentarios(props) {
                                     setResposta={setResposta}
                                     setIdResposta={setIdResposta}
                                     Comentar={Comentar}
+                                    curtindo={curtindo}
+                                    curtidas={props.curtidas ? props.curtidas : "none"}
+                                    setCurtindo={setCurtindo}
                                     res={true} /></span>;
                             list.push(a);
                         }
@@ -155,7 +169,7 @@ export default function Comentarios(props) {
         <div id="boxComent">
             <form className="campoComent" onSubmit={(event) => { Comentar(event) }}>
                 <input type="text" value={coment} onChange={(event) => { setComent(event.target.value); setTexto(event.target.value) }} placeholder="Escreva um comentario..." />
-                <img id="enviaCom" src={enviar} onClick={(event) => { Comentar(event) }}/>
+                <img id="enviaCom" src={enviar} onClick={(event) => { Comentar(event) }} />
             </form>
 
             <div className="comentarios">

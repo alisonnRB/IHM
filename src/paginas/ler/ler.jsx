@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 import api from '../../backend/controler/api_info';
+import curtida from '../../backend/controler/api_curtir';
+import curtiram from '../../backend/controler/api_buscaCurtidas';
 
 import logo from '../../imgs/logo.png';
 import Fav from "../../imgs/estrela.png";
@@ -27,9 +29,33 @@ export default function Ler() {
 
     const [openRes, setOpenRes] = useState('');
 
-    useEffect(()=>{
+    const [curtidas, setCurtidas] = useState('');
+    const [curtido, setCurtido] = useState(false);
+    const [curtindo, setCurtindo] = useState(false);
+
+    useEffect(() => {
         setOpenRes(openRes);
-    },[openRes])
+    }, [openRes]);
+
+    useEffect(() => {
+        if (curtindo) {
+            Busca();
+            setCurtindo(false);
+        }
+    }, [curtindo])
+
+    useEffect(() => {
+        if (curtidas != undefined) {
+            let keys = Object.keys(curtidas).length;
+            for (let i = 0; i < keys; i++) {
+                if (curtidas[i].coment == 0) {
+                    setCurtido(true);
+                    return;
+                }
+            }
+        }
+        setCurtido(false);
+    }, [curtidas]);
 
 
     useEffect(() => {
@@ -45,7 +71,7 @@ export default function Ler() {
 
     useEffect(() => {
         if (infos && infos != '') {
-           setFoto("http://192.168.255.56/imagens/" + infos.fotoPerfil);
+            setFoto("http://192.168.255.56/imagens/" + infos.fotoPerfil);
         }
     }, [infos]);
 
@@ -53,10 +79,21 @@ export default function Ler() {
         const resposta = await api.enviar(userId);
 
         setInfos(resposta.userInfo);
+
+        const response = await curtiram.enviar(userId, idLivro, 'livro');
+
+        setCurtidas(response.curtidas);
     };
 
+    const curtir = async () => {
+        const resposta = await curtida.enviar(userId, idLivro, 'livro', 0);
+        if (resposta.ok) {
+            Busca();
+        }
+    }
+
     return (
-        <div className="PageLer" onClick={()=>{setOpenRes('fechado')}}>
+        <div className="PageLer" onClick={() => { setOpenRes('fechado') }}>
             <header>
                 <img id="logoP" src={logo} />
                 <div id="CurtiL">
@@ -64,10 +101,10 @@ export default function Ler() {
 
                     <span id="BOXCURTI">
                         <div className="BoxVisu fav">
-                            <span><img src={Fav} /> Favoritar</span>
+                            <span ><img src={Fav} /> Favoritar</span>
                         </div>
-                        <div className="BoxVisu curti">
-                            <span><img src={Curti} /> Curtir</span>
+                        <div className="BoxVisu curti" >
+                            <span onClick={() => { curtir() }} style={curtido ? { backgroundColor: '#FF7070' } : { backgroundColor: '#C4BFB2' }}><img src={Curti} /> Curtir</span>
                         </div>
                     </span>
 
@@ -76,13 +113,13 @@ export default function Ler() {
 
             <span className="filtro"></span>
             <div className="BOXLER">
-                <Page idLivro={idLivro} setCor={setCor} setTituloL={setTituloL} setUserId={setUserId} setOpenRes={setOpenRes} openRes={openRes}/>
+                <Page setCurtindo={setCurtindo} curtidas={curtidas} idLivro={idLivro} setCor={setCor} setTituloL={setTituloL} setUserId={setUserId} setOpenRes={setOpenRes} openRes={openRes} />
             </div>
 
             <div className="infosAutor">
-                <img id="perfil" src={foto} style={{border: 'solid 4px' + cor}}/>
+                <img id="perfil" src={foto} style={{ border: 'solid 4px' + cor }} />
                 <p>{infos.nome && infos.nome != '' ? infos.nome : "Autor"}</p>
-                <div className="btSeguir" style={{backgroundColor: cor}}>Seguir</div>
+                <div className="btSeguir" style={{ backgroundColor: cor }}>Seguir</div>
             </div>
             <BtFloatH />
         </div>

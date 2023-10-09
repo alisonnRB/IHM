@@ -22,13 +22,23 @@ export default function Ler(props) {
 
     const [openRes, setOpenRes] = useState('');
 
+    const [Curtindo, setCurtindo] = useState(false);
+
+
     useEffect(() => {
         props.setOpenRes(openRes);
     }, [openRes])
 
-    useEffect(()=>{
+    useEffect(() => {
+        if (Curtindo) {
+            props.setCurtindo(true);
+            setCurtindo(false);
+        }
+    }, [Curtindo])
+
+    useEffect(() => {
         setOpenRes(props.openRes);
-    },[props.openRes]);
+    }, [props.openRes]);
 
     const Busca = async () => {
         const respostaBook = await api.enviar(props.idLivro);
@@ -71,7 +81,7 @@ export default function Ler(props) {
 
     useEffect(() => {
         Busca();
-    }, [props.idLivro]);
+    }, [props.idLivro, Curtindo]);
 
     useEffect(() => {
         if (info.user_id && selecionado && info.id && info.nome) {
@@ -99,7 +109,7 @@ export default function Ler(props) {
 
     return (
         <>
-            <Aba Cap={Cap} titleCap={titleCap} selecionado={selecionado} setSelecionado={setSelecionado} cor={info.tema} pronto={pronto}/>
+            <Aba Cap={Cap} titleCap={titleCap} selecionado={selecionado} setSelecionado={setSelecionado} cor={info.tema} pronto={pronto} />
             <div className="paginaLer">
                 <span className="tituloLer">{selecionado == 0 ? 'Sinopse' : titleCap[selecionado]}</span>
 
@@ -108,7 +118,7 @@ export default function Ler(props) {
 
                 <span className="interval">. . .</span>
 
-                <Comentarios idLivro={props.idLivro} tipo={'livro'} setOpenRes={setOpenRes} openRes={openRes} cor={info.tema}/>
+                <Comentarios setCurtindo={setCurtindo} curtidas={props.curtidas} idLivro={props.idLivro} tipo={'livro'} setOpenRes={setOpenRes} openRes={openRes} cor={info.tema} />
 
             </div>
         </>
