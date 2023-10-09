@@ -10,6 +10,7 @@ import apiCapa from "../../../backend/controler/api_meusLivros";
 
 import MeusLivros from './slideLivro/slideLivro';
 
+import caixa from '../../../imgs/caixa.png';
 
 //? componente que comporta o perfil
 
@@ -81,7 +82,7 @@ function Perfil(props) {
   return (
     <div className='perfilpagep'>
       <section className='boxName'>
-        <p id='titlePerfil'>Perfil</p>
+        <span id='titlePerfil'>PERFIL</span>
         <img id='fotoPerfil' src={Perfil} style={Perfil !== '' ? { backgroundColor: 'transparent', backgroundImage: 'none' } : null} onClick={() => setEdita(true)} />
         <span>
           <div id='nome' >

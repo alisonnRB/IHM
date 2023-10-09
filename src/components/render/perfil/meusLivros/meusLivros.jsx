@@ -51,7 +51,7 @@ export default function MeusLivros() {
 
     return (
         <div className="boxCardMeusLivro">
-            <span className="titleMeusLivros">MEUS LIVROS</span>
+            <span id='titlePerfil'>Meus Livros</span>
 
 
                 {renderizarItens()}

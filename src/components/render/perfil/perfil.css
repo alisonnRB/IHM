@@ -99,8 +99,20 @@
     gap: 2em;
 }
 #titlePerfil{
-    font-size: 5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    color: white;
+    height: 200px;
+    width: 300px;
+    background-image: url('../../../imgs/caixa.png');
+    background-size: 100% 100%;
+    position: relative;
+    top: -70px;
+    margin-bottom: -70px;
 }
+
 
 .boxName #fotoPerfil{
     cursor: pointer;

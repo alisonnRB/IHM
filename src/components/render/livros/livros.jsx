@@ -164,6 +164,7 @@ function Livros() {
 
     return (
         <div className='TelaLivros'>
+            <span id='titlePerfil'>LIVROS</span>
             <div id='pesquisa'>
                 <span className='boxLivros'>
                     <input type='text' id='searchText' placeholder='Buscar' value={nome} onChange={(e) => { setNome(e.target.value); Busca(); }} />

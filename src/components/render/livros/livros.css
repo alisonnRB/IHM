@@ -4,6 +4,11 @@
     display: block;
 }
 
+.TelaLivros #titlePerfil{
+    left: 40%;
+    margin-bottom: -100px;
+}
+
 .TelaLivros #pesquisa {
     width: 100%;
 }
