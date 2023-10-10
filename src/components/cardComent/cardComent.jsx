@@ -26,6 +26,7 @@ export default function Comentarios(props) {
 
     const [curtido, setCurtido] = useState(false);
 
+    console.log(infos);
 
     const Busca = async (i) => {
         if (i) {
@@ -66,7 +67,6 @@ export default function Comentarios(props) {
             let keys = Object.keys(props.curtidas).length;
             for (let i = 0; i < keys; i++) {
                 if (props.curtidas[i].coment == infos.id) {
-                    console.log(props.curtidas[i]);
                     setCurtido(true);
                     return;
                 }
@@ -160,6 +160,7 @@ export default function Comentarios(props) {
                 <div className="btsCurti">
                     <div className="boxDEimg" style={style}>
                         <img src={like} onClick={() => { curtir();}} onMouseEnter={() => { setHover(true) }} onMouseLeave={() => { setHover(false) }} />
+                        {}
                     </div>
                 </div>
             </span>
