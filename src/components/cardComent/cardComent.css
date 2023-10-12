@@ -32,6 +32,7 @@
 
 #comentary .btsCurti{
     display: flex;
+    flex-direction: row;
     align-items: end;
     justify-content: center;
     min-height: 100%;

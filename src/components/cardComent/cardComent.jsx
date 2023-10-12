@@ -25,8 +25,7 @@ export default function Comentarios(props) {
     const [hover, setHover] = useState(false);
 
     const [curtido, setCurtido] = useState(false);
-
-    console.log(infos);
+    const [quantCurti, setQuantCurti] = useState(0);
 
     const Busca = async (i) => {
         if (i) {
@@ -57,13 +56,13 @@ export default function Comentarios(props) {
     const curtir = async () => {
         let id = localStorage.getItem('id');
         const resposta = await curtida.enviar(id, infos.id_ref, 'livro', infos.id);
-        if(resposta.ok){
+        if (resposta.ok) {
             props.setCurtindo(true);
         }
     }
 
-    useEffect(()=>{
-        if(props.curtidas != 'none'){
+    useEffect(() => {
+        if (props.curtidas != 'none') {
             let keys = Object.keys(props.curtidas).length;
             for (let i = 0; i < keys; i++) {
                 if (props.curtidas[i].coment == infos.id) {
@@ -95,7 +94,21 @@ export default function Comentarios(props) {
 
     useEffect(() => {
         setInfos(props.infos);
+
     }, [props.infos]);
+
+    useEffect(() => {
+        if (infos && infos['curtidas']) {
+            let a = infos['curtidas'];
+            if (infos['curtidas'] > 1000000) {
+                a = infos['curtidas'] / 1000000 + 'M';
+            }
+            else if (infos['curtidas'] > 1000) {
+                a = infos['curtidas'] / 1000 + 'K';
+            }
+            setQuantCurti(a);
+        }
+    }, [infos]);
 
     useEffect(() => {
         if (infos.user) {
@@ -159,9 +172,9 @@ export default function Comentarios(props) {
 
                 <div className="btsCurti">
                     <div className="boxDEimg" style={style}>
-                        <img src={like} onClick={() => { curtir();}} onMouseEnter={() => { setHover(true) }} onMouseLeave={() => { setHover(false) }} />
-                        {}
+                        <img src={like} onClick={() => { curtir(); }} onMouseEnter={() => { setHover(true) }} onMouseLeave={() => { setHover(false) }} />
                     </div>
+                    <span className="likeNUM">{quantCurti}</span>
                 </div>
             </span>
 
