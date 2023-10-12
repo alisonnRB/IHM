@@ -47,7 +47,6 @@ export default function Livro(props) {
             setClassificacao(props.info['classificacao']);
         }
 
-
         if(props.info && props.info['curtidas']){
             let a = props.info['curtidas'];
             if(props.info['curtidas']>1000000){

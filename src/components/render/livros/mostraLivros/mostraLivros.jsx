@@ -10,8 +10,7 @@ export default function MostraLivros(props) {
     
     useEffect(()=>{
         setLivro(props.Livro);
-    },[props.Livro])
-
+    },[props.Livro]);
 
 
     const renderizarItens = () => {
