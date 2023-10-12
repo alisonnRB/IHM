@@ -61,17 +61,22 @@ export default function Comentarios(props) {
         }
     }
 
+
+
     useEffect(() => {
         if (props.curtidas != 'none') {
             let keys = Object.keys(props.curtidas).length;
+            let id = localStorage.getItem('id');
             for (let i = 0; i < keys; i++) {
-                if (props.curtidas[i].coment == infos.id) {
+                if (props.curtidas[i].id_user == id && infos.id == props.curtidas[i].coment) {
                     setCurtido(true);
+    
                     return;
                 }
             }
         }
         setCurtido(false);
+
     }, [props.curtidas]);
 
     useEffect(() => {
@@ -108,7 +113,7 @@ export default function Comentarios(props) {
             }
             setQuantCurti(a);
         }
-    }, [infos]);
+    }, [infos, props.curtidas]);
 
     useEffect(() => {
         if (infos.user) {
@@ -117,9 +122,10 @@ export default function Comentarios(props) {
     }, [infos.user]);
 
     useEffect(() => {
-        setFoto("http://192.168.255.56/imagens/" + user.fotoPerfil);
+        if (typeof user.fotoPerfil == "string") {
+            setFoto("http://192.168.255.56/imagens/" + user.fotoPerfil);
+        }
     }, [user.fotoPerfil]);
-
 
     useEffect(() => {
         if (infos.tempo) {
@@ -165,20 +171,20 @@ export default function Comentarios(props) {
             <span id="comentary">
                 <img className="userComent" src={foto} />
 
-                <div className="boxComent">
+                <div className="boxComent" >
                     <span className="nomeComent">{user.nome && !props.res ? user.nome : `${user.nome} > ${nomeRes}`}</span>
                     <div className="coment">{infos.texto ? infos.texto : '...'}</div>
                 </div>
 
-                <div className="btsCurti">
+                <div className="btsCurti" >
                     <div className="boxDEimg" style={style}>
-                        <img src={like} onClick={() => { curtir(); }} onMouseEnter={() => { setHover(true) }} onMouseLeave={() => { setHover(false) }} />
+                        <img src={like} onClick={() => { curtir();}} onMouseEnter={() => { setHover(true) }} onMouseLeave={() => { setHover(false) }} />
                     </div>
                     <span className="likeNUM">{quantCurti}</span>
                 </div>
             </span>
 
-            <span id="infosComent" onClick={(e) => { e.stopPropagation() }}>
+            <span id="infosComent" onClick={(e) => { e.stopPropagation() }} >
                 <p>{`${dataTime != 'hoje' ? 'há' : ''} ${dataTime != 'hoje' ? data : ''} ${dataTime}`} </p>
                 <p className="reply" onClick={() => { props.setOpenRes(props.chave) }} style={props.cor && props.cor != '' ? { color: props.cor } : { color: '#0A6E7D' }}>RESPONDER</p>
             </span>

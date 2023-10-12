@@ -80,8 +80,9 @@ export default function Comentarios(props) {
                     rest={rest}
                     setConversa={setConversa}
                     idConv={comentarios[i].id}
-                    key={i} cor={cor}
-                    chave={i}
+                    key={`${i}`}
+                    cor={cor}
+                    chave={`${i}`}
                     infos={comentarios[i]}
                     openRes={openRes}
                     setOpenRes={setOpenRes}
@@ -102,9 +103,9 @@ export default function Comentarios(props) {
                             <Card
                                 rest={rest}
                                 setConversa={setConversa}
-                                key={b}
+                                key={`${i}-${b}`}
                                 cor={cor}
-                                chave={b}
+                                chave={`${i}-${b}`}
                                 infos={comentarios[b]}
                                 idRes={comentarios[i].user}
                                 idConv={comentarios[i].id}
@@ -129,9 +130,9 @@ export default function Comentarios(props) {
                                     rest={rest}
                                     setConversa={setConversa}
                                     idConv={comentarios[i].id}
-                                    key={c}
+                                    key={`${i}-${b}-${c}`}
                                     cor={cor}
-                                    chave={c}
+                                    chave={`${i}-${b}-${c}`}
                                     infos={comentarios[c]}
                                     idRes={comentarios[b].user}
                                     openRes={openRes}

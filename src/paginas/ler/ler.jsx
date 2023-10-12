@@ -33,6 +33,8 @@ export default function Ler() {
     const [curtido, setCurtido] = useState(false);
     const [curtindo, setCurtindo] = useState(false);
 
+    const [hover, setHover] = useState(false);
+
     useEffect(() => {
         setOpenRes(openRes);
     }, [openRes]);
@@ -47,8 +49,9 @@ export default function Ler() {
     useEffect(() => {
         if (curtidas != undefined) {
             let keys = Object.keys(curtidas).length;
+            let id = localStorage.getItem('id');
             for (let i = 0; i < keys; i++) {
-                if (curtidas[i].coment == 0) {
+                if (curtidas[i].coment == 0 && curtidas[i].id_user == id) {
                     setCurtido(true);
                     return;
                 }
@@ -86,11 +89,18 @@ export default function Ler() {
     };
 
     const curtir = async () => {
-        const resposta = await curtida.enviar(userId, idLivro, 'livro', 0);
+        let id = localStorage.getItem('id');
+        const resposta = await curtida.enviar(id, idLivro, 'livro', 0);
         if (resposta.ok) {
             Busca();
         }
     }
+
+    const style = {
+        backgroundColor: curtido
+            ? ('#FF7070')
+            : (hover ? ('#FF7070') : '#C4BFB2'),
+    };
 
     return (
         <div className="PageLer" onClick={() => { setOpenRes('fechado') }}>
@@ -104,7 +114,7 @@ export default function Ler() {
                             <span ><img src={Fav} /> Favoritar</span>
                         </div>
                         <div className="BoxVisu curti" >
-                            <span onClick={() => { curtir() }} style={curtido ? { backgroundColor: '#FF7070' } : { backgroundColor: '#C4BFB2' }}><img src={Curti} /> Curtir</span>
+                            <span onClick={() => { curtir() }} onMouseEnter={() => { setHover(true) }} onMouseLeave={() => { setHover(false) }} style={style}><img src={Curti} /> Curtir</span>
                         </div>
                     </span>
 
