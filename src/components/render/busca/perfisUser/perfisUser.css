@@ -1,0 +1,50 @@
+.boxNameUser{
+    margin-bottom: 5%;
+    margin-top: 5%;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
+.boxNameUser #fotoPerfilUser{
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+}
+
+.boxNameUser #nomeUser{
+    color: #0A6E7D;
+}
+
+.boxGenero{
+    padding-bottom: 40px;
+}
+
+.boxMeulivroUser{
+    gap: 1rem;
+    display: block;
+    width: 100%;
+
+}
+
+.boxMeulivroUser .boxTitleUser{
+    height: 80px;
+    justify-content: center;
+}
+
+.boxMeulivroUser .livrosUser{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80px;
+    width: 100%;
+}

@@ -10,7 +10,6 @@ import apiCapa from "../../../backend/controler/api_meusLivros";
 
 import MeusLivros from './slideLivro/slideLivro';
 
-import caixa from '../../../imgs/caixa.png';
 
 //? componente que comporta o perfil
 
@@ -22,7 +21,6 @@ function Perfil(props) {
   const [listF, setListF] = useState([]);
 
   const [livro, setLivro] = useState([]);
-
 
   const Busca = async () => {
     const id = localStorage.getItem('id');
@@ -36,7 +34,7 @@ function Perfil(props) {
     if (respostaIMG.ok == true) {
       setLivro(respostaIMG.livros);
     }
-    
+
   };
 
   //TODO responsavel por controlar as informações mostradas na tela de acordo com o carregamento da page sem ficar recarregando infinitamente
@@ -80,6 +78,7 @@ function Perfil(props) {
 
 
   return (
+
     <div className='perfilpagep'>
       <section className='boxName'>
         <span id='titlePerfil'>PERFIL</span>
@@ -124,7 +123,7 @@ function Perfil(props) {
           </span>
         </span>
 
-        <Link to='/perfil/MeusLivros' id='link'><MeusLivros meusOrFav={'meus'} livro={livro} comp={'1'}/></Link>
+        <Link to='/perfil/MeusLivros' id='link'><MeusLivros meusOrFav={'meus'} livro={livro} comp={'1'} /></Link>
 
       </section>
 
@@ -135,11 +134,11 @@ function Perfil(props) {
             <Link to='/perfil/MeusFavoritos'><img className='edit' src={edit} /></Link>
           </span>
         </span>
-        
-        <Link to='/perfil/MeusFavoritos' id='link'><MeusLivros  meusOrFav={'fav'} comp={'2'}/></Link>
+
+        <Link to='/perfil/MeusFavoritos' id='link'><MeusLivros meusOrFav={'fav'} comp={'2'} /></Link>
 
       </section>
-      
+
       <FloatBt />
     </div>
   );

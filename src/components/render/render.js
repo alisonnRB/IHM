@@ -13,7 +13,7 @@ import Gender from './favGender/gender';
 import MeusLivros from './perfil/meusLivros/meusLivros';
 import EditaLivros from './editaLivros/editaLivros';
 import Busca from './busca/busca';
-
+import User from './busca/perfisUser/perfisUser';
 //? o componente render é reponsavel por renderizar as paginas do site
 
 function Render(props) {
@@ -26,6 +26,7 @@ function Render(props) {
         <Route path='/perfil/MeusLivros' element={<MeusLivros/> }></Route>
         <Route path='/perfil/editaLivros' element={<EditaLivros/> }></Route>
         <Route path='/Busca' element={<Busca/> }></Route>
+        <Route path='/Busca/user' element={<User/>}></Route>
         <Route path='/Livros' element={<Livros />}></Route>
         <Route path='/Chat' element={<Chat />}></Route>
         <Route path='/Feed' element={<Feed />}></Route>

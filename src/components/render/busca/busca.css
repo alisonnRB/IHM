@@ -36,6 +36,10 @@
     justify-content: center;
 }
 
+.TelaBusca .pessoasBOX .Link{
+    text-decoration: none;
+}
+
 .cardPessoa{
     padding-top: 10px;
     height: 100%;
@@ -67,6 +71,7 @@
     align-items: center;
     font-weight: 2em;
     font-size: 1.3em;
+    color: black;
 }
 
 .cardPessoa .infosPessoa .nomePessoa{
