@@ -9,6 +9,7 @@ import FloatBt from '../../BtFloat/btFloat';
 import apiCapa from "../../../backend/controler/api_meusLivros";
 
 import MeusLivros from './slideLivro/slideLivro';
+import MeusFav from '../../../backend/controler/api_meusFavoritos';
 
 
 //? componente que comporta o perfil
@@ -21,6 +22,7 @@ function Perfil(props) {
   const [listF, setListF] = useState([]);
 
   const [livro, setLivro] = useState([]);
+  const [livroF, setLivroF] = useState([]);
 
   const Busca = async () => {
     const id = localStorage.getItem('id');
@@ -33,6 +35,11 @@ function Perfil(props) {
     const respostaIMG = await apiCapa.enviar(id);
     if (respostaIMG.ok == true) {
       setLivro(respostaIMG.livros);
+    }
+
+    const respontaFav = await MeusFav.enviar(id);
+    if (respontaFav.ok == true) {
+      setLivroF(respontaFav.livros);
     }
 
   };
@@ -135,7 +142,7 @@ function Perfil(props) {
           </span>
         </span>
 
-        <Link to='/perfil/MeusFavoritos' id='link'><MeusLivros meusOrFav={'fav'} comp={'2'} /></Link>
+        <Link to='/perfil/MeusFavoritos' id='link'><MeusLivros meusOrFav={'fav'} livro={livroF} comp={'2'} /></Link>
 
       </section>
 

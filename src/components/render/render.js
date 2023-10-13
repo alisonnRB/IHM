@@ -11,6 +11,7 @@ import Feed from './feed/feed';
 import Option from './option/option';
 import Gender from './favGender/gender';
 import MeusLivros from './perfil/meusLivros/meusLivros';
+import MeusFav from './perfil/meusFav/meusFav';
 import EditaLivros from './editaLivros/editaLivros';
 import Busca from './busca/busca';
 import User from './busca/perfisUser/perfisUser';
@@ -24,6 +25,7 @@ function Render(props) {
         <Route path='/perfil' element={<Perfil user={props.user}/>}></Route>
         <Route path='/perfil/gender' element={<Gender user={props.user}/>}></Route>
         <Route path='/perfil/MeusLivros' element={<MeusLivros/> }></Route>
+        <Route path='/perfil/MeusFavoritos' element={<MeusFav/> }></Route>
         <Route path='/perfil/editaLivros' element={<EditaLivros/> }></Route>
         <Route path='/Busca' element={<Busca/> }></Route>
         <Route path='/Busca/user' element={<User/>}></Route>

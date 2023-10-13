@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import './slideLivro.css';
+import MeusFav from "../meusFav/meusFav";
 
 export default function MeusLivros(props) {
     const [hover, setHover] = useState('');
@@ -38,8 +39,11 @@ export default function MeusLivros(props) {
             const starFundo = createStar(classe[1], i);
             listStarFundo.push(starFundo);
         }
-        if (props.livro) {
+        if (props.livro && props.meusOrFav == 'meus') {
             setLivro(meusLivros(props.livro, localStorage.getItem('id')));
+        }
+        if (props.livro && props.meusOrFav == 'fav') {
+            setLivro(MeusFav(props.livro));
         }
         setstarDeFundo(listStarFundo);
         setstarDeFront(listStar);
@@ -64,6 +68,22 @@ export default function MeusLivros(props) {
         const tempRow = [];
         for (let i = 0; i < livros.length; i++) {
             tempRow.push(<img key={`livro-${i}`} className='imagemCapa' src={a + livros[i]['nome'] + '_' + livros[i]['id'] + '/' + livros[i]['imagem']} />);
+            if (i >= 6) {
+                break;
+            }
+        }
+        return tempRow;
+    }
+
+    const MeusFav = (livros) => {
+        
+        const tempRow = [];
+        for (let i = 0; i < Object.keys(livros).length; i++) {
+            let a = "http://192.168.255.56/livros/" + livros[i].user_id + '/';
+
+            
+            tempRow.push(<img key={`livro-${i}`} className='imagemCapa' src={a + livros[i]['nome'] + '_' + livros[i]['id'] + '/' + livros[i]['imagem']} />);
+            console.log(a + livros[i]['nome'] + '_' + livros[i]['user_id'] + '/' + livros[i]['imagem']);
             if (i >= 6) {
                 break;
             }

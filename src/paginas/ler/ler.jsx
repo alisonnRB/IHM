@@ -7,6 +7,8 @@ import { useLocation } from "react-router-dom";
 import api from '../../backend/controler/api_info';
 import curtida from '../../backend/controler/api_curtir';
 import curtiram from '../../backend/controler/api_buscaCurtidas';
+import favorito from '../../backend/controler/api_favoritar';
+import favoritou from '../../backend/controler/api_buscaFavoritos';
 
 import logo from '../../imgs/logo.png';
 import Fav from "../../imgs/estrela.png";
@@ -33,7 +35,10 @@ export default function Ler() {
     const [curtido, setCurtido] = useState(false);
     const [curtindo, setCurtindo] = useState(false);
 
-    const [hover, setHover] = useState(false);
+    const [fav, setFav] = useState(false);
+
+    const [hoverC, setHoverC] = useState(false);
+    const [hoverF, setHoverF] = useState(false);
 
     useEffect(() => {
         setOpenRes(openRes);
@@ -78,6 +83,7 @@ export default function Ler() {
         }
     }, [infos]);
 
+
     const Busca = async () => {
         const resposta = await api.enviar(userId);
 
@@ -86,6 +92,13 @@ export default function Ler() {
         const response = await curtiram.enviar(userId, idLivro, 'livro');
 
         setCurtidas(response.curtidas);
+
+        let id = localStorage.getItem('id');
+        const responseFav = await favoritou.enviar(id, idLivro);
+        if (responseFav.favoritos[0] && responseFav.favoritos[0].user_id == id) {
+            setFav(true);
+        }
+
     };
 
     const curtir = async () => {
@@ -96,10 +109,24 @@ export default function Ler() {
         }
     }
 
-    const style = {
+    const favoritar = async () => {
+        let id = localStorage.getItem('id');
+        const resposta = await favorito.enviar(id, idLivro);
+        if (resposta.ok) {
+            Busca();
+        }
+    }
+
+    const styleC = {
         backgroundColor: curtido
             ? ('#FF7070')
-            : (hover ? ('#FF7070') : '#C4BFB2'),
+            : (hoverC ? ('#FF7070') : '#C4BFB2'),
+    };
+
+    const styleF = {
+        backgroundColor: fav
+            ? ('#FFBD59')
+            : (hoverF ? ('#FFBD59') : '#C4BFB2'),
     };
 
     return (
@@ -111,10 +138,10 @@ export default function Ler() {
 
                     <span id="BOXCURTI">
                         <div className="BoxVisu fav">
-                            <span ><img src={Fav} /> Favoritar</span>
+                            <span onClick={() => { favoritar(); setFav(!fav) }} onMouseEnter={() => { setHoverF(true) }} onMouseLeave={() => { setHoverF(false) }} style={styleF} ><img src={Fav} /> Favoritar</span>
                         </div>
                         <div className="BoxVisu curti" >
-                            <span onClick={() => { curtir() }} onMouseEnter={() => { setHover(true) }} onMouseLeave={() => { setHover(false) }} style={style}><img src={Curti} /> Curtir</span>
+                            <span onClick={() => { curtir() }} onMouseEnter={() => { setHoverC(true) }} onMouseLeave={() => { setHoverC(false) }} style={styleC}><img src={Curti} /> Curtir</span>
                         </div>
                     </span>
 

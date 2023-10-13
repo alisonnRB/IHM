@@ -2,7 +2,7 @@ export default {
   enviar: async (id) => {
       //? prepara o objeto para enviar no padrão RESTful
       let user = {
-          id: id,
+          id: id
       };
 
       //? prepara as informações de methodo e cabeçalhos para fazer a requisição
