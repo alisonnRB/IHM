@@ -31,6 +31,7 @@ export default function Livro(props) {
 
     const [curtidas, setCurtidas] = useState(0);
     const [favoritos, setFavoritos] = useState(0);
+    const [visus, setVisus] = useState(0);
 
     useEffect(() => {
         if(props.info.user_id){
@@ -68,6 +69,17 @@ export default function Livro(props) {
                 a = props.info['favoritos']/1000 + 'K';
             }
             setFavoritos(a);
+        }
+
+        if(props.info && props.info['visus']){
+            let a = props.info['visus']/2;
+            if((props.info['visus']/2)>1000000){
+                a = (props.info['visus']/2)/1000000 + 'M';
+            }
+            else if((props.info['visus']/2)>1000){
+                a = (props.info['visus']/2)/1000 + 'K';
+            }
+            setVisus(Math.round(a));
         }
 
         setLivro(props.info);
@@ -152,7 +164,7 @@ export default function Livro(props) {
 
                 <span id="VisuLivro">
                     <div className="BoxVisu visu">
-                        <span><img src={Visu} /></span><span>5</span>
+                        <span><img src={Visu} /></span><span>{visus}</span>
                     </div>
                     <div className="BoxVisu fav">
                         <span><img src={Fav} /></span><span>{favoritos}</span>

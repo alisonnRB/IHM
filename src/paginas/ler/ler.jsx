@@ -77,6 +77,15 @@ export default function Ler() {
     useEffect(() => {
         const idLivroG = new URLSearchParams(location.search).get('id');
         setIdLivro(idLivroG);
+        if (idLivroG) {
+            fetch('http://192.168.255.56/server/visus.php', {
+              method: 'POST', // Use POST para atualizar o servidor
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ id: idLivroG }),
+            })
+        }
     }, [location]);
 
     useEffect(() => {
