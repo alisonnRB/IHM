@@ -11,11 +11,21 @@ import apiCapa from "../../../backend/controler/api_meusLivros";
 import MeusLivros from './slideLivro/slideLivro';
 import MeusFav from '../../../backend/controler/api_meusFavoritos';
 
+import comum from '../../../imgs/comum.png';
+import bronze from '../../../imgs/bronze.png';
+import prata from '../../../imgs/prata.png';
+import ouro from '../../../imgs/ouro.png';
+import diamante from '../../../imgs/diamante.png';
+
 
 //? componente que comporta o perfil
 
 function Perfil(props) {
+
   const [name, setName] = useState('');
+  const [seguidores, setSeguidores] = useState(0);
+  const [seguidoresS, setSeguidoresS] = useState('');
+  const [medalha, setMedalha] = useState(comum);
   const [Perfil, setPerfil] = useState('');
   const [edita, setEdita] = useState(false);
   const [generos, setGeneros] = useState([]);
@@ -55,6 +65,10 @@ function Perfil(props) {
       if (props.user.fotoPerfil) {
         setPerfil("http://192.168.255.56/imagens/" + props.user.fotoPerfil);
       }
+      if (props.user.seguidores) {
+        const seguidores = JSON.parse(props.user.seguidores);
+        setSeguidores(seguidores);
+      }
 
     }
   }, [props.user]);
@@ -62,6 +76,29 @@ function Perfil(props) {
   useEffect(() => {
     Busca();
   }, []);
+
+  useEffect(() => {
+    if(seguidores >= 1000000){
+      setSeguidoresS(` ${seguidores/1000000} MI`);
+      setMedalha(diamante);
+    }
+    else if(seguidores >= 50000){
+      setSeguidoresS(` ${seguidores/1000} K`);
+      setMedalha(ouro);
+    }
+    else if(seguidores >= 1000){
+      setSeguidoresS(` ${seguidores/1000} K`);
+      setMedalha(prata);
+    }
+    else if(seguidores >= 500){
+      setSeguidoresS(seguidores);
+      setMedalha(bronze);
+    }
+    else{
+      setSeguidoresS(seguidores);
+      setMedalha(comum);
+    }
+  }, [seguidores]);
 
   const setaFavoritos = (genero) => {
     const listT = []
@@ -96,6 +133,7 @@ function Perfil(props) {
           </div>
           <img className='edit' src={edit} alt='Editar' onClick={() => setEdita(true)} />
         </span>
+        <span><img id='medalha' src={medalha} />{seguidoresS}</span>
       </section>
 
       {edita && <Edicao fecharEdicao={fecharEdicao} user={props.user.nome} ft={Perfil} />}

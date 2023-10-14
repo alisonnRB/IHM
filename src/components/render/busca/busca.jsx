@@ -1,9 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link} from "react-router-dom";
 import './busca.css';
 
 import api from '../../../backend/controler/api_Usuarios';
+
+
+import CardPessoa from "./cardPessoa/cardPessoa";
 
 export default function Busca() {
     const [pesquisa, setPesquisa] = useState('');
@@ -15,6 +17,7 @@ export default function Busca() {
         if (resposta.ok) {
             setUsers(resposta.users);
         }
+
     }
 
     useEffect(() => {
@@ -30,29 +33,7 @@ export default function Busca() {
         const list = [];
         for (let i = 0; i < keys; i++) {
 
-            let a =
-                <span key={i} className="BoxCardPessoas">
-                    <span className="cardPessoa">
-
-                        <div id="perfilPessoa">
-                            <Link className="Link" to={`/Busca/user?id=${encodeURIComponent(JSON.stringify(users[i].id))}`}>
-                                <img src={`${'http://192.168.255.56/imagens/' + users[i].fotoPerfil}`} />
-                            </Link>
-                        </div>
-
-                        <div className="infosPessoa">
-                            <Link className="Link" to={`/Busca/user?id=${encodeURIComponent(JSON.stringify(users[i].id))}`}>
-                                <span className="nomePessoa">{users[i].nome}</span>
-                            </Link>
-                            <span className="catPessoa">
-                                <div className="categoria"><img src="" /></div>
-                                <div className="opSeguir"><p>SEGUIR</p></div>
-                            </span>
-                        </div>
-
-                    </span>
-                </span >
-                ;
+            let a = <CardPessoa key={i} user={users[i]} />
 
             list.push(a);
         }

@@ -125,7 +125,7 @@
 
 .infosAutor .btSeguir{
     height: 20px;
-    width: 60px;
+    min-width: 60px;
     padding: 5px;
     display: flex;
     align-items: center;

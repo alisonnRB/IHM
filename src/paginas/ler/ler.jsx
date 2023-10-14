@@ -5,10 +5,15 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 import api from '../../backend/controler/api_info';
+
 import curtida from '../../backend/controler/api_curtir';
 import curtiram from '../../backend/controler/api_buscaCurtidas';
+
 import favorito from '../../backend/controler/api_favoritar';
 import favoritou from '../../backend/controler/api_buscaFavoritos';
+
+import Seguir from '../../backend/controler/api_seguir';
+import Seguindo from '../../backend/controler/api_buscaSeguidores';
 
 import logo from '../../imgs/logo.png';
 import Fav from "../../imgs/estrela.png";
@@ -20,6 +25,7 @@ import BtFloatH from "../escrever/btFloatH/btFloatH";
 export default function Ler() {
     const location = useLocation();
     const [idLivro, setIdLivro] = useState(0);
+    const id = localStorage.getItem('id');
 
     const [userId, setUserId] = useState(0);
     const [infos, setInfos] = useState('');
@@ -36,6 +42,8 @@ export default function Ler() {
     const [curtindo, setCurtindo] = useState(false);
 
     const [fav, setFav] = useState(false);
+
+    const [seguido, setSeguido] = useState(false);
 
     const [hoverC, setHoverC] = useState(false);
     const [hoverF, setHoverF] = useState(false);
@@ -99,6 +107,11 @@ export default function Ler() {
             setFav(true);
         }
 
+        const responseSeg = await Seguindo.enviar(id, userId);
+        if (responseSeg.seguidores[0] && responseSeg.seguidores[0].user_id == id) {
+            setSeguido(true);
+        }
+
     };
 
     const curtir = async () => {
@@ -112,6 +125,14 @@ export default function Ler() {
     const favoritar = async () => {
         let id = localStorage.getItem('id');
         const resposta = await favorito.enviar(id, idLivro);
+        if (resposta.ok) {
+            Busca();
+        }
+    }
+
+    const seguir = async () => {
+        let id = localStorage.getItem('id');
+        const resposta = await Seguir.enviar(id, userId);
         if (resposta.ok) {
             Busca();
         }
@@ -156,7 +177,7 @@ export default function Ler() {
             <div className="infosAutor">
                 <img id="perfil" src={foto} style={{ border: 'solid 4px' + cor }} />
                 <p>{infos.nome && infos.nome != '' ? infos.nome : "Autor"}</p>
-                <div className="btSeguir" style={{ backgroundColor: cor }}>Seguir</div>
+                {id != userId? <div className="btSeguir" style={{ backgroundColor: cor }} onClick={() => { seguir() }} >{seguido? 'SEGUINDO' : 'SEGUIR'}</div>:null}
             </div>
             <BtFloatH />
         </div>

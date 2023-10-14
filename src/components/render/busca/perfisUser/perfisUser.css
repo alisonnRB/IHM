@@ -48,3 +48,22 @@
     height: 80px;
     width: 100%;
 }
+
+.seguir{
+    cursor: pointer;
+    background-color: #0A6E7D;
+    color: white;
+    border-radius: 20px;
+    padding: 2px;
+    padding-left: 15px;
+    padding-right: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+#medalhasBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
