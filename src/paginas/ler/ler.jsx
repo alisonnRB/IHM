@@ -2,7 +2,7 @@ import React from "react";
 import './ler.css';
 
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import api from '../../backend/controler/api_info';
 
@@ -159,6 +159,8 @@ export default function Ler() {
             : (hoverF ? ('#FFBD59') : '#C4BFB2'),
     };
 
+    console.log(infos)
+
     return (
         <div className="PageLer" onClick={() => { setOpenRes('fechado') }}>
             <header>
@@ -184,7 +186,7 @@ export default function Ler() {
             </div>
 
             <div className="infosAutor">
-                <img id="perfil" src={foto} style={{ border: 'solid 4px' + cor }} />
+                <Link  to={id != infos.id ? `/Busca/user?id=${encodeURIComponent(JSON.stringify(infos.id))}` : '/perfil'}><img id="perfil" src={foto} style={{ border: 'solid 4px' + cor }} /></Link>
                 <p>{infos.nome && infos.nome != '' ? infos.nome : "Autor"}</p>
                 {id != userId? <div className="btSeguir" style={{ backgroundColor: cor }} onClick={() => { seguir() }} >{seguido? 'SEGUINDO' : 'SEGUIR'}</div>:null}
             </div>

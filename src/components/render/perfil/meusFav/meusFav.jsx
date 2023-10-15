@@ -30,7 +30,7 @@ export default function MeusFav() {
 
         for (let i = 0; i < Object.keys(livro).length; i++) {
             count++;
-            tempRow.push(<div className="coluna" key={i}><Livro mine={true} info={livro[i]} /></div>);
+            tempRow.push(<div className="coluna" key={i}><Livro mine={false} text={'começar a ler'} info={livro[i]} /></div>);
 
             if (count === 3 || i === Object.keys(livro).length - 1) {
                 count = 0;
