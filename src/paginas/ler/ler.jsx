@@ -159,7 +159,6 @@ export default function Ler() {
             : (hoverF ? ('#FFBD59') : '#C4BFB2'),
     };
 
-    console.log(infos)
 
     return (
         <div className="PageLer" onClick={() => { setOpenRes('fechado') }}>
