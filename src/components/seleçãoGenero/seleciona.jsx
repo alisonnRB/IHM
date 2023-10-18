@@ -33,10 +33,11 @@ export default function SelecionaGeneros(props) {
     const Busca = async () => {
         const resposta = await api.enviar();
         if (resposta.ok == true) {
-            setgenero(resposta.gender);
+            setgenero(resposta.informacoes);
         }
 
     };
+
 
 
     useEffect(() => {

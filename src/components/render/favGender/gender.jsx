@@ -34,18 +34,17 @@ export default function Gender(props) {
 
 
     useEffect(() => {
-        if(props.user && props.user.genero && Object.keys(props.user.genero).length > 0){
-            const generos = JSON.parse(props.user.genero);
-            setgeneros(generos);
+        if (props.user && props.user.genero && Object.keys(props.user.genero).length > 0) {
+            const genero = JSON.parse(props.user.genero);
+            setgeneros(genero);
         }
-      }, [props.user]);
-
+    }, [props.user]);
 
 
     const alterar = async () => {
         const id = localStorage.getItem('id');
 
-        await apiEdit.enviar(id, selecao);
+       const ss =  await apiEdit.enviar(id, selecao);
     }
 
     return (
@@ -56,8 +55,8 @@ export default function Gender(props) {
                 <p>{conta + '/7'}</p>
             </span>
             <form className='genderTable' onSubmit={alterar}>
-    
-                <Seleciona Limit={7}  setConta={setConta} setSelecao={setSelecao} generos={generos}/>
+
+                <Seleciona Limit={7} setConta={setConta} setSelecao={setSelecao} generos={generos} />
 
 
                 <div className='submitGenderF'>

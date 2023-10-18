@@ -30,13 +30,13 @@ export default function Comentarios(props) {
     const Busca = async (i) => {
         if (i) {
             const response = await api.enviar(infos.user);
-            if (response) {
-                setUser(response.userInfo);
+            if (response.ok) {
+                setUser(response.informacoes);
             }
         } else {
             const response = await api.enviar(props.idRes);
             if (response) {
-                setNomeRes(response.userInfo.nome);
+                setNomeRes(response.informacoes.nome);
             }
         }
     }

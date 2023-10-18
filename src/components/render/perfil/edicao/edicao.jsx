@@ -50,7 +50,7 @@ export default function Edit(props) {
         if (resposta.ok == true) {
             props.fecharEdicao(true);
         } else {
-            setRespost(resposta.msg);
+            setRespost(resposta.informacoes);
         }
     };
     return (

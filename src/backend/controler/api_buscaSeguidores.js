@@ -1,8 +1,9 @@
 export default {
     //? prepara o objeto para enviar no padrão RESTful
       enviar: async (id_user, id_ref) => {
+        
         let user = {
-          id: id_user,
+          id_user: id_user,
           id_ref: id_ref,
         };
         //? prepara as informações de methodo e cabeçalhos para fazer a requisição
@@ -11,6 +12,7 @@ export default {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(user),
         };
+        
         
         //TODO faz a requisição
   

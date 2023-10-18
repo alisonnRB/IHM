@@ -28,7 +28,7 @@ function CardPessoa(props) {
 
     const Seguidores = async () => {
         const responseSeg = await Seguindo.enviar(id, user.id);
-        if (responseSeg.seguidores[0] && responseSeg.seguidores[0].user_id == id) {
+        if (responseSeg.informacoes[0] && responseSeg.informacoes[0].user_id == id) {
             setSegue(true);
         }
     }

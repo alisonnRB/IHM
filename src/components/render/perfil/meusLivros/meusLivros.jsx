@@ -19,7 +19,7 @@ export default function MeusLivros() {
 
         const resposta = await api.enviar(id);
         if (resposta.ok) {
-            setLivro(resposta.livros);
+            setLivro(resposta.informacoes);
         }
 
     }

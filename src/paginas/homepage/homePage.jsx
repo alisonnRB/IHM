@@ -18,7 +18,7 @@ function Home() {
     const resposta = await api.enviar(id);
 
     //TODO atualiza o estado da infos
-    setInfos(resposta.userInfo);
+    setInfos(resposta.informacoes);
   };
   //TODO o useEffect permite executar algo apenas em um evento especifico, aqui é quando a page é construida
 

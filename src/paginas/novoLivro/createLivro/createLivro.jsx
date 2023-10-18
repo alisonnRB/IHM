@@ -66,7 +66,7 @@ export default function NovoLivro() {
 
         if (resposta.ok) {
             const AWid = await apiInfo.enviar(idUsuario);
-            const id = AWid.livros[Object.keys(AWid.livros).length - 1].id;
+            const id = AWid.informacoes[Object.keys(AWid.informacoes).length - 1].id;
             navigate(`/perfil/MeusLivros/escreva?id=${encodeURIComponent(JSON.stringify(id))}`)
         }
 

@@ -147,7 +147,7 @@ export default function NovoLivro() {
     const Busca = async () => {
         const respostaBook = await apiBook.enviar(idLivro);
         if (respostaBook.ok === true) {
-            setInfo(respostaBook.infos);
+            setInfo(respostaBook.informacoes);
         }
     };
 

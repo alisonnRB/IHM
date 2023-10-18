@@ -12,7 +12,7 @@ export default {
             //? converte para json
             body: JSON.stringify(user),
         };
-
+        
         //TODO faz a requisição
         //! coloque o seu ip alii
         const response = await fetch('http://192.168.255.56/server/busca_comentarios.php', requisição);
