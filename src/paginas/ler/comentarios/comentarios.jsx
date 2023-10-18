@@ -65,7 +65,7 @@ export default function Comentarios(props) {
     const Busca = async () => {
         const response = await apiBusca.enviar(props.idLivro, 'livro');
         if (response.ok) {
-            setComentarios(response.informacoes);
+            setComentarios(response.comentarios);
         }
     }
 

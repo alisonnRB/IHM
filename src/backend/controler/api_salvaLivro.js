@@ -13,7 +13,7 @@ export default {
           body: JSON.stringify(user),
         };
 
-        const response = await fetch('http://192.168.255.56/server/salvaLivros.php', requisição);
+        const response = await fetch('http://10.1.1.211/server/salvaLivros.php', requisição);
   
         const data = await response.json();
         return data;
