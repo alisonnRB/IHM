@@ -64,7 +64,7 @@ export default function MeusLivros(props) {
 
     const meusLivros = (livros, id) => {
         
-        const a = "http://192.168.255.56/livros/" + id + '/';
+        const a = "http://10.1.1.211/livros/" + id + '/';
         const tempRow = [];
         for (let i = 0; i < livros.length; i++) {
             tempRow.push(<img key={`livro-${i}`} className='imagemCapa' src={a + livros[i]['nome'] + '_' + livros[i]['id'] + '/' + livros[i]['imagem']} />);
@@ -79,7 +79,7 @@ export default function MeusLivros(props) {
         
         const tempRow = [];
         for (let i = 0; i < Object.keys(livros).length; i++) {
-            let a = "http://192.168.255.56/livros/" + livros[i].user_id + '/';
+            let a = "http://10.1.1.211/livros/" + livros[i].user_id + '/';
 
             
             tempRow.push(<img key={`livro-${i}`} className='imagemCapa' src={a + livros[i]['nome'] + '_' + livros[i]['id'] + '/' + livros[i]['imagem']} />);

@@ -65,7 +65,7 @@ function Perfil(props) {
       }
       setName(props.user.nome);
       if (props.user.fotoPerfil) {
-        setPerfil("http://192.168.255.56/imagens/" + props.user.fotoPerfil);
+        setPerfil("http://10.1.1.211/imagens/" + props.user.fotoPerfil);
       }
       if (props.user.seguidores) {
         const seguidores = JSON.parse(props.user.seguidores);

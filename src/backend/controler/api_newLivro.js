@@ -8,7 +8,7 @@ export default {
   
         //TODO faz a requisição
         //! coloque o seu ip ali
-        const response = await fetch('http://192.168.255.56/server/create_livro.php', {
+        const response = await fetch('http://10.1.1.211/server/create_livro.php', {
             method: 'POST',
             body: formData,
         });

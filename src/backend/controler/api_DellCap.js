@@ -12,7 +12,7 @@ export default {
         body: JSON.stringify(user),
       };
 
-      const response = await fetch('http://192.168.255.56/server/DellCap.php', requisição);
+      const response = await fetch('http://10.1.1.211/server/DellCap.php', requisição);
 
       const data = await response.json();
       return data;
