@@ -14,28 +14,22 @@ export default function Login() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    
+
     //? prepara os valores para enviar a api
     const email = event.target.email.value;
     const senha = event.target.senha.value;
 
     const resposta = await api.enviar(email, senha);
-    
-    //TODO salva no localstorage as resposta do server
-    localStorage.setItem('Authorization', resposta.informacoes.authorization);
-    localStorage.setItem('id', resposta.informacoes.id);
 
-    console.log(localStorage.getItem('Authorization'));
-    if (resposta.ok == false) {
+    //TODO salva no localstorage as resposta do server
+
+
+    if (resposta.ok) {
+      sessionStorage.setItem('session', resposta.informacoes);
+      navigate('/perfil');
+    } else {
       setErro(resposta.informacoes)
     }
-
-    if (localStorage.getItem('Authorization') === 'logado') {
-      //? navega para o perfil caso a authorização seja correta
-      //! este metodo é temporario, deve ser construido o sistema de token
-      navigate('/perfil');
-    }
-
   };
 
   const fecharCadastro = () => {
@@ -53,15 +47,15 @@ export default function Login() {
       </div>
       <div className="box_form">
         <div id="content_cad">
-        <form className="form" onSubmit={handleSubmit}>
-          <p>{erro}</p>
-          <input className="form_email" type="email" name="email" placeholder="Email"></input>
-          <input className="form_pass" type="password" name="senha" placeholder="Senha"></input>
-          <input className="form_button" type="submit" value="Entrar"></input>
-        </form>
-        
-        <p id="cadastro" onClick={() => setMostrarCadastro(true)}>Ainda não posssui uma conta</p>
-        {mostrarCadastro && <Cadastro fecharCadastro={fecharCadastro} />}
+          <form className="form" onSubmit={handleSubmit}>
+            <p>{erro}</p>
+            <input className="form_email" type="email" name="email" placeholder="Email"></input>
+            <input className="form_pass" type="password" name="senha" placeholder="Senha"></input>
+            <input className="form_button" type="submit" value="Entrar"></input>
+          </form>
+
+          <p id="cadastro" onClick={() => setMostrarCadastro(true)}>Ainda não posssui uma conta</p>
+          {mostrarCadastro && <Cadastro fecharCadastro={fecharCadastro} />}
         </div>
       </div>
     </div>
