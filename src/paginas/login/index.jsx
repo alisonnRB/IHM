@@ -22,12 +22,12 @@ export default function Login() {
     const resposta = await api.enviar(email, senha);
     
     //TODO salva no localstorage as resposta do server
-    localStorage.setItem('Authorization', resposta.authorization);
-    localStorage.setItem('id', resposta.id);
+    localStorage.setItem('Authorization', resposta.informacoes.authorization);
+    localStorage.setItem('id', resposta.informacoes.id);
 
     console.log(localStorage.getItem('Authorization'));
     if (resposta.ok == false) {
-      setErro(resposta.msg)
+      setErro(resposta.informacoes)
     }
 
     if (localStorage.getItem('Authorization') === 'logado') {

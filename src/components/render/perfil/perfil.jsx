@@ -22,6 +22,8 @@ import diamante from '../../../imgs/diamante.png';
 
 function Perfil(props) {
 
+ 
+
   const [name, setName] = useState('');
   const [seguidores, setSeguidores] = useState(0);
   const [seguidoresS, setSeguidoresS] = useState('');
@@ -39,17 +41,17 @@ function Perfil(props) {
 
     const resposta = await apiGender.enviar();
     if (resposta.ok == true) {
-      setGeneros(resposta.gender);
+      setGeneros(resposta.informacoes);
     }
 
     const respostaIMG = await apiCapa.enviar(id);
     if (respostaIMG.ok == true) {
-      setLivro(respostaIMG.livros);
+      setLivro(respostaIMG.informacoes);
     }
 
     const respontaFav = await MeusFav.enviar(id);
     if (respontaFav.ok == true) {
-      setLivroF(respontaFav.livros);
+      setLivroF(respontaFav.informacoes);
     }
 
   };
@@ -63,7 +65,7 @@ function Perfil(props) {
       }
       setName(props.user.nome);
       if (props.user.fotoPerfil) {
-        setPerfil("http://192.168.255.56/imagens/" + props.user.fotoPerfil);
+        setPerfil("http://10.1.1.211/imagens/" + props.user.fotoPerfil);
       }
       if (props.user.seguidores) {
         const seguidores = JSON.parse(props.user.seguidores);

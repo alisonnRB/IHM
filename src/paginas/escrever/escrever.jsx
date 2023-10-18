@@ -131,27 +131,27 @@ export default function Escreve() {
     const Busca = async () => {
         const resposta = await api.enviar();
         if (resposta.ok === true) {
-            setGenero(resposta.gender);
+            setGenero(resposta.informacoes);
         }
         const respostaBook = await apiBook.enviar(idLivro);
         if (respostaBook.ok === true) {
-            setInfo(respostaBook.infos);
+            setInfo(respostaBook.informacoes);
 
-            if (respostaBook.infos && respostaBook.infos.sinopse) {
-                setSinopse(respostaBook.infos.sinopse);
+            if (respostaBook.informacoes && respostaBook.informacoes.sinopse) {
+                setSinopse(respostaBook.informacoes.sinopse);
             }
-            if (respostaBook.infos && respostaBook.infos.classificacao) {
-                setClassificacao(respostaBook.infos.classificacao);
-            }
-
-            if (respostaBook.infos && respostaBook.infos.pronto) {
-                setProntos(respostaBook.infos.pronto);
+            if (respostaBook.informacoes && respostaBook.informacoes.classificacao) {
+                setClassificacao(respostaBook.informacoes.classificacao);
             }
 
-            if (respostaBook.infos && respostaBook.infos.texto) {
-                setTitleCap(respostaBook.infos.texto);
+            if (respostaBook.informacoes && respostaBook.informacoes.pronto) {
+                setProntos(respostaBook.informacoes.pronto);
+            }
 
-                const cont = Object.keys(JSON.parse(respostaBook.infos.texto));
+            if (respostaBook.informacoes && respostaBook.informacoes.texto) {
+                setTitleCap(respostaBook.informacoes.texto);
+
+                const cont = Object.keys(JSON.parse(respostaBook.informacoes.texto));
                 let contador = 0;
                 for (let chaves of cont) {
                     contador++;
@@ -247,7 +247,7 @@ export default function Escreve() {
 
                         <div className="boxIMG">
                             <img id="classifica" src={visuClass} />
-                            <img src={`http://192.168.255.56/livros/${id}/${info.nome}_${info.id}/${info.imagem}`} />
+                            <img src={`http://10.1.1.211/livros/${id}/${info.nome}_${info.id}/${info.imagem}`} />
                         </div>
 
                         <div className="boxGEN">

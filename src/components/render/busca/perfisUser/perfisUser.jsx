@@ -40,22 +40,23 @@ export default function User() {
 
     const Busca = async () => {
         const resposta = await api.enviar(idUser);
-        if (resposta) {
-            setInfos(resposta.userInfo);
+        if (resposta.ok) {
+            setInfos(resposta.informacoes);
         }
         const response = await apiGender.enviar();
-        if (response) {
-            setGeneros(response.gender);
+        if (response.ok) {
+            setGeneros(response.informacoes);
         }
         const livrinhos = await apiLivros.enviar(idUser);
-        if (livrinhos.ok) {
-            setLivro(livrinhos.livros);
+        if (livrinhos.ok && livrinhos.informacoes[0]) {
+            setLivro(livrinhos.informacoes);
         }
         const responseSeg = await Seguindo.enviar(id, idUser);
-        if (responseSeg.seguidores[0] && responseSeg.seguidores[0].user_id == id) {
+        if (responseSeg.informacoes[0] && responseSeg.informacoes[0].user_id == id) {
             setSeguindo(true);
         }
     };
+    
 
     const seguir = async () => {
         const resposta = await Seguir.enviar(id, idUser);
@@ -89,14 +90,14 @@ export default function User() {
             }
             setName(infos.nome);
             if (infos.fotoPerfil) {
-                setPerfil("http://192.168.255.56/imagens/" + infos.fotoPerfil);
+                setPerfil("http://10.1.1.211/imagens/" + infos.fotoPerfil);
             }
 
         }
         if (infos.genero) {
             setMeusGen(infos.genero);
         }
-        if(infos.seguidores){
+        if (infos.seguidores) {
             setSeguidores(infos.seguidores);
         }
     }, [infos]);
@@ -110,33 +111,33 @@ export default function User() {
     }, [generos, meusGen]);
 
     useEffect(() => {
-        if (livro) {
+        if (!livro) {
             Busca()
         }
     }, [livro]);
 
     useEffect(() => {
-        if(seguidores >= 1000000){
-          setSeguidoresS(` ${seguidores/1000000} MI`);
-          setMedalha(diamante);
+        if (seguidores >= 1000000) {
+            setSeguidoresS(` ${seguidores / 1000000} MI`);
+            setMedalha(diamante);
         }
-        else if(seguidores >= 50000){
-          setSeguidoresS(` ${seguidores/1000} K`);
-          setMedalha(ouro);
+        else if (seguidores >= 50000) {
+            setSeguidoresS(` ${seguidores / 1000} K`);
+            setMedalha(ouro);
         }
-        else if(seguidores >= 1000){
-          setSeguidoresS(` ${seguidores/1000} K`);
-          setMedalha(prata);
+        else if (seguidores >= 1000) {
+            setSeguidoresS(` ${seguidores / 1000} K`);
+            setMedalha(prata);
         }
-        else if(seguidores >= 500){
-          setSeguidoresS(seguidores);
-          setMedalha(bronze);
+        else if (seguidores >= 500) {
+            setSeguidoresS(seguidores);
+            setMedalha(bronze);
         }
-        else{
-          setSeguidoresS(seguidores);
-          setMedalha(comum);
+        else {
+            setSeguidoresS(seguidores);
+            setMedalha(comum);
         }
-      }, [seguidores]);
+    }, [seguidores]);
 
 
     const mostraGender = (index) => {
@@ -175,7 +176,7 @@ export default function User() {
 
                     <span><img id='medalha' src={medalha} />{seguidoresS}</span>
 
-                    <span className='seguir' onClick={()=>{seguir()}}>{seguindo? 'SEGUINDO' : "SEGUIR"}</span>
+                    <span className='seguir' onClick={() => { seguir() }}>{seguindo ? 'SEGUINDO' : "SEGUIR"}</span>
 
                 </div>
             </section>

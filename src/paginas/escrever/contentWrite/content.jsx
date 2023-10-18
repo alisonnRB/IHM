@@ -48,7 +48,7 @@ export default function Paginas(props) {
     const conteudo = async () => {
         const response = await api.enviar(id, props.selected, props.idLivro, props.info.nome);
         if (response.ok === true) {
-            setContent(response.conteudo);
+            setContent(response.informacoes);
         }else{
             setContent('');
         }

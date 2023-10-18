@@ -30,13 +30,13 @@ export default function Comentarios(props) {
     const Busca = async (i) => {
         if (i) {
             const response = await api.enviar(infos.user);
-            if (response) {
-                setUser(response.userInfo);
+            if (response.ok) {
+                setUser(response.informacoes);
             }
         } else {
             const response = await api.enviar(props.idRes);
             if (response) {
-                setNomeRes(response.userInfo.nome);
+                setNomeRes(response.informacoes.nome);
             }
         }
     }
@@ -123,7 +123,7 @@ export default function Comentarios(props) {
 
     useEffect(() => {
         if (typeof user.fotoPerfil == "string") {
-            setFoto("http://192.168.255.56/imagens/" + user.fotoPerfil);
+            setFoto("http://10.1.1.211/imagens/" + user.fotoPerfil);
         }
     }, [user.fotoPerfil]);
 

@@ -17,7 +17,7 @@ export default function MeusFav() {
 
         const resposta = await api.enviar(id);
         if (resposta.ok) {
-            setLivro(resposta.livros);
+            setLivro(resposta.informacoes);
         }
 
     }

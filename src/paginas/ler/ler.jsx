@@ -2,7 +2,7 @@ import React from "react";
 import './ler.css';
 
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 import api from '../../backend/controler/api_info';
 
@@ -73,12 +73,11 @@ export default function Ler() {
         setCurtido(false);
     }, [curtidas]);
 
-
     useEffect(() => {
         const idLivroG = new URLSearchParams(location.search).get('id');
         setIdLivro(idLivroG);
         if (idLivroG) {
-            fetch('http://192.168.255.56/server/visus.php', {
+            fetch('http://10.1.1.211/server/visus.php', {
               method: 'POST', // Use POST para atualizar o servidor
               headers: {
                 'Content-Type': 'application/json',
@@ -96,7 +95,7 @@ export default function Ler() {
 
     useEffect(() => {
         if (infos && infos != '') {
-            setFoto("http://192.168.255.56/imagens/" + infos.fotoPerfil);
+            setFoto("http://10.1.1.211/imagens/" + infos.fotoPerfil);
         }
     }, [infos]);
 
@@ -104,20 +103,20 @@ export default function Ler() {
     const Busca = async () => {
         const resposta = await api.enviar(userId);
 
-        setInfos(resposta.userInfo);
+        setInfos(resposta.informacoes);
 
         const response = await curtiram.enviar(userId, idLivro, 'livro');
 
-        setCurtidas(response.curtidas);
+        setCurtidas(response.informacoes);
 
         let id = localStorage.getItem('id');
         const responseFav = await favoritou.enviar(id, idLivro);
-        if (responseFav.favoritos[0] && responseFav.favoritos[0].user_id == id) {
+        if (responseFav.informacoes[0] && responseFav.informacoes[0].user_id == id) {
             setFav(true);
         }
 
         const responseSeg = await Seguindo.enviar(id, userId);
-        if (responseSeg.seguidores[0] && responseSeg.seguidores[0].user_id == id) {
+        if (responseSeg.informacoes[0] && responseSeg.informacoes[0].user_id == id) {
             setSeguido(true);
         }
 
@@ -185,7 +184,7 @@ export default function Ler() {
             </div>
 
             <div className="infosAutor">
-                <Link  to={id != infos.id ? `/Busca/user?id=${encodeURIComponent(JSON.stringify(infos.id))}` : '/perfil'}><img id="perfil" src={foto} style={{ border: 'solid 4px' + cor }} /></Link>
+                <Link to={id != infos.id ? `/Busca/user?id=${encodeURIComponent(JSON.stringify(infos.id))}` : '/perfil'}><img id="perfil" src={foto} style={{ border: 'solid 4px' + cor }} /></Link>
                 <p>{infos.nome && infos.nome != '' ? infos.nome : "Autor"}</p>
                 {id != userId? <div className="btSeguir" style={{ backgroundColor: cor }} onClick={() => { seguir() }} >{seguido? 'SEGUINDO' : 'SEGUIR'}</div>:null}
             </div>
