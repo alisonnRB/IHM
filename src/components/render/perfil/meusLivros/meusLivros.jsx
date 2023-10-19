@@ -15,13 +15,10 @@ export default function MeusLivros() {
     const [livro, setLivro] = useState('');
 
     const Busca = async () => {
-        const id = localStorage.getItem('id');
-
-        const resposta = await api.enviar(id);
+        const resposta = await api.enviar('i');
         if (resposta.ok) {
             setLivro(resposta.informacoes);
         }
-
     }
 
 

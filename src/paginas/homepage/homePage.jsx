@@ -8,17 +8,23 @@ import api from '../../backend/controler/api_info';
 
 function Home() {
   const [infos, setInfos] = useState(null);
-  const id = localStorage.getItem('id');
+
   useEffect(() => {
     Busca();
   }, []);
 
+  useEffect(() => {
+    if(infos){
+      localStorage.setItem('id', infos.id);
+    }
+  }, [infos]);
+
   const Busca = async () => {
     //TODO prepara a api para fazer a requisição para o server e receber as resposta aqui
-    const resposta = await api.enviar(id);
-
-    //TODO atualiza o estado da infos
-    setInfos(resposta.informacoes);
+    const resposta = await api.enviar("i");
+    if (resposta.ok) {
+      setInfos(resposta.informacoes);
+    }
   };
   //TODO o useEffect permite executar algo apenas em um evento especifico, aqui é quando a page é construida
 

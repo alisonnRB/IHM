@@ -7,7 +7,7 @@ import api from '../../../backend/controler/api_Usuarios';
 
 import CardPessoa from "./cardPessoa/cardPessoa";
 
-export default function Busca() {
+export default function Busca(props) {
     const [pesquisa, setPesquisa] = useState('');
 
     const [users, setUsers] = useState('');
@@ -19,7 +19,6 @@ export default function Busca() {
         }
 
     }
-
 
     useEffect(() => {
         Busca();
@@ -34,7 +33,7 @@ export default function Busca() {
         const list = [];
         for (let i = 0; i < keys; i++) {
 
-            let a = <CardPessoa key={i} user={users[i]} />
+            let a = <CardPessoa key={i} user={users[i]} id={props.user.id} />
 
             list.push(a);
         }

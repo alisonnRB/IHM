@@ -1,9 +1,10 @@
 export default {
     //? prepara o objeto para enviar no padrão RESTful
-      enviar: async (id_user, id_ref) => {
-        
+      enviar: async (id_ref) => {
+        const id = sessionStorage.getItem('session');
+
         let user = {
-          id_user: id_user,
+          id_user: id,
           id_ref: id_ref,
         };
         //? prepara as informações de methodo e cabeçalhos para fazer a requisição

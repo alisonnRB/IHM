@@ -1,10 +1,11 @@
 export default {
-    enviar: async (cap, id, titulo, idUser) => {
+    enviar: async (cap, id, titulo) => {
+      const id_user = sessionStorage.getItem("session");
       let user = {
         cap: cap,
         id: id,
         titulo: titulo,
-        idUser: idUser,
+        idUser: id_user,
       };
       let requisição = {
         method: 'POST',

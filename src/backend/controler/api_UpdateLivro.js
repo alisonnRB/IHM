@@ -1,6 +1,8 @@
 export default {
-    enviar: async (idLivro, id, formData, nome, selecao, classificacao, publico, finalizado, color, tag) => {
+    enviar: async (idLivro, formData, nome, selecao, classificacao, publico, finalizado, color, tag) => {
         //? recebe um objeto formData e adiciona as informações que faltam 
+        const id = sessionStorage.getItem('session');
+
         formData.append('id', id);
         formData.append('color', color);
         formData.append('tags', JSON.stringify(tag));
@@ -10,6 +12,7 @@ export default {
         formData.append('classificacao', classificacao);
         formData.append('publico', publico);
         formData.append('finalizado', finalizado);
+
   
         //TODO faz a requisição
         //! coloque o seu ip ali

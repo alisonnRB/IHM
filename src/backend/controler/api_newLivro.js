@@ -1,5 +1,6 @@
 export default {
-    enviar: async (id, formData, nome, selecao, classificacao) => {
+    enviar: async (formData, nome, selecao, classificacao) => {
+        const id = sessionStorage.getItem('session');
         //? recebe um objeto formData e adiciona as informações que faltam 
         formData.append('id', id);
         formData.append('nome', nome);

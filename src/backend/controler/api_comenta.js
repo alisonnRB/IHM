@@ -1,7 +1,8 @@
 export default {
-    enviar: async (id_user, tipo, id_ref, texto, resposta, idResposta, conversa) => {
+    enviar: async (tipo, id_ref, texto, resposta, idResposta, conversa) => {
+        const id = sessionStorage.getItem('session');
         let user = {
-            id_user: id_user,
+            id_user: id,
             tipo: tipo,
             id_ref: id_ref,
             texto: texto,

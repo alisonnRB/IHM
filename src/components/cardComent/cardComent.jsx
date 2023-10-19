@@ -54,8 +54,7 @@ export default function Comentarios(props) {
     }
 
     const curtir = async () => {
-        let id = localStorage.getItem('id');
-        const resposta = await curtida.enviar(id, infos.id_ref, 'livro', infos.id);
+        const resposta = await curtida.enviar(infos.id_ref, 'livro', infos.id);
         if (resposta.ok) {
             props.setCurtindo(true);
         }

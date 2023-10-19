@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import './slideLivro.css';
-import MeusFav from "../meusFav/meusFav";
 
 export default function MeusLivros(props) {
     const [hover, setHover] = useState('');
@@ -62,11 +61,10 @@ export default function MeusLivros(props) {
 
     }
 
-    const meusLivros = (livros, id) => {
-        
-        const a = "http://192.168.255.56/livros/" + id + '/';
+    const meusLivros = (livros) => {
         const tempRow = [];
         for (let i = 0; i < livros.length; i++) {
+            const a = "http://192.168.255.56/livros/" + livros[i].user_id + '/';
             tempRow.push(<img key={`livro-${i}`} className='imagemCapa' src={a + livros[i]['nome'] + '_' + livros[i]['id'] + '/' + livros[i]['imagem']} />);
             if (i >= 6) {
                 break;

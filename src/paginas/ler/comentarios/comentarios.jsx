@@ -50,8 +50,7 @@ export default function Comentarios(props) {
         if (event) {
             event.preventDefault();
         }
-        const id = localStorage.getItem('id');
-        const response = await api.enviar(id, props.tipo, props.idLivro, texto, resposta, idResposta, conversa);
+        const response = await api.enviar(props.tipo, props.idLivro, texto, resposta, idResposta, conversa);
         if (response.ok) {
             setTexto('');
             setComent('');
@@ -65,7 +64,6 @@ export default function Comentarios(props) {
     const Busca = async () => {
         
         const response = await apiBusca.enviar(props.idLivro, 'livro');
-        console.log(response);
         if (response.ok) {
             setComentarios(response.informacoes);
         }

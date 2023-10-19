@@ -11,7 +11,6 @@ import Seguir from '../../../../backend/controler/api_seguir';
 import Seguindo from '../../../../backend/controler/api_buscaSeguidores';
 
 function CardPessoa(props) {
-    const id = localStorage.getItem('id');
     const [user, setUser] = useState('');
     const [seguidores, setSeguidores] = useState(0);
     const [seguidoresS, setSeguidoresS] = useState('');
@@ -20,16 +19,18 @@ function CardPessoa(props) {
     const [segue, setSegue] = useState(false);
 
     const seguir = async (user) => {
-        const resposta = await Seguir.enviar(id, user);
+        const resposta = await Seguir.enviar(user);
         if (resposta.ok) {
             Seguidores();
         }
     }
 
     const Seguidores = async () => {
-        const responseSeg = await Seguindo.enviar(id, user.id);
-        if (responseSeg.informacoes[0] && responseSeg.informacoes[0].user_id == id) {
-            setSegue(true);
+        if (user.id) {
+            const responseSeg = await Seguindo.enviar(user.id);
+            if (responseSeg.informacoes) {
+                setSegue(true);
+            }
         }
     }
 
@@ -71,18 +72,18 @@ function CardPessoa(props) {
         <span className="BoxCardPessoas">
             <span className="cardPessoa">
                 <div id="perfilPessoa">
-                    <Link className="Link" to={id != user.id ? `/Busca/user?id=${encodeURIComponent(JSON.stringify(user.id))}` : '/perfil'}>
+                    <Link className="Link" to={props.id != user.id ? `/Busca/user?id=${encodeURIComponent(JSON.stringify(user.id))}` : '/perfil'}>
                         <img src={`${'http://192.168.255.56/imagens/' + user.fotoPerfil}`} />
                     </Link>
                 </div>
 
                 <div className="infosPessoa">
-                    <Link className="Link" to={id != user.id ? `/Busca/user?id=${encodeURIComponent(JSON.stringify(user.id))}` : '/perfil'}>
+                    <Link className="Link" to={props.id != user.id ? `/Busca/user?id=${encodeURIComponent(JSON.stringify(user.id))}` : '/perfil'}>
                         <span className="nomePessoa">{user.nome}</span>
                     </Link>
                     <span className="catPessoa">
                         <div className="categoria"><img src={medalha} id="medalhaC" />{seguidoresS}</div>
-                        {user.id != id? <div className="opSeguir"><p onClick={() => { seguir(user.id) }}>{segue ? 'SEGUINDO' : 'SEGUIR'}</p></div> : null}
+                        {user.id != props.id ? <div className="opSeguir"><p onClick={() => { seguir(user.id) }}>{segue ? 'SEGUINDO' : 'SEGUIR'}</p></div> : null}
                     </span>
                 </div>
             </span>
