@@ -22,8 +22,6 @@ import diamante from '../../../imgs/diamante.png';
 
 function Perfil(props) {
 
- 
-
   const [name, setName] = useState('');
   const [seguidores, setSeguidores] = useState(0);
   const [seguidoresS, setSeguidoresS] = useState('');
@@ -37,19 +35,17 @@ function Perfil(props) {
   const [livroF, setLivroF] = useState([]);
 
   const Busca = async () => {
-    const id = localStorage.getItem('id');
-
     const resposta = await apiGender.enviar();
     if (resposta.ok == true) {
       setGeneros(resposta.informacoes);
     }
 
-    const respostaIMG = await apiCapa.enviar(id);
+    const respostaIMG = await apiCapa.enviar('i');
     if (respostaIMG.ok == true) {
       setLivro(respostaIMG.informacoes);
     }
 
-    const respontaFav = await MeusFav.enviar(id);
+    const respontaFav = await MeusFav.enviar('i');
     if (respontaFav.ok == true) {
       setLivroF(respontaFav.informacoes);
     }

@@ -78,11 +78,11 @@ export default function Ler() {
         setIdLivro(idLivroG);
         if (idLivroG) {
             fetch('http://10.1.1.211/server/visus.php', {
-              method: 'POST', // Use POST para atualizar o servidor
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({ id: idLivroG }),
+                method: 'POST', // Use POST para atualizar o servidor
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ id: idLivroG }),
             })
         }
     }, [location]);
@@ -102,45 +102,44 @@ export default function Ler() {
 
     const Busca = async () => {
         const resposta = await api.enviar(userId);
-
-        setInfos(resposta.informacoes);
+        if (resposta.ok) {
+            setInfos(resposta.informacoes);
+        }
 
         const response = await curtiram.enviar(userId, idLivro, 'livro');
+        if (response.ok) {
+            setCurtidas(response.informacoes);
+        }
 
-        setCurtidas(response.informacoes);
 
-        let id = localStorage.getItem('id');
-        const responseFav = await favoritou.enviar(id, idLivro);
-        if (responseFav.informacoes[0] && responseFav.informacoes[0].user_id == id) {
+        const responseFav = await favoritou.enviar(idLivro);
+        if (responseFav.informacoes) {
             setFav(true);
         }
 
-        const responseSeg = await Seguindo.enviar(id, userId);
-        if (responseSeg.informacoes[0] && responseSeg.informacoes[0].user_id == id) {
+        const responseSeg = await Seguindo.enviar(userId);
+        if (responseSeg.informacoes) {
             setSeguido(true);
         }
 
     };
 
     const curtir = async () => {
-        let id = localStorage.getItem('id');
-        const resposta = await curtida.enviar(id, idLivro, 'livro', 0);
+        const resposta = await curtida.enviar(idLivro, 'livro', 0);
         if (resposta.ok) {
             Busca();
         }
     }
 
     const favoritar = async () => {
-        let id = localStorage.getItem('id');
-        const resposta = await favorito.enviar(id, idLivro);
+        const resposta = await favorito.enviar(idLivro);
         if (resposta.ok) {
             Busca();
         }
     }
 
     const seguir = async () => {
-        let id = localStorage.getItem('id');
-        const resposta = await Seguir.enviar(id, userId);
+        const resposta = await Seguir.enviar(userId);
         if (resposta.ok) {
             Busca();
         }
@@ -186,7 +185,7 @@ export default function Ler() {
             <div className="infosAutor">
                 <Link to={id != infos.id ? `/Busca/user?id=${encodeURIComponent(JSON.stringify(infos.id))}` : '/perfil'}><img id="perfil" src={foto} style={{ border: 'solid 4px' + cor }} /></Link>
                 <p>{infos.nome && infos.nome != '' ? infos.nome : "Autor"}</p>
-                {id != userId? <div className="btSeguir" style={{ backgroundColor: cor }} onClick={() => { seguir() }} >{seguido? 'SEGUINDO' : 'SEGUIR'}</div>:null}
+                {id != userId ? <div className="btSeguir" style={{ backgroundColor: cor }} onClick={() => { seguir() }} >{seguido ? 'SEGUINDO' : 'SEGUIR'}</div> : null}
             </div>
             <BtFloatH />
         </div>

@@ -5,10 +5,11 @@ import volta from '../../../imgs/voltar.jpeg';
 import apiEdit from '../../../backend/controler/api_GenderEdit';
 import Seleciona from '../../seleçãoGenero/seleciona';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 export default function Gender(props) {
+    const Navigate = useNavigate();
     const [selecao, setSelecao] = useState({
         0: false,
         1: false,
@@ -41,10 +42,12 @@ export default function Gender(props) {
     }, [props.user]);
 
 
-    const alterar = async () => {
-        const id = localStorage.getItem('id');
-
-       const ss =  await apiEdit.enviar(id, selecao);
+    const alterar = async (e) => {
+        e.preventDefault();
+        const response =  await apiEdit.enviar(selecao);
+        if(response.ok){
+            Navigate(-1);
+        }
     }
 
     return (

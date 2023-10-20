@@ -38,10 +38,7 @@ export default function Edit(props) {
 
         const userName = event.target.newName.value;
 
-        const idUsuario = localStorage.getItem('id');
-        
-
-        const resposta = await api.enviar(idUsuario, formData, userName);
+        const resposta = await api.enviar(formData, userName);
 
         setFile(null);
         setImagePreview(null);

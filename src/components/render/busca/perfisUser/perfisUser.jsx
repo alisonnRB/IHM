@@ -40,7 +40,8 @@ export default function User() {
 
     const Busca = async () => {
         const resposta = await api.enviar(idUser);
-        if (resposta.ok) {
+        if (resposta.ok && resposta.informacoes.id) {
+            console.log(resposta);
             setInfos(resposta.informacoes);
         }
         const response = await apiGender.enviar();
@@ -51,15 +52,15 @@ export default function User() {
         if (livrinhos.ok && livrinhos.informacoes[0]) {
             setLivro(livrinhos.informacoes);
         }
-        const responseSeg = await Seguindo.enviar(id, idUser);
-        if (responseSeg.informacoes[0] && responseSeg.informacoes[0].user_id == id) {
+        const responseSeg = await Seguindo.enviar(idUser);
+        if (responseSeg.informacoes) {
             setSeguindo(true);
         }
     };
     
 
     const seguir = async () => {
-        const resposta = await Seguir.enviar(id, idUser);
+        const resposta = await Seguir.enviar(idUser);
         if (resposta.ok) {
             Busca();
         }

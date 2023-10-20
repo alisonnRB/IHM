@@ -27,7 +27,7 @@ function Render(props) {
         <Route path='/perfil/MeusLivros' element={<MeusLivros/> }></Route>
         <Route path='/perfil/MeusFavoritos' element={<MeusFav/> }></Route>
         <Route path='/perfil/editaLivros' element={<EditaLivros/> }></Route>
-        <Route path='/Busca' element={<Busca/> }></Route>
+        <Route path='/Busca' element={<Busca user={props.user}/> }></Route>
         <Route path='/Busca/user' element={<User/>}></Route>
         <Route path='/Livros' element={<Livros />}></Route>
         <Route path='/Chat' element={<Chat />}></Route>

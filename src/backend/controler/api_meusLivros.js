@@ -1,26 +1,30 @@
+import auth from "./api_autenticar";
+
 export default {
-  enviar: async (id) => {
-      //? prepara o objeto para enviar no padrão RESTful
-      let user = {
-          id: id
-      };
+    enviar: async (idUser) => {
+        const id = sessionStorage.getItem("session");
+        let user = {
+            id: id,
+            idUser: idUser,
+        };
 
-      //? prepara as informações de methodo e cabeçalhos para fazer a requisição
-      let requisição = {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+        //? prepara as informações de methodo e cabeçalhos para fazer a requisição
+        let requisição = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
 
-          //? converte para json
-          body: JSON.stringify(user),
-         
-      };
-      //TODO faz a requisição
-      //! coloque o seu ip ali
-      const response = await fetch('http://10.1.1.211/server/meusLivros.php', requisição);
+            //? converte para json
+            body: JSON.stringify(user),
 
-
-      //TODO espera a resposta do servidor e armazena para retornar ao cliente
-      const data = await response.json(); //* aguarda um resposta json
-      return data;
-  },
+        };
+        //TODO faz a requisição
+        //! coloque o seu ip ali
+        const response = await fetch('http://10.1.1.211/server/meusLivros.php', requisição);
+        //TODO espera a resposta do servidor e armazena para retornar ao cliente
+        const data = await response.json(); //* aguarda um resposta json
+        if (data.informacoes == "não autorizado") {
+            await auth.enviar();
+        }
+        return data;
+    },
 };

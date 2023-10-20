@@ -20,16 +20,18 @@ function CardPessoa(props) {
     const [segue, setSegue] = useState(false);
 
     const seguir = async (user) => {
-        const resposta = await Seguir.enviar(id, user);
+        const resposta = await Seguir.enviar(user);
         if (resposta.ok) {
             Seguidores();
         }
     }
 
     const Seguidores = async () => {
-        const responseSeg = await Seguindo.enviar(id, user.id);
-        if (responseSeg.informacoes[0] && responseSeg.informacoes[0].user_id == id) {
-            setSegue(true);
+        if (user.id) {
+            const responseSeg = await Seguindo.enviar(user.id);
+            if (responseSeg.informacoes) {
+                setSegue(true);
+            }
         }
     }
 
@@ -82,7 +84,7 @@ function CardPessoa(props) {
                     </Link>
                     <span className="catPessoa">
                         <div className="categoria"><img src={medalha} id="medalhaC" />{seguidoresS}</div>
-                        {user.id != id? <div className="opSeguir"><p onClick={() => { seguir(user.id) }}>{segue ? 'SEGUINDO' : 'SEGUIR'}</p></div> : null}
+                        {user.id != id ? <div className="opSeguir"><p onClick={() => { seguir(user.id) }}>{segue ? 'SEGUINDO' : 'SEGUIR'}</p></div> : null}
                     </span>
                 </div>
             </span>

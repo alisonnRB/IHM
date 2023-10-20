@@ -1,6 +1,10 @@
+import auth from "./api_autenticar";
+
 export default {
-    enviar: async (id, selecionados) => {
+    enviar: async (selecionados) => {
         //? prepara o objeto para enviar no padrão RESTful
+        const id = sessionStorage.getItem("session");
+
         let user = {
             id: id,
             selecionados: selecionados,
@@ -13,7 +17,7 @@ export default {
 
             //? converte para json
             body: JSON.stringify(user),
-           
+
         };
         //TODO faz a requisição
         //! coloque o seu ip ali
@@ -22,6 +26,9 @@ export default {
 
         //TODO espera a resposta do servidor e armazena para retornar ao cliente
         const data = await response.json(); //* aguarda um resposta json
+        if (data.informacoes == "não autorizado") {
+            await auth.enviar();
+        }
         return data;
     },
 };
