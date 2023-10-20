@@ -16,7 +16,7 @@ export default function PrivateRoute({ children }) {
 
     useEffect(() => {
         Auth();
-        const intervalId = setInterval(Auth, 60000);
+        const intervalId = setInterval(Auth, 1800000);
 
         return () => {
             clearInterval(intervalId);
