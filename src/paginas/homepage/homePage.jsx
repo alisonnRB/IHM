@@ -5,6 +5,7 @@ import Barraop from '../../components/optionPage/optionPage';
 import Render from '../../components/render/render';
 
 import api from '../../backend/controler/api_info';
+import auth from '../../backend/controler/api_autenticar';
 
 function Home() {
   const [infos, setInfos] = useState(null);
@@ -14,13 +15,14 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    if(infos){
+    if (infos) {
       localStorage.setItem('id', infos.id);
     }
   }, [infos]);
 
   const Busca = async () => {
     //TODO prepara a api para fazer a requisição para o server e receber as resposta aqui
+    await auth.enviar();
     const resposta = await api.enviar("i");
     if (resposta.ok) {
       setInfos(resposta.informacoes);

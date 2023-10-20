@@ -1,3 +1,5 @@
+import { setVariavelGlobal } from "../../GvarAuth";
+
 export default {
     //? prepara o objeto para enviar no padrão RESTful
     enviar: async () => {
@@ -10,7 +12,7 @@ export default {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': authorizationHeader, 
+                'Authorization': authorizationHeader,
             },
         };
 
@@ -19,8 +21,17 @@ export default {
 
 
         //TODO espera a resposta do servidor e armazena para retornar ao cliente
-        const data = await response.json();
-        return data;
+        try {
+            const data = await response.json();
+            if (!data.ok) {
+                setVariavelGlobal(true);
+            } else {
+                setVariavelGlobal(false);
+            }
+            return data;
+        }catch(e){
+            setVariavelGlobal(true);
+        }
     },
 };
 

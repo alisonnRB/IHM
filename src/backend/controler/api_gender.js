@@ -1,3 +1,5 @@
+import auth from "./api_autenticar";
+
 export default {
     enviar: async () => {
         const id = sessionStorage.getItem("session");
@@ -14,6 +16,9 @@ export default {
         const response = await fetch('http://192.168.255.56/server/gender.php', requisição);
 
         const data = await response.json();
+        if (data.informacoes == "não autorizado") {
+            await auth.enviar();
+        }
         return data;
     },
 };

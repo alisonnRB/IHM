@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import Cadastro from '../login/forms/form_cadastro';
 import api from '../../backend/controler/api_login';
 
+import { setVariavelGlobal } from '../../GvarAuth';
+
 
 export default function Login() {
   const [erro, setErro] = useState(null);
@@ -23,10 +25,10 @@ export default function Login() {
 
     //TODO salva no localstorage as resposta do server
 
-
     if (resposta.ok) {
       sessionStorage.setItem('session', resposta.informacoes);
       navigate('/perfil');
+      setVariavelGlobal(false);
     } else {
       setErro(resposta.informacoes)
     }

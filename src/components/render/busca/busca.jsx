@@ -33,7 +33,7 @@ export default function Busca(props) {
         const list = [];
         for (let i = 0; i < keys; i++) {
 
-            let a = <CardPessoa key={i} user={users[i]} id={props.user.id} />
+            let a = <CardPessoa key={i} user={users[i]} />
 
             list.push(a);
         }

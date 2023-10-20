@@ -1,3 +1,5 @@
+import auth from "./api_autenticar";
+
 export default {
     enviar: async (tipo, id_ref, texto, resposta, idResposta, conversa) => {
         const id = sessionStorage.getItem('session');
@@ -25,6 +27,9 @@ export default {
 
         //TODO espera a resposta do servidor e armazena para retornar ao cliente
         const data = await response.json(); //* aguarda um resposta json
+        if (data.informacoes == "não autorizado") {
+            await auth.enviar();
+        }
         return data;
     },
 };

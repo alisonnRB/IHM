@@ -106,11 +106,9 @@ export default function Ler() {
             setInfos(resposta.informacoes);
         }
 
-
         const response = await curtiram.enviar(userId, idLivro, 'livro');
         if (response.ok) {
             setCurtidas(response.informacoes);
-            console.log(response.informacoes);
         }
 
 

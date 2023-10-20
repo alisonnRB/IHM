@@ -1,28 +1,32 @@
+import auth from "./api_autenticar";
+
 export default {
   //? prepara o objeto para enviar no padrão RESTful
-    enviar: async (idUser) => {
-      const id = sessionStorage.getItem('session');
+  enviar: async (idUser) => {
+    const id = sessionStorage.getItem('session');
 
-      let user = {
-        id: id,
-        idUser: idUser
-      };
-      //? prepara as informações de methodo e cabeçalhos para fazer a requisição
-      let requisição = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(user),
-      };
-      
-      //TODO faz a requisição
+    let user = {
+      id: id,
+      idUser: idUser
+    };
+    //? prepara as informações de methodo e cabeçalhos para fazer a requisição
+    let requisição = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(user),
+    };
 
-      //! coloque o seu ip ali
-      const response = await fetch('http://192.168.255.56/server/info_users.php', requisição);
+    //TODO faz a requisição
 
-      //TODO espera a resposta do servidor e armazena para retornar ao cliente
-      const data = await response.json();
-      return data;
-    },
-  };
-  
-  
+    //! coloque o seu ip ali
+    const response = await fetch('http://192.168.255.56/server/info_users.php', requisição);
+
+    //TODO espera a resposta do servidor e armazena para retornar ao cliente
+    const data = await response.json();
+    if (data.informacoes == "não autorizado") {
+      await auth.enviar();
+    }
+    return data;
+  },
+};
+

@@ -4,8 +4,6 @@ import {Routes, Route} from 'react-router-dom';
 
 import './render.css';
 
-import PrivateRoute from "../../privateRoute";
-
 import Perfil from './perfil/perfil';
 import Livros from './livros/livros';
 import Chat from './chat/chat';
@@ -24,17 +22,17 @@ function Render(props) {
   return (
     <div className='render' id='render'>
       <Routes>
-        <Route path='/perfil' element={<PrivateRoute><Perfil user={props.user}/></PrivateRoute>}></Route>
-        <Route path='/perfil/gender' element={<PrivateRoute><Gender user={props.user}/></PrivateRoute>}></Route>
-        <Route path='/perfil/MeusLivros' element={<PrivateRoute><MeusLivros/></PrivateRoute> }></Route>
-        <Route path='/perfil/MeusFavoritos' element={<PrivateRoute><MeusFav/></PrivateRoute> }></Route>
-        <Route path='/perfil/editaLivros' element={<PrivateRoute><EditaLivros/></PrivateRoute> }></Route>
-        <Route path='/Busca' element={<PrivateRoute><Busca user={props.user}/></PrivateRoute> }></Route>
-        <Route path='/Busca/user' element={<PrivateRoute><User/></PrivateRoute>}></Route>
-        <Route path='/Livros' element={<PrivateRoute><Livros /></PrivateRoute>}></Route>
-        <Route path='/Chat' element={<PrivateRoute><Chat /></PrivateRoute>}></Route>
-        <Route path='/Feed' element={<PrivateRoute><Feed /></PrivateRoute>}></Route>
-        <Route path='/Config' element={<PrivateRoute><Option /></PrivateRoute>}></Route>
+        <Route path='/perfil' element={<Perfil user={props.user}/>}></Route>
+        <Route path='/perfil/gender' element={<Gender user={props.user}/>}></Route>
+        <Route path='/perfil/MeusLivros' element={<MeusLivros/> }></Route>
+        <Route path='/perfil/MeusFavoritos' element={<MeusFav/> }></Route>
+        <Route path='/perfil/editaLivros' element={<EditaLivros/> }></Route>
+        <Route path='/Busca' element={<Busca user={props.user}/> }></Route>
+        <Route path='/Busca/user' element={<User/>}></Route>
+        <Route path='/Livros' element={<Livros />}></Route>
+        <Route path='/Chat' element={<Chat />}></Route>
+        <Route path='/Feed' element={<Feed />}></Route>
+        <Route path='/Config' element={<Option />}></Route>
       </Routes>
     </div>
     );
