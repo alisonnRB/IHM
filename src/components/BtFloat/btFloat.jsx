@@ -26,7 +26,7 @@ export default function FloatBt() {
                 </li>
                 <li>
                     <label htmlFor="opcao2">Publi</label>
-                    <Link>
+                    <Link to='/novaPubli'>
                         <button id="opcao2">
                         </button>
                     </Link>

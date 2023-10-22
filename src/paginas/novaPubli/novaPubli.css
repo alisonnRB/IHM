@@ -1,0 +1,19 @@
+.telaPubli{
+    background-color: chocolate;
+    height: 100vh;
+    width: 100vw;
+    display: block;
+}
+
+#cancelPubli{
+    height: 8%;
+    background-color: cornflowerblue;
+    justify-content: end;
+}
+.boxPubli{
+    background-color: cadetblue;
+    height: calc(92% - 150px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

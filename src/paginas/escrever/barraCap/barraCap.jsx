@@ -48,9 +48,8 @@ export default function BarraCap(props) {
     }, [props.titulo, props.selected]);
 
     const Change = async () => {
-        const id = localStorage.getItem('id');
 
-        const resposta = await api.enviar(id, pronto, Selecionado, props.idLivro);
+        const resposta = await api.enviar(pronto, Selecionado, props.idLivro);
         if (resposta.ok) {
         }
     }

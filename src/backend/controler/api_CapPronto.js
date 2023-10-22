@@ -1,7 +1,8 @@
 import auth from "./api_autenticar";
 
 export default {
-  enviar: async (id, pronto, cap, idLivro) => {
+  enviar: async (pronto, cap, idLivro) => {
+    const id = sessionStorage.getItem('session');
     let user = {
       id: id,
       pronto: pronto,
@@ -18,6 +19,7 @@ export default {
     const response = await fetch('http://192.168.255.56/server/cap_pronto.php', requisição);
 
     const data = await response.json();
+    console.log(data.informacoes);
     if (data.informacoes == "não autorizado") {
       await auth.enviar();
     }
