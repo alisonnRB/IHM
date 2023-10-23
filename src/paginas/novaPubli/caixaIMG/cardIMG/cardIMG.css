@@ -1,0 +1,15 @@
+.fileCard{
+    height: 50px;
+    width: 30px;
+}
+
+.customCard{
+    height: 100px;
+    width: 100px;
+    background-color: darkorchid;
+    cursor: pointer;
+}
+
+.editFile{
+    display: none;
+}

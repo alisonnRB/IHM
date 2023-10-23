@@ -1,0 +1,69 @@
+.imgBox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: darkgrey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardImg {
+    height: 500px;
+    width: 900px;
+    border-radius: 30px;
+    background-color: rgb(133, 188, 77);
+}
+
+#cancelIMG {
+    cursor: pointer;
+    height: 80px;
+    width: 80px;
+    position: relative;
+    left: 94%;
+    bottom: 2%;
+    margin-bottom: -80px;
+}
+
+.imgsContent {
+    background-color: mintcream;
+    height: 100%;
+    width: 100%;
+}
+
+.capaL {
+    background-color: burlywood;
+    height: 100%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.livroSel {
+    background-color: green;
+    height: 90%;
+    width: 90%;
+    border-radius: 10px;
+}
+
+.newIMG {
+    padding: 5%;
+    background-color: indianred;
+    height: 100%;
+    width: 60%;
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(3, 1fr);
+}
+#maisIMG{
+    cursor: pointer;
+    position: relative;
+    top: 25px;
+    background-color: aliceblue;
+    border-radius: 50%;
+    height: 40px;
+    width: 50px;
+}

@@ -1,31 +1,58 @@
 .cardPubli {
     background-color: palevioletred;
     display: block;
+    height: 300px;
+    width: 900px;
 }
 
 .textPubli {
-    background-color: darkmagenta;
-    max-height: 200px;
+    background-color: #8b008b;
+    max-height: 300px;
+    min-height: 300px;
     overflow: hidden;
     overflow-y: auto;
 }
 
 #textoPubli {
-    max-width: 500px;
-    min-width: 500px;
+    max-width: 650px;
+    min-width: 650px;
     min-height: 300px;
-
+    padding-left: 20px;
+    font-size: 2em;
     background-color: darkolivegreen;
 }
 
 .btPubli {
     background-color: darkslategray;
-    height: 20px;
+    height: 40px;
     gap: 5px;
+    padding-left: 250px;
 }
 
 .campoImgPubli {
-    background-color: floralwhite;
-    width: 190px;
-    height: 200px;
+    max-width: 250px;
+    width: 250px;
+    max-height: 340px;
+    height: 340px;
+    margin-bottom: -40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#Publicar{
+    position: absolute;
+    cursor: pointer;
+    font-size: 2em;
+    font-weight: bold;
+    color: gray;
+    bottom: 60px;
+    right: 50px;
+}
+
+.campoImgPubli #capaSelect{
+    height: 90%;
+    width: 90%;
+    background-color: blue;
+    border-radius: 10px;
 }

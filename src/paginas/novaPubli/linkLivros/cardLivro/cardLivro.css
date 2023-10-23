@@ -1,0 +1,42 @@
+.CardLink{
+    background-color: rgb(218, 208, 76);
+    min-height: 150px;
+    max-height: 150px;
+    width: 85%;
+    display: block;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+
+.CardLink .content{
+    height: 100%;
+    width: 100%;
+}
+
+.CardLink .content #capa{
+    width: 13%;
+    border-radius: 8px;
+}
+.caixaInfo{
+    height: 100%;
+    width: 100%;
+    display: block;
+    background-color: darkred;
+}
+.CardLink .content .caixaInfo .boxNome{
+    background-color: darkblue;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding-left: 30px;
+    align-items: center;
+    height: 20%;
+}
+
+.CardLink .content .caixaInfo .boxSinopse{
+    height: 80%;
+    overflow: hidden;
+    overflow-y: auto;
+    padding-left: 30px;
+    word-break: break-all;
+}

@@ -50,6 +50,7 @@ export default function Edit(props) {
             setRespost(resposta.informacoes);
         }
     };
+    
     return (
         <div className='edicao' onClick={()=>{props.fecharEdicao(false)}}>
 
