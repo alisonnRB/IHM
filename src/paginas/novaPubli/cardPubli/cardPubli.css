@@ -56,3 +56,37 @@
     background-color: blue;
     border-radius: 10px;
 }
+
+.caixaEnM{
+    height: 250px;
+    width: 100%;
+    background-color: chartreuse;
+    display: block;
+}
+
+.caixaEnquete{
+    background-color: darkviolet;
+    height: 200px;
+    display: grid;
+    padding-top: 7%;
+    padding-left: 12%;
+    grid-template-columns: repeat(2, minmax(80px, 2fr));
+    grid-template-rows: repeat(2, minmax(80px, 2fr));
+}
+
+.enqueteB{
+    background-color: dodgerblue;
+    max-height: 40px;
+    height: 40px;
+    max-width: 200px;
+    width: 200px;
+    align-items: center;
+    padding-left: 10px;
+}
+
+#quest{
+    background-color: lightpink;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,11 +1,78 @@
 .enquete{
     background-color: deeppink;
-    height: 200px;
-    width: 100%;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#cardEnquete{
+    background-color:blueviolet ;
+    height: 400px;
+    width: 900px;
+    display: block;
+}
+
+.contentEnquete{
+    background-color: purple;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
 }
 
 .enqueteBox{
-    height: 40px;
-    width: 170px;
+    height: 45px;
+    width: 320px;
     border: 1px solid black;
+    background-color: darkred;
+}
+
+.titleEnquete{
+    background-color: aqua;
+    height: 15%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tagBox{
+    background-color: chocolate;
+    height: 10%;
+    align-items: center;
+    justify-content: center;
+}
+
+.titleEnqueteBox{
+    font-size: 2em;
+    height: 50px;
+    width: 360px;
+}
+
+#cancelaEnquete{
+    height: 70px;
+    width: 70px;
+    position: relative;
+    left: 95%;
+    bottom: 20px;
+}
+
+.cancelIMG{
+    margin-bottom: -70px;
+}
+
+#pronto{
+    cursor: pointer;
+    position: relative;
+    left: 40%;
+    top: 20px;
+    font-weight: bold;
+    font-size: 1.5em;
 }
