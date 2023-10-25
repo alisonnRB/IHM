@@ -4,29 +4,34 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: aqua;
+    background-color: rgba(255, 255, 255, 0.457);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .abaPesquisa{
-    background-color: blueviolet;
     height: 90%;
     width: 70%;
     border-radius: 30px;
     display: block;
+    background: linear-gradient(90deg, rgba(205,252,218,1) 31%, rgba(204,216,237,1) 92%);
 }
-
+.abaPesquisa #searchText{
+    border-radius: 50px;
+    background-color: #fff;
+    width: 83%;
+}
 .abaPesquisa .titleBox{
     align-items: center;
     justify-content: center;
-    background-color: brown;
     height: 50px;
+    font-weight: bold;
+    font-size: 1.3em;
+    color: #00647E;
 }
 
 .BuscaLivros .boxLivros {
-    background-color: black;
     margin-top: 0;
     height: 10%;
     display: flex;
@@ -41,8 +46,7 @@
 }
 
 .Buscas{
-    background-color: aquamarine;
-    height: calc(90% - 50px);
+    height: calc(90% - 90px);
     overflow: hidden;
     overflow-y: auto;
     display: flex;
@@ -52,8 +56,10 @@
 
 #cancelB{
     cursor: pointer;
-    position: absolute;
+    position: relative;
     height: 80px;
     width: 80px;
-    right: 10%;
+    margin-bottom: -80px;
+    left: 95%;
+    bottom: 30px;
 }

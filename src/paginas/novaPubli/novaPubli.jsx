@@ -1,6 +1,6 @@
 import React from "react";
 import './novaPubli.css';
-import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import x from "../../imgs/cancel.png";
 
@@ -8,13 +8,14 @@ import Header from '../../components/header/header';
 import Card from './cardPubli/cardPubli';
 
 export default function NovaPubli() {
+    const navigate = useNavigate();
 
 
     return (
         <div className="telaPubli">
             <Header />
             <span id="cancelPubli">
-                <img src={x} />
+                <img src={x} onClick={()=>{navigate(-1)}} />
             </span>
             <div className="boxPubli">
                 <Card/>

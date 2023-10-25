@@ -45,7 +45,6 @@ export default function LinkLivro(props) {
                 <span className="titleBox">ANEXAR LIVRO</span>
                 <span className="boxLivros">
                     <input type='text' id='searchText' placeholder='Buscar' onChange={(e) => {  Pesquisa(e.target.value)}} />
-                    <div id='searchImg'></div>
                 </span>
 
                 <div className="Buscas">

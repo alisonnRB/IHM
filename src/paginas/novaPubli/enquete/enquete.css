@@ -1,5 +1,5 @@
 .enquete{
-    background-color: deeppink;
+    background-color: rgba(255, 255, 255, 0.457);
     position: fixed;
     height: 100vh;
     width: 100vw;
@@ -11,15 +11,15 @@
 }
 
 #cardEnquete{
-    background-color:blueviolet ;
-    height: 400px;
-    width: 900px;
+    background: linear-gradient(90deg, rgba(205,252,218,1) 31%, rgba(204,216,237,1) 92%);
+    height: 90%;
+    width: 70%;
     display: block;
+    border-radius: 30px;
 }
 
 .contentEnquete{
-    background-color: purple;
-    height: 90%;
+    height: 75%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,15 +28,31 @@
 }
 
 .enqueteBox{
-    height: 45px;
-    width: 320px;
-    border: 1px solid black;
-    background-color: darkred;
+    height: 65px;
+    width: 400px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-left: 15px;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.apagaEn{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 65px;
+    width: 55px;
+    color: white;
+    font-size: 2em;
+    background-color: red;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .titleEnquete{
-    background-color: aqua;
-    height: 15%;
+    height: 10%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -44,16 +60,21 @@
 }
 
 .tagBox{
-    background-color: chocolate;
-    height: 10%;
+    height: 15%;
+    font-size: 1.3em;
+    font-weight: bold;
     align-items: center;
     justify-content: center;
 }
 
 .titleEnqueteBox{
-    font-size: 2em;
-    height: 50px;
-    width: 360px;
+    text-align: center;
+    font-weight: bold;
+    border-bottom: solid .5px black;
+    background-color: transparent;
+    font-size: 3em;
+    height: 100%;
+    width: 70%;
 }
 
 #cancelaEnquete{
@@ -66,13 +87,25 @@
 
 .cancelIMG{
     margin-bottom: -70px;
+    cursor: pointer;
 }
 
 #pronto{
     cursor: pointer;
     position: relative;
     left: 40%;
-    top: 20px;
+    top: 70px;
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 2.3em;
+    color: #00647E;
+}
+
+.mais{
+    cursor: pointer;
+    margin-top: 13px;
+    border-radius: 50%;
+    padding: 10px;
+    background-color: white;
+    height: 40px;
+    width: 40px;
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import './cardPubli.css';
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import Enquete from '../enquete/enquete';
 import LinkLivro from "../linkLivros/linkLivro";
@@ -9,10 +10,12 @@ import livroT from '../../../imgs/livro-true.png';
 import livroF from '../../../imgs/livro-false.png';
 import enqueteT from '../../../imgs/enquete-true.png';
 import enqueteF from '../../../imgs/enquete-false.png';
+import x from '../../../imgs/cancel.png';
 
 import api from '../../../backend/controler/api_publicacao';
 
 export default function CardPubli() {
+    const navigate = useNavigate();
     //TODO conteudo ou não
     const [livro, setlivro] = useState(false);
     const [enqueteTem, setEnqueteTem] = useState(false);
@@ -45,10 +48,22 @@ export default function CardPubli() {
     }, [linkLivro])
 
     useEffect(() => {
+        if (EnqueteS != '') {
+            for (let i = 0; i < 3; i++) {
+                if (EnqueteS[i] != '') {
+                    setEnqueteTem(true);
+                    return;
+                } else {
+                    setEnqueteTem(false);
+                }
+            }
+        }
+    }, [EnqueteS])
+
+    useEffect(() => {
         if (cancelLivro) {
             setLivro(false);
-            setlivro(false);
-            setLinkLivro('');
+            setCancelLivro(false);
         }
     }, [cancelLivro])
 
@@ -76,8 +91,8 @@ export default function CardPubli() {
 
     const publicar = async () => {
         const response = await api.enviar(texto, linkLivro, EnqueteS, titleEnquete);
-        if(response.ok){
-            console.log(response.ok);
+        if (response.ok) {
+            navigate(-1);
         }
     }
 
@@ -88,10 +103,12 @@ export default function CardPubli() {
             {enquete ? <Enquete setCancel={setCancelEnquete} setEnquete={setEnqueteS} setEnqueteTem={setEnqueteTem} enquete={EnqueteS} setTitle={setTitleEnquete} title={titleEnquete} /> : null}
 
             <span >
-                {livro ?
+                {livro ? <>
+                    <img src={x} className="cancelLivro" onClick={() => { setlivro(false); setLinkLivro('') }} />
                     <div className="campoImgPubli">
                         <img src={linkLivro.imagem} id="capaSelect" />
                     </div>
+                </>
                     : <div className="campoImgPubli"></div>}
 
 
@@ -100,7 +117,7 @@ export default function CardPubli() {
 
                     {enqueteTem ?
                         <div className="caixaEnM">
-                            <span id="quest" >{titleEnquete? titleEnquete : '?'}</span>
+                            <span id="quest" >{enqueteTem && titleEnquete ? titleEnquete : null}</span>
                             <div className="caixaEnquete">
                                 {geraEnquete()}
                             </div>
