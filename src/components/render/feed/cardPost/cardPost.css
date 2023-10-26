@@ -1,27 +1,62 @@
-@media screen and (min-width: 1199px){
-.cardPost{
-    margin-bottom: 20px;
-}
-.cardPost span{
-    background-color: #98BEC1;
-    padding-left: 30px;
-    display: flex;
-    align-items: center;
-    height: 80px;
-    width: 100%;
-}
-.cardPost span img{
-    height: 60px;
-    width: 60px;
-}
-.cardPost span div p:first-child{
-    color: #57868C;
-}
-.cardPost span div p:last-child{
-    color: #ffffff;
-}
-.contentPost{
+@media screen and (min-width: 1199px) {
+    .cardPost {
+        background-color: cornflowerblue;
+        min-height: 430px;
+        max-height: 430px;
+        height: 430px;
+        width: 70%;
+        min-width: 70%;
+        max-width: 70%;
+        margin-bottom: 20px;
+        display: block;
+        margin-bottom: 100px;
+    }
 
-    min-height: 500px;
-    width: 100%;
-}}
+    .infosPost{
+        background-color: rgb(162, 237, 100);
+        height: 100%;
+        width: 100%;
+    }
+
+    .imgLinkBox{
+        display: flex;
+        background-color: rgb(220, 20, 120);
+        height: 100%;
+        width: 300px;
+    }
+
+    .imgLink{
+        height: 100%;
+        width: 100%;
+    }
+
+    .publiUser{
+        position: relative;
+        left: 20px;
+        top: 5px;
+        background-color: aliceblue;
+        height: 25px;
+        max-width: 100px;
+        min-width: 100px;
+        margin-right: -100px;
+        overflow: hidden;
+    }
+
+    .textContent{
+        height: calc(100% - 80px);
+        width: 100%;
+        background-color: darkblue;
+        font-size: 2em;
+        font-weight: bold;
+        padding: 40px;
+        word-break: break-all;
+    }
+
+    .curtiComent{
+        height: 40px;
+        background-color: rgb(255, 249, 127);
+        justify-content: end;
+        padding-right: 20px;
+        gap: 5px;
+    }
+}

@@ -1,26 +1,47 @@
-//! PAGE A SER TRABALHADA
-
 import React from 'react';
+import { useEffect, useState } from 'react';
 import './feed.css';
 import Card from './cardPost/cardPost';
+import BtFloat from '../../BtFloat/btFloat';
+
+import api from "../../../backend/controler/api_searchFeed";
 
 //? page reponsavel por mostrar as postagens 
-function Feed() {
+export default function Feed() {
+  const [publis, setPublis] = useState({});
+
+  useEffect(() => {
+    Busca();
+  }, [])
+
+  const Busca = async () => {
+    const resposta = await api.enviar();
+    if (resposta.ok) {
+      setPublis(resposta.informacoes);
+    }
+  }
+
+  const gera_posts = () => {
+    const list = []
+    for (let i = 0; i < Object.keys(publis).length; i++) {
+      let a = <Card key={i} publi={publis[i]} />
+
+      list.push(a);
+    }
+
+    return list;
+  }
+
   return (
     <div className='feed'>
-      <div className='tittleFeed'><p>MEU FEED</p></div>
+      <span id='titlePerfil'>FEED</span>
 
       <div className='renderPosts'>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {gera_posts()}
       </div>
 
-      <button className='btPost'>+</button>
+      <BtFloat />
 
     </div>
-    );
-  }
-  
-  export default Feed;
+  );
+}
