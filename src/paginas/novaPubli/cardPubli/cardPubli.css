@@ -9,23 +9,40 @@
     min-height: 300px;
     overflow: hidden;
     overflow-y: auto;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.526);
-    margin-bottom: 20px;;
+    margin-bottom: 5px;
+    background-color: white;
+
+    transition: all 1s ease;
+
+    position: relative;
+    z-index: 1;
 }
 
-#textoPubli {
-    max-width: 650px;
-    min-width: 650px;
+.textoPubli {
+    min-width: 900px;
+    max-width: 900px;
     min-height: 200px;
     padding: 20px;
     font-size: 2em;
     overflow-y: hidden;
+
+    transition: all 1s ease;
+}
+
+.textoPubli.Com {
+    min-width: 650px;
+    max-width: 650px;
 }
 
 .btPubli {
     height: 40px;
     gap: 5px;
-    padding-left: 250px;
+
+    transition: all 1s ease;
+}
+
+.btPubli.Com {
+    padding-left: 340px;
 }
 
 .campoImgPubli {
@@ -33,13 +50,17 @@
     width: 250px;
     max-height: 300px;
     height: 300px;
-    margin-bottom: -40px;
+    margin-bottom: -90px;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+
+    animation: moveIMG 1s ease;
+    z-index: 0;
 }
 
-#Publicar{
+#Publicar {
     position: absolute;
     cursor: pointer;
     font-size: 2em;
@@ -49,7 +70,7 @@
     right: 50px;
 }
 
-.campoImgPubli #capaSelect{
+.campoImgPubli #capaSelect {
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.526);
     height: 100%;
     width: 90%;
@@ -57,13 +78,13 @@
     border-radius: 10px;
 }
 
-.caixaEnM{
+.caixaEnM {
     height: 200px;
     width: 100%;
     display: block;
 }
 
-.caixaEnquete{
+.caixaEnquete {
     height: 100px;
     width: 50%;
     display: grid;
@@ -75,8 +96,8 @@
     margin-left: 20px;
 }
 
-.enqueteB{
-    
+.enqueteB {
+
     max-height: 100%;
     margin-right: 10px;
     height: 90%;
@@ -87,7 +108,7 @@
     border: solid black 1.3px;
 }
 
-#quest{
+#quest {
     height: 40px;
     align-items: center;
     padding-left: 20px;
@@ -95,10 +116,31 @@
     font-weight: bold;
 }
 
-.cancelLivro{
-    height: 40px;
-    width: 40px;
+.cancelLivro {
+    height: 80px;
+    width: 80px;
     position: relative;
-    top: 130px;
+    top: 110px;
+    left: 40px;
     cursor: pointer;
+
+    animation: moveCancel .5s ease;
+}
+
+@keyframes moveCancel {
+    from {
+        transform: translateX(40px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveIMG {
+    from {
+        transform: translateX(80%);
+    }
+    to {
+        transform: translateX(0);
+    }
 }

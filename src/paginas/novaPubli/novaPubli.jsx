@@ -15,7 +15,7 @@ export default function NovaPubli() {
         <div className="telaPubli">
             <Header />
             <span id="cancelPubli">
-                <img src={x} onClick={()=>{navigate(-1)}} />
+                <img src={x} id="cancelar" onClick={()=>{navigate(-1)}} />
             </span>
             <div className="boxPubli">
                 <Card/>

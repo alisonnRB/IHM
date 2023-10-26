@@ -9,7 +9,6 @@
 }
 
 #cancelPubli{
-    cursor: pointer;
     height: 8%;
     justify-content: end;
 }
@@ -18,4 +17,8 @@
     display: flex;
     align-items: start;
     justify-content: center;
+}
+
+#cancelar{
+    cursor: pointer;
 }
