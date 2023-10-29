@@ -63,7 +63,7 @@ export default function Comentarios(props) {
 
     const Busca = async () => {
         
-        const response = await apiBusca.enviar(props.idLivro, 'livro');
+        const response = await apiBusca.enviar(props.idLivro, props.tipo);
         if (response.ok) {
             setComentarios(response.informacoes);
         }
@@ -94,6 +94,7 @@ export default function Comentarios(props) {
                     setCurtindo={setCurtindo}
                     curtindo={curtindo}
                     curtidas={props.curtidas ? props.curtidas : "none"}
+                    tipo={props.tipo}
                 /></span>;
                 list.push(a);
 
@@ -119,6 +120,7 @@ export default function Comentarios(props) {
                                 curtindo={curtindo}
                                 setCurtindo={setCurtindo}
                                 curtidas={props.curtidas ? props.curtidas : "none"}
+                                tipo={props.tipo}
                             /></span>;
                         list.push(a);
 
@@ -144,6 +146,7 @@ export default function Comentarios(props) {
                                     curtindo={curtindo}
                                     curtidas={props.curtidas ? props.curtidas : "none"}
                                     setCurtindo={setCurtindo}
+                                    tipo={props.tipo}
                                     res={true} /></span>;
                             list.push(a);
                         }

@@ -11,10 +11,10 @@ import livroF from '../../../imgs/livro-false.png';
 import enqueteT from '../../../imgs/enquete-true.png';
 import enqueteF from '../../../imgs/enquete-false.png';
 
-import x from '../../../imgs/cancel.png';
 import abaX from '../../../imgs/aba_cancel.png';
 
 import api from '../../../backend/controler/api_publicacao';
+
 
 export default function CardPubli() {
     const navigate = useNavigate();
@@ -89,10 +89,12 @@ export default function CardPubli() {
         }
     }, [cancelEnquete])
 
+
+
     const geraEnquete = () => {
         const list = [];
 
-        for (let i = 0; i < Object.keys(EnqueteS).length; i++) {
+        for (let i = 0; i < Object.keys(EnqueteS).length; i++) { 
             if (EnqueteS[i] != '') {
                 let a = <span className="enqueteB">{EnqueteS[i]}</span>
                 list.push(a);
@@ -101,6 +103,7 @@ export default function CardPubli() {
 
         return list;
     }
+   
 
     const publicar = async () => {
         const response = await api.enviar(texto, linkLivro, EnqueteS, titleEnquete);
@@ -108,7 +111,6 @@ export default function CardPubli() {
             navigate(-1);
         }
     }
-
 
     return (
         <div className="cardPubli">
@@ -152,12 +154,12 @@ export default function CardPubli() {
 
             </span>
             <span className={`btPubli ${linkLivro != '' ? 'Com' : ''}`}>
+                <span id="btss">
+                    <img src={livro ? livroT : livroF} onClick={() => { setLivro(true) }} />
+                    <img src={enqueteTem ? enqueteT : enqueteF} onClick={() => { setEnquete(true) }} />
+                </span>
 
-                <img src={livro ? livroT : livroF} onClick={() => { setLivro(true) }} />
-
-
-                <img src={enqueteTem ? enqueteT : enqueteF} onClick={() => { setEnquete(true) }} />
-
+                <p style={limitTXT >= 260 && limitTXT <= 290? {color: '#DBB931'} : {color: '#FF3131'}} >{limitTXT >= 260 ? `${limitTXT}/306` : null}</p>
             </span>
 
             <p id="Publicar" onClick={() => { publicar() }}>PUBLICAR</p>

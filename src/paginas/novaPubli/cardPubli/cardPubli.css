@@ -36,13 +36,24 @@
 
 .btPubli {
     height: 40px;
-    gap: 5px;
+    justify-content: space-between;
+
 
     transition: all 1s ease;
 }
 
+.btPubli p{
+    font-weight: bold;
+}
+
 .btPubli.Com {
     padding-left: 340px;
+}
+
+#btss{
+    height: 100%;
+    width: 29px;    
+    gap: 5px;
 }
 
 .campoImgPubli {
@@ -126,6 +137,7 @@
 
     animation: moveCancel .5s ease;
 }
+
 
 @keyframes moveCancel {
     from {
