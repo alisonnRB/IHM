@@ -1,0 +1,9 @@
+.chat{
+    background-color: #1E7489;
+}
+
+.chat #titlePerfil{
+    left: 40%;
+    margin-bottom: -100px;
+    width: 300px;
+}

@@ -1,29 +1,28 @@
-//! PAGE A SER TRABALHADA
-
 import React from 'react';
 import './chat.css';
-import Carrossel from './carrossel/carrossel';
+import { useState } from 'react';
+
 import Mensagem from './mensagem/mensagem';
 import Conversas from './conversas/conversas';
+import BtFloat from '../../BtFloat/btFloat';
 
 
 //? comporta os componente que montam a pagina de chats
 
-function Chat() {
-  
+export default function Chat() {
+  const [selecionado, setSelecionado] = useState(0);
 
   return (
-  
     <div className='chat'>
-      <Carrossel />
+      <span id='titlePerfil'>CHAT</span>
       <span>
-        <Conversas />
-        <Mensagem />
+        <Conversas setSelecionado={setSelecionado}/>
+        {selecionado != 0 ? <Mensagem selecionado={selecionado}/> : null}
       </span>
 
+      <BtFloat />
 
     </div>
-    );
-  }
-  
-  export default Chat;
+  );
+}
+

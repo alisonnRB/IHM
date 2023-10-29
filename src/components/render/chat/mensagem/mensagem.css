@@ -8,12 +8,14 @@
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;
-    border-radius: 50px;
+    border-radius: 8px;
+    border-radius: 6px;
 }
 .mensagem .perfilMsg{
-    margin-top: 15px;
-    height: 50px;
-    margin-left: 30px;
+    background-color: #5CA5B2;
+    height: 120px;
+    align-items: center;
+    border-radius: 6px;
 }
 .renderMsg{
     height: 100%;
@@ -21,15 +23,19 @@
     overflow-y: scroll;
 
 }
-#chatOption{
-    cursor: pointer;
-    margin-left: 80%;
-    font-size: 2em;
-    color: white;
-}
+
 .mensagem .perfilMsg img{
-    height: 60px;
-    width: 60px;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    margin-left: 20px;
+}
+
+.mensagem .perfilMsg p{
+    font-size: 1.5em;
+    margin-left: 20px;
+    color: white;
+    font-weight: bold;
 }
 .caixaEnviar{
     display: flex;
@@ -39,30 +45,37 @@
     height: 120px;
 }
 .caixaEnviar form{
-    background-color: #07323B;
-    padding: 10px;
-    border-radius: 30px;
+    background-color: #022F39;
+    padding-left: 10px;
+    padding-right: 0;
+    padding: 5px;
+    width: 90%;
+    height: 50%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 .caixaEnviar form .inputEnvio{
     border-radius: 20px;
     padding-left: 10px;
     padding-right: 10px;
     min-height: 40px;
-    width: 450px;
+    width: 90%;
     color: black;
     background-color: white;
     overflow-y: scroll;
 }
 .caixaEnviar button{    
+    background: none;
     position: relative;
-    left: 5px;    
-    top: 8px;
-    background: none;    
+    margin-left: 5px;
+    top: 3px;
     cursor: pointer;
 }
 .caixaEnviar form img{
-    height: 24px;
-    width: 24px;
+    height: 30px;
+    width: 30px;
 }
 .caixaEnviar form input{
     color: white;

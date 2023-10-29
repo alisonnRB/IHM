@@ -1,0 +1,46 @@
+.conversas .listaC li{
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    border-radius: 50px;
+    width: 80%;
+    height: 60px;
+    background-color: #F5F5F5;
+
+    transition: all .3s ease;
+}
+.conversas .listaC li img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+.nomes{
+    height: 100%;
+    display: block;
+}
+
+.set{
+    box-shadow: -15px -8px 0px 0px #65D6BE;   
+    margin-top: 20px;
+}
+
+.nomes p:first-child{
+    height: 40%;
+    font-size: 1.3em;
+    color: #0A6E7D;
+}
+
+.nomes p:last-child{
+    height: 60%;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: end;
+}
+
+.nomes p{
+    margin-left: 10px;
+    max-width: 100%;
+    overflow: hidden;
+}
