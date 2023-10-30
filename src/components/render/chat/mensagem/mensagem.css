@@ -2,7 +2,7 @@
 .mensagem{
     background-color: #98BEC1;
     height: 600px;
-    width: 50%;
+    width: 40%;
     margin-top: 50px;
     margin-left: 20px;
     margin-bottom: 50px;
@@ -16,12 +16,12 @@
     height: 120px;
     align-items: center;
     border-radius: 6px;
+    margin-bottom: 10px;
 }
 .renderMsg{
     height: 100%;
     width: 100%;
     overflow-y: scroll;
-
 }
 
 .mensagem .perfilMsg img{
@@ -81,4 +81,32 @@
     color: white;
     background: none;
 }
+
+.message{
+    margin-bottom: 2px;
+}
+
+.message.mine{
+    justify-content: end;
+}
+
+.msg{
+    height: 100%;
+    padding: 5px;
+    max-width: 80%;
+    word-break: break-all;
+    border-radius: 5px;
+}
+
+.msg.mine{
+    background-color: #FFFFFF;
+    margin-right: 10px;
+}
+
+.msg.by{
+    background-color: #71A0A6;
+    color: white;
+    margin-left: 10px;
+}
+
 }
