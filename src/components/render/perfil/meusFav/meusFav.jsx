@@ -46,7 +46,7 @@ export default function MeusFav() {
 
     return (
         <div className="boxCardMeusLivro">
-            <span id='titlePerfil'>Meus Favoritos</span>
+            <span id='titlePerfil'>FAVORITOS</span>
 
 
                 {renderizarItens()}
