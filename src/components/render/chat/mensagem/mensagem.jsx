@@ -8,7 +8,7 @@ import send from '../../../../imgs/enviar.png';
 
 
 export default function Mensagem(props) {
-  const [numero, setNumero] = useState(0);
+  const id = localStorage.getItem('id');
   const [mensagem, setMensagem] = useState('');
 
 
@@ -27,16 +27,14 @@ export default function Mensagem(props) {
     }
   }, [infos.fotoPerfil]);
 
-  const id = sessionStorage.getItem('session');
   const { lastJsonMessage, sendMessage } = useWebSocket('ws://192.168.255.56:8080', {
-    onOpen: () => console.log(`Connected to App WS`),
+    onOpen: () => console.log('a'),
     onMessage: () => {
       if (lastJsonMessage) {
-        console.log(lastJsonMessage);
-        setNumero(lastJsonMessage.n);
+        console.log('recebido');
       }
     },
-    queryParams: { 'token': id },
+    queryParams: { 'id': id },
     onError: (event) => { console.error(event); },
     shouldReconnect: (closeEvent) => true,
     reconnectInterval: 3000
@@ -45,7 +43,7 @@ export default function Mensagem(props) {
   const handleEnviarMensagem = (e) => {
     e.preventDefault()
     if (mensagem.trim() !== '') {
-      sendMessage(JSON.stringify({ message: mensagem }));
+      sendMessage(JSON.stringify({ message: mensagem, for: infos.id }));
       setMensagem('');
     }
   };
@@ -60,8 +58,7 @@ export default function Mensagem(props) {
 
 
       <div className='renderMsg'>
-
-
+        {lastJsonMessage && lastJsonMessage.message ? lastJsonMessage.message : null}
       </div>
 
 

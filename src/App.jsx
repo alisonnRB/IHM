@@ -15,23 +15,7 @@ import PrivateRoute from './privateRoute';
 
 import './App.css';
 
-import useWebSocket from 'react-use-websocket';
-
 function App() {
-   const id = sessionStorage.getItem('session');
-   const { lastJsonMessage, sendMessage } = useWebSocket('ws://192.168.255.56:8080', {
-      onOpen: () => console.log(`Connectede`),
-      onMessage: () => {
-         if (lastJsonMessage) {
-            console.log(lastJsonMessage);
-         }
-      },
-      queryParams: { 'token': id },
-      onError: (event) => { console.error(event); },
-      shouldReconnect: (closeEvent) => true,
-      reconnectInterval: 3000
-   });
-
 
    return (
       //? a tag Router acomoda os caminhos da pagina
