@@ -37,7 +37,7 @@ function Barraop() {
       
       <Link to='/Chat'>
       <div className='optionP'>
-        <img src={chat} alt="" />
+        <img id='ch' src={chat} alt="" />
       </div>
       </Link>
       

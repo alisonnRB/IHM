@@ -1,202 +1,77 @@
-/*? telas grandes*/
-@media screen and (min-width: 2300px){
-    .boxName{
-        height: 100%;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2em;
-    }
-    #titlePerfil{
-        font-size: 5em;
-    }
-    
-    .boxName #fotoPerfil{
-        background-color: black;
-        border-radius: 100%;
-        height: 250px;
-        width: 250px;
-    }
-    .edit{
-        cursor: pointer;
-        height: 20px;
-        width: 20px;
-    }
-    #nome{
-        display: flex;
-        justify-content: center;
-        color: white;
-        background-color: black;
-        height: 100%;
-        min-height: 30px;
-        min-width: 200px;
-    }
-    .boxGenero{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 300px;
-    }
-    #titleGen, #titleLivro{
-        margin-bottom: 2.5rem;
-        font-size: 2.5em;
-    }
-    .boxGenero span, .boxMeulivro span{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 1rem;
-    
-    }
-    .favGen{
-        height: 100%;
-        width: 100%;  
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        align-items: center;
-        justify-content: center;
-    }
-    .boxGen{
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #78adb8;
-        border-radius: 50px;
-        height: 30px;
-        width: 135px;
-        
-    }
-    .boxMeulivro{
-        gap: 1rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 600px;
-        width: 100%;
-    
-    }
-    .livros{
-        background-color: rgb(13, 22, 22);
-        height: 200px;
-        width: 250px;
-    }
+.perfilpagep {
+    display: block;
 }
-/*? pcs*/
-@media screen and (min-width: 1280px){
-.boxName{
-    margin-bottom: 5%;
-    height: 100%;
-    width: 100%;
+
+.boxName {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2em;
 }
-#titlePerfil{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2em;
-    color: white;
-    min-height: 200px;
-    min-width: 300px;
-    background-image: url('../../../imgs/caixa.png');
-    background-size: 100% 100%;
-    position: relative;
-    top: -70px;
-    margin-bottom: -70px;
-}
 
-
-.boxName #fotoPerfil{
-    cursor: pointer;
+.boxName #fotoPerfil {
     background-color: black;
-    background-image: url('../../../imgs/perfiledit.png');
-    background-repeat: no-repeat;
-    background-size: cover;
     border-radius: 100%;
-    height: 250px;
-    width: 250px;
-    -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
 }
-.edit{
-    cursor: pointer;
+
+.edit {
     height: 20px;
     width: 20px;
 }
-.boxtitleGender .edit{
-    cursor: pointer;
-    position: relative;
-    bottom: 13px;
-    height: 20px;
-    width: 20px;
-}
-#nome{
-    border-radius: 20px;
+
+#nome {
     display: flex;
     justify-content: center;
     color: white;
     background-color: black;
     height: 100%;
-    min-height: 20px;
     min-width: 200px;
+    border-radius: 30px;
 }
-.boxGenero{
+
+.boxGenero {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 5%;
     width: 100%;
     height: 300px;
 }
-.boxtitleGender{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-#titleGen, #titleLivro{
-    margin-bottom: 2.5rem;
-    font-size: 2.5em;
-}
-.boxGenero span, .boxMeulivro span{
+
+.boxGenero span,
+.boxMeulivro span {
     display: flex;
     flex-direction: row;
-    align-items: center;
     gap: 1rem;
 
 }
-.favGen{
+
+#titleGen,
+#titleLivro {
+    margin-bottom: 2.5rem;
+    font-size: 2.5em;
+}
+
+.favGen {
     height: 100%;
-    width: 100%;  
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
     align-items: center;
     justify-content: center;
 }
-.boxGen{
+
+.boxGen {
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #78adb8;
     border-radius: 50px;
-    height: 40px;
-    width: 160px;
-    
 }
-.boxMeulivro{
+
+.boxMeulivro {
     gap: 1rem;
     display: flex;
     flex-direction: column;
@@ -204,382 +79,404 @@
     justify-content: center;
     height: 600px;
     width: 100%;
-
-}
-.boxMeulivro .boxTitle{
-    position: relative;
-    height: 10%;
-    width: 50%;
-    justify-content: center;
-}
-#link{
-    height: 60%;
-    width: 90%;
-}
-#medalha{
-    height: 30px;
-    width: 60px;
-}
 }
 
-/*? notebooks*/
-@media screen and (min-width: 1024px) and (max-width: 1279px){
-    .boxName{
-        height: 100%;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2em;
+.livros {
+    background-color: rgb(13, 22, 22);
+}
+
+
+
+@media (max-width: 576px) {
+
+    /* Estilos para dispositivos com largura máxima de 576px (ex: smartphones em modo retrato) */
+    .perfilpagep {
+        padding-bottom: 11vh;
     }
+
+
+    .boxName {
+        height: 500px;
+
+    }
+
     #titlePerfil{
-        font-size: 5em;
+        display: none;
     }
-    
-    .boxName #fotoPerfil{
-        background-color: black;
-        border-radius: 100%;
-        height: 250px;
-        width: 250px;
-    }
-    .edit{
-        cursor: pointer;
+
+    #nome {
         height: 20px;
-        width: 20px;
-    }
-    #nome{
-        display: flex;
-        justify-content: center;
-        color: white;
-        background-color: black;
-        height: 100%;
         min-height: 20px;
-        min-width: 200px;
     }
-    .boxGenero{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 300px;
+
+    .boxName {
+        margin-top: 30px;
+        height: 280px;
     }
-    #titleGen, #titleLivro{
-        margin-bottom: 2.5rem;
-        font-size: 2.5em;
+
+    .boxName #fotoPerfil {
+        height: 130px;
+        width: 130px;
     }
-    .boxGenero span, .boxMeulivro span{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 1rem;
-    
-    }
-    .favGen{
-        height: 100%;
-        width: 100%;  
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        align-items: center;
-        justify-content: center;
-    }
-    .boxGen{
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #78adb8;
-        border-radius: 50px;
+
+    #medalha {
+        width: 50px;
         height: 30px;
-        width: 135px;
-        
-    }
-    .boxMeulivro{
-        gap: 1rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 600px;
-        width: 100%;
-    
-    }
-    .livros{
-        background-color: rgb(13, 22, 22);
-        height: 200px;
-        width: 250px;
-    }
-}
 
-/*? telas tablet*/
-@media screen and (min-width: 768px) and (max-width: 1023px){
-    .perfilpagep{
-        padding-bottom: 11.5vh;
     }
-    .boxName{
-        height: 500px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2em;
+
+    .medalha p {
+        font-size: 1.5em;
     }
-    #titlePerfil{
-        font-size: 5em;
-    }
-    
-    .boxName #fotoPerfil{
-        background-color: black;
-        border-radius: 100%;
-        height: 250px;
-        width: 250px;
-    }
-    .edit{
-        height: 20px;
-        width: 20px;
-    }
-    #nome{
-        display: flex;
-        justify-content: center;
-        color: white;
-        background-color: black;
-        height: 20px;
-        min-height: 20px;
-        min-width: 200px;
-    }
-    .boxGenero{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
+
+    .boxGenero {
         height: 300px;
     }
-    #titleGen, #titleLivro{
-        margin-bottom: 2.5rem;
-        font-size: 2.5em;
-    }
-    .boxGenero span, .boxMeulivro span{
-        display: flex;
-        flex-direction: row;
-        gap: 1rem;
-    
-    }
-    .favGen{
-        height: 100%;
-        width: 100%;  
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        align-items: center;
-        justify-content: center;
-    }
-    .boxGen{
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #78adb8;
-        border-radius: 50px;
-        height: 45px;
-        width: 200px;
-        
-    }
-    .boxMeulivro{
-        gap: 1rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 600px;
-        width: 100%;
-    
-    }
-    .livros{
-        background-color: rgb(13, 22, 22);
-        height: 200px;
-        width: 250px;
-    }
-}
 
-/*? telas mobile hotizontal*/
-@media screen and ((max-height: 767px) and (max-width: 999px)){
-    .perfilpagep{
-        padding-bottom: 11vh;
+    .boxGen {
+        height: calc(70px - 5vh);
+        min-width: calc(85px + 5vw);
+        font-size: 0.9em;
+        margin-right: -6px;
+        margin-left: -7px;
+        padding-bottom: 0px;
     }
-    .boxName{
-        height: 500px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2em;
-    }
-    #titlePerfil{
-        font-size: 3.5em;
-    }
-    
-    .boxName #fotoPerfil{
-        background-color: black;
-        border-radius: 100%;
-        height: 250px;
-        width: 250px;
-    }
-    .edit{
-        height: 20px;
-        width: 20px;
-    }
-    #nome{
-        display: flex;
-        justify-content: center;
-        color: white;
-        background-color: black;
-        height: 20px;
-        min-height: 20px;
-        min-width: 200px;
-    }
-    .boxGenero{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 400px;
-    }
-    #titleGen, #titleLivro{
-        margin-bottom: 2.5rem;
-        font-size: 2.5em;
-    }
-    .boxGenero span, .boxMeulivro span{
-        display: flex;
-        flex-direction: row;
-        gap: 1rem;
-    
-    }
-    .favGen{
-        height: 100%;
-        width: 100%;  
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        align-items: center;
-        justify-content: center;
-}
-    .boxGen{
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #78adb8;
-        border-radius: 50px;
-        height: 50px;
-        min-width: 30px;
-        
-    }
-    .boxMeulivro{
-        margin-top: 50px;
-        gap: 1rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 600px;
-        width: 100%;
-    
-    }
-    .livros{
-        background-color: rgb(13, 22, 22);
-        height: 200px;
-        width: 200px;
-    }
-}
 
-/*? telas mobile*/
-@media screen and (max-width: 767px){
-    .perfilpagep{
-        padding-bottom: 11vh;
+    #titleGen,
+    #titleLivro {
+        font-size: 2em;
+        text-decoration: none;
+        outline: none;
+
     }
-    .boxName{
-        height: 500px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2em;
+
+    .favGen {
+        height: 65%;
     }
-    #titlePerfil{
-        font-size: 3.5em;
-    }
-    
-    .boxName #fotoPerfil{
-        background-color: black;
-        border-radius: 100%;
-        height: 250px;
-        width: 250px;
-    }
-    .edit{
-        height: 20px;
-        width: 20px;
-    }
-    #nome{
-        display: flex;
-        justify-content: center;
-        color: white;
-        background-color: black;
-        height: 20px;
-        min-height: 20px;
-        min-width: 200px;
-    }
-    .boxGenero{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 300px;
-    }
-    #titleGen, #titleLivro{
-        margin-bottom: 2.5rem;
-        font-size: 2.5em;
-    }
-    .boxGenero span, .boxMeulivro span{
-        display: flex;
-        flex-direction: row;
-        gap: 1rem;
-    
-    }
-    .favGen{
-        height: 100%;
-        width: 100%;  
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        align-items: center;
-        justify-content: center;
-}
-    .boxGen{
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #78adb8;
-        border-radius: 50px;
-        height: calc(85px - 5vh);
-        min-width: calc(100px + 5vw);
-        
-    }
-    .boxMeulivro{
+
+    .boxMeulivro {
         margin-top: 100px;
-        gap: 1rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 600px;
-        width: 100%;
-    
+        height: 100px;
+
     }
-    .livros{
-        background-color: rgb(13, 22, 22);
+
+    .livros {
         height: calc(35vw + 20px);
         width: calc(35vw + 20px);
     }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+
+    /* Estilos para dispositivos com largura entre 577px e 768px (ex: smartphones em modo paisagem e tablets) */
+
+    .perfilpagep {
+        padding-bottom: 11vh;
+    }
+
+    .boxName {
+        height: 350px;
+        margin-top: 40px;
+    }
+
+    #titlePerfil{
+        display: none;
+    }
+
+    #nome {
+        height: 20px;
+        min-height: 20px;
+    }
+
+    .boxName #fotoPerfil {
+        height: 150px;
+        width: 150px;
+    }
+
+    #medalha {
+        width: 60px;
+        height: 40px;
+
+    }
+
+    .medalha p {
+        font-size: 1.5em;
+    }
+
+    .boxGenero {
+        height: 300px;
+    }
+
+    .boxGen {
+        height: calc(95px - 5vh);
+        min-width: calc(140px + 5vw);
+
+    }
+
+    .boxMeulivro {
+        height: 350px;
+    }
+
+    .livros {
+        height: calc(35vw + 20px);
+        width: calc(35vw + 20px);
+    }
+}
+
+
+@media (min-width: 769px) and (max-width: 992px) {
+
+    /* Estilos para tablets e dispositivos em modo paisagem */
+    /* Estilos para dispositivos com largura entre 577px e 768px (ex: smartphones em modo paisagem e tablets) */
+
+    .perfilpagep {
+        padding-bottom: 11vh;
+    }
+
+    .boxName {
+        height: 350px;
+        margin-top: 40px;
+    }
+
+    #titlePerfil{
+        display: none;
+    }
+
+    #nome {
+        height: 20px;
+        min-height: 20px;
+    }
+
+    .boxName #fotoPerfil {
+        height: 150px;
+        width: 150px;
+    }
+
+    #medalha {
+        width: 60px;
+        height: 40px;
+
+    }
+
+    .medalha p {
+        font-size: 1.5em;
+    }
+
+    .boxGenero {
+        height: 300px;
+    }
+
+    .boxGen {
+        height: calc(95px - 5vh);
+        min-width: calc(140px + 5vw);
+
+    }
+
+    .boxMeulivro {
+        height: 350px;
+    }
+
+    .livros {
+        height: calc(35vw + 20px);
+        width: calc(35vw + 20px);
+    }
+}
+
+
+
+@media (min-width: 993px) and (max-width: 1200px) {
+    /* Estilos para tablets maiores e dispositivos em modo paisagem */
+
+    .boxName {
+        height: 390px;
+        margin-top: 50px;
+    }
+
+    #nome {
+        height: 20px;
+        min-height: 20px;
+    }
+
+    .boxName #fotoPerfil {
+        height: 200px;
+        width: 200px;
+    }
+
+    #medalha {
+        width: 60px;
+        height: 40px;
+
+    }
+
+    .medalha p {
+        font-size: 1.5em;
+    }
+
+    .boxGenero {
+        height: 300px;
+    }
+
+    .boxGen {
+        height: calc(110px - 5vh);
+        min-width: calc(140px + 5vw);
+
+    }
+
+    .boxMeulivro {
+        height: 350px;
+    }
+
+    .livros {
+        height: calc(35vw + 20px);
+        width: calc(35vw + 20px);
+    }
+}
+
+
+@media (min-width: 1201px) {
+
+    /* Estilos para dispositivos desktop (telas maiores) */
+
+    .boxName {
+        margin-bottom: 5%;
+        height: 100%;
+        width: 100%;
+
+    }
+
+    #titlePerfil {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2em;
+        color: white;
+        min-height: 200px;
+        min-width: 300px;
+        background-image: url('../../../imgs/caixa.png');
+        background-size: 100% 100%;
+        position: relative;
+        top: -70px;
+        margin-bottom: -70px;
+    }
+
+
+    .boxName #fotoPerfil {
+        height: 250px;
+        width: 250px;
+        cursor: pointer;
+        background-image: url('../../../imgs/perfiledit.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+    }
+
+    .edit {
+        cursor: pointer;
+    }
+
+    .boxtitleGender .edit {
+        cursor: pointer;
+        position: relative;
+        bottom: 13px;
+        height: 20px;
+        width: 20px;
+    }
+
+    #nome {
+        border-radius: 20px;
+        min-height: 20px;
+    }
+
+    .boxGenero {
+        margin-bottom: 5%;
+        height: 300px;
+    }
+
+    .boxtitleGender {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .boxGenero span,
+    .boxMeulivro span {
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .boxGen {
+        height: 40px;
+        width: 160px;
+
+    }
+
+
+
+    .boxMeulivro .boxTitle {
+        position: relative;
+        height: 10%;
+        width: 50%;
+        justify-content: center;
+    }
+
+    #link {
+        height: 60%;
+        width: 90%;
+    }
+
+    #medalha {
+        height: 30px;
+        width: 60px;
+    }
+}
+
+
+
+
+@media (orientation: portrait) {
+
+    /* Estilos para dispositivos em modo retrato */
+    .perfilpagep {
+        padding-bottom: 11vh;
+    }
+
+    #titlePerfil {
+        display: none;
+        font-size: 3.5em;
+    }
+
+    #titlePerfil {
+        font-size: 3.5em;
+    }
+
+    #nome {
+        height: 20px;
+        min-height: 20px;
+    }
+
+    .edit {
+        display: none;
+    }
+
+    .boxGenero span,
+    .boxMeulivro span {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+
+    }
+
+    .livros {
+        height: 200px;
+        width: 200px;
+    }
+}
+
+@media (orientation: landscape) {
+    /* Estilos para dispositivos em modo paisagem */
+
 }

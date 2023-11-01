@@ -1,25 +1,3 @@
-/*? telas grandes*/
-@media screen and (min-width: 2300px){
-    .boxHome{
-        display: block;
-        height: 100vh;
-        width: 100vw;
-    }
-    .pagina{
-        display: flex;
-        flex-direction: row;
-        height: calc(100% - 130px);
-        width: 100%;
-    }
-    .boxOnPage{
-        overflow-y: scroll;
-        background-color: #FFFFFF;
-        height: 100%;
-        width: calc(100% - 140px);
-    }
-}
-/*? pcs*/
-@media screen and (min-width: 1280px) and (max-width: 2300px){
 .boxHome{
     display: block;
     height: 100vh;
@@ -28,94 +6,54 @@
 .pagina{
     display: flex;
     flex-direction: row;
-    height: calc(100% - 130px);
+    height: calc(100% - 90px);
     width: 100%;
 }
 .boxOnPage{
     overflow-y: scroll;
     background-color: #FFFFFF;
     height: 100%;
-    width: calc(100% - 115px);
-}
-}
-
-/*? notebooks*/
-@media screen and (min-width: 1024px) and (max-width: 1279px){
-    .boxHome{
-        display: block;
-        height: 100vh;
-        width: 100vw;
-    }
-    .pagina{
-        display: flex;
-        flex-direction: row;
-        height: calc(100% - 90px);
-        width: 100%;
-    }
-    .boxOnPage{
-        overflow-y: scroll;
-        background-color: #FFFFFF;
-        height: 100%;
-        width: calc(100% - 100px);
-    }
+    width: 100%;
 }
 
-/*? telas tablet*/
-@media screen and (min-width: 768px) and (max-width: 1023px){
-    .boxHome{
-        display: block;
-        height: 100vh;
-        width: 100vw;
-    }
-    .pagina{
-        display: flex;
-        flex-direction: column-reverse;
-        height: calc(100% - 130px);
-        width: 100%;
-    }
-    .boxOnPage{
-        background-color: #FFFFFF;
-        height: 100%;
-        width: 100%;
-    }
+
+@media (max-width: 576px) {
+    /* Estilos para dispositivos com largura máxima de 576px (ex: smartphones em modo retrato) */
+
 }
 
-/*? telas mobile hotizontal*/
-@media screen and ((max-height: 767px) and (max-width: 999px)){
+@media (min-width: 577px) and (max-width: 768px){
+    /* Estilos para dispositivos com largura entre 577px e 768px (ex: smartphones em modo paisagem e tablets) */
+
     .boxHome{
-        display: block;
-        height: 100vh;
-        width: 100vw;
+        width: calc(100vw + 10px);
     }
-    .pagina{
-        display: flex;
-        flex-direction: row;
-        height: calc(100% - 100px);
-        width: 100%;
-    }
-    .boxOnPage{
-        background-color: #FFFFFF;
-        height: 100%;
-        width: 100%;
-    }
+
 }
 
-/*? telas mobile*/
-@media screen and (max-width: 767px){
+@media (min-width: 769px) and (max-width: 992px) and (orientation: landscape){
     .boxHome{
-        display: block;
-        height: 100%;
-        width: 100vw;
+        width: calc(100vw + 10px);
     }
-    .pagina{
-        display: flex;
-        flex-direction: column-reverse;
-        height: calc(100% - 120px);
-        width: 100%;
-    }
-    .boxOnPage{
-        background-color: #FFFFFF;
-        height: 100%;
-        width: 100%;
-    }
+ 
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+    /* Estilos para tablets maiores e dispositivos em modo paisagem */
+}
+
+
+@media (min-width: 1201px) {
+    /* Estilos para dispositivos desktop (telas maiores) */
+
+}
+
+@media (orientation: portrait) {
+
+}
+
+@media (orientation: landscape) {
+    /* Estilos para dispositivos em modo paisagem */
+
+
 }
