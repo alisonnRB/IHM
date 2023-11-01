@@ -29,8 +29,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 22%;
-    width: 15%;
+    height: 90px;
+    width: 100px;
     margin-top: 3%;
     background-image: url('../../../imgs/submitGender.jpeg');
     background-size: cover;
@@ -67,4 +67,57 @@
     gap: 40px;
     width: 100%;
     height: 10%;
+}
+
+@media (max-width: 576px) {
+    /* Estilos para dispositivos com largura máxima de 576px (ex: smartphones em modo retrato) */
+
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    /* Estilos para dispositivos com largura entre 577px e 768px (ex: smartphones em modo paisagem e tablets) */
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+}
+
+
+@media (min-width: 993px) and (max-width: 1200px) {
+    /* Estilos para tablets maiores e dispositivos em modo paisagem */
+
+}
+
+
+@media (min-width: 1201px) {
+    /* Estilos para dispositivos desktop (telas maiores) */
+
+}
+
+@media (orientation: portrait) {
+    #imgVoltaG{
+        height: 90%;
+        width: calc(100% + 20px);
+    }
+
+    .boxGender{
+        padding-bottom: 100px;
+    }
+
+    #boxTittleGender P{
+        font-size: 1.2em;
+    }
+
+    .genderTable span{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+        width: 100vw;
+        height: 100px;
+    }
+}
+
+@media (orientation: landscape) {
+    /* Estilos para dispositivos em modo paisagem */
+
 }

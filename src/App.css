@@ -5,6 +5,8 @@
     padding: 0;
     border: none;
     outline: none;
+    text-decoration: none;
+    color: inherit;
 }
 span{
     display: flex;
