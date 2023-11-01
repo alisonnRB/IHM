@@ -1,5 +1,4 @@
 import React from "react";
-import './meusFav.css';
 import { useEffect } from "react";
 import { useState } from "react";
 
