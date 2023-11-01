@@ -171,7 +171,7 @@ function Perfil(props) {
       </section>
 
       <section className='boxMeulivro'>
-        <span className='boxTitle'>
+        <span className='boxTitle favoo'>
           <span>
             <p id='titleLivro'>Meus Favoritos</p>
             <Link to='/perfil/MeusFavoritos'><img className='edit' src={edit} /></Link>

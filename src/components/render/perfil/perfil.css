@@ -29,6 +29,10 @@
     border-radius: 30px;
 }
 
+.boxTitle.favoo{
+    margin-top: 100px;
+}
+
 .boxGenero {
     display: flex;
     flex-direction: column;
@@ -90,9 +94,6 @@
 @media (max-width: 576px) {
 
     /* Estilos para dispositivos com largura máxima de 576px (ex: smartphones em modo retrato) */
-    .perfilpagep {
-        padding-bottom: 11vh;
-    }
 
 
     .boxName {
@@ -117,6 +118,10 @@
     .boxName #fotoPerfil {
         height: 130px;
         width: 130px;
+    }
+
+    .boxGenero{
+        margin-bottom: -200px;
     }
 
     #medalha {
@@ -155,9 +160,12 @@
     }
 
     .boxMeulivro {
-        margin-top: 100px;
+        margin-top: 200px;
         height: 100px;
+    }
 
+    #link{
+        height: calc(100% - 50px);
     }
 
     .livros {
@@ -282,8 +290,6 @@
     }
 }
 
-
-
 @media (min-width: 993px) and (max-width: 1200px) {
     /* Estilos para tablets maiores e dispositivos em modo paisagem */
 
@@ -331,7 +337,6 @@
         width: calc(35vw + 20px);
     }
 }
-
 
 @media (min-width: 1201px) {
 
@@ -434,14 +439,11 @@
     }
 }
 
-
-
-
 @media (orientation: portrait) {
 
     /* Estilos para dispositivos em modo retrato */
     .perfilpagep {
-        padding-bottom: 11vh;
+        padding-bottom: 300px;
     }
 
     #titlePerfil {
@@ -478,5 +480,7 @@
 
 @media (orientation: landscape) {
     /* Estilos para dispositivos em modo paisagem */
-
+    .perfilpagep {
+        padding-bottom: 100px;
+    }
 }
