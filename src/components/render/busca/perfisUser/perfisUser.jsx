@@ -41,7 +41,6 @@ export default function User() {
     const Busca = async () => {
         const resposta = await api.enviar(idUser);
         if (resposta.ok && resposta.informacoes.id) {
-            console.log(resposta);
             setInfos(resposta.informacoes);
         }
         const response = await apiGender.enviar();
@@ -152,7 +151,7 @@ export default function User() {
 
         for (let i = 0; i < livro.length; i++) {
             count++;
-            tempRow.push(<div className="coluna" key={i}><Livro mine={false} info={livro[i]} text={'começar a ler'} /></div>);
+            tempRow.push(<div className="coluna" key={i}><Livro mine={false} info={livro[i]} text={'vizualizar em modo leitura'} /></div>);
 
             if (count === 3 || i === livro.length - 1) {
                 count = 0;
@@ -177,7 +176,7 @@ export default function User() {
 
                     <span><img id='medalha' src={medalha} />{seguidoresS}</span>
 
-                    <span className='seguir' onClick={() => { seguir() }}>{seguindo ? 'SEGUINDO' : "SEGUIR"}</span>
+                    <span className='seguir' onClick={() => { seguir(); setSeguindo(!seguindo) }}>{seguindo ? 'SEGUINDO' : "SEGUIR"}</span>
 
                 </div>
             </section>
