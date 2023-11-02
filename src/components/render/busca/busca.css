@@ -1,18 +1,20 @@
-.TelaBusca{
+.TelaBusca {
     width: 100%;
     height: 100%;
     display: block;
 }
 
-.TelaBusca #titlePerfil{
+.TelaBusca #titlePerfil {
     left: 40%;
     margin-bottom: -100px;
     width: 300px;
 }
-.TelaBusca .boxLivros #searchText{
+
+.TelaBusca .boxLivros #searchText {
     width: 74%;
 }
-.TelaBusca .searchUSER{
+
+.TelaBusca .searchUSER {
 
     height: 100px;
     width: 100%;
@@ -22,7 +24,7 @@
     justify-content: center;
 }
 
-.TelaBusca .pessoasBOX{
+.TelaBusca .pessoasBOX {
     width: 100%;
     height: 100%;
     display: block;
@@ -30,43 +32,40 @@
     padding-bottom: 50px;
 }
 
-.BoxCardPessoas{
+.BoxCardPessoas {
     height: 110px;
     display: flex;
     justify-content: center;
 }
 
-.TelaBusca .pessoasBOX .Link{
-    text-decoration: none;
-}
 
-.cardPessoa{
+.cardPessoa {
     padding-top: 10px;
     height: 100%;
     width: 80%;
     border-bottom: solid 1px rgba(0, 0, 0, 0.300);
 }
 
-.cardPessoa #perfilPessoa{
-    width: 9%;
+.cardPessoa #perfilPessoa {
+    width: 80px;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.cardPessoa #perfilPessoa img{
+.cardPessoa #perfilPessoa img {
     height: 80px;
     width: 80px;
     border-radius: 50%;
 }
 
-.cardPessoa .infosPessoa{
+.cardPessoa .infosPessoa {
     height: 100%;
     width: 100%;
 }
 
-.cardPessoa .infosPessoa .nomePessoa{
+.cardPessoa .infosPessoa .nomePessoa {
     height: 30%;
     align-items: center;
     font-weight: 2em;
@@ -74,23 +73,23 @@
     color: black;
 }
 
-.cardPessoa .infosPessoa .nomePessoa{
+.cardPessoa .infosPessoa .nomePessoa {
     height: 40%;
     align-items: center;
 }
 
-.cardPessoa .infosPessoa .catPessoa{
+.cardPessoa .infosPessoa .catPessoa {
     height: 60%;
 }
 
-.cardPessoa .infosPessoa .catPessoa .categoria{
+.cardPessoa .infosPessoa .catPessoa .categoria {
     height: 100%;
     width: 20%;
     display: flex;
     align-items: center;
 }
 
-.cardPessoa .infosPessoa .catPessoa .opSeguir{
+.cardPessoa .infosPessoa .catPessoa .opSeguir {
     height: 100%;
     width: 20%;
     display: flex;
@@ -98,11 +97,72 @@
     color: #0A6E7D;
 }
 
-.cardPessoa .infosPessoa .catPessoa .opSeguir p{
+.cardPessoa .infosPessoa .catPessoa .opSeguir p {
     cursor: pointer;
 }
 
-#medalhaC{
+#medalhaC {
     height: 20px;
     width: 40px;
+}
+
+@media (max-width: 576px) {
+    /* Estilos para dispositivos com largura máxima de 576px (ex: smartphones em modo retrato) */
+
+    .TelaBusca #titlePerfil {
+        display: none;
+    }
+
+    .cardPessoa .infosPessoa .catPessoa .categoria {
+        width: 50%;
+    }
+
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    /* Estilos para dispositivos com largura entre 577px e 768px (ex: smartphones em modo paisagem e tablets) */
+
+    .TelaBusca #titlePerfil {
+        display: none;
+    }
+
+    .cardPessoa .infosPessoa .catPessoa .categoria {
+        width: 50%;
+    }
+
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .TelaBusca #titlePerfil {
+        display: none;
+    }
+
+    .cardPessoa .infosPessoa .catPessoa .categoria{
+        width: 50%;
+    }
+}
+
+
+@media (min-width: 993px) and (max-width: 1200px) {
+    /* Estilos para tablets maiores e dispositivos em modo paisagem */
+    .TelaBusca #titlePerfil {
+        display: none;
+    }
+
+
+}
+
+
+@media (min-width: 1201px) {
+    /* Estilos para dispositivos desktop (telas maiores) */
+
+}
+
+@media (orientation: portrait) {}
+
+@media (orientation: landscape) {
+    /* Estilos para dispositivos em modo paisagem */
+
+
+
 }

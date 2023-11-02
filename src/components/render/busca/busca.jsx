@@ -22,6 +22,7 @@ export default function Busca() {
         Busca();
     }, []);
 
+
     useEffect(() => {
         Busca();
     }, [pesquisa]);
@@ -31,7 +32,7 @@ export default function Busca() {
         const list = [];
         for (let i = 0; i < keys; i++) {
             if (users && users[i]) {
-                let a = <CardPessoa key={i} user={users[i]} />
+                let a = <CardPessoa key={i} user={users[i]}/>
 
                 list.push(a);
             }
