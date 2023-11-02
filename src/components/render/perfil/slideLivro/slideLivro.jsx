@@ -81,7 +81,6 @@ export default function MeusLivros(props) {
 
             
             tempRow.push(<img key={`livro-${i}`} className='imagemCapa' src={a + livros[i]['nome'] + '_' + livros[i]['id'] + '/' + livros[i]['imagem']} />);
-            console.log(a + livros[i]['nome'] + '_' + livros[i]['user_id'] + '/' + livros[i]['imagem']);
             if (i >= 6) {
                 break;
             }

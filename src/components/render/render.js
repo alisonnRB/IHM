@@ -22,7 +22,7 @@ function Render(props) {
   return (
     <div className='render' id='render'>
       <Routes>
-        <Route path='/perfil' element={<Perfil user={props.user}/>}></Route>
+        <Route path='/perfil' element={<Perfil />}></Route>
         <Route path='/perfil/gender' element={<Gender user={props.user}/>}></Route>
         <Route path='/perfil/MeusLivros' element={<MeusLivros/> }></Route>
         <Route path='/perfil/MeusFavoritos' element={<MeusFav/> }></Route>
