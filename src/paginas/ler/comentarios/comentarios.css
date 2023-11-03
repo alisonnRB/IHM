@@ -44,11 +44,25 @@
     height: 100%;
 }
 .comentarios .replyBOX{
-    display: block;
-    height: 100%;
+    display: none;
+    height: 0;
     margin-left: 5%;
+
+    transition: all 1s ease;
 }
 
+.comentarios .replyBOX.aparece{
+    display: block;
+    height: 100%;
+}
+
+.seeReply{
+    cursor: pointer;
+    position: relative;
+    font-size: 1.5em;
+    margin-bottom: -1em;
+    left: 57.2%;
+}
 .comentarios .interval{
     height: 100px;
     width: 100%;

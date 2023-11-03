@@ -1,27 +1,27 @@
-#comentary{
+#comentary {
     width: 100%;
     height: 100%;
     margin-bottom: 5px;
 }
 
-#comentary .userComent{
+#comentary .userComent {
     border-radius: 50%;
     height: 60px;
     width: 60px;
 }
 
-#comentary .boxComent{
+#comentary .boxComent {
     width: calc(100% - 120px);
 }
 
-#comentary .boxComent .nomeComent{
+#comentary .boxComent .nomeComent {
     font-weight: bold;
     height: 25%;
     width: calc(100% - 7px);
     padding-left: 7px;
 }
 
-#comentary .boxComent .coment{
+#comentary .boxComent .coment {
     height: 75%;
     width: calc(100% - 10px);
     padding-left: 10px;
@@ -30,7 +30,7 @@
     word-break: break-all;
 }
 
-#comentary .btsCurti{
+#comentary .btsCurti {
     display: flex;
     flex-direction: row;
     align-items: end;
@@ -39,24 +39,30 @@
     width: calc(100% - (100% - 120px));
 }
 
-#comentary .btsCurti .boxDEimg{
+#comentary .btsCurti .boxDEimg {
     background-color: #C4BFB2;
     height: 20px;
     width: 40px;
+    animation: shake .5s ease;
 }
 
-#comentary .btsCurti img{
+#comentary .btsCurti .core {
     cursor: pointer;
     height: 100%;
     width: 100%;
 }
 
-.reply{
+#comentary .btsCurti .boxDEimg.c {
+    animation: curti .5s ease;
+    transform-origin: center;
+}
+
+.reply {
     font-size: .9em;
     cursor: pointer;
 }
 
-#infosComent{
+#infosComent {
     gap: 5px;
     height: 20%;
     width: calc(100% - 65px);
@@ -64,17 +70,55 @@
     margin-bottom: 20px;
 }
 
-#resposta{
+#resposta {
     height: 50px;
     width: 90%;
     margin-left: 10%;
     margin-bottom: 20px;
 }
 
-#resposta input{
+#resposta input {
     background-color: #EBECF0;
     padding-left: 20px;
     height: 90%;
     width: calc(100% - 20px);
     border-radius: 30px;
 }
+
+.likeNUM{
+    position: relative;
+    z-index: 100;
+}
+
+@keyframes curti {
+    0% {
+        transform: scale(1, 1);
+    }
+
+
+
+    50% {
+        transform: scale(1.30, 1.30);
+    }
+
+
+
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes shake {
+    0% {
+      transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+      transform: translateX(-1px) rotate(-2deg);
+    }
+    20%, 40%, 60%, 80% {
+      transform: translateX(1px) rotate(2deg);
+    }
+    100% {
+      transform: translateX(0) rotate(0deg);
+    }
+  }

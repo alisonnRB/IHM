@@ -7,6 +7,7 @@
     background-color: white;
     position: fixed;
     width: 100vw;
+    height: 100px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -94,7 +95,7 @@
     position: fixed;
     z-index: 10;
     left: 20%;
-    top: 130px;
+    top: 100px;
     height: 100px;
     width: 60%;
     background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 50%);

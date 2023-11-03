@@ -78,7 +78,7 @@ export default function Ler() {
         setIdLivro(idLivroG);
         if (idLivroG) {
             fetch('http://192.168.255.56/server/visus.php', {
-                method: 'POST', // Use POST para atualizar o servidor
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -94,11 +94,10 @@ export default function Ler() {
     }, [userId]);
 
     useEffect(() => {
-        if (infos && infos != '') {
+        if (infos && infos != '' && infos.fotoPerfil) {
             setFoto("http://192.168.255.56/imagens/" + infos.fotoPerfil);
         }
     }, [infos]);
-
 
     const Busca = async () => {
         const resposta = await api.enviar(userId);

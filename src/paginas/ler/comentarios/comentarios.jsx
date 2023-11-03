@@ -10,7 +10,7 @@ import enviar from '../../../imgs/enviar.png';
 
 export default function Comentarios(props) {
     const [comentarios, setComentarios] = useState(0);
-
+    const [verMais, setVerMais] = useState('');
 
     const [texto, setTexto] = useState('');
     const [rest, setRest] = useState('');
@@ -95,12 +95,14 @@ export default function Comentarios(props) {
                     curtindo={curtindo}
                     curtidas={props.curtidas ? props.curtidas : "none"}
                     tipo={props.tipo}
+                    setVerMais={setVerMais}
+                    verMais={verMais}
                 /></span>;
                 list.push(a);
 
                 for (let b = 0; b < quant; b++) {
                     if (comentarios[b].resposta && comentarios[b].id_resposta == comentarios[i].id && comentarios[b].id_resposta == comentarios[b].conversa) {
-                        let a = <span className="replyBOX">
+                        let a = <span className={`replyBOX ${verMais === comentarios[i].id ? 'aparece' : null}`}>
                             <Card
                                 rest={rest}
                                 setConversa={setConversa}
@@ -127,7 +129,7 @@ export default function Comentarios(props) {
                     }
                     for (let c = 0; c < quant; c++) {
                         if (comentarios[c].resposta && comentarios[c].id_resposta == comentarios[b].id && comentarios[c].id_resposta != comentarios[c].conversa && comentarios[c].conversa == comentarios[i].id) {
-                            let a = <span className="replyBOX">
+                            let a = <span className={`replyBOX ${verMais === comentarios[i].id ? 'aparece' : null}`}>
                                 <Card
                                     rest={rest}
                                     setConversa={setConversa}
