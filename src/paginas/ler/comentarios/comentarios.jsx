@@ -173,9 +173,9 @@ export default function Comentarios(props) {
 
     return (
         <div id="boxComent">
-            <form className="campoComent" onSubmit={(event) => { Comentar(event) }}>
+            <form className="campoComent" onSubmit={(event) => { Comentar(event); }}>
                 <input type="text" value={coment} onChange={(event) => { setComent(event.target.value); setTexto(event.target.value) }} placeholder="Escreva um comentario..." />
-                <img id="enviaCom" src={enviar} onClick={(event) => { Comentar(event) }} />
+                <img id="enviaCom" src={enviar} onClick={(event) => { Comentar(event)}} />
             </form>
 
             <div className="comentarios">

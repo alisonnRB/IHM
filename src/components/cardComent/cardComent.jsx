@@ -53,6 +53,7 @@ export default function Comentarios(props) {
         props.setResposta(true);
         props.setIdResposta(infos.id);
         props.setConversa(props.idConv);
+        setResposta('');
 
         setSalva(true);
     }

@@ -42,14 +42,19 @@
 #comentary .btsCurti .boxDEimg {
     background-color: #C4BFB2;
     height: 20px;
+    max-height: 20px;
     width: 40px;
+    max-width: 40px;
     animation: shake .5s ease;
 }
 
 #comentary .btsCurti .core {
     cursor: pointer;
-    height: 100%;
-    width: 100%;
+    position: relative;
+    bottom: .4px;
+    right: .5px;
+    height: calc(100% + 1px);
+    width: calc(100% + 2px);
 }
 
 #comentary .btsCurti .boxDEimg.c {
@@ -85,7 +90,7 @@
     border-radius: 30px;
 }
 
-.likeNUM{
+.likeNUM {
     position: relative;
     z-index: 100;
 }
@@ -110,15 +115,29 @@
 
 @keyframes shake {
     0% {
-      transform: translateX(0);
+        transform: translateX(0);
     }
-    10%, 30%, 50%, 70%, 90% {
-      transform: translateX(-1px) rotate(-2deg);
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-1px) rotate(-2deg);
     }
-    20%, 40%, 60%, 80% {
-      transform: translateX(1px) rotate(2deg);
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(1px) rotate(2deg);
     }
+
     100% {
-      transform: translateX(0) rotate(0deg);
+        transform: translateX(0) rotate(0deg);
     }
-  }
+}
+
+@media (max-width: 576px) {
+
+}

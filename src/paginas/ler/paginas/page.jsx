@@ -118,8 +118,9 @@ export default function Ler(props) {
 
                 <span className="interval">. . .</span>
 
-                <Comentarios setCurtindo={setCurtindo} curtidas={props.curtidas} idLivro={props.idLivro} tipo={'livro'} setOpenRes={setOpenRes} openRes={openRes} cor={info.tema} />
-
+                <div className="comportComent">
+                    <Comentarios setCurtindo={setCurtindo} curtidas={props.curtidas} idLivro={props.idLivro} tipo={'livro'} setOpenRes={setOpenRes} openRes={openRes} cor={info.tema} />
+                </div>
             </div>
         </>
     );

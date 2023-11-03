@@ -1,4 +1,5 @@
 .PageLer {
+    max-width: 100vw;
     width: 100vw;
     height: 100%;
 }
@@ -50,7 +51,6 @@
     height: 100%;
     width: 40%;
     display: flex;
-    display: flex;
     background-color: white;
     align-items: start;
 
@@ -73,15 +73,18 @@
     position: relative;
 }
 
-#BOXCURTI .BoxVisu span:last-child{
+#BOXCURTI .BoxVisu span:last-child {
     position: none;
 }
-#BOXCURTI .BoxVisu.fav span:hover{
+
+#BOXCURTI .BoxVisu.fav span:hover {
     background-color: #FFBD59;
 }
-#BOXCURTI .BoxVisu.curti span:hover{
+
+#BOXCURTI .BoxVisu.curti span:hover {
     background-color: #FF7070;
 }
+
 .BOXLER {
     background-color: rgb(255, 255, 255);
     width: 100%;
@@ -91,18 +94,18 @@
     justify-content: center;
 }
 
-.PageLer .filtro{
+.PageLer .filtro {
     position: fixed;
     z-index: 10;
     left: 20%;
     top: 100px;
     height: 100px;
     width: 60%;
-    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 50%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 50%);
     pointer-events: none;
 }
 
-.infosAutor{
+.infosAutor {
     height: 400px;
     width: 200px;
     position: fixed;
@@ -114,17 +117,18 @@
     gap: 15px;
 }
 
-.infosAutor #perfil{
+.infosAutor #perfil {
     border-radius: 50%;
     height: 120px;
     width: 120px;
     cursor: pointer;
 }
-.infosAutor p{
+
+.infosAutor p {
     font-weight: bold;
 }
 
-.infosAutor .btSeguir{
+.infosAutor .btSeguir {
     height: 20px;
     min-width: 60px;
     padding: 5px;
@@ -135,4 +139,131 @@
     border-radius: 20px;
     color: white;
     font-weight: bold;
+}
+
+.curtiS,
+.favS {
+    animation: shake 1s ease;
+}
+
+.curtiN {
+    animation: curtind .8s ease;
+}
+
+.favN {
+    animation: girar 1.5s ease;
+}
+
+
+@keyframes girar {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes curtind {
+    0% {
+        transform: scale(1, 1);
+    }
+
+    50% {
+        transform: scale(1.4, 1.2);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+
+@media (max-width: 576px) {
+
+    /* Estilos para dispositivos com largura máxima de 576px (ex: smartphones em modo retrato) */
+    .PageLer header {
+        position: absolute;
+        padding-bottom: 100px;
+    }
+
+    .PageLer .btFloat{
+        display: none;
+    }
+
+    .PageLer header #logoP {
+        display: none;
+    }
+
+    .PageLer #CurtiL {
+        width: 100%;
+        right: 0;
+    }
+
+    #CurtiL .tituloBox {
+        padding-left: 10px;
+        text-align: center;
+        justify-content: center;
+        word-break: break-all;
+        width: 100%;
+    }
+
+    #BOXCURTI .BoxVisu.fav {
+        visibility: visible;
+    }
+
+    #CurtiL #BOXCURTI {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    #BOXCURTI .BoxVisu {
+        height: 100%;
+        width: 40%;
+        display: flex;
+        background-color: white;
+        align-items: start;
+
+    }
+
+    #BOXCURTI .BoxVisu span {
+        cursor: pointer;
+        background-color: #C4BFB2;
+        height: 90%;
+        width: 100%;
+        border-radius: 20px;
+        align-items: center;
+        justify-content: start;
+        gap: 10px;
+    }
+
+    .infosAutor {
+        height: 100px;
+        width: 200px;
+        position: absolute;
+        right: 20vw;
+        top: 100px;
+        flex-direction: row;
+        z-index: 200;
+    }
+    .infosAutor #perfil {
+        height: 60px;
+        width: 60px;
+    }
+
+    .infosAutor p {
+        display: none;
+    }
+
+    .infosAutor .btSeguir {
+        height: 20px;
+        min-width: 70px;
+        font-size: .8em;
+    }
+
+    .PageLer .filtro {
+        display: none;
+    }
+
 }

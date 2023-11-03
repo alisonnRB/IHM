@@ -165,10 +165,10 @@ export default function Ler() {
 
                     <span id="BOXCURTI">
                         <div className="BoxVisu fav">
-                            <span onClick={() => { favoritar(); setFav(!fav) }} onMouseEnter={() => { setHoverF(true) }} onMouseLeave={() => { setHoverF(false) }} style={styleF} ><img src={Fav} /> Favoritar</span>
+                            <span onClick={() => { favoritar(); setFav(!fav) }} onMouseEnter={() => { setHoverF(true) }} onMouseLeave={() => { setHoverF(false) }} style={styleF} ><img src={Fav} className={fav? 'favN' : 'favS'}/> Favoritar</span>
                         </div>
-                        <div className="BoxVisu curti" >
-                            <span onClick={() => { curtir() }} onMouseEnter={() => { setHoverC(true) }} onMouseLeave={() => { setHoverC(false) }} style={styleC}><img src={Curti} /> Curtir</span>
+                        <div className='BoxVisu curti' >
+                            <span onClick={() => { curtir() }} onMouseEnter={() => { setHoverC(true) }} onMouseLeave={() => { setHoverC(false) }} style={styleC}><img src={Curti} className={curtido ? 'curtiN' : 'curtiS'} /> Curtir</span>
                         </div>
                     </span>
 
@@ -183,7 +183,7 @@ export default function Ler() {
             <div className="infosAutor">
                 <Link to={id != infos.id ? `/Busca/user?id=${encodeURIComponent(JSON.stringify(infos.id))}` : '/perfil'}><img id="perfil" src={foto} style={{ border: 'solid 4px' + cor }} /></Link>
                 <p>{infos.nome && infos.nome != '' ? infos.nome : "Autor"}</p>
-                {id != userId ? <div className="btSeguir" style={{ backgroundColor: cor }} onClick={() => { seguir() }} >{seguido ? 'SEGUINDO' : 'SEGUIR'}</div> : null}
+                {id != userId ? <div className="btSeguir" style={{ backgroundColor: cor }} onClick={() => { seguir(); setSeguido(!seguido) }} >{seguido ? 'SEGUINDO' : 'SEGUIR'}</div> : null}
             </div>
             <BtFloatH />
         </div>
