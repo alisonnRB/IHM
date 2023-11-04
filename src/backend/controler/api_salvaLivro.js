@@ -16,8 +16,6 @@ export default {
       return resposta;
     }
 
-    console.log(user);
-
     let requisição = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

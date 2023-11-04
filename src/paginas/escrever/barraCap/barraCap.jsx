@@ -59,7 +59,6 @@ export default function BarraCap(props) {
         const list = [];
     
             for (let i = 1; i <= numCaps; i++) {
-                console.log(listP);
                 let a = <div id="content" key={i}>
                     <span className={`${Selecionado === i ? 'Selecionado' : ''}`} onClick={() => {
                         props.setUltimo(Selecionado);
