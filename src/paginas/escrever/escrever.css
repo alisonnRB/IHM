@@ -4,6 +4,7 @@
     width: 11%;
     top: -43px;
     left: 45.2%;
+    object-fit: fill;
     border-bottom-right-radius: 100%;
     border-bottom-left-radius: 100%;
     cursor: pointer;
@@ -77,6 +78,7 @@
     right: 44%;
     height: 100px;
     width: 200px;
+    object-fit: fill;
     animation: abre 1s ease;
 }
 

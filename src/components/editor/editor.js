@@ -5,16 +5,20 @@ import './editor.css';
 const Editor = (props, { placeholder }) => {
   const [content, setContent] = useState('');
 
-  useEffect(()=>{
+  useEffect(() => {
     props.setContent(content);
   }, [content]);
 
-  useEffect(()=>{
-    setContent(props.sinopse);
+  useEffect(() => {
+    if (props.sinopse !== content) {
+      setContent(props.sinopse);
+    }
   }, [props.sinopse])
 
-  useEffect(()=>{
-    setContent(props.content);
+  useEffect(() => {
+    if (props.content !== content) {
+      setContent(props.content)
+    }
   }, [props.content])
 
 
@@ -26,7 +30,7 @@ const Editor = (props, { placeholder }) => {
     }),
     [placeholder]
   );
-  
+
 
   return (
     <div className="minha-div-pai">

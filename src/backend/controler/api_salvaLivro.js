@@ -10,6 +10,14 @@ export default {
       titulo: titulo,
       idUser: id_user,
     };
+
+    if(!id || !cap){
+      var resposta = {ok: false};
+      return resposta;
+    }
+
+    console.log(user);
+
     let requisição = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
