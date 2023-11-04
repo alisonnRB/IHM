@@ -165,10 +165,18 @@ export default function Ler() {
 
                     <span id="BOXCURTI">
                         <div className="BoxVisu fav">
-                            <span onClick={() => { favoritar(); setFav(!fav) }} onMouseEnter={() => { setHoverF(true) }} onMouseLeave={() => { setHoverF(false) }} style={styleF} ><img src={Fav} className={fav? 'favN' : 'favS'}/> Favoritar</span>
+                            <span onClick={() => { favoritar(); setFav(!fav) }} onMouseEnter={() => {
+                                if (typeof window.ontouchstart === "undefined") {
+                                    setHoverC(true);
+                                }
+                            }} onMouseLeave={() => { setHoverF(false) }} style={styleF} ><img src={Fav} className={fav ? 'favN' : 'favS'} /> Favoritar</span>
                         </div>
                         <div className='BoxVisu curti' >
-                            <span onClick={() => { curtir() }} onMouseEnter={() => { setHoverC(true) }} onMouseLeave={() => { setHoverC(false) }} style={styleC}><img src={Curti} className={curtido ? 'curtiN' : 'curtiS'} /> Curtir</span>
+                            <span onClick={() => { curtir() }} onMouseEnter={() => {
+                                if (typeof window.ontouchstart === "undefined") {
+                                    setHoverC(true);
+                                }
+                            }} onMouseLeave={() => { setHoverC(false) }} style={styleC}><img src={Curti} className={curtido ? 'curtiN' : 'curtiS'} /> Curtir</span>
                         </div>
                     </span>
 

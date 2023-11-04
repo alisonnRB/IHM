@@ -9,7 +9,6 @@ export default {
             idLivro: idLivro,
             nome: nome,
         };
-        console.log(user);
 
         //? prepara as informações de methodo e cabeçalhos para fazer a requisição
         let requisição = {
