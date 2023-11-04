@@ -51,10 +51,11 @@
 #comentary .btsCurti .core {
     cursor: pointer;
     position: relative;
-    bottom: .4px;
-    right: .5px;
-    height: calc(100% + 1px);
-    width: calc(100% + 2px);
+    bottom: .51px;
+    right: .6px;
+    height: calc(100% + 1.5px);
+    width: calc(100% + 3px);
+    object-fit: fill;
 }
 
 #comentary .btsCurti .boxDEimg.c {
