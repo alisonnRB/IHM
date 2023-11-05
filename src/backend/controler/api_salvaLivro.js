@@ -11,7 +11,7 @@ export default {
       idUser: id_user,
     };
 
-    if(!id || !cap){
+    if(!id){
       var resposta = {ok: false};
       return resposta;
     }

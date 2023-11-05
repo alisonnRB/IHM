@@ -73,7 +73,7 @@ export default function Escreve() {
         if (primeira) {
             salvarDadosLocalmente();
         }
-        SalvaSai()
+        SalvaSai();
     }, [content, titulo]);
 
     const salvarDadosLocalmente = () => {
@@ -89,7 +89,6 @@ export default function Escreve() {
         const dadosString = JSON.stringify(dadosParaSalvar);
         localStorage.setItem("dadosUsuario", dadosString);
     };
-
     const Deleta = async () => {
         const resposta = await apiDell.enviar(capSelected, idLivro, titulo);
         if (resposta.ok == true) {
@@ -122,11 +121,9 @@ export default function Escreve() {
         const dadosString = localStorage.getItem("dadosUsuario");
         if (dadosString) {
             const dadosSalvos = JSON.parse(dadosString);
-            if (dadosSalvos.idLivro && dadosSalvos.idLivro !== '') {
-                const resposta = await apiEscreve.enviar(dadosSalvos.content, dadosSalvos.capSelected, dadosSalvos.idLivro, dadosSalvos.titulo);
-                if (resposta.ok) {
-                    return;
-                }
+            const resposta = await apiEscreve.enviar(dadosSalvos.content, dadosSalvos.capSelected, dadosSalvos.idLivro, dadosSalvos.titulo);
+            if (resposta.ok == true) {
+                return;
             }
         }
     };
@@ -162,14 +159,13 @@ export default function Escreve() {
             }
         }
     };
-
     useEffect(() => {
         const idLivroG = new URLSearchParams(location.search).get('id');
         setIdLivro(idLivroG);
-        SalvaSai();
     }, []);
     useEffect(() => {
         Busca();
+        SalvaSai();
         setPrimeira(true);
     }, [idLivro]);
     useEffect(() => {
@@ -200,8 +196,8 @@ export default function Escreve() {
         }
     }, [New]);
 
-    useEffect(() => {
-        switch (classificacao) {
+    useEffect(()=>{
+        switch(classificacao){
             case 'livre':
                 setVisuClass(livre);
                 break;
@@ -224,11 +220,11 @@ export default function Escreve() {
     }, [classificacao]);
 
 
-    function GeraGen() {
+    function GeraGen(){
         const list = [];
-        for (let i = 0; i < 3; i++) {
-            if (genero[qualGen[i]]) {
-                let a = <div className='gender' key={i}>{genero[qualGen[i]]}</div>;
+        for(let i = 0; i<3; i++){
+            if(genero[qualGen[i]]){
+                let a = <div className='gender'>{genero[qualGen[i]]}</div>;
                 list.push(a);
             }
         }
