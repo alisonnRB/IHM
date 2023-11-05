@@ -9,6 +9,7 @@
 #barra img {
     height: 45%;
     width: 45%;
+    object-fit: fill;
 }
 
 #barra #pes,

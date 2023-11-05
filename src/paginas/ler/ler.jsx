@@ -169,14 +169,14 @@ export default function Ler() {
                                 if (typeof window.ontouchstart === "undefined") {
                                     setHoverC(true);
                                 }
-                            }} onMouseLeave={() => { setHoverF(false) }} style={styleF} ><img src={Fav} className={fav ? 'favN' : 'favS'} /> Favoritar</span>
+                            }} onMouseLeave={() => { setHoverF(false) }} style={styleF} ><img src={Fav} className={fav ? 'favN' : 'favS'} /><p className="ps">Favoritar</p></span>
                         </div>
                         <div className='BoxVisu curti' >
                             <span onClick={() => { curtir() }} onMouseEnter={() => {
                                 if (typeof window.ontouchstart === "undefined") {
                                     setHoverC(true);
                                 }
-                            }} onMouseLeave={() => { setHoverC(false) }} style={styleC}><img src={Curti} className={curtido ? 'curtiN' : 'curtiS'} /> Curtir</span>
+                            }} onMouseLeave={() => { setHoverC(false) }} style={styleC}><img src={Curti} className={curtido ? 'curtiN' : 'curtiS'} /><p className="ps">Curtir</p></span>
                         </div>
                     </span>
 

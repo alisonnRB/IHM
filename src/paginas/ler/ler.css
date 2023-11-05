@@ -192,6 +192,10 @@
         width: 100%;
         justify-content: start;
     }
+
+    .ps{
+        display: none;
+    }
 }
 
 @media (orientation: portrait) {
