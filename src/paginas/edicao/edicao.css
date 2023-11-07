@@ -25,3 +25,31 @@
     align-items: center;
     justify-content: center;
 }
+
+@media (min-width: 577px) and (max-width: 768px)  and (orientation: landscape) {
+    .boxNewBook header{
+        display: none;
+    }
+
+    .ConfigBook {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) and (orientation: landscape) {
+    .boxNewBook header{
+        display: none;
+    }
+
+    .ConfigBook {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

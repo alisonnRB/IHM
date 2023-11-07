@@ -224,7 +224,7 @@ export default function Escreve() {
         const list = [];
         for(let i = 0; i<3; i++){
             if(genero[qualGen[i]]){
-                let a = <div className='gender'>{genero[qualGen[i]]}</div>;
+                let a = <div className='gender' key={i}>{genero[qualGen[i]]}</div>;
                 list.push(a);
             }
         }
