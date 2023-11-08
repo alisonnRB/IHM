@@ -26,16 +26,17 @@ export default function Card(props) {
   const [curtindo, setCurtindo] = useState(false);
 
   const [abreComent, setAbreComent] = useState(false);
+  const [abrir, setAbrir] = useState(true);
   const [votado, setVotado] = useState(false);
 
- 
+
 
   const [texto, setTexto] = useState('');
   const [link, setLink] = useState('');
   const [enquete, setEnquete] = useState('');
   const [autor, setAutor] = useState('');
 
-  
+
   useEffect(() => {
     Busca();
   }, [props])
@@ -65,10 +66,6 @@ export default function Card(props) {
   }, [curtindo])
 
   useEffect(() => {
-    Busca();
-  }, [abreComent])
-
-  useEffect(() => {
     if (curtidas != undefined) {
       let keys = Object.keys(curtidas).length;
       for (let i = 0; i < keys; i++) {
@@ -80,6 +77,14 @@ export default function Card(props) {
     }
     setCurtido(false);
   }, [curtidas]);
+
+  useEffect(() => {
+    if (abreComent) {
+      setAbrir(true)
+    } else {
+      setAbrir(false);
+    }
+  }, [abreComent])
 
   const gera_enquete = () => {
     const list = [];
@@ -149,8 +154,6 @@ export default function Card(props) {
     }
   }
 
-
-
   return (
     <>
       <div className='cardPost'>
@@ -192,7 +195,9 @@ export default function Card(props) {
         </span>
       </div>
 
-      {abreComent ? <Comentarios setCurtindo={setCurtindo} curtidas={curtidas} idLivro={props.publi.id} tipo={'coment'} cor={'#087F97'} setOpenRes={setOpenRes} openRes={openRes} /> : null}
+      <div className="comportComenta">
+        {abrir ? <Comentarios setCurtindo={setCurtindo} curtidas={curtidas} idLivro={props.publi.id} tipo={'coment'} cor={'#087F97'} setOpenRes={setOpenRes} openRes={openRes} /> : null}
+      </div>
     </>
   );
 }
