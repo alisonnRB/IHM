@@ -1,30 +1,35 @@
-@media screen and (min-width: 1199px) {
+.feed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-    .feed{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+.renderPosts {
+    padding-left: 50px;
+    padding-right: 50px;
+    min-height: 600px;
+    width: calc(100% - 100px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
+}
+
+.btPost {
+    font-size: 3em;
+    position: fixed;
+    cursor: pointer;
+    height: 80px;
+    width: 80px;
+    border-radius: 100%;
+    right: 20px;
+    bottom: 20px;
+}
+
+@media (orientation: portrait){
     .renderPosts {
-        padding-left: 50px;
-        padding-right: 50px;
-        min-height: 600px;
-        width: calc(100% - 100px);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-    }
-
-    .btPost {
-        font-size: 3em;
-        position: fixed;
-        cursor: pointer;
-        height: 80px;
-        width: 80px;
-        border-radius: 100%;
-        right: 20px;
-        bottom: 20px;
+        width: 100%;
+        margin-top: 50px;
+        margin-bottom: 10%;
     }
 }

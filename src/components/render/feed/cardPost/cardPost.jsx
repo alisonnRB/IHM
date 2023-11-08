@@ -158,7 +158,7 @@ export default function Card(props) {
 
           <span className='publiUser'>
             <img className='perfilPubli' src={"http://192.168.255.56/imagens/" + autor.fotoPerfil} />
-            <Link to={id != autor.id ? `/Busca/user?id=${encodeURIComponent(JSON.stringify(autor.id))}` : '/perfil'}><p>{`@${autor.nome}`}</p></Link>
+            <Link to={id != autor.id ? `/Busca/user?id=${encodeURIComponent(JSON.stringify(autor.id))}` : '/perfil'}><p id='nom'>{`@${autor.nome}`}</p></Link>
           </span>
 
           {link && link != undefined ? <Link to={`/Ler/?id=${encodeURIComponent(JSON.stringify(link.id))}`}>
