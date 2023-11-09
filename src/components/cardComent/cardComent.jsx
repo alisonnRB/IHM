@@ -66,7 +66,6 @@ export default function Comentarios(props) {
     }
 
 
-
     useEffect(() => {
         if (props.curtidas != 'none') {
             let keys = Object.keys(props.curtidas).length;
@@ -82,19 +81,19 @@ export default function Comentarios(props) {
         }
         setCurtido(false);
 
-    }, [props.curtidas]);
+    }, [props.curtidas, infos]);
 
     useEffect(() => {
         if (curt === 1) {
 
             setCurtido(!curtido);
             let a = infos['curtidas'];
-            if(statInit){
-                if(curtido){
+            if (statInit) {
+                if (curtido) {
                     a -= 1;
                 }
-            }else{
-                if(!curtido){
+            } else {
+                if (!curtido) {
                     a += 1;
                 }
             }

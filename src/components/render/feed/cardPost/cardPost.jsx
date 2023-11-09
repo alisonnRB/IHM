@@ -73,6 +73,7 @@ export default function Card(props) {
     }
   }, [curtindo])
 
+
   useEffect(() => {
     if (curtidas != undefined) {
       let keys = Object.keys(curtidas).length;
@@ -95,7 +96,7 @@ export default function Card(props) {
   }, [abreComent]);
 
   const changeVoto = async() => {
-    const resposta = await api.enviar(enquete.id); console.log(resposta.informacoes);
+    const resposta = await api.enviar(enquete.id);
     if(resposta.ok){
       setVoteEn(resposta.informacoes);
      
@@ -148,14 +149,14 @@ export default function Card(props) {
       }
     }
 
-    const resposta = await curtiram.enviar(id, props.publi.id, 'coment');
-    if (resposta.ok && resposta.informacoes.length != 0) {
-      setCurtido(true);
+    const resposta = await curtiram.enviar(id, props.publi.id, 'publi');
+    if (resposta.ok) {
+      setCurtidas(resposta.informacoes);
     }
   }
 
   const curtir = async () => {
-    const resposta = await curtida.enviar(props.publi.id, 'coment', 0);
+    const resposta = await curtida.enviar(props.publi.id, 'publi', 0);
     if (resposta.ok) {
       Busca();
     }
@@ -205,12 +206,12 @@ export default function Card(props) {
         </span>
         <span className='curtiComent'>
           <img src={coment} onClick={() => { setAbreComent(!abreComent) }} />
-          <img src={curtido ? curtiT : curti} onClick={() => { curtir() }} />
+          <img src={curtido ? curtiT : curti} onClick={() => { curtir(); setCurtido(!curtido) }} />
         </span>
       </div>
 
       <div className="comportComenta">
-        {abrir ? <Comentarios setCurtindo={setCurtindo} curtidas={curtidas} idLivro={props.publi.id} tipo={'coment'} cor={'#087F97'} setOpenRes={setOpenRes} openRes={openRes} /> : null}
+        {abrir ? <Comentarios setCurtindo={setCurtindo} curtidas={curtidas} idLivro={props.publi.id} tipo={'publi'} cor={'#087F97'} setOpenRes={setOpenRes} openRes={openRes} /> : null}
       </div>
     </>
   );
