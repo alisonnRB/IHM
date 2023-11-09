@@ -16,6 +16,8 @@ import SearchVote from '../../../../backend/controler/api_BuscaVotos';
 
 import Comentarios from '../../../../paginas/ler/comentarios/comentarios';
 
+import api from '../../../../backend/controler/api_enqueteVote';
+
 export default function Card(props) {
   const id = localStorage.getItem('id');
 
@@ -29,11 +31,10 @@ export default function Card(props) {
   const [abrir, setAbrir] = useState(true);
   const [votado, setVotado] = useState(false);
 
-
-
   const [texto, setTexto] = useState('');
   const [link, setLink] = useState('');
   const [enquete, setEnquete] = useState('');
+  const [voteEn, setVoteEn] = useState('');
   const [autor, setAutor] = useState('');
 
 
@@ -41,8 +42,15 @@ export default function Card(props) {
     Busca();
   }, [props])
 
+  useEffect(()=>{
+    if(votado){
+      changeVoto();
+    }
+  }, [votado])
+
   useEffect(() => {
     if (props.publi) {
+
       if (props.publi.texto) {
         setTexto(props.publi.texto);
       }
@@ -84,7 +92,15 @@ export default function Card(props) {
     } else {
       setAbrir(false);
     }
-  }, [abreComent])
+  }, [abreComent]);
+
+  const changeVoto = async() => {
+    const resposta = await api.enviar(enquete.id); console.log(resposta.informacoes);
+    if(resposta.ok){
+      setVoteEn(resposta.informacoes);
+     
+    }
+  }
 
   const gera_enquete = () => {
     const list = [];
@@ -92,13 +108,11 @@ export default function Card(props) {
 
     for (let i = 0; i < Object.keys(en).length; i++) {
       if (votado) {
-        if (enquete.votos && enquete.votos[0]) {
-          var votados = JSON.parse(enquete.votos);
+        if (voteEn && voteEn[0]) {
+          var votados = JSON.parse(voteEn);
           var total = votados[0] + votados[1] + votados[2] + votados[3];
 
         } else {
-          Busca();
-
           return () => { gera_enquete() };
         }
 
@@ -111,7 +125,7 @@ export default function Card(props) {
       } else {
 
         if (en[i] && en[i] != undefined) {
-          let a = <span key={i} className='selectBox' onClick={() => { votar(i); }}>{en[i]}</span>
+          let a = <span key={i} className='selectBox' onClick={() => { votar(i); changeVoto(); }}>{en[i]}</span>
 
           list.push(a);
         }
@@ -160,14 +174,14 @@ export default function Card(props) {
         <span className='infosPost'>
 
           <span className='publiUser'>
-            <img className='perfilPubli' src={"http://192.168.255.56/imagens/" + autor.fotoPerfil} />
+            <img className='perfilPubli' src={autor.fotoPerfil ? "http://192.168.255.56/imagens/" + autor.fotoPerfil : ""} />
             <Link to={id != autor.id ? `/Busca/user?id=${encodeURIComponent(JSON.stringify(autor.id))}` : '/perfil'}><p id='nom'>{`@${autor.nome}`}</p></Link>
           </span>
 
           {link && link != undefined ? <Link to={`/Ler/?id=${encodeURIComponent(JSON.stringify(link.id))}`}>
             <div className='imgLinkBox'>
 
-              <img src={"http://192.168.255.56/livros/" + link.user_id + '/' + link.nome + '_' + link.id + '/' + link.imagem} className='imgLink' />
+              <img src={link.imagem ? "http://192.168.255.56/livros/" + link.user_id + '/' + link.nome + '_' + link.id + '/' + link.imagem : ""} className='imgLink' />
 
             </div>
           </Link> : null}
