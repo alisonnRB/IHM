@@ -7,3 +7,51 @@
     margin-bottom: -100px;
     width: 300px;
 }
+
+
+@media (max-width: 576px) {
+    /* Estilos para dispositivos com largura máxima de 576px (ex: smartphones em modo retrato) */
+    .chat #titlePerfil{
+        display: none;
+    }
+
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    /* Estilos para dispositivos com largura entre 577px e 768px (ex: smartphones em modo paisagem e tablets) */
+    .chat #titlePerfil{
+        display: none;
+    }
+
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .chat #titlePerfil{
+        display: none;
+    }
+
+
+}
+
+
+@media (min-width: 993px) and (max-width: 1200px) {
+    /* Estilos para tablets maiores e dispositivos em modo paisagem */
+    .chat #titlePerfil{
+        display: none;
+    }
+
+
+}
+
+@media (orientation: portrait){
+    .contentMSG{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .chat{
+        background-color: #1E7489;
+        padding-bottom: 100px;
+    }
+    
+}

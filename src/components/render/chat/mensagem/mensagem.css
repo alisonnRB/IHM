@@ -1,4 +1,4 @@
-@media screen and (min-width: 1199px){
+
 .mensagem{
     background-color: #98BEC1;
     height: 600px;
@@ -108,5 +108,45 @@
     color: white;
     margin-left: 10px;
 }
+
+
+@media (orientation: portrait){
+    .mensagem{
+        height: 75vh;
+        width: 85%;
+        margin-top: 50px;
+        margin-left: 0;
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 576px) {
+    .mensagem .perfilMsg{
+        height: 80px;
+    }
+
+    .mensagem .perfilMsg img{
+        height: 45px;
+        width: 45px;
+        margin-left: 10px;
+    }
+    
+    .mensagem .perfilMsg p{
+        font-size: 1em;
+        margin-left: 10px;
+    }
+
+    .caixaEnviar{
+        height: 80px;
+    }
+
+    .caixaEnviar form .inputEnvio{
+        min-height: 30px;
+    }
+
+    .msg{
+        font-size: .8em;
+    }
+
 
 }

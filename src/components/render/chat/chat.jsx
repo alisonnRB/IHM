@@ -15,7 +15,7 @@ export default function Chat() {
   return (
     <div className='chat'>
       <span id='titlePerfil'>CHAT</span>
-      <span>
+      <span className='contentMSG'>
         <Conversas setSelecionado={setSelecionado}/>
         {selecionado != 0 ? <Mensagem selecionado={selecionado}/> : null}
       </span>

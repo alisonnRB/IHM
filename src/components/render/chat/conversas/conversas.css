@@ -1,4 +1,3 @@
-@media screen and (min-width: 1199px){
 .conversas{
     margin-top: 50px;
     margin-left: 10px;
@@ -14,10 +13,24 @@
     flex-direction: column;
     align-items: center;
 }
-.conversas::-webkit-scrollbar{
-    background-color: #98BEC1;
+
+
+@media (orientation: portrait){
+    .conversas{
+        height: 100px;
+        width: 96.5vw;
+        margin-left: 0;
+        overflow-y: hidden;
+        overflow-x: auto;
+    }
+
+    .conversas .listaC{
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    .conversas .listaC::-webkit-scrollbar{
+        height: 2px;
+    }
 }
-.conversas::-webkit-scrollbar-thumb{
-    background-color: black;
-    border-radius: 30px;
-}}
