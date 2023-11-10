@@ -23,6 +23,7 @@ import Page from "./paginas/page";
 import BtFloatH from "../escrever/btFloatH/btFloatH";
 
 export default function Ler() {
+    
     const location = useLocation();
     const [idLivro, setIdLivro] = useState(0);
     const id = localStorage.getItem('id');
@@ -47,6 +48,7 @@ export default function Ler() {
 
     const [hoverC, setHoverC] = useState(false);
     const [hoverF, setHoverF] = useState(false);
+
 
     useEffect(() => {
         setOpenRes(openRes);
@@ -76,7 +78,7 @@ export default function Ler() {
     useEffect(() => {
         const idLivroG = new URLSearchParams(location.search).get('id');
         setIdLivro(idLivroG);
-        if (idLivroG) {
+        if (idLivroG !== 0) {
             fetch('http://192.168.255.56/server/visus.php', {
                 method: 'POST',
                 headers: {
@@ -100,6 +102,7 @@ export default function Ler() {
     }, [infos]);
 
     const Busca = async () => {
+        console.log(userId);
         const resposta = await api.enviar(userId);
         if (resposta.ok) {
             setInfos(resposta.informacoes);

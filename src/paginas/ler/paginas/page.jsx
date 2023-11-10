@@ -24,6 +24,8 @@ export default function Ler(props) {
 
     const [Curtindo, setCurtindo] = useState(false);
 
+    const [auxiliar, setAux] = useState(false);
+
 
     useEffect(() => {
         props.setOpenRes(openRes);
@@ -40,7 +42,18 @@ export default function Ler(props) {
         setOpenRes(props.openRes);
     }, [props.openRes]);
 
+    useEffect(() => {
+        if (info) {
+            console.log('deu');
+        } else {
+            setAux(!auxiliar);
+            Busca();
+        }
+
+    }, [auxiliar, info]);
+
     const Busca = async () => {
+
         const respostaBook = await api.enviar(props.idLivro);
         if (respostaBook.ok === true) {
             setInfo(respostaBook.informacoes);
