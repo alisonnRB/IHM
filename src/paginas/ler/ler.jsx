@@ -102,7 +102,6 @@ export default function Ler() {
     }, [infos]);
 
     const Busca = async () => {
-        console.log(userId);
         const resposta = await api.enviar(userId);
         if (resposta.ok) {
             setInfos(resposta.informacoes);

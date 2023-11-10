@@ -44,7 +44,7 @@ export default function Ler(props) {
 
     useEffect(() => {
         if (info) {
-            
+
         } else {
             setAux(!auxiliar);
             Busca();
@@ -80,7 +80,6 @@ export default function Ler(props) {
             }
         }
     };
-
 
     const conteudo = async () => {
         const response = await apiC.enviar(info.user_id, selecionado, info.id, info.nome);
