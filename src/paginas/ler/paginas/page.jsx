@@ -44,7 +44,7 @@ export default function Ler(props) {
 
     useEffect(() => {
         if (info) {
-            console.log('deu');
+            
         } else {
             setAux(!auxiliar);
             Busca();
