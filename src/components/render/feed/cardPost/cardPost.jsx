@@ -38,12 +38,15 @@ export default function Card(props) {
   const [autor, setAutor] = useState('');
 
 
+  const [auxiliar, setAux] = useState(0);
+
+
   useEffect(() => {
     Busca();
   }, [props])
 
-  useEffect(()=>{
-    if(votado){
+  useEffect(() => {
+    if (votado) {
       changeVoto();
     }
   }, [votado])
@@ -62,6 +65,7 @@ export default function Card(props) {
       }
       if (props.publi.enquete) {
         setEnquete(props.publi.enquete[0]);
+        changeVoto();
       }
     }
   }, [props.publi])
@@ -72,7 +76,6 @@ export default function Card(props) {
       setCurtindo(false);
     }
   }, [curtindo])
-
 
   useEffect(() => {
     if (curtidas != undefined) {
@@ -95,12 +98,21 @@ export default function Card(props) {
     }
   }, [abreComent]);
 
-  const changeVoto = async() => {
-    const resposta = await api.enviar(enquete.id);
-    if(resposta.ok){
-      setVoteEn(resposta.informacoes);
-     
+  useEffect(() => {
+    if (auxiliar < 2) {
+      Busca();
     }
+  }, [auxiliar])
+
+
+  const changeVoto = async () => {
+    if (enquete.id !== undefined) {
+      const resposta = await api.enviar(enquete.id);
+      if (resposta.ok) {
+        setVoteEn(resposta.informacoes);
+      }
+    }
+
   }
 
   const gera_enquete = () => {
@@ -142,6 +154,7 @@ export default function Card(props) {
 
 
   const Busca = async () => {
+    setAux(auxiliar + 1);
     if (enquete && enquete != undefined) {
       const respost = await SearchVote.enviar(enquete.id);
       if (respost.informacoes) {

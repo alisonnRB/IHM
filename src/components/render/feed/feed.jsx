@@ -21,7 +21,6 @@ export default function Feed() {
     }
   }
 
-
   const gera_posts = () => {
     const list = []
     for (let i = 0; i < Object.keys(publis).length; i++) {
