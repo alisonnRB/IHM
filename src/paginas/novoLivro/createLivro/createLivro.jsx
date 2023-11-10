@@ -60,13 +60,12 @@ export default function NovoLivro() {
 
         const nameBook = event.target.livroNome.value;
 
-        const idUsuario = localStorage.getItem('id');
 
-        const resposta = await api.enviar(idUsuario, formData, nameBook, selecao, classificacao);
+        const resposta = await api.enviar(formData, nameBook, selecao, classificacao);
 
         if (resposta.ok) {
-            const AWid = await apiInfo.enviar(idUsuario);
-            const id = AWid.livros[Object.keys(AWid.livros).length - 1].id;
+            const AWid = await apiInfo.enviar("i");
+            const id = AWid.informacoes[Object.keys(AWid.informacoes).length - 1].id;
             navigate(`/perfil/MeusLivros/escreva?id=${encodeURIComponent(JSON.stringify(id))}`)
         }
 

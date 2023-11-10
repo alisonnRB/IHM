@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import './mostraLivros.css';
 
 import Livro from "../../../cardLivro/cardLivro";
 

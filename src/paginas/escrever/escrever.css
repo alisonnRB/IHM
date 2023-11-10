@@ -1,9 +1,10 @@
 .abinha{
     position: absolute;
     height: 80px;
-    width: 11%;
+    width: 160px;
     top: -43px;
     left: 45.2%;
+    object-fit: fill;
     border-bottom-right-radius: 100%;
     border-bottom-left-radius: 100%;
     cursor: pointer;
@@ -33,6 +34,7 @@
     height: 85%;
     width: 6.5%;
     margin-left: 1%;
+    object-fit: fill;
 }
 .infosDoLivro p{
     font-size: 3em;
@@ -43,7 +45,7 @@
 
 #content-aba{
     position: fixed;
-    z-index: 80;
+    z-index: 200;
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -56,8 +58,8 @@
     border-bottom-right-radius: 5px;
     box-shadow: 0px 0px 20px 0px #087f975d;
     background-color: #BACFD1;
-    height: 50%;
-    width: 25%;
+    height: 500px;
+    width: 500px;
     display: block;
     z-index: 10;
     animation: abre 1s ease;
@@ -73,10 +75,11 @@
 #content-aba .abinhaFecha{
     position: absolute;
     z-index: 10;
-    top: 42.5%;
-    right: 44%;
+    top: 440px;
+    left: 41vw;
     height: 100px;
     width: 200px;
+    object-fit: fill;
     animation: abre 1s ease;
 }
 
@@ -151,6 +154,109 @@
     height: 30px;
     width: 30px;
 }
+
+@media (max-width: 576px) and (orientation: portrait) {
+    /* Estilos para dispositivos com largura máxima de 576px (ex: smartphones em modo retrato) */
+    .abinha{
+        left: 32%;
+    }
+    .infosDoLivro .boxLogo{
+        display: none;
+    }
+
+    .infosDoLivro{
+        justify-content: center;
+    }
+
+    #content-aba .caixa-aba{
+        height: 400px;
+        width: 90vw;
+    }
+
+    #content-aba .abinhaFecha{
+        top: 340px;
+        left: 25vw;
+        height: 100px;
+        width: 200px;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
+    .infosDoLivro .boxLogo{
+        display: none;
+    }
+    .abinha{
+        left: 40%;
+    }
+    .infosDoLivro{
+        height: 100px;
+        justify-content: center;
+    }
+
+    #content-aba .caixa-aba{
+        height: 90vh;
+        width: 55vw;
+    }
+
+    #content-aba .abinhaFecha{
+        top: calc(90vh - 45px);
+        left: 35vw;
+        height: 80px;
+        width: 180px;
+    }
+}
+@media (min-width: 769px) and (max-width: 992px) and (orientation: landscape){
+    .infosDoLivro .boxLogo{
+        display: none;
+    }
+    .abinha{
+        left: 40%;
+    }
+    .infosDoLivro{
+        height: 100px;
+        justify-content: center;
+    }
+
+    #content-aba .caixa-aba{
+        height: 90vh;
+        width: 55vw;
+    }
+
+    #content-aba .abinhaFecha{
+        top: calc(90vh - 45px);
+        left: 35vw;
+        height: 80px;
+        width: 180px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .infosDoLivro .boxLogo{
+        height: 130px;
+        width: 130px;
+    }
+    #content-aba .abinhaFecha{
+        left: 37vw;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    /* Estilos para tablets maiores e dispositivos em modo paisagem */
+    .infosDoLivro .boxLogo{
+        height: 130px;;
+        width: 130px;
+    }
+
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+    /* Estilos para tablets maiores e dispositivos em modo paisagem */
+    .infosDoLivro .boxLogo{
+        height: 130px;;
+        width: 130px;
+    }
+}
+
 @keyframes abre{
     to{
         transform: translateY(0);

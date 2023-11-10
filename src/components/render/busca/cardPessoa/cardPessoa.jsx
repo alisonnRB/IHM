@@ -10,6 +10,7 @@ import diamante from '../../../../imgs/diamante.png';
 import Seguir from '../../../../backend/controler/api_seguir';
 import Seguindo from '../../../../backend/controler/api_buscaSeguidores';
 
+
 function CardPessoa(props) {
     const id = localStorage.getItem('id');
     const [user, setUser] = useState('');
@@ -18,18 +19,24 @@ function CardPessoa(props) {
     const [medalha, setMedalha] = useState(comum);
 
     const [segue, setSegue] = useState(false);
+    const [countS, setCountS] = useState(0);
 
     const seguir = async (user) => {
-        const resposta = await Seguir.enviar(id, user);
+        const resposta = await Seguir.enviar(user);
         if (resposta.ok) {
             Seguidores();
         }
+
     }
 
     const Seguidores = async () => {
-        const responseSeg = await Seguindo.enviar(id, user.id);
-        if (responseSeg.seguidores[0] && responseSeg.seguidores[0].user_id == id) {
-            setSegue(true);
+        if (user.id) {
+            const responseSeg = await Seguindo.enviar(user.id);
+            if (responseSeg.informacoes) {
+                setSegue(true);
+            } else {
+                setSegue(false)
+            }
         }
     }
 
@@ -41,6 +48,17 @@ function CardPessoa(props) {
     useEffect(() => {
         setSeguidores(user.seguidores);
     }, [user]);
+
+    useEffect(() => {
+        if (countS === 1) {
+            if (segue) {
+                setSeguidores(seguidores + 1);
+            }
+            else {
+                setSeguidores(seguidores - 1);
+            }
+        }
+    }, [segue])
 
     useEffect(() => {
         if (seguidores >= 1000000) {
@@ -72,17 +90,17 @@ function CardPessoa(props) {
             <span className="cardPessoa">
                 <div id="perfilPessoa">
                     <Link className="Link" to={id != user.id ? `/Busca/user?id=${encodeURIComponent(JSON.stringify(user.id))}` : '/perfil'}>
-                        <img src={`${'http://10.1.1.211/imagens/' + user.fotoPerfil}`} />
+                        <img src={user && user.fotoPerfil ? `${'http://10.1.1.211/imagens/' + user.fotoPerfil}` : ""} />
                     </Link>
                 </div>
 
                 <div className="infosPessoa">
                     <Link className="Link" to={id != user.id ? `/Busca/user?id=${encodeURIComponent(JSON.stringify(user.id))}` : '/perfil'}>
-                        <span className="nomePessoa">{user.nome}</span>
+                        <span className="nomePessoa">{`@${user.nome}`}</span>
                     </Link>
                     <span className="catPessoa">
                         <div className="categoria"><img src={medalha} id="medalhaC" />{seguidoresS}</div>
-                        {user.id != id? <div className="opSeguir"><p onClick={() => { seguir(user.id) }}>{segue ? 'SEGUINDO' : 'SEGUIR'}</p></div> : null}
+                        {user.id != id ? <div className="opSeguir"><p onClick={() => { seguir(user.id); setCountS(1) }}>{segue ? 'SEGUINDO' : 'SEGUIR'}</p></div> : null}
                     </span>
                 </div>
             </span>

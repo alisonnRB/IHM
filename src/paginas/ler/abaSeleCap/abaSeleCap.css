@@ -28,3 +28,42 @@
     overflow: hidden;
 
 }
+
+@media (max-width: 576px) {
+    #abaDeCap{
+        height: 100px;
+        max-width: 100vw;
+        width: 100vw;
+        position: absolute;
+        z-index: 200;
+        left: 0;
+        top: 200px;
+        flex-direction: row;
+        gap: 15px;
+    }
+
+    #abaDeCap::-webkit-scrollbar{
+        width: 0px;
+        height: 0px;
+    }
+        
+}
+
+@media (orientation: portrait){
+    #abaDeCap{
+        height: 100px;
+        max-width: 100vw;
+        width: 100vw;
+        position: absolute;
+        z-index: 200;
+        left: 0;
+        top: 200px;
+        flex-direction: row;
+        gap: 15px;
+    }
+
+    #abaDeCap::-webkit-scrollbar{
+        width: 0px;
+        height: 0px;
+    }
+}

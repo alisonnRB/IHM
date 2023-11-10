@@ -6,7 +6,7 @@
 .formCreateBook {
     display: flex;
     flex-direction: row;
-    height: 100%;
+    height: calc(100% - 100px);
     width: 100%;
 }
 
@@ -139,6 +139,7 @@
     cursor: pointer;
     height: 60%;
     width: 60%;
+    object-fit: fill;
 }
 
 .GenBoxL {
@@ -165,22 +166,26 @@
     align-items: center;
     gap: 5px;
 }
-.contain img{
+
+.contain img {
     height: 25px;
-    width:  25px;
+    width: 25px;
     position: relative;
     top: 5px;
     left: 10px;
     cursor: pointer;
 }
-.doisCor{
+
+.doisCor {
     position: relative;
     top: 12px;
 }
-.ocupa{
+
+.ocupa {
     height: 10px;
     width: 10px;
 }
+
 #selectColor .circuloDellCor {
     position: relative;
     height: 10px;
@@ -276,6 +281,384 @@
     height: 200px;
     width: 200px;
     background-color: #ffffff09;
+}
+
+
+
+@media (orientation: portrait) {
+    #selectColor {
+        position: relative;
+        right: -10px;
+        top: 75px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .caixaInter {
+        position: relative;
+        bottom: 0;
+        right: -50vw;
+        gap: 20px;
+        height: 150px;
+        width: 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .Infos #Nome #dell {
+        position: relative;
+        top: -290px;
+        height: 100%;
+        width: 20%;
+        display: flex;
+        align-items: center;
+    }
+
+    #cancel {
+        display: none;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) and (orientation: portrait) {
+    .Infos #Nome #dell {
+        top: -430px;
+    }
+
+    .caixaInter {
+        right: -75vw;
+    }
+    
+    #cancel {
+        display: none;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) and (orientation: landscape){
+    .capaDoLivro #fileBoxC {
+        height: 100vh;
+        width: 100%;
+    }
+    .quad {
+        left: 10px;
+        top: 10px;
+        height: 40px;
+        width: 40px;
+    }
+
+    .opsClass {
+        position: absolute;
+        left: 13px;
+        top: 60px;
+    }
+
+    .opsClass .imgC {
+        min-height: 40px;
+        min-width: 40px;
+    }
+
+    #cancel {
+        display: none;
+    }
+
+    .boxNewBookC #selecao{
+        width: 200px;
+    }
+
+    .boxNewBookC .boxGend{
+        height: 200px;
+        width: 200px;
+        font-size: .5em;
+    }
+
+    .boxNewBookC .GenBoxL {
+        display: flex;
+        position: relative;
+        top: 10%;
+        left: 5%;
+        height: 70%;
+        width: 40%;
+        gap: 2px;
+    }
+
+    .caixaInter {
+        position: absolute;
+        bottom: 50px;
+        right: 10px;
+        height: 150px;
+        width: 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .boxNewBookC center{
+        height: 0;
+    }
+
+    .boxNewBookC center h1 {
+        font-size: .5em;
+    }
+
+    .boxNewBookC #selectColor {
+        position: absolute;
+        right: 20px;
+        top: 15%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .boxNewBookC .toggle {
+
+        min-width : 50px;
+        min-height : 22px;
+
+    }
+            
+    /* After slide changes */
+    .boxNewBookC .toggle:after {
+        width: 20px;
+        height: 20px;
+    }
+
+    .boxNewBookC .checkbox:checked + .toggle::after {
+        left : 29px; 
+    }
+    
+}
+
+@media (min-width: 577px) and (max-width: 768px) and (orientation: portrait) {
+    .Infos #Nome #dell {
+        top: -290px;
+    }
+
+    .caixaInter {
+        right: -75vw;
+    }
+    
+    #cancel {
+        display: none;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px)  and (orientation: landscape) {
+    .capaDoLivro #fileBoxC {
+        height: 100vh;
+        width: 100%;
+    }
+    .quad {
+        left: 10px;
+        top: 10px;
+        height: 40px;
+        width: 40px;
+    }
+
+    .opsClass {
+        position: absolute;
+        left: 13px;
+        top: 60px;
+    }
+
+    .opsClass .imgC {
+        min-height: 40px;
+        min-width: 40px;
+    }
+
+    #cancel {
+        display: none;
+    }
+
+    .boxNewBookC #selecao{
+        width: 200px;
+    }
+
+    .boxNewBookC .boxGend{
+        height: 200px;
+        width: 200px;
+        font-size: .5em;
+    }
+
+    .boxNewBookC .GenBoxL {
+        display: flex;
+        position: relative;
+        top: 10%;
+        left: 5%;
+        height: 70%;
+        width: 40%;
+        gap: 2px;
+    }
+
+    .caixaInter {
+        position: absolute;
+        bottom: 50px;
+        right: 10px;
+        height: 150px;
+        width: 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .boxNewBookC center{
+        height: 0;
+    }
+
+    .boxNewBookC center h1 {
+        font-size: .5em;
+    }
+
+    .boxNewBookC #selectColor {
+        position: absolute;
+        right: 20px;
+        top: 15%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .boxNewBookC .toggle {
+
+        min-width : 50px;
+        min-height : 22px;
+
+    }
+            
+    /* After slide changes */
+    .boxNewBookC .toggle:after {
+        width: 20px;
+        height: 20px;
+    }
+
+    .boxNewBookC .checkbox:checked + .toggle::after {
+        left : 29px; 
+    }
+
+}
+
+@media (min-width: 993px) and (max-width: 1200px) and (orientation: portrait){
+    .Infos #Nome #dell {
+        top: -500px;
+    }
+
+    .caixaInter {
+        right: -75vw;
+    }
+    
+    #cancel {
+        display: none;
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1200px)  and (orientation: landscape) {
+    .capaDoLivro #fileBoxC {
+        height: 100vh;
+        width: 100%;
+    }
+    .quad {
+        left: 10px;
+        top: 10px;
+        height: 40px;
+        width: 40px;
+    }
+
+    .opsClass {
+        position: absolute;
+        left: 13px;
+        top: 60px;
+    }
+
+    .opsClass .imgC {
+        min-height: 40px;
+        min-width: 40px;
+    }
+
+    #cancel {
+        display: none;
+    }
+
+    .boxNewBookC #selecao{
+        width: 200px;
+    }
+
+    .boxNewBookC .boxGend{
+        height: 200px;
+        width: 200px;
+        font-size: .5em;
+    }
+
+    .boxNewBookC .GenBoxL {
+        display: flex;
+        position: relative;
+        top: 10%;
+        left: 5%;
+        height: 70%;
+        width: 40%;
+        gap: 2px;
+    }
+
+    .caixaInter {
+        position: absolute;
+        bottom: 50px;
+        right: 10px;
+        height: 150px;
+        width: 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .boxNewBookC center{
+        height: 0;
+    }
+
+    .boxNewBookC center h1 {
+        font-size: .5em;
+    }
+
+    .boxNewBookC #selectColor {
+        position: absolute;
+        right: 20px;
+        top: 15%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .boxNewBookC .toggle {
+
+        min-width : 50px;
+        min-height : 22px;
+
+    }
+            
+    /* After slide changes */
+    .boxNewBookC .toggle:after {
+        width: 20px;
+        height: 20px;
+    }
+
+    .boxNewBookC .checkbox:checked + .toggle::after {
+        left : 29px; 
+    }
+
+}
+
+
+@media (min-width: 1201px) and (orientation: portrait) {
+    .caixaInter {
+        right: -75vw;
+    }
+
+    
+    #cancel {
+        display: none;
+    }
 }
 
 

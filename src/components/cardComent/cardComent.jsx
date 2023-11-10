@@ -13,6 +13,10 @@ export default function Comentarios(props) {
     const [data, setData] = useState('');
     const [dataTime, setDataTime] = useState('');
 
+    const [curt, setCurt] = useState(0);
+    const [auxCurti, setAuxCurt] = useState(false);
+    const [statInit, setStatInit] = useState(false);
+
     const [user, setUser] = useState('');
     const [foto, setFoto] = useState('');
 
@@ -30,13 +34,13 @@ export default function Comentarios(props) {
     const Busca = async (i) => {
         if (i) {
             const response = await api.enviar(infos.user);
-            if (response) {
-                setUser(response.userInfo);
+            if (response.ok) {
+                setUser(response.informacoes);
             }
         } else {
             const response = await api.enviar(props.idRes);
             if (response) {
-                setNomeRes(response.userInfo.nome);
+                setNomeRes(response.informacoes.nome);
             }
         }
     }
@@ -49,18 +53,17 @@ export default function Comentarios(props) {
         props.setResposta(true);
         props.setIdResposta(infos.id);
         props.setConversa(props.idConv);
+        setResposta('');
 
         setSalva(true);
     }
 
     const curtir = async () => {
-        let id = localStorage.getItem('id');
-        const resposta = await curtida.enviar(id, infos.id_ref, 'livro', infos.id);
+        const resposta = await curtida.enviar(infos.id_ref, props.tipo, infos.id);
         if (resposta.ok) {
             props.setCurtindo(true);
         }
     }
-
 
 
     useEffect(() => {
@@ -70,14 +73,42 @@ export default function Comentarios(props) {
             for (let i = 0; i < keys; i++) {
                 if (props.curtidas[i].id_user == id && infos.id == props.curtidas[i].coment) {
                     setCurtido(true);
-    
+                    setStatInit(true);
+
                     return;
                 }
             }
         }
         setCurtido(false);
 
-    }, [props.curtidas]);
+    }, [props.curtidas, infos]);
+
+    useEffect(() => {
+        if (curt === 1) {
+
+            setCurtido(!curtido);
+            let a = infos['curtidas'];
+            if (statInit) {
+                if (curtido) {
+                    a -= 1;
+                }
+            } else {
+                if (!curtido) {
+                    a += 1;
+                }
+            }
+
+            if (infos['curtidas'] > 1000000) {
+                a = infos['curtidas'] / 1000000 + 'M';
+            }
+            else if (infos['curtidas'] > 1000) {
+                a = infos['curtidas'] / 1000 + 'K';
+            }
+
+
+            setQuantCurti(a);
+        }
+    }, [auxCurti])
 
     useEffect(() => {
         if (props.res) {
@@ -113,7 +144,7 @@ export default function Comentarios(props) {
             }
             setQuantCurti(a);
         }
-    }, [infos, props.curtidas]);
+    }, [infos]);
 
     useEffect(() => {
         if (infos.user) {
@@ -177,8 +208,8 @@ export default function Comentarios(props) {
                 </div>
 
                 <div className="btsCurti" >
-                    <div className="boxDEimg" style={style}>
-                        <img src={like} onClick={() => { curtir();}} onMouseEnter={() => { setHover(true) }} onMouseLeave={() => { setHover(false) }} />
+                    <div className={`boxDEimg ${curtido ? 'c' : null}`} style={style}>
+                        <img src={like} className={`core`} onClick={() => { curtir(); setCurt(1); setAuxCurt(!auxCurti) }} onMouseEnter={() => { setHover(true) }} onMouseLeave={() => { setHover(false) }} />
                     </div>
                     <span className="likeNUM">{quantCurti}</span>
                 </div>
@@ -187,6 +218,15 @@ export default function Comentarios(props) {
             <span id="infosComent" onClick={(e) => { e.stopPropagation() }} >
                 <p>{`${dataTime != 'hoje' ? 'há' : ''} ${dataTime != 'hoje' ? data : ''} ${dataTime}`} </p>
                 <p className="reply" onClick={() => { props.setOpenRes(props.chave) }} style={props.cor && props.cor != '' ? { color: props.cor } : { color: '#0A6E7D' }}>RESPONDER</p>
+                {!props.res ? <p className="seeReply" style={{ color: props.cor ? props.cor : '' }} onClick={() => {
+                    if (props.setVerMais) {
+                        if (props.verMais === props.idConv) {
+                            props.setVerMais('');
+                        } else {
+                            props.setVerMais(props.idConv);
+                        }
+                    }
+                }}>{props.verMais == props.idConv ? <>&#8743;</> : <>&#8744;</>}</p> : null}
             </span>
 
             {props.openRes == props.chave ? <form id="resposta" onClick={(e) => { e.stopPropagation() }} onSubmit={(event) => { respondendo(event) }}>

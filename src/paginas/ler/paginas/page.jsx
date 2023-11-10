@@ -24,6 +24,8 @@ export default function Ler(props) {
 
     const [Curtindo, setCurtindo] = useState(false);
 
+    const [auxiliar, setAux] = useState(false);
+
 
     useEffect(() => {
         props.setOpenRes(openRes);
@@ -40,25 +42,36 @@ export default function Ler(props) {
         setOpenRes(props.openRes);
     }, [props.openRes]);
 
+    useEffect(() => {
+        if (info) {
+            console.log('deu');
+        } else {
+            setAux(!auxiliar);
+            Busca();
+        }
+
+    }, [auxiliar, info]);
+
     const Busca = async () => {
+
         const respostaBook = await api.enviar(props.idLivro);
         if (respostaBook.ok === true) {
-            setInfo(respostaBook.infos);
+            setInfo(respostaBook.informacoes);
 
-            if (respostaBook.infos && respostaBook.infos.sinopse) {
-                setSinopse(respostaBook.infos.sinopse);
+            if (respostaBook.informacoes && respostaBook.informacoes.sinopse) {
+                setSinopse(respostaBook.informacoes.sinopse);
             }
-            if (respostaBook.infos && respostaBook.infos.pronto) {
-                setPronto(respostaBook.infos.pronto);
+            if (respostaBook.informacoes && respostaBook.informacoes.pronto) {
+                setPronto(respostaBook.informacoes.pronto);
             }
 
-            if (respostaBook.infos && respostaBook.infos.texto) {
-                if (respostaBook.infos.texto != null) {
-                    let titulo = JSON.parse(respostaBook.infos.texto);
+            if (respostaBook.informacoes && respostaBook.informacoes.texto) {
+                if (respostaBook.informacoes.texto != null) {
+                    let titulo = JSON.parse(respostaBook.informacoes.texto);
                     setTitleCap(titulo);
                 }
 
-                const cont = Object.keys(JSON.parse(respostaBook.infos.texto));
+                const cont = Object.keys(JSON.parse(respostaBook.informacoes.texto));
                 let contador = 0;
                 for (let chaves of cont) {
                     contador++;
@@ -72,7 +85,7 @@ export default function Ler(props) {
     const conteudo = async () => {
         const response = await apiC.enviar(info.user_id, selecionado, info.id, info.nome);
         if (response.ok === true) {
-            setContent(response.conteudo);
+            setContent(response.informacoes);
 
         } else {
             setContent('');
@@ -118,8 +131,9 @@ export default function Ler(props) {
 
                 <span className="interval">. . .</span>
 
-                <Comentarios setCurtindo={setCurtindo} curtidas={props.curtidas} idLivro={props.idLivro} tipo={'livro'} setOpenRes={setOpenRes} openRes={openRes} cor={info.tema} />
-
+                <div className="comportComent">
+                    <Comentarios setCurtindo={setCurtindo} curtidas={props.curtidas} idLivro={props.idLivro} tipo={'livro'} setOpenRes={setOpenRes} openRes={openRes} cor={info.tema} />
+                </div>
             </div>
         </>
     );

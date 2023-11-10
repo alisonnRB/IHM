@@ -1,15 +1,39 @@
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
+import api from "./backend/controler/api_autenticar";
+import { getVariavelGlobal} from "./GvarAuth";
 
-//? o paramento {children} indica que o elementp recebera outro como filho e posso tratar dele na função
-export default function PrivateRoute({ children }){
+export default function PrivateRoute({ children }) {
+    let variavelGlobal = getVariavelGlobal();
 
-    //? busca no storage do browser a chave Authorization que recebe o code token do server
-    const user = localStorage.getItem('Authorization');
-    return(
-        //TODO verifica a validade do campo de token para permitir acesso ao children
-        user === 'logado' ? children : <Navigate to='/login'/>
-        //! É NECESSARIO CRIAR AINDA O SISTEMA DE VERIFICAÇÃO COM CODIGOS VALIDOS E SEGUROS
-        //! A VERIFICAÇÃO COMO ESTÁ E TEMPORARIA
-    );
+    const navigate = useNavigate();
+
+    const Auth = async () => {
+        await api.enviar();
+    }
+
+    useEffect(() => {
+        Auth();
+        const intervalId = setInterval(Auth, 1800000);
+
+        return () => {
+            clearInterval(intervalId);
+        };
+    }, []);
+
+    useEffect(() => {
+        if (variavelGlobal) {
+            sessionStorage.clear();
+            localStorage.clear();
+            navigate('/login');
+        }
+    }, [variavelGlobal]);
+
+    if (!variavelGlobal) {
+        return children;
+    } else {
+        return null;
+    }
+
 }

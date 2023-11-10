@@ -85,13 +85,12 @@ export default function Escreve() {
             capSelected: capSelected,
             idLivro: idLivro,
             titulo: titulo,
-            id: id,
         };
         const dadosString = JSON.stringify(dadosParaSalvar);
         localStorage.setItem("dadosUsuario", dadosString);
     };
     const Deleta = async () => {
-        const resposta = await apiDell.enviar(capSelected, idLivro, titulo, id);
+        const resposta = await apiDell.enviar(capSelected, idLivro, titulo);
         if (resposta.ok == true) {
             localStorage.removeItem('dadosUsuario');
 
@@ -100,12 +99,12 @@ export default function Escreve() {
     };
     const Salva = async (i) => {
         if (i == 'i') {
-            const resposta = await apiEscreve.enviar(content, capSelected, idLivro, titulo, id);
+            const resposta = await apiEscreve.enviar(content, capSelected, idLivro, titulo);
             if (resposta.ok == true) {
                 Busca();
             }
         } else {
-            const resposta = await apiEscreve.enviar(content, ultimo, idLivro, titulo, id);
+            const resposta = await apiEscreve.enviar(content, ultimo, idLivro, titulo);
             if (resposta.ok == true) {
                 Busca();
             }
@@ -113,7 +112,7 @@ export default function Escreve() {
 
     };
     const Novo = async () => {
-        const resposta = await apiEscreve.enviar('', numCaps, idLivro, 'capitulo Novo', id);
+        const resposta = await apiEscreve.enviar('', numCaps, idLivro, 'capitulo Novo');
         if (resposta.ok == true) {
             Salva('i');
         }
@@ -122,7 +121,7 @@ export default function Escreve() {
         const dadosString = localStorage.getItem("dadosUsuario");
         if (dadosString) {
             const dadosSalvos = JSON.parse(dadosString);
-            const resposta = await apiEscreve.enviar(dadosSalvos.content, dadosSalvos.capSelected, dadosSalvos.idLivro, dadosSalvos.titulo, dadosSalvos.id);
+            const resposta = await apiEscreve.enviar(dadosSalvos.content, dadosSalvos.capSelected, dadosSalvos.idLivro, dadosSalvos.titulo);
             if (resposta.ok == true) {
                 return;
             }
@@ -131,27 +130,27 @@ export default function Escreve() {
     const Busca = async () => {
         const resposta = await api.enviar();
         if (resposta.ok === true) {
-            setGenero(resposta.gender);
+            setGenero(resposta.informacoes);
         }
         const respostaBook = await apiBook.enviar(idLivro);
         if (respostaBook.ok === true) {
-            setInfo(respostaBook.infos);
+            setInfo(respostaBook.informacoes);
 
-            if (respostaBook.infos && respostaBook.infos.sinopse) {
-                setSinopse(respostaBook.infos.sinopse);
+            if (respostaBook.informacoes && respostaBook.informacoes.sinopse) {
+                setSinopse(respostaBook.informacoes.sinopse);
             }
-            if (respostaBook.infos && respostaBook.infos.classificacao) {
-                setClassificacao(respostaBook.infos.classificacao);
-            }
-
-            if (respostaBook.infos && respostaBook.infos.pronto) {
-                setProntos(respostaBook.infos.pronto);
+            if (respostaBook.informacoes && respostaBook.informacoes.classificacao) {
+                setClassificacao(respostaBook.informacoes.classificacao);
             }
 
-            if (respostaBook.infos && respostaBook.infos.texto) {
-                setTitleCap(respostaBook.infos.texto);
+            if (respostaBook.informacoes && respostaBook.informacoes.pronto) {
+                setProntos(respostaBook.informacoes.pronto);
+            }
 
-                const cont = Object.keys(JSON.parse(respostaBook.infos.texto));
+            if (respostaBook.informacoes && respostaBook.informacoes.texto) {
+                setTitleCap(respostaBook.informacoes.texto);
+
+                const cont = Object.keys(JSON.parse(respostaBook.informacoes.texto));
                 let contador = 0;
                 for (let chaves of cont) {
                     contador++;
@@ -225,7 +224,7 @@ export default function Escreve() {
         const list = [];
         for(let i = 0; i<3; i++){
             if(genero[qualGen[i]]){
-                let a = <div className='gender'>{genero[qualGen[i]]}</div>;
+                let a = <div className='gender' key={i}>{genero[qualGen[i]]}</div>;
                 list.push(a);
             }
         }

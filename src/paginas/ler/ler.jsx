@@ -2,7 +2,7 @@ import React from "react";
 import './ler.css';
 
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 import api from '../../backend/controler/api_info';
 
@@ -23,6 +23,7 @@ import Page from "./paginas/page";
 import BtFloatH from "../escrever/btFloatH/btFloatH";
 
 export default function Ler() {
+    
     const location = useLocation();
     const [idLivro, setIdLivro] = useState(0);
     const id = localStorage.getItem('id');
@@ -48,6 +49,7 @@ export default function Ler() {
     const [hoverC, setHoverC] = useState(false);
     const [hoverF, setHoverF] = useState(false);
 
+
     useEffect(() => {
         setOpenRes(openRes);
     }, [openRes]);
@@ -72,7 +74,6 @@ export default function Ler() {
         }
         setCurtido(false);
     }, [curtidas]);
-
 
     useEffect(() => {
         const idLivroG = new URLSearchParams(location.search).get('id');
@@ -100,48 +101,47 @@ export default function Ler() {
         }
     }, [infos]);
 
-
     const Busca = async () => {
+        console.log(userId);
         const resposta = await api.enviar(userId);
-
-        setInfos(resposta.userInfo);
+        if (resposta.ok) {
+            setInfos(resposta.informacoes);
+        }
 
         const response = await curtiram.enviar(userId, idLivro, 'livro');
+        if (response.ok) {
+            setCurtidas(response.informacoes);
+        }
 
-        setCurtidas(response.curtidas);
 
-        let id = localStorage.getItem('id');
-        const responseFav = await favoritou.enviar(id, idLivro);
-        if (responseFav.favoritos[0] && responseFav.favoritos[0].user_id == id) {
+        const responseFav = await favoritou.enviar(idLivro);
+        if (responseFav.informacoes) {
             setFav(true);
         }
 
-        const responseSeg = await Seguindo.enviar(id, userId);
-        if (responseSeg.seguidores[0] && responseSeg.seguidores[0].user_id == id) {
+        const responseSeg = await Seguindo.enviar(userId);
+        if (responseSeg.informacoes) {
             setSeguido(true);
         }
 
     };
 
     const curtir = async () => {
-        let id = localStorage.getItem('id');
-        const resposta = await curtida.enviar(id, idLivro, 'livro', 0);
+        const resposta = await curtida.enviar(idLivro, 'livro', 0);
         if (resposta.ok) {
             Busca();
         }
     }
 
     const favoritar = async () => {
-        let id = localStorage.getItem('id');
-        const resposta = await favorito.enviar(id, idLivro);
+        const resposta = await favorito.enviar(idLivro);
         if (resposta.ok) {
             Busca();
         }
     }
 
     const seguir = async () => {
-        let id = localStorage.getItem('id');
-        const resposta = await Seguir.enviar(id, userId);
+        const resposta = await Seguir.enviar(userId);
         if (resposta.ok) {
             Busca();
         }
@@ -168,10 +168,18 @@ export default function Ler() {
 
                     <span id="BOXCURTI">
                         <div className="BoxVisu fav">
-                            <span onClick={() => { favoritar(); setFav(!fav) }} onMouseEnter={() => { setHoverF(true) }} onMouseLeave={() => { setHoverF(false) }} style={styleF} ><img src={Fav} /> Favoritar</span>
+                            <span onClick={() => { favoritar(); setFav(!fav) }} onMouseEnter={() => {
+                                if (typeof window.ontouchstart === "undefined") {
+                                    setHoverC(true);
+                                }
+                            }} onMouseLeave={() => { setHoverF(false) }} style={styleF} ><img src={Fav} className={fav ? 'favN' : 'favS'} /><p className="ps">Favoritar</p></span>
                         </div>
-                        <div className="BoxVisu curti" >
-                            <span onClick={() => { curtir() }} onMouseEnter={() => { setHoverC(true) }} onMouseLeave={() => { setHoverC(false) }} style={styleC}><img src={Curti} /> Curtir</span>
+                        <div className='BoxVisu curti' >
+                            <span onClick={() => { curtir() }} onMouseEnter={() => {
+                                if (typeof window.ontouchstart === "undefined") {
+                                    setHoverC(true);
+                                }
+                            }} onMouseLeave={() => { setHoverC(false) }} style={styleC}><img src={Curti} className={curtido ? 'curtiN' : 'curtiS'} /><p className="ps">Curtir</p></span>
                         </div>
                     </span>
 
@@ -184,9 +192,9 @@ export default function Ler() {
             </div>
 
             <div className="infosAutor">
-                <img id="perfil" src={foto} style={{ border: 'solid 4px' + cor }} />
+                <Link to={id != infos.id ? `/Busca/user?id=${encodeURIComponent(JSON.stringify(infos.id))}` : '/perfil'}><img id="perfil" src={foto} style={{ border: 'solid 4px' + cor }} /></Link>
                 <p>{infos.nome && infos.nome != '' ? infos.nome : "Autor"}</p>
-                {id != userId? <div className="btSeguir" style={{ backgroundColor: cor }} onClick={() => { seguir() }} >{seguido? 'SEGUINDO' : 'SEGUIR'}</div>:null}
+                {id != userId ? <div className="btSeguir" style={{ backgroundColor: cor }} onClick={() => { seguir(); setSeguido(!seguido) }} >{seguido ? 'SEGUINDO' : 'SEGUIR'}</div> : null}
             </div>
             <BtFloatH />
         </div>

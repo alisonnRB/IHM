@@ -1,0 +1,112 @@
+.BuscaLivros{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.457);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+}
+
+.abaPesquisa{
+    height: 90%;
+    width: 70%;
+    border-radius: 30px;
+    display: block;
+    background: linear-gradient(90deg, rgba(205,252,218,1) 31%, rgba(204,216,237,1) 92%);
+}
+.abaPesquisa #searchText{
+    border-radius: 50px;
+    background-color: #fff;
+    width: 83%;
+}
+.abaPesquisa .titleBox{
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    font-weight: bold;
+    font-size: 1.3em;
+    color: #00647E;
+}
+
+.BuscaLivros .boxLivros {
+    margin-top: 0;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.BuscaLivros #searchImg{
+    width: 60px;
+}
+
+.Buscas{
+    height: calc(90% - 90px);
+    overflow: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#cancelB{
+    cursor: pointer;
+    position: relative;
+    height: 80px;
+    width: 80px;
+    margin-bottom: -80px;
+    left: 95%;
+    bottom: 30px;
+}
+
+@media (orientation: portrait) {
+    /* Estilos para dispositivos com largura máxima de 576px (ex: smartphones em modo retrato) */
+    .abaPesquisa{
+        height: 100vh;
+        width: 100vw;
+        border-radius: 0;
+    }
+    
+    #cancelB{
+        margin-bottom: -80px;
+        left: calc(100% - 70px);
+        bottom: 20px;
+        height: 70px;
+        width: 70px;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
+    .abaPesquisa{
+        height: 100vh;
+        width: 100vw;
+        border-radius: 0;
+    }
+    #cancelB{
+        margin-bottom: -80px;
+        left: calc(100% - 70px);
+        bottom: 20px;
+        height: 70px;
+        width: 70px;
+    }
+}
+@media (min-width: 769px) and (max-width: 992px) and (orientation: landscape) {
+    .abaPesquisa{
+        height: 100vh;
+        width: 100vw;
+        border-radius: 0;
+    }
+    #cancelB{
+        margin-bottom: -80px;
+        left: calc(100% - 70px);
+        bottom: 20px;
+        height: 70px;
+        width: 70px;
+    }
+}

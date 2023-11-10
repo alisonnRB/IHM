@@ -1,5 +1,4 @@
 import React from "react";
-import './meusFav.css';
 import { useEffect } from "react";
 import { useState } from "react";
 
@@ -13,13 +12,10 @@ export default function MeusFav() {
     const [livro, setLivro] = useState('');
 
     const Busca = async () => {
-        const id = localStorage.getItem('id');
-
-        const resposta = await api.enviar(id);
+        const resposta = await api.enviar('i');
         if (resposta.ok) {
-            setLivro(resposta.livros);
+            setLivro(resposta.informacoes);
         }
-
     }
 
 
@@ -30,7 +26,7 @@ export default function MeusFav() {
 
         for (let i = 0; i < Object.keys(livro).length; i++) {
             count++;
-            tempRow.push(<div className="coluna" key={i}><Livro mine={true} info={livro[i]} /></div>);
+            tempRow.push(<div className="coluna" key={i}><Livro mine={false} text={"começar a ler"} info={livro[i]} /></div>);
 
             if (count === 3 || i === Object.keys(livro).length - 1) {
                 count = 0;

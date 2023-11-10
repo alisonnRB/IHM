@@ -96,9 +96,8 @@ export default function NovoLivro() {
 
         const nameBook = event.target.livroNome.value;
 
-        const idUsuario = localStorage.getItem('id');
 
-        const resposta = await api.enviar(idLivro, idUsuario, formData, nameBook, selecao, classificacao, publico, finalizado, color, tags);
+        const resposta = await api.enviar(idLivro, formData, nameBook, selecao, classificacao, publico, finalizado, color, tags);
         if (resposta.ok) {
             navigate(-1);
         }
@@ -106,9 +105,8 @@ export default function NovoLivro() {
     };
 
     const DeletaLivro = async () => {
-        const idUsuario = localStorage.getItem('id');
 
-        const resposta = await apiDell.enviar(idUsuario, idLivro);
+        const resposta = await apiDell.enviar(idLivro);
         if (resposta.ok) {
             navigate('/perfil/MeusLivros');
         }
@@ -147,7 +145,7 @@ export default function NovoLivro() {
     const Busca = async () => {
         const respostaBook = await apiBook.enviar(idLivro);
         if (respostaBook.ok === true) {
-            setInfo(respostaBook.infos);
+            setInfo(respostaBook.informacoes);
         }
     };
 

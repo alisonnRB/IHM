@@ -29,7 +29,7 @@ export default function Cadastro(props) {
         props.fecharCadastro();
       }
     } else {
-      setErro(resposta.msg);
+      setErro(resposta.informacoes);
     }
   };
 

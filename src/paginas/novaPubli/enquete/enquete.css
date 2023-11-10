@@ -1,0 +1,225 @@
+.enquete{
+    background-color: rgba(255, 255, 255, 0.457);
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 200;
+}
+
+#cardEnquete{
+    background: linear-gradient(90deg, rgba(205,252,218,1) 31%, rgba(204,216,237,1) 92%);
+    height: 90%;
+    width: 70%;
+    display: block;
+    border-radius: 30px;
+}
+
+.contentEnquete{
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.enqueteBox{
+    height: 65px;
+    width: 400px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-left: 15px;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.apagaEn{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 65px;
+    width: 55px;
+    color: white;
+    font-size: 2em;
+    background-color: red;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.titleEnquete{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tagBox{
+    height: 15%;
+    font-size: 1.3em;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+}
+
+.titleEnqueteBox{
+    text-align: center;
+    font-weight: bold;
+    border-bottom: solid .5px black;
+    background-color: transparent;
+    font-size: 3em;
+    height: 100%;
+    width: 70%;
+}
+
+#cancelaEnquete{
+    height: 70px;
+    width: 70px;
+    position: relative;
+    left: 95%;
+    bottom: 20px;
+}
+
+.cancelIMG{
+    margin-bottom: -70px;
+    cursor: pointer;
+}
+
+#pronto{
+    cursor: pointer;
+    position: relative;
+    left: 40%;
+    top: 70px;
+    font-weight: bold;
+    font-size: 2.3em;
+    color: #00647E;
+}
+
+.mais{
+    cursor: pointer;
+    margin-top: 13px;
+    border-radius: 50%;
+    padding: 10px;
+    background-color: white;
+    height: 40px;
+    width: 40px;
+}
+
+@media (orientation: portrait) {
+    /* Estilos para dispositivos com largura máxima de 576px (ex: smartphones em modo retrato) */
+
+    #cardEnquete{
+        height: 100vh;
+        width: 100vw;
+        display: block;
+        border-radius: 0;
+    }
+    #cancelaEnquete{
+        height: 70px;
+        width: 70px;
+        position: relative;
+        left: calc(100% - 70px);
+        bottom: 5px;
+    }
+
+    .enqueteBox{
+        height: 60px;
+        width: 75%;
+    }
+    
+    .apagaEn{
+        height: 60px;
+        width: 45px;
+    }
+
+    #pronto{
+        left: 0;
+        top: 30px;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
+ 
+    #cardEnquete{
+        height: 100vh;
+        width: 100vw;
+        display: block;
+        border-radius: 0;
+    }
+    #cancelaEnquete{
+        height: 70px;
+        width: 70px;
+        position: relative;
+        left: calc(100% - 70px);
+        bottom: 5px;
+    }
+
+    .enqueteBox{
+        height: 60px;
+        width: 75%;
+    }
+    
+    .apagaEn{
+        height: 60px;
+        width: 45px;
+    }
+
+    #pronto{
+        left: 70%;
+        top: 20px;
+    }
+
+    .contentEnquete{
+        height: 75%;
+        display: grid;
+        grid-template-columns: calc(100vw / 4) calc(100vw / 4);
+        gap: 15px;
+    }
+}
+
+
+@media (min-width: 769px) and (max-width: 992px) and (orientation: landscape){
+
+    #cardEnquete{
+        height: 100vh;
+        width: 100vw;
+        display: block;
+        border-radius: 0;
+    }
+    #cancelaEnquete{
+        height: 70px;
+        width: 70px;
+        position: relative;
+        left: calc(100% - 70px);
+        bottom: 5px;
+    }
+
+    .enqueteBox{
+        height: 60px;
+        width: 75%;
+    }
+    
+    .apagaEn{
+        height: 60px;
+        width: 45px;
+    }
+
+    #pronto{
+        left: 70%;
+        top: 20px;
+    }
+
+    .contentEnquete{
+        height: 75%;
+        display: grid;
+        grid-template-columns: calc(100vw / 4) calc(100vw / 4);
+        gap: 15px;
+    }
+}

@@ -48,9 +48,8 @@ export default function BarraCap(props) {
     }, [props.titulo, props.selected]);
 
     const Change = async () => {
-        const id = localStorage.getItem('id');
 
-        const resposta = await api.enviar(id, pronto, Selecionado, props.idLivro);
+        const resposta = await api.enviar(pronto, Selecionado, props.idLivro);
         if (resposta.ok) {
         }
     }
@@ -60,7 +59,6 @@ export default function BarraCap(props) {
         const list = [];
     
             for (let i = 1; i <= numCaps; i++) {
-                console.log(listP);
                 let a = <div id="content" key={i}>
                     <span className={`${Selecionado === i ? 'Selecionado' : ''}`} onClick={() => {
                         props.setUltimo(Selecionado);

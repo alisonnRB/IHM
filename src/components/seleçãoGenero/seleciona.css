@@ -9,6 +9,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    word-break: break-all;
+    text-align: center;
 }
 .gender:hover{
     background-color: #3393a65f;

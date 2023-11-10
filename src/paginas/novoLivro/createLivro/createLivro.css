@@ -1,13 +1,13 @@
 .boxNewBookC {
     height: 100%;
-    width: 100%;
+    width: 100vw;
 }
 
 .formCreateBook {
     display: flex;
     flex-direction: row;
     height: 100%;
-    width: 100%;
+    width: calc(100vw - 100px);
 }
 
 .capaDoLivro {
@@ -54,16 +54,17 @@
     border-radius: 10px;
 }
 
-.fundo{
+.fundo {
     position: fixed;
-    height: 100vh;    
+    height: 100vh;
     z-index: 1;
     width: 100vw;
     top: 0;
     left: 0;
     background-color: rgba(255, 255, 255, 0.534);
 }
-.opsClass{
+
+.opsClass {
     position: absolute;
     left: 30px;
     top: 200px;
@@ -76,7 +77,7 @@
     overflow: hidden;
 }
 
-.opsClass .imgC{
+.opsClass .imgC {
     height: 70px;
     width: 75px;
     z-index: 1;
@@ -85,7 +86,7 @@
     animation: abrir .3s linear reverse;
 }
 
-.opsClass .imgC.close{
+.opsClass .imgC.close {
     animation: fechar .33s linear;
 }
 
@@ -180,7 +181,8 @@
     font-weight: bold;
     margin-right: 10%;
 }
-.trans{
+
+.trans {
     position: absolute;
     z-index: 2;
     top: 0;
@@ -189,20 +191,162 @@
     width: 200px;
     background-color: #ffffff09;
 }
+
+
+
+@media (orientation: portrait) {
+
+    /* Estilos para dispositivos com largura máxima de 576px (ex: smartphones em modo retrato) */
+    .boxNewBookC {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .boxNewBookC .formCreateBook {
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+    }
+
+
+    .capaDoLivro {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        min-width: 100vw;
+        min-height: 300px;
+    }
+
+
+    .Infos {
+        min-height: 400px;
+        min-width: 100vw;
+    }
+
+    .Infos #Nome {
+        height: 15%;
+        width: 100vw;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 10%;
+    }
+
+    .Infos #Nome .nomeDoLivro {
+        display: flex;
+        width: 100%;
+        height: 50%;
+        align-items: center;
+    }
+
+    .boxNewBookC .Infos #Nome .nomeDoLivro::before {
+        content: 'NOME:';
+        font-size: 1em;
+    }
+
+    .Infos #Nome .livroNome {
+        font-size: 2em;
+        height: 100%;
+        min-width: 100%;
+    }
+
+    .Infos #Nome .xis {
+        display: none;
+    }
+
+    .Infos .generosLivro {
+        width: 275px;
+    }
+
+    #contadora {
+        position: relative;
+        left: 10px;
+        top: 10px;
+        display: flex;
+        height: 3%;
+        width: 100%;
+    }
+
+    .boxNewBookC #contadora p {
+        color: #087F97;
+        font-size: 1em;
+        font-weight: bold;
+        margin-right: 25%;
+    }
+
+
+    .boxNewBookC .quad {
+        position: relative;
+        margin-right: -60px;
+        left: 10px ;
+        top: 10px ;
+        height: 47px ;
+        width: 52px;
+    }
+
+    .fundo {
+        position: absolute;
+        height: 100vh;
+        z-index: 1;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        background-color: rgba(255, 255, 255, 0.534);
+    }
+
+    .boxNewBookC .opsClass {
+        left: 5px;
+        top: 170px;
+        z-index: 10;
+    }
+
+    .boxNewBookC .opsClass .imgC {
+        height: 50px ;
+        width: 53px ;
+    }
+
+    .boxNewBookC .boxGend {
+        width: 90vw;
+        height: 300px;
+        align-items: center;
+        padding-bottom: 100px;
+    }
+
+    .boxNewBookC .Genero {
+        font-size: 1em;
+        height: 40px;
+        width: 50%;
+        animation: none;
+    }
+
+    .boxNewBookC .salvaLivro {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: -100px;
+        right: -20px;
+    }
+}
+
+
+
+
 @keyframes abrir {
-    0%{
+    0% {
         transform: translateY(0);
     }
-    100%{
+
+    100% {
         transform: translateY(-500px);
     }
 }
 
 @keyframes fechar {
-    0%{
+    0% {
         transform: translateY(0);
     }
-    100%{
+
+    100% {
         transform: translateY(-500px);
     }
 }

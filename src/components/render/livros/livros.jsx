@@ -16,7 +16,7 @@ import dezoito from '../../../imgs/dezoito.jpeg';
 
 import api from "../../../backend/controler/api_search";
 
-function Livros() {
+export default function Livros() {
     const [conta, setConta] = useState(0);
     const [Livro, setLivro] = useState('');
     const [classe, setClasse] = useState('fecha');
@@ -58,12 +58,12 @@ function Livros() {
         if (!open) {
             const resposta = await api.enviar(nome, null, null, null, null);
             if (resposta.ok) {
-                setLivro(resposta.livros);
+                setLivro(resposta.informacoes);
             }
         } else {
             const resposta = await api.enviar(nome, Novo, Finalizado, classificacao, selecao);
             if (resposta.ok) {
-                setLivro(resposta.livros);
+                setLivro(resposta.informacoes);
             }
         }
     }
@@ -185,5 +185,3 @@ function Livros() {
         </div>
     );
 }
-
-export default Livros;

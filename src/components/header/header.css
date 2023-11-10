@@ -1,104 +1,63 @@
-/*? telas grandes*/
-@media screen and (min-width: 2300px){
-    header{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        background-color: #BACFD2;
-        height: 130px;
-    }
-    #logoH{
-        position: relative;
-        left: 3%;
-        height: 280px;
-        width: 280px;
-    }
-}
-/*? pcs*/
-@media screen and (min-width: 1280px) and (max-width: 2300px){
-header{
+header {
+    position: sticky;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     background-color: #BACFD2;
-    height: 130px;
-}
-#logoH{
-    position: relative;
-    left: 3%;
-    height: 280px;
-    width: 280px;
-}
-}
-/*? notebooks*/
-@media screen and (min-width: 1024px) and (max-width: 1279px){
-    header{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        background-color: #BACFD2;
-        height: 90px;
-    }
-    #logoH{
-        position: relative;
-        left: 3%;
-        height: 200px;
-        width: 200px;
-    }
+    height: 90px;
 }
 
-/*? telas tablet*/
-@media screen and (min-width: 768px) and (max-width: 1023px){
+#logoH {
+    height: 200px;
+    width: 200px;
+}
+
+
+@media (max-width: 576px) {
+    /* Estilos para dispositivos com largura máxima de 576px (ex: smartphones em modo retrato) */
+
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    /* Estilos para dispositivos com largura entre 577px e 768px (ex: smartphones em modo paisagem e tablets) */
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
     header{
-        position: sticky;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        background-color: #BACFD2;
         height: 120px;
     }
-    #logoH{
+
+    #logoH {
         height: 250px;
         width: 250px;
     }
 }
 
-/*? telas mobile hotizontal*/
-@media screen and ((max-height: 767px) and (max-width: 999px)){
-    header{
-        position: sticky;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        background-color: #BACFD2;
-        height: 100px;
-    }
-    #logoH{
+
+@media (min-width: 993px) and (max-width: 1200px) {
+    /* Estilos para tablets maiores e dispositivos em modo paisagem */
+
+}
+
+
+@media (min-width: 1201px) {
+    /* Estilos para dispositivos desktop (telas maiores) */
+    #logoH {
         position: relative;
-        left: 5%;
-        height: 170px;
-        width: 170px;
+        left: 2.5%;
     }
 }
 
-/*? telas mobile*/
-@media screen and (max-width: 767px){
-    header{
-        position: sticky;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        background-color: #BACFD2;
-        height: 120px;
+@media (orientation: portrait) {
+}
+
+@media (orientation: landscape) {
+    /* Estilos para dispositivos em modo paisagem */
+
+    #logoH {
+        position: relative;
+        left: 3.2%;
     }
-    #logoH{
-        height: 250px;
-        width: 250px;
-    }
+
 }

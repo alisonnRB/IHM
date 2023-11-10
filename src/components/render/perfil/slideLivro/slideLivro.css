@@ -73,6 +73,65 @@
     height: 20px; 
     animation: animateStars 4s linear infinite;
 }
+
+
+
+@media (max-width: 576px) {
+    /* Estilos para dispositivos com largura máxima de 576px (ex: smartphones em modo retrato) */
+
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    /* Estilos para dispositivos com largura entre 577px e 768px (ex: smartphones em modo paisagem e tablets) */
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+}
+
+
+@media (min-width: 993px) and (max-width: 1200px) {
+    /* Estilos para tablets maiores e dispositivos em modo paisagem */
+
+}
+
+
+@media (min-width: 1201px) {
+    /* Estilos para dispositivos desktop (telas maiores) */
+
+}
+
+@media (orientation: portrait) {
+    .boxMeulivro .slidersLivros{
+        justify-content: center;
+        height: 20vh;
+        width: 95vw;
+        margin-bottom: 100px;
+        
+    }
+}
+
+@media (orientation: landscape) {
+    /* Estilos para dispositivos em modo paisagem */
+    .boxMeulivro .slidersLivros{
+        justify-content: center;
+        width: 80vw;
+        margin-bottom: 100px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 @keyframes animateStars {
     0% {
         transform: translateY(0);

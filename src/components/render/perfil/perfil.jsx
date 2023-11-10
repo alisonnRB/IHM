@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './perfil.css';
+
 import edit from '../../../imgs/lapis.png';
 import Edicao from './edicao/edicao';
 import apiGender from '../../../backend/controler/api_gender';
 import FloatBt from '../../BtFloat/btFloat';
 
 import apiCapa from "../../../backend/controler/api_meusLivros";
+import api from '../../../backend/controler/api_info';
 
 import MeusLivros from './slideLivro/slideLivro';
 import MeusFav from '../../../backend/controler/api_meusFavoritos';
@@ -20,7 +22,8 @@ import diamante from '../../../imgs/diamante.png';
 
 //? componente que comporta o perfil
 
-function Perfil(props) {
+function Perfil() {
+  const [infos, setInfos] = useState(null);
 
   const [name, setName] = useState('');
   const [seguidores, setSeguidores] = useState(0);
@@ -35,43 +38,46 @@ function Perfil(props) {
   const [livroF, setLivroF] = useState([]);
 
   const Busca = async () => {
-    const id = localStorage.getItem('id');
-
     const resposta = await apiGender.enviar();
     if (resposta.ok == true) {
-      setGeneros(resposta.gender);
+      setGeneros(resposta.informacoes);
     }
 
-    const respostaIMG = await apiCapa.enviar(id);
+    const respostaIMG = await apiCapa.enviar('i');
     if (respostaIMG.ok == true) {
-      setLivro(respostaIMG.livros);
+      setLivro(respostaIMG.informacoes);
     }
 
-    const respontaFav = await MeusFav.enviar(id);
+    const respontaFav = await MeusFav.enviar('i');
     if (respontaFav.ok == true) {
-      setLivroF(respontaFav.livros);
+      setLivroF(respontaFav.informacoes);
+    }
+
+    const respost = await api.enviar("i");
+    if (respost.ok) {
+      setInfos(respost.informacoes);
     }
 
   };
 
   //TODO responsavel por controlar as informações mostradas na tela de acordo com o carregamento da page sem ficar recarregando infinitamente
   useEffect(() => {
-    if (props.user) {
-      if (props.user.genero) {
-        const genero = JSON.parse(props.user.genero);
+    if (infos) {
+      if (infos.genero) {
+        const genero = JSON.parse(infos.genero);
         setaFavoritos(genero);
       }
-      setName(props.user.nome);
-      if (props.user.fotoPerfil) {
-        setPerfil("http://10.1.1.211/imagens/" + props.user.fotoPerfil);
+      setName(infos.nome);
+      if (infos.fotoPerfil) {
+        setPerfil("http://10.1.1.211/imagens/" + infos.fotoPerfil);
       }
-      if (props.user.seguidores) {
-        const seguidores = JSON.parse(props.user.seguidores);
+      if (infos.seguidores) {
+        const seguidores = JSON.parse(infos.seguidores);
         setSeguidores(seguidores);
       }
 
     }
-  }, [props.user]);
+  }, [infos]);
 
   useEffect(() => {
     Busca();
@@ -136,11 +142,11 @@ function Perfil(props) {
         <span><img id='medalha' src={medalha} />{seguidoresS}</span>
       </section>
 
-      {edita && <Edicao fecharEdicao={fecharEdicao} user={props.user.nome} ft={Perfil} />}
+      {edita && <Edicao fecharEdicao={fecharEdicao} user={infos.nome} ft={Perfil} />}
 
       <section className='boxGenero'>
         <span className='boxtitleGender'>
-          <p id='titleGen'>Gêneros favoritos</p>
+        <Link to='/perfil/gender'><p id='titleGen'>Gêneros favoritos</p></Link>
           <Link to='/perfil/gender'><img className='edit' src={edit} /></Link>
         </span>
         <div className='favGen'>
@@ -173,7 +179,7 @@ function Perfil(props) {
       </section>
 
       <section className='boxMeulivro'>
-        <span className='boxTitle'>
+        <span className='boxTitle favoo'>
           <span>
             <p id='titleLivro'>Meus Favoritos</p>
             <Link to='/perfil/MeusFavoritos'><img className='edit' src={edit} /></Link>

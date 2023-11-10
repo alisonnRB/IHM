@@ -38,10 +38,7 @@ export default function Edit(props) {
 
         const userName = event.target.newName.value;
 
-        const idUsuario = localStorage.getItem('id');
-        
-
-        const resposta = await api.enviar(idUsuario, formData, userName);
+        const resposta = await api.enviar(formData, userName);
 
         setFile(null);
         setImagePreview(null);
@@ -50,9 +47,10 @@ export default function Edit(props) {
         if (resposta.ok == true) {
             props.fecharEdicao(true);
         } else {
-            setRespost(resposta.msg);
+            setRespost(resposta.informacoes);
         }
     };
+    
     return (
         <div className='edicao' onClick={()=>{props.fecharEdicao(false)}}>
 
@@ -63,7 +61,7 @@ export default function Edit(props) {
                     <div id='fileBox'>
                         <label htmlFor="editFile" className='labelBt'>
                             <div className="custom-input" style={imagePreview ? {backgroundImage: 'none'} : null}>
-                                {imagePreview && <img src={imagePreview}  style={{ width: '100%', height: '100%', borderRadius: '100%' }} />}
+                                {imagePreview && <img src={imagePreview}  style={{ width: '100%', height: '100%', borderRadius: '100%', objectFit: 'cover' }} />}
                             </div>
                         </label>
                     </div>

@@ -4,7 +4,6 @@ import './busca.css';
 
 import api from '../../../backend/controler/api_Usuarios';
 
-
 import CardPessoa from "./cardPessoa/cardPessoa";
 
 export default function Busca() {
@@ -15,14 +14,14 @@ export default function Busca() {
     const Busca = async () => {
         const resposta = await api.enviar(pesquisa);
         if (resposta.ok) {
-            setUsers(resposta.users);
+            setUsers(resposta.informacoes);
         }
-
     }
 
     useEffect(() => {
         Busca();
     }, []);
+
 
     useEffect(() => {
         Busca();
@@ -32,10 +31,12 @@ export default function Busca() {
         let keys = Object.keys(users).length;
         const list = [];
         for (let i = 0; i < keys; i++) {
+            if (users && users[i]) {
+                let a = <CardPessoa key={i} user={users[i]}/>
 
-            let a = <CardPessoa key={i} user={users[i]} />
+                list.push(a);
+            }
 
-            list.push(a);
         }
 
         return list;

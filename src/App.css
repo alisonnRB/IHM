@@ -5,6 +5,8 @@
     padding: 0;
     border: none;
     outline: none;
+    text-decoration: none;
+    color: inherit;
 }
 span{
     display: flex;
@@ -29,4 +31,8 @@ body {
 input:focus{
     box-shadow: 0 0 0 0;
     outline: 0;
+}
+
+img{
+    object-fit: cover;
 }

@@ -20,3 +20,18 @@ background: linear-gradient(75deg, rgba(104,141,237,1) 0%, rgba(137,176,234,1) 2
     align-items: center;
     justify-content: center;
 }
+
+
+@media (min-width: 577px) and (max-width: 768px)  and (orientation: landscape) {
+    .boxNewBook header{
+        display: none;
+    }
+
+    .ConfigBook {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
