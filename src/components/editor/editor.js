@@ -1,5 +1,5 @@
-import React, { useState, useMemo, useEffect } from 'react';
-import JoditEditor from "jodit-react";
+import React, { useState, useMemo, useEffect, useCallback } from 'react';
+import JoditEditor from 'jodit-react';
 import './editor.css';
 
 const Editor = (props, { placeholder }) => {
@@ -13,24 +13,33 @@ const Editor = (props, { placeholder }) => {
     if (props.sinopse !== content) {
       setContent(props.sinopse);
     }
-  }, [props.sinopse])
+  }, [props.sinopse]);
 
   useEffect(() => {
     if (props.content !== content) {
-      setContent(props.content)
+      setContent(props.content);
     }
-  }, [props.content])
+  }, [props.content]);
 
-
+  const debouncedSetContent = useCallback(
+    debounce((newContent) => {
+      setContent(newContent);
+    }, 800),
+    []
+  );
 
   const config = useMemo(
     () => ({
       readonly: false,
-      placeholder: placeholder || 'Esperando uma história incrivel aqui!! :)'
+      placeholder: placeholder || 'Esperando uma história incrível aqui!! :)',
+      ignoreDebounce: true, 
     }),
     [placeholder]
   );
 
+  const handleChange = (newContent) => {
+    debouncedSetContent(newContent);
+  };
 
   return (
     <div className="minha-div-pai">
@@ -38,10 +47,21 @@ const Editor = (props, { placeholder }) => {
         value={content}
         config={config}
         tabIndex={1}
-        onChange={newContent => setContent(newContent)}
+        onChange={handleChange}
       />
     </div>
   );
 };
+
+
+function debounce(func, delay) {
+  let timeoutId;
+  return function (...args) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      func(...args);
+    }, delay);
+  };
+}
 
 export default Editor;

@@ -89,6 +89,7 @@ export default function Escreve() {
         const dadosString = JSON.stringify(dadosParaSalvar);
         localStorage.setItem("dadosUsuario", dadosString);
     };
+
     const Deleta = async () => {
         const resposta = await apiDell.enviar(capSelected, idLivro, titulo);
         if (resposta.ok == true) {
@@ -164,8 +165,8 @@ export default function Escreve() {
         }
     };
 
-    useEffect(()=>{
-        if(!info.nome){
+    useEffect(() => {
+        if (!info.nome) {
             Busca();
         }
     }, [info])

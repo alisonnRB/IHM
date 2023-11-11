@@ -9,6 +9,7 @@ export default function Paginas(props) {
     const [titulo, setTitulo] = useState('');
     const [sinopse, setSinopse] = useState('');
     const id = localStorage.getItem('id');
+    
 
     useEffect(() => {
         props.setContent(content);
@@ -49,7 +50,7 @@ export default function Paginas(props) {
         const response = await api.enviar(id, props.selected, props.idLivro, props.info.nome);
         if (response.ok === true) {
             setContent(response.informacoes);
-        }else{
+        } else {
             setContent('');
         }
     };
