@@ -100,6 +100,13 @@
     margin-bottom: 5px;
 }
 
+.curtiComent .Nom{
+    animation: curti .5s ease;
+}
+
+.curtiComent .Sin{
+    animation: shake .5s ease;
+}
 
 .enqueteTitle {
     align-items: center;

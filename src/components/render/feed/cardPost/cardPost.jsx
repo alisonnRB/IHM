@@ -219,7 +219,7 @@ export default function Card(props) {
         </span>
         <span className='curtiComent'>
           <img src={coment} onClick={() => { setAbreComent(!abreComent) }} />
-          <img src={curtido ? curtiT : curti} onClick={() => { curtir(); setCurtido(!curtido) }} />
+          <img src={curtido ? curtiT : curti} className={curtido ? 'Nom' : 'Sin'} onClick={() => { curtir(); setCurtido(!curtido) }} />
         </span>
       </div>
 
