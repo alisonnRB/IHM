@@ -73,8 +73,9 @@ export default function Comentarios(props) {
             for (let i = 0; i < keys; i++) {
                 if (props.curtidas[i].id_user == id && infos.id == props.curtidas[i].coment) {
                     setCurtido(true);
-                    setStatInit(true);
-
+                    if (curt !== 1) {
+                        setStatInit(true);
+                    }
                     return;
                 }
             }
@@ -85,8 +86,6 @@ export default function Comentarios(props) {
 
     useEffect(() => {
         if (curt === 1) {
-
-            setCurtido(!curtido);
             let a = infos['curtidas'];
             if (statInit) {
                 if (curtido) {
@@ -104,8 +103,6 @@ export default function Comentarios(props) {
             else if (infos['curtidas'] > 1000) {
                 a = infos['curtidas'] / 1000 + 'K';
             }
-
-
             setQuantCurti(a);
         }
     }, [auxCurti])
@@ -208,8 +205,13 @@ export default function Comentarios(props) {
                 </div>
 
                 <div className="btsCurti" >
-                    <div className={`boxDEimg ${curtido ? 'c' : null}`} style={style}>
-                        <img src={like} className={`core`} onClick={() => { curtir(); setCurt(1); setAuxCurt(!auxCurti) }} onMouseEnter={() => { setHover(true) }} onMouseLeave={() => { setHover(false) }} />
+                    <div className={`boxDEimg ${curtido ? 'c' : ''}`} style={style}>
+                        <img src={like} className={`core`} onClick={() => { curtir(); setCurt(1); setAuxCurt(!auxCurti); }} onMouseEnter={() => {
+                            if (typeof window.ontouchstart === "undefined") {
+                                setHover(true);
+                            }
+                        }
+                        } onMouseLeave={() => { setHover(false) }} />
                     </div>
                     <span className="likeNUM">{quantCurti}</span>
                 </div>
