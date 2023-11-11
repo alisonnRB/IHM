@@ -20,8 +20,8 @@ export default {
     //TODO faz a requisição
 
     //! coloque o seu ip ali
-    const response = await fetch('http://192.168.255.56/server/votar.php', requisição);
-    const resposta = await fetch('http://192.168.255.56/server/contaVotos.php', requisição);
+    const response = await fetch('http://10.1.1.211/server/votar.php', requisição);
+    const resposta = await fetch('http://10.1.1.211/server/contaVotos.php', requisição);
 
     //TODO espera a resposta do servidor e armazena para retornar ao cliente
     const data = await response.json();

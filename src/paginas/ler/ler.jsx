@@ -78,13 +78,13 @@ export default function Ler() {
     useEffect(() => {
         const idLivroG = new URLSearchParams(location.search).get('id');
         setIdLivro(idLivroG);
-        if (idLivroG !== 0) {
-            fetch('http://192.168.255.56/server/visus.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ id: idLivroG }),
+        if (idLivroG) {
+            fetch('http://10.1.1.211/server/visus.php', {
+              method: 'POST', // Use POST para atualizar o servidor
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ id: idLivroG }),
             })
         }
     }, [location]);
@@ -96,8 +96,8 @@ export default function Ler() {
     }, [userId]);
 
     useEffect(() => {
-        if (infos && infos != '' && infos.fotoPerfil) {
-            setFoto("http://192.168.255.56/imagens/" + infos.fotoPerfil);
+        if (infos && infos != '') {
+            setFoto("http://10.1.1.211/imagens/" + infos.fotoPerfil);
         }
     }, [infos]);
 

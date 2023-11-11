@@ -96,6 +96,7 @@
         top: 10%;
         width: 60%;
         gap: 1rem;
+        width: 80%;
     }
 
     .form_pass,
@@ -190,7 +191,6 @@
 }
 
 @media (min-width: 993px) and (max-width: 1200px) {
-
     /* Estilos para tablets maiores e dispositivos em modo paisagem */
     #logo {
         top: 10%;
@@ -236,7 +236,6 @@
 }
 
 @media (min-width: 769px) and (max-width: 992px) {
-
     /* Estilos para tablets e dispositivos em modo paisagem */
     #logo {
         top: 10%;
@@ -373,6 +372,7 @@
     0% {
         transform: translateY(300%);
     }
+
 
     80% {
         transform: translateY(-20%)
