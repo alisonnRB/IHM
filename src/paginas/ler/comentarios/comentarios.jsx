@@ -65,9 +65,11 @@ export default function Comentarios(props) {
         
         const response = await apiBusca.enviar(props.idLivro, props.tipo);
         if (response.ok) {
-            setComentarios(response.comentarios);
+            setComentarios(response.informacoes);
         }
     }
+
+    console.log(comentarios);
 
     const GeraComents = () => {
         const list = [];
