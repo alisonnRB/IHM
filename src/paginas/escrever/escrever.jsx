@@ -97,6 +97,8 @@ export default function Escreve() {
             window.location.reload();
         }
     };
+    //
+
     const Salva = async (i) => {
         if (i == 'i') {
             const resposta = await apiEscreve.enviar(content, capSelected, idLivro, titulo);
@@ -106,17 +108,22 @@ export default function Escreve() {
         } else {
             const resposta = await apiEscreve.enviar(content, ultimo, idLivro, titulo);
             if (resposta.ok == true) {
+                console.log('ok');
                 Busca();
             }
         }
 
     };
+
+    //
+
     const Novo = async () => {
         const resposta = await apiEscreve.enviar('', numCaps, idLivro, 'capitulo Novo');
         if (resposta.ok == true) {
             Salva('i');
         }
     };
+
     const SalvaSai = async () => {
         const dadosString = localStorage.getItem("dadosUsuario");
         if (dadosString) {
@@ -127,6 +134,7 @@ export default function Escreve() {
             }
         }
     };
+
     const Busca = async () => {
         const resposta = await api.enviar();
         if (resposta.ok === true) {
@@ -159,36 +167,53 @@ export default function Escreve() {
             }
         }
     };
+
+    useEffect(()=>{
+        if(!info.nome){
+            Busca();
+        }
+    }, [info])
+
     useEffect(() => {
         const idLivroG = new URLSearchParams(location.search).get('id');
         setIdLivro(idLivroG);
     }, []);
+
     useEffect(() => {
         Busca();
         SalvaSai();
         setPrimeira(true);
     }, [idLivro]);
+
     useEffect(() => {
         if (info.genero != NaN && info.genero != undefined) {
             let gender = JSON.parse(info.genero);
             setGen(gender);
         }
     }, [info]);
+
     useEffect(() => {
         if (Save) {
-            Salva();
+            if (capSelected !== ultimo) {
+                Salva();
+            }
             setSave(false);
         }
     }, [Save]);
+
     useEffect(() => {
-        Salva();
+        if (capSelected !== ultimo) {
+            Salva();
+        }
     }, [capSelected])
+
     useEffect(() => {
         if (Delete) {
             Deleta();
             setDelete(false);
         }
     }, [Delete]);
+
     useEffect(() => {
         if (New) {
             Novo();
@@ -196,8 +221,8 @@ export default function Escreve() {
         }
     }, [New]);
 
-    useEffect(()=>{
-        switch(classificacao){
+    useEffect(() => {
+        switch (classificacao) {
             case 'livre':
                 setVisuClass(livre);
                 break;
@@ -220,10 +245,10 @@ export default function Escreve() {
     }, [classificacao]);
 
 
-    function GeraGen(){
+    function GeraGen() {
         const list = [];
-        for(let i = 0; i<3; i++){
-            if(genero[qualGen[i]]){
+        for (let i = 0; i < 3; i++) {
+            if (genero[qualGen[i]]) {
                 let a = <div className='gender' key={i}>{genero[qualGen[i]]}</div>;
                 list.push(a);
             }
@@ -296,7 +321,7 @@ export default function Escreve() {
                 setContent={setContent}
                 pronto={prontos} />
 
-            <Paginas
+            {info && info.nome ? <Paginas
                 idLivro={idLivro}
                 info={info}
                 setContent={setContent}
@@ -304,7 +329,7 @@ export default function Escreve() {
                 setTitulo={setTitulo}
                 titulo={titleCap}
                 selected={capSelected}
-                sinopse={Sinopse} />
+                sinopse={Sinopse} /> : null}
 
             <BtFloat />
         </div>

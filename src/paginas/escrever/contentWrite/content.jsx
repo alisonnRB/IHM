@@ -34,10 +34,13 @@ export default function Paginas(props) {
     };
 
     useEffect(() => {
+        console.log(props.selected);
         if (props.selected == 0) {
             setSinopse(props.sinopse);
             setContent(props.sinopse);
         } else {
+            console.log(props.info.nome);
+            
             if (id && props.selected && props.idLivro && props.info.nome) {
                 conteudo();
             }
