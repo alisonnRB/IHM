@@ -97,7 +97,6 @@ export default function Escreve() {
             window.location.reload();
         }
     };
-    //
 
     const Salva = async (i) => {
         if (i == 'i') {
@@ -108,14 +107,11 @@ export default function Escreve() {
         } else {
             const resposta = await apiEscreve.enviar(content, ultimo, idLivro, titulo);
             if (resposta.ok == true) {
-                console.log('ok');
                 Busca();
             }
         }
 
     };
-
-    //
 
     const Novo = async () => {
         const resposta = await apiEscreve.enviar('', numCaps, idLivro, 'capitulo Novo');
