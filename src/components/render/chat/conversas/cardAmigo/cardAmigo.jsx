@@ -33,7 +33,7 @@ export default function CardAmigo(props){
 
     useEffect(() => {
         if (typeof info.fotoPerfil == "string") {
-            setFoto("http://10.1.1.211/imagens/" + info.fotoPerfil);
+            setFoto("http://192.168.255.56/imagens/" + info.fotoPerfil);
         }
     }, [info.fotoPerfil]);
 
