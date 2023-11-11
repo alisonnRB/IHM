@@ -71,7 +71,6 @@ export default function Comentarios(props) {
 
     const GeraComents = () => {
         const list = [];
-
         let quant = Object.keys(comentarios).length;
 
         for (let i = 0; i < quant; i++) {
