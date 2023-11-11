@@ -102,7 +102,7 @@ export default function Card(props) {
     if (auxiliar < 2) {
       Busca();
     }
-  }, [auxiliar])
+  }, [auxiliar]);
 
 
   const changeVoto = async () => {
