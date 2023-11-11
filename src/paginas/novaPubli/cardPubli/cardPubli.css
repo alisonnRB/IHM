@@ -35,6 +35,7 @@
 }
 
 .btPubli {
+    
     height: 40px;
     justify-content: space-between;
 
@@ -151,15 +152,25 @@
         max-width: 100vw;
         margin-top: 90px;
     }
-
+    .textPubli {
+        max-height: none;
+        min-height: 230px;
+    }
+    .textPubli::-webkit-scrollbar{
+        width: 0;
+    }
     .textoPubli {
         min-width: 80vw;
         max-width: 80vw;
+        max-height: none;
+        min-height: 80%;
+        font-size: 1.3em;
     }
 
     .textoPubli.Com {
         min-width: 80vw;
         max-width: 80vw;
+        
     }
 
     .campoImgPubli {
@@ -187,9 +198,18 @@
     .cancelLivro {
         display: none;
     }
-
+    .btPubli{
+        position: absolute;
+        bottom: 53px;
+        left: 10%;
+        
+    }
     .btPubli.Com {
         padding-left: 0;
+    }
+
+    #Publicar{
+        font-size: 1.3em;
     }
 
 }
@@ -232,6 +252,8 @@
     #Publicar {
         bottom: -35px;
         right: 30px;
+        
+        
 
     }
 

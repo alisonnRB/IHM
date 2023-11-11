@@ -151,7 +151,7 @@ export default function Comentarios(props) {
 
     useEffect(() => {
         if (typeof user.fotoPerfil == "string") {
-            setFoto("http://192.168.255.56/imagens/" + user.fotoPerfil);
+            setFoto("http://10.1.1.211/imagens/" + user.fotoPerfil);
         }
     }, [user.fotoPerfil]);
 
