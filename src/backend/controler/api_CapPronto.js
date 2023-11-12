@@ -16,7 +16,7 @@ export default {
       body: JSON.stringify(user),
     };
 
-    const response = await fetch('http://192.168.255.56/server/cap_pronto.php', requisição);
+    const response = await fetch('http://192.168.255.193/server/cap_pronto.php', requisição);
 
     const data = await response.json();
     console.log(data.informacoes);
