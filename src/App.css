@@ -8,6 +8,11 @@
     text-decoration: none;
     color: inherit;
 }
+
+:root {
+    --header-bg: #B7CFD3;
+}
+
 span{
     display: flex;
     flex-direction: row;
