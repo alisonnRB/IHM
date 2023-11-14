@@ -1,82 +1,79 @@
-@media screen and (min-width: 1199px){
 .option{
     display: flex;
     flex-direction: column;
     padding-right: 50px;
     padding-left: 50px;
 }
-.option select{
-    padding: 5px;
+
+.option #titlePerfil{
+    left: 40%;
+    margin-bottom: -100px;
+    width: 300px;
+    font-size: 1em;
 }
-.option .optionConfig select{
-    background: linear-gradient(90deg, rgba(51,146,166,1) 80%, rgba(17,109,122,1) 80%);
-    margin: 10px 10px 10px 150px;
-    font-size: 1.5em;
+
+.option option, .option select{
+    background-color: #EBECF0;
+    border-radius: 30px;
     height: 40px;
-    width: 180px;
-    color: white;
-}
-.tittleConfig{
-    height: 90px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.tittleConfig p{
-    font-size: 3em;
-}
-.optionConfig{
-    background-color: #98BEC1;
-    align-items: center;
-    height: 60px;
-    width: 100%;
-    margin-top: 40px;
-}
-.optionConfig p:first-child{
-    margin-left: 30px;
-    font-size: 2em;
-}
-.btTema{
-    margin: 10px;
-    height: 70%;
-    width: 60px;
-    background: none;
+    padding: 10px;
+    color: #022F39;
+    font-weight: bold;
     cursor: pointer;
 }
-#tema{
-    margin-right: 200px;
+.option input{
+    background-color: #EBECF0;
+    border-radius: 30px;
+    height: 40px;
+    width: calc(100% - 13px);
+    padding: 3px;
+    padding-left: 10px;
 }
-.privConfig{
-    background-color: #98BEC1;
+.comport{
+    display: block;
+    width: 30%;
+}
+
+.com{
     display: flex;
     flex-direction: column;
-    margin-top: 50px;
-}
-#priv{
-    font-size: 1.5em;
-    margin-left: 30px;
+    gap: 10px;
     margin-bottom: 30px;
 }
-.privConfig span{
-    color: white;
-    background-color: #013F4A;
+
+.com label{
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+
+#newSenha{
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    margin-bottom: 20px;
-    height: 50px;
-    width: 100%;
+    gap: 10px;
 }
-.privConfig span p{
-    font-size: 1.5em;
-    margin-left: 30px;
-    margin-right: 150px;
-}
-.privConfig span select{
-    background: linear-gradient(90deg, rgba(51,146,166,1) 80%, rgba(17,109,122,1) 80%);
-    height: 65%;
+
+#newSe{
+    height: 40px;
+    min-width: 80px;
+    border-radius: 30px;
+    padding-right: 15px;
+    padding-left: 15px;
+    font-weight: bold;
+    font-size: .9em;
     color: white;
-    margin-right: 30px;
+    background-color: #A6A6A6;
 }
-select option{
-    background-color:rgba(51,146,166,1) ;
-}}
+
+#tema{
+    gap: 10px;
+}
+
+.tema{
+    border-radius: 50%;
+    padding: 10px;
+    object-fit: scale-down;
+    cursor: pointer;
+}

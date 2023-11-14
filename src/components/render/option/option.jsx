@@ -1,64 +1,63 @@
-//! PAGE A SER TRABALHADA
-
 import React from 'react';
 import './option.css';
 
 import sol from '../../../imgs/sol.png';
 import lua from '../../../imgs/lua.png';
 
+import { useState, useEffect } from 'react';
+
 //? componente que comporta as opções
 
-function Option() {
+export default function Option() {
+
+  const [tema, setTema] = useState('light');
+
+  useEffect(()=>{
+     qual_tema();
+  },[])
+
+  const qual_tema = () =>{
+     let themes = localStorage.getItem('tema');
+     if(themes){
+        setTema(themes);
+     }
+  }
+
   return (
     <div className='option'>
-      <div className='tittleConfig'>
-        <p>configurações</p>
+      <span id='titlePerfil'>CONFIGURAÇÕES</span>
+
+      <div className='comport'>
+
+        <div className="com">
+          <label htmlFor="idioma">IDIOMA</label>
+          <select name="idioma" id="idioma">
+            <option value="PT" className="idi">PORTUGUÊS</option>
+            <option value="EN" className="idi">INGLÊS</option>
+            <option value="ES" className="idi">ESPANHOL</option>
+          </select>
+        </div>
+
+        <div className="com">
+          <label htmlFor="tema">TEMA</label>
+          <span id='tema'>
+            <img src={sol} className="tema" onClick={()=>{localStorage.setItem('tema', 'light')}} style={tema === 'light' ? {backgroundColor: '#EBECF0'} : null}/>
+            <img src={lua} className="tema" onClick={()=>{localStorage.setItem('tema', 'dark')}} style={tema === 'dark' ? {backgroundColor: '#EBECF0'} : null}/>
+          </span>
+        </div>
+
+        <div className="com">
+          <label htmlFor="newSenha">ALTERAR SENHA</label>
+          <form id="newSenha">
+            <input type="password" placeholder='Senha atual' />
+            <input type="password" placeholder='Nova senha' />
+            <input type="password" placeholder='Confirmar senha' />
+
+            <button type='submit' id='newSe'>PRONTO</button>
+          </form>
+        </div>
+
       </div>
-      
-      <span className='optionConfig'>
-        <p>idioma</p>
-        <select name="" id="">
-          <option value="portugues">portugues</option>
-          <option value="espanhol">espanhol</option>
-          <option value="ingles">ingles</option>
-          <option value="latim">latim</option>
-        </select>
-      </span>
-
-      <span className='optionConfig'>
-        <p id='tema'>tema</p>
-        <button className='btTema'><img src={sol} alt="" /></button>
-        <button className='btTema'><img src={lua} alt="" /></button>
-      </span>
-
-      <div className='privConfig'>
-          <p id='priv'>privacidade</p>
-
-        <span className=''>
-          <p>visualização</p>
-          <select name="" id="">
-            <option value="bloquear">bloquear</option>
-            <option value="ativar">ativar</option>
-          </select>
-
-          <select name="" id="">
-            <option value="publicações">publicações</option>
-            <option value="sla">sla</option>
-          </select>
-
-        </span>
-
-        <span className=''>
-          <p>chat</p>
-          <select name="" id="">
-            <option value="mensagem">mensagem</option>
-            <option value="sla">sla</option>
-          </select>
-        </span>
-      </div>
-
     </div>
-    );
-  }
-  
-  export default Option;
+  );
+}

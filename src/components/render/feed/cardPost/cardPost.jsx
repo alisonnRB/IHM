@@ -102,7 +102,7 @@ export default function Card(props) {
     if (auxiliar < 2) {
       Busca();
     }
-  }, [auxiliar])
+  }, [auxiliar]);
 
 
   const changeVoto = async () => {
@@ -188,14 +188,14 @@ export default function Card(props) {
         <span className='infosPost'>
 
           <span className='publiUser'>
-            <img className='perfilPubli' src={autor.fotoPerfil ? "http://10.1.1.211/imagens/" + autor.fotoPerfil : ""} />
+            <img className='perfilPubli' src={autor.fotoPerfil ? "http://192.168.255.193/imagens/" + autor.fotoPerfil : ""} />
             <Link to={id != autor.id ? `/Busca/user?id=${encodeURIComponent(JSON.stringify(autor.id))}` : '/perfil'}><p id='nom'>{`@${autor.nome}`}</p></Link>
           </span>
 
           {link && link != undefined ? <Link to={`/Ler/?id=${encodeURIComponent(JSON.stringify(link.id))}`}>
             <div className='imgLinkBox'>
 
-              <img src={link.imagem ? "http://10.1.1.211/livros/" + link.user_id + '/' + link.nome + '_' + link.id + '/' + link.imagem : ""} className='imgLink' />
+              <img src={link.imagem ? "http://192.168.255.193/livros/" + link.user_id + '/' + link.nome + '_' + link.id + '/' + link.imagem : ""} className='imgLink' />
 
             </div>
           </Link> : null}
@@ -219,7 +219,7 @@ export default function Card(props) {
         </span>
         <span className='curtiComent'>
           <img src={coment} onClick={() => { setAbreComent(!abreComent) }} />
-          <img src={curtido ? curtiT : curti} onClick={() => { curtir(); setCurtido(!curtido) }} />
+          <img src={curtido ? curtiT : curti} className={curtido ? 'Nom' : 'Sin'} onClick={() => { curtir(); setCurtido(!curtido) }} />
         </span>
       </div>
 
