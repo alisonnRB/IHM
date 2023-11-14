@@ -7,11 +7,13 @@
 .telaPubli header{
     height: 100px;
 }
-
 #cancelPubli{
-    height: 8%;
+    height: 5%;
     justify-content: end;
+    margin-right: 20px;
+    margin-top: 20px;
 }
+
 .boxPubli{
     height: calc(92% - 100px);
     display: flex;
@@ -21,6 +23,15 @@
 
 #cancelar{
     cursor: pointer;
+}
+
+@media (orientation: portrait) {
+    #cancelPubli{
+        height: 5%;
+        justify-content: end;
+        margin-right: 2.5%;
+        margin-top: 2%;
+    }
 }
 
 @media (min-width: 769px) and (max-width: 992px) and (orientation: landscape){

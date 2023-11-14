@@ -74,11 +74,19 @@
     }
     
     #cancelB{
-        margin-bottom: -80px;
+        margin-bottom: -60px;
         left: calc(100% - 70px);
         bottom: 20px;
-        height: 70px;
-        width: 70px;
+        height: 30px;
+        width: 30px;
+    }
+
+    p{
+        display: ;
+    }
+
+    .CardLink .content .caixaInfo .boxNome {    
+        margin-top: 50px;
     }
 }
 
