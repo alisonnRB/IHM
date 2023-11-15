@@ -43,7 +43,7 @@ function App() {
    }, []); // Chama toggleTheme uma vez quando o componente é montado
 
    useEffect(() => {
-      if(theme !== 'no'){
+      if(theme && theme !== 'no'){
          applyTheme();
       }
    }, [theme]); 

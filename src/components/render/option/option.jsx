@@ -41,8 +41,8 @@ export default function Option() {
         <div className="com">
           <label htmlFor="tema">TEMA</label>
           <span id='tema'>
-            <img src={sol} className="tema" onClick={()=>{localStorage.setItem('tema', 'light')}} style={tema === 'light' ? {backgroundColor: '#EBECF0'} : null}/>
-            <img src={lua} className="tema" onClick={()=>{localStorage.setItem('tema', 'dark')}} style={tema === 'dark' ? {backgroundColor: '#EBECF0'} : null}/>
+            <img src={sol} className="tema" onClick={()=>{localStorage.setItem('tema', 'light');window.location.reload()}} style={tema === 'light' ? {backgroundColor: '#EBECF0'} : null}/>
+            <img src={lua} className="tema" onClick={()=>{localStorage.setItem('tema', 'dark');window.location.reload()}} style={tema === 'dark' ? {backgroundColor: '#EBECF0'} : null}/>
           </span>
         </div>
 
