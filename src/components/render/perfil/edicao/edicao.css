@@ -60,7 +60,7 @@
     width: 65%;
     height: 60px;
     padding-left: 5%;
-
+    color: black;
 }
 
 #editNome::placeholder {
