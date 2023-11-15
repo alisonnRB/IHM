@@ -4,6 +4,8 @@ import './option.css';
 import sol from '../../../imgs/sol.png';
 import lua from '../../../imgs/lua.png';
 
+import api from "../../../backend/controler/api_newSenha";
+
 import { useState, useEffect } from 'react';
 
 //? componente que comporta as opções
@@ -13,10 +15,25 @@ export default function Option() {
   const [tema, setTema] = useState('light');
   const [idioma, setIdioma] = useState('EN');
 
+
+  const [senhaAntiga, setSenhaAntiga] = useState('');
+  const [senhaNova, setSenhaNova] = useState('');
+  const [senhaConfirma, setSenhaConfirma] = useState('');
+
+  const [pronto, setPronto] = useState(false);
+
   useEffect(() => {
     qual_tema();
     qual_idioma();
   }, [])
+
+  useEffect(()=>{
+    if(senhaNova === senhaConfirma && senhaNova != '' && senhaConfirma != '' && senhaAntiga != ''){
+      setPronto(true);
+    }else{
+      setPronto(false);
+    }
+  },[senhaNova, senhaConfirma, senhaAntiga]);
 
   const qual_tema = () => {
     let themes = localStorage.getItem('tema');
@@ -37,6 +54,18 @@ export default function Option() {
     if(idi !== '' && idi != idioma){
       localStorage.setItem('idioma', idi);
       window.location.reload();
+    }
+  }
+
+
+  const Troca_senha = async (e) => {
+    e.preventDefault();
+    const resposta = await api.enviar(senhaAntiga, senhaNova);
+    if(resposta.ok){
+      setSenhaAntiga('');
+      setSenhaNova('');
+      setSenhaConfirma('');
+      setPronto(false);
     }
   }
 
@@ -65,12 +94,12 @@ export default function Option() {
 
         <div className="com">
           <label htmlFor="newSenha">ALTERAR SENHA</label>
-          <form id="newSenha">
-            <input type="password" placeholder='Senha atual' />
-            <input type="password" placeholder='Nova senha' />
-            <input type="password" placeholder='Confirmar senha' />
+          <form id="newSenha" onSubmit={pronto ? (e)=>{Troca_senha(e)} : (e)=>{e.preventDefault()}}>
+            <input type="password" value={senhaAntiga} onChange={(e)=>{setSenhaAntiga(e.target.value)}} placeholder='Senha atual' />
+            <input type="password" value={senhaNova} onChange={(e)=>{setSenhaNova(e.target.value)}} placeholder='Nova senha' />
+            <input type="password" value={senhaConfirma} onChange={(e)=>{setSenhaConfirma(e.target.value)}} placeholder='Confirmar senha' />
 
-            <button type='submit' id='newSe'>PRONTO</button>
+            <button type='submit' id='newSe' style={pronto ? {cursor: 'pointer', backgroundColor: '#0B637D'} : null}>PRONTO</button>
           </form>
         </div>
 
