@@ -52,5 +52,9 @@
         border-radius: 8px;
         object-fit: fill;
     }
+    
+    .boxSinopse{
+        display: none;
+    }
  
 }
