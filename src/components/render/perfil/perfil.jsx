@@ -19,11 +19,14 @@ import prata from '../../../imgs/prata.png';
 import ouro from '../../../imgs/ouro.png';
 import diamante from '../../../imgs/diamante.png';
 
+import words from './perfil.json';
+
 
 //? componente que comporta o perfil
 
 function Perfil() {
   const [infos, setInfos] = useState(null);
+  const [Uword, setUword] = useState('EN');
 
   const [name, setName] = useState('');
   const [seguidores, setSeguidores] = useState(0);
@@ -59,7 +62,6 @@ function Perfil() {
     }
 
   };
-
   //TODO responsavel por controlar as informações mostradas na tela de acordo com o carregamento da page sem ficar recarregando infinitamente
   useEffect(() => {
     if (infos) {
@@ -81,6 +83,7 @@ function Perfil() {
 
   useEffect(() => {
     Busca();
+    select_idioma();
   }, []);
 
   useEffect(() => {
@@ -126,12 +129,19 @@ function Perfil() {
     return generos[parseInt(listF[index]) + 1] ? generos[parseInt(listF[index]) + 1] : '...';
   }
 
+  const select_idioma = () => {
+    let idi = localStorage.getItem('idioma');
+    if(idi && idi != ''){
+      let word = words[idi];
+      setUword(word);
+    }
+  }
 
   return (
 
     <div className='perfilpagep'>
       <section className='boxName'>
-        <span id='titlePerfil'>PERFIL</span>
+        <span id='titlePerfil'>{Uword.title}</span>
         <img id='fotoPerfil' src={Perfil} style={Perfil !== '' ? { backgroundColor: 'transparent', backgroundImage: 'none' } : null} onClick={() => setEdita(true)} />
         <span>
           <div id='nome' >
@@ -146,7 +156,7 @@ function Perfil() {
 
       <section className='boxGenero'>
         <span className='boxtitleGender'>
-        <Link to='/perfil/gender'><p id='titleGen'>Gêneros favoritos</p></Link>
+        <Link to='/perfil/gender'><p id='titleGen'>{Uword.genero}</p></Link>
           <Link to='/perfil/gender'><img className='edit' src={edit} /></Link>
         </span>
         <div className='favGen'>
@@ -169,7 +179,7 @@ function Perfil() {
       <section className='boxMeulivro'>
         <span className='boxTitle'>
           <span>
-            <p id='titleLivro'>Meus Livros</p>
+            <p id='titleLivro'>{Uword.meusLivros}</p>
             <Link to='/perfil/MeusLivros'><img className='edit' src={edit} /></Link>
           </span>
         </span>
@@ -181,7 +191,7 @@ function Perfil() {
       <section className='boxMeulivro'>
         <span className='boxTitle favoo'>
           <span>
-            <p id='titleLivro'>Meus Favoritos</p>
+            <p id='titleLivro'>{Uword.meusFavoritos}</p>
             <Link to='/perfil/MeusFavoritos'><img className='edit' src={edit} /></Link>
           </span>
         </span>

@@ -4,17 +4,17 @@ import {Routes, Route} from 'react-router-dom';
 
 import './render.css';
 
-import Perfil from './perfil/perfil';
-import Livros from './livros/livros';
-import Chat from './chat/chat';
-import Feed from './feed/feed';
-import Option from './option/option';
-import Gender from './favGender/gender';
-import MeusLivros from './perfil/meusLivros/meusLivros';
-import MeusFav from './perfil/meusFav/meusFav';
-import EditaLivros from './editaLivros/editaLivros';
-import Busca from './busca/busca';
-import User from './busca/perfisUser/perfisUser';
+import Perfil from './perfil/perfil.jsx';
+import Livros from './livros/livros.jsx';
+import Chat from './chat/chat.jsx';
+import Feed from './feed/feed.jsx';
+import Option from './option/option.jsx';
+import Gender from './favGender/gender.jsx';
+import MeusLivros from './perfil/meusLivros/meusLivros.jsx';
+import MeusFav from './perfil/meusFav/meusFav.jsx';
+import EditaLivros from './editaLivros/editaLivros.jsx';
+import Busca from './busca/busca.jsx';
+import User from './busca/perfisUser/perfisUser.jsx';
 //? o componente render é reponsavel por renderizar as paginas do site
 
 function Render(props) {
