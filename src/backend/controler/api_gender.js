@@ -1,10 +1,18 @@
+import { findByLabelText } from "@testing-library/react";
 import auth from "./api_autenticar";
 
 export default {
     enviar: async () => {
         const id = sessionStorage.getItem("session");
+        let idioma = localStorage.getItem("idioma");
+
+        if(!idioma || idioma == ''){
+            idioma = 'EN';
+        }
+
         let user = {
-            id: id
+            id: id,
+            idioma: idioma,
         };
 
         let requisição = {
