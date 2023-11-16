@@ -92,6 +92,11 @@
     color: white;
 }
 
+.errorBOX{
+    color: red;
+    height: 1rem;
+}
+
 #sair{
     background-color:#5CA5B2 ;
 }

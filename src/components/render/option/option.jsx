@@ -8,7 +8,7 @@ import api from "../../../backend/controler/api_newSenha";
 
 import { useState, useEffect } from 'react';
 import Warning from './warning/warning';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 //? componente que comporta as opções
 
@@ -22,6 +22,7 @@ export default function Option() {
   const [senhaAntiga, setSenhaAntiga] = useState('');
   const [senhaNova, setSenhaNova] = useState('');
   const [senhaConfirma, setSenhaConfirma] = useState('');
+  const [message, setMessage] = useState('');
 
   const [pronto, setPronto] = useState(false);
 
@@ -67,10 +68,13 @@ export default function Option() {
     e.preventDefault();
     const resposta = await api.enviar(senhaAntiga, senhaNova);
     if (resposta.ok) {
+      setMessage(resposta.informacoes);
       setSenhaAntiga('');
       setSenhaNova('');
       setSenhaConfirma('');
       setPronto(false);
+    } else {
+      setMessage(resposta.informacoes);
     }
   }
 
@@ -104,6 +108,8 @@ export default function Option() {
             <input type="password" value={senhaNova} onChange={(e) => { setSenhaNova(e.target.value) }} placeholder='Nova senha' />
             <input type="password" value={senhaConfirma} onChange={(e) => { setSenhaConfirma(e.target.value) }} placeholder='Confirmar senha' />
 
+            <span className='errorBOX' style={message == 'senha alterada' ? { color: 'green' } : null}>{message}</span>
+
             <button type='submit' id='newSe' style={pronto ? { cursor: 'pointer', backgroundColor: '#0B637D' } : null}>PRONTO</button>
           </form>
         </div>
@@ -111,11 +117,11 @@ export default function Option() {
         <div className="com">
           <label htmlFor="conta">CONTA</label>
           <span id='conta'>
-            <button id='sair' onClick={()=>{sessionStorage.clear(); navigate('/login')}}>SAIR</button>
-            <button id='excluir' onClick={()=>{setAbreWindow(true)}}>EXCLUIR</button>
+            <button id='sair' onClick={() => { sessionStorage.clear(); navigate('/login') }}>SAIR</button>
+            <button id='excluir' onClick={() => { setAbreWindow(true) }}>EXCLUIR</button>
           </span>
 
-          {abreWindow ? <Warning setAbre={setAbreWindow}/>: null}
+          {abreWindow ? <Warning setAbre={setAbreWindow} /> : null}
         </div>
 
       </div>
