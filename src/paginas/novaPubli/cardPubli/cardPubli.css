@@ -5,8 +5,8 @@
 }
 
 .textPubli {
-    max-height: 100%;
-    min-height: 100%;
+    max-height: 40vh;
+    min-height: 40vh;
     overflow: hidden;
     overflow-y: auto;
     margin-bottom: 5px;
@@ -155,7 +155,7 @@
     
     .textPubli {
         max-height: 60vh;
-        min-height: 60vh;
+        min-height: 40vh;
         
     }
    
@@ -190,6 +190,7 @@
         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.526);
         height: 100%;
         width: 100%;
+        margin-top: 200%;
         margin-right: 35px;
         border-radius: 50%;
         object-fit: fill;
@@ -201,11 +202,8 @@
         display: none;
     }
     .btPubli{
-        position: absolute;
-        bottom: 25px;
+        bottom: 30px;
         left: 10%;
-        z-index: 100;
-        
     }
     .btPubli.Com {
         padding-left: 0;
@@ -217,6 +215,56 @@
 
     }
 
+}
+
+@media (min-width: 577px) and (max-width: 768px)  {
+    .textPubli {
+        margin-top: 10%;
+    }
+    .textoPubli {
+        font-size: 1.7em;
+        min-height: 300px;
+    }
+    .campoImgPubli #capaSelect {
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.526);
+        height: 150%;
+        width: 150%;
+        margin-top: 300%;
+        margin-right: 70px;
+    }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+    .textPubli {
+        margin-top: 10%;
+    }
+    .textoPubli {
+        font-size: 2em;
+        min-height: 300px;
+    }
+    .campoImgPubli #capaSelect {
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.526);
+        height: 150%;
+        width: 150%;
+        margin-top: 450%;
+        margin-right: 90px;
+    }
+}
+@media (min-width: 993px) and (max-width: 1200px) {
+    /* Estilos para tablets maiores e dispositivos em modo paisagem */
+    .textPubli {
+        margin-top: 30%;
+    }
+    .textoPubli {
+        font-size: 2em;
+        min-height: 300px;
+    }
+    .campoImgPubli #capaSelect {
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.526);
+        height: 200%;
+        width: 200%;
+        margin-top: 1300%;
+        margin-right: 120px;
+    }
 }
 
 
@@ -361,5 +409,15 @@
 
     to {
         transform: translateX(0);
+    }
+}
+
+@media (hover: none){
+    .cancelLivro{
+        pointer-events: none;
+        display: none;
+    }
+    #capaSelect{
+        pointer-events: none; 
     }
 }
