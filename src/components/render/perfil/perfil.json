@@ -1,0 +1,22 @@
+{
+    "EN": {
+        "title": "PROFILE",
+        "genero": "FAVORITE GENDER",
+        "meusLivros": "MY BOOKS",
+        "meusFavoritos": "MY FAVORITES"
+    },
+
+    "PT":{
+        "title": "PERFIL",
+        "genero": "GÊNERO FAVORITO",
+        "meusLivros": "MEUS LIVROS",
+        "meusFavoritos": "MEUS FAVORITOS"
+    },
+
+    "ES": {
+        "title": "PERFIL",
+        "genero": "GÉNERO FAVORITO",
+        "meusLivros": "MIS LIBROS",
+        "meusFavoritos": "MIS FAVORITOS"
+    }
+}
