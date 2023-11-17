@@ -157,8 +157,8 @@ return (
 
     <section className='boxGenero'>
       <span className='boxtitleGender'>
-        <Link to='/perfil/gender'><p id='titleGen'>{Uword.genero}</p></Link>
-        <Link to='/perfil/gender'><img className='edit' src={edit} /></Link>
+        <Link to='/IHM/perfil/gender'><p id='titleGen'>{Uword.genero}</p></Link>
+        <Link to='/IHM/perfil/gender'><img className='edit' src={edit} /></Link>
       </span>
       <div className='favGen'>
         <span>
@@ -181,11 +181,11 @@ return (
       <span className='boxTitle'>
         <span>
           <p id='titleLivro'>{Uword.meusLivros}</p>
-          <Link to='/perfil/MeusLivros'><img className='edit' src={edit} /></Link>
+          <Link to='/IHM/perfil/MeusLivros'><img className='edit' src={edit} /></Link>
         </span>
       </span>
 
-      <Link to='/perfil/MeusLivros' id='link'><MeusLivros meusOrFav={'meus'} livro={livro} comp={'1'} /></Link>
+      <Link to='/IHM/perfil/MeusLivros' id='link'><MeusLivros meusOrFav={'meus'} livro={livro} comp={'1'} /></Link>
 
     </section>
 
@@ -193,11 +193,11 @@ return (
       <span className='boxTitle favoo'>
         <span>
           <p id='titleLivro'>{Uword.meusFavoritos}</p>
-          <Link to='/perfil/MeusFavoritos'><img className='edit' src={edit} /></Link>
+          <Link to='/IHM/perfil/MeusFavoritos'><img className='edit' src={edit} /></Link>
         </span>
       </span>
 
-      <Link to='/perfil/MeusFavoritos' id='link'><MeusLivros meusOrFav={'fav'} livro={livroF} comp={'2'} /></Link>
+      <Link to='/IHM/perfil/MeusFavoritos' id='link'><MeusLivros meusOrFav={'fav'} livro={livroF} comp={'2'} /></Link>
 
     </section>
 
