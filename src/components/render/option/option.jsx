@@ -7,7 +7,7 @@ import lua from '../../../imgs/lua.png';
 import api from "../../../backend/controler/api_newSenha";
 
 import { useState, useEffect } from 'react';
-import Warning from './warning/warning';
+import Warning from './warning/warning.jsx';
 import { useNavigate } from 'react-router-dom';
 
 import words from './option.json';
