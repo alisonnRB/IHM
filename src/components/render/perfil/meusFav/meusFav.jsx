@@ -7,9 +7,12 @@ import Livro from "../../../cardLivro/cardLivro";
 
 import api from "../../../../backend/controler/api_meusFavoritos";
 
+import words from './meusFav.json';
+
 export default function MeusFav() {
 
     const [livro, setLivro] = useState('');
+    const [Uword, setUword] = useState('EN');
 
     const Busca = async () => {
         const resposta = await api.enviar('i');
@@ -38,17 +41,27 @@ export default function MeusFav() {
         return elementos;
     };
 
+    const select_idioma = () => {
+        let idi = localStorage.getItem('idioma');
+        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+          idi = 'EN';
+        }
+        let word = words[idi];
+        setUword(word);
+      }
+
 
     useEffect(() => {
         Busca();
+        select_idioma();
     }, []);
 
     return (
         <div className="boxCardMeusLivro">
-            <span id='titlePerfil'>Meus Favoritos</span>
+            <span id='titlePerfil'>{Uword.title}</span>
 
 
-                {renderizarItens()}
+            {renderizarItens()}
 
             <FloatBt />
             <div id="margem"></div>

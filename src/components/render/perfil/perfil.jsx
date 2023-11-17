@@ -10,7 +10,7 @@ import FloatBt from '../../BtFloat/btFloat';
 import apiCapa from "../../../backend/controler/api_meusLivros";
 import api from '../../../backend/controler/api_info';
 
-import MeusLivros from './slideLivro/slideLivro';
+import MeusLivros from './slideLivro/slideLivro.jsx';
 import MeusFav from '../../../backend/controler/api_meusFavoritos';
 
 import comum from '../../../imgs/comum.png';
