@@ -72,7 +72,7 @@ export default function Gender(props) {
     return (
         <div className='boxGender'>
             <span id='boxTittleGender'>
-                <Link to='/perfil' id='linkVolta'><img src={volta} id='imgVoltaG' /></Link>
+                <Link to='/IHM/perfil' id='linkVolta'><img src={volta} id='imgVoltaG' /></Link>
                 <p>{Uword.generos}</p>
                 <p>{conta + '/7'}</p>
             </span>

@@ -7,7 +7,7 @@ export default {
         if (!id) {
             setVariavelGlobal(false);
             await auth.enviar();
-            return {ok: false, informacoes: "erro"};
+            
           }
         //? prepara o objeto para enviar no padrão RESTful
         let user = {

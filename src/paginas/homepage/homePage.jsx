@@ -22,7 +22,6 @@ function Home() {
 
   const Busca = async () => {
     //TODO prepara a api para fazer a requisição para o server e receber as resposta aqui
-    await auth.enviar();
     const resposta = await api.enviar("i");
     if (resposta.ok) {
       setInfos(resposta.informacoes);

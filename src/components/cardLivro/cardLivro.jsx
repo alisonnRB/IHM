@@ -98,7 +98,7 @@ export default function Livro(props) {
     function botao(mine) {
         if (mine == true) {
             return (
-                <Link to={`/perfil/MeusLivros/escreva?id=${encodeURIComponent(JSON.stringify(livro.id))}`} className="link">
+                <Link to={`/IHM/perfil/MeusLivros/escreva?id=${encodeURIComponent(JSON.stringify(livro.id))}`} className="link">
                     <button className="Edicao bt">Editar</button>
                 </Link>
             );

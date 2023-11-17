@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 export default function BtFloat() {
     return (
         <>
-            <Link id="linnk" to='/perfil'>
+            <Link id="linnk" to='/IHM/perfil'>
                 <div className="btFloat">
 
                 </div>

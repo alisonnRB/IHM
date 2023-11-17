@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './paginas/home/home.jsx';
 import Login from './paginas/login';
 import Homepage from './paginas/homepage/homePage.jsx';
 import NovoLivro from './paginas/novoLivro/novoLivro.jsx';
@@ -50,13 +51,14 @@ function App() {
    return (
       <Router>
          <Routes>
+            <Route exact path='*/' element={<Home/>}/>
             <Route path="/login" element={<Login />} />
-            <Route path="/perfil/MeusLivros/escreva/editar/" element={<PrivateRoute><Edicao /></PrivateRoute>} />
+            <Route path="/IHM/perfil/MeusLivros/escreva/editar/" element={<PrivateRoute><Edicao /></PrivateRoute>} />
             <Route path="/Ler/" element={<PrivateRoute><Ler /></PrivateRoute>} />
-            <Route exact path="*" element={<PrivateRoute><Homepage /></PrivateRoute>} />
+            <Route path="/IHM/*" element={<PrivateRoute><Homepage /></PrivateRoute>} />
             <Route path="/novo-livro" element={<PrivateRoute><NovoLivro /></PrivateRoute>} />
             <Route path="/novaPubli" element={<PrivateRoute><Publi /></PrivateRoute>} />
-            <Route path="/Perfil/MeusLivros/escreva/" element={<PrivateRoute><Escrever /></PrivateRoute>} />
+            <Route path="/IHM/Perfil/MeusLivros/escreva/" element={<PrivateRoute><Escrever /></PrivateRoute>} />
          </Routes>
       </Router>
    );

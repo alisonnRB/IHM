@@ -8,7 +8,7 @@ export default {
         if (!id) {
             setVariavelGlobal(false);
             await auth.enviar();
-            return {ok: false, informacoes: "erro"};
+            
           }
         //? recebe um objeto formData e adiciona as informações que faltam 
         formData.append('id', id);

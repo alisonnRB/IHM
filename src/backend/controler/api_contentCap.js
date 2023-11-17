@@ -10,7 +10,7 @@ export default {
         if (!it) {
             setVariavelGlobal(false);
             await auth.enviar();
-            return {ok: false, informacoes: "erro"};
+            
         }
 
         let user = {

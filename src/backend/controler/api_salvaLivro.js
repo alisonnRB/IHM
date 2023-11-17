@@ -7,7 +7,7 @@ export default {
     if (!id_user) {
       setVariavelGlobal(false);
       await auth.enviar();
-      return {ok: false, informacoes: "erro"};
+      
     }
     let user = {
       text: text,
