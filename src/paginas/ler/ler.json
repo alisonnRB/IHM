@@ -1,0 +1,19 @@
+{
+    "EN": {
+        "load": "BOOK'S NAME",
+        "fav": "FAVORITE",
+        "curti": "LIKE"
+    },
+
+    "PT":{
+        "load": "NOME DO LIVRO",
+        "fav": "FAVORITAR",
+        "curti": "CURTIR"
+    },
+
+    "ES": {
+        "load": "NOMBRE DEL LIBRO",
+        "fav": "FAVORITO",
+        "curti": "ME GUSTA"
+    }
+}
