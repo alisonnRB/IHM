@@ -4,6 +4,9 @@ export default {
     //? prepara o objeto para enviar no padrão RESTful
     enviar: async () => {
         let token = sessionStorage.getItem('session');
+        if(!token){
+            setVariavelGlobal(false);
+        }
 
         const authorizationHeader = `Bearer ${token}`;
 

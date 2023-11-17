@@ -1,9 +1,15 @@
-import { findByLabelText } from "@testing-library/react";
 import auth from "./api_autenticar";
+import { setVariavelGlobal } from "../../GvarAuth";
 
 export default {
     enviar: async () => {
         const id = sessionStorage.getItem("session");
+        if (!id) {
+            setVariavelGlobal(false);
+            await auth.enviar();
+            return {ok: false, informacoes: "erro"};
+          }
+          
         let idioma = localStorage.getItem("idioma");
 
         if(!idioma || (idioma != 'PT' && idioma != 'EN' && idioma != 'ES')){

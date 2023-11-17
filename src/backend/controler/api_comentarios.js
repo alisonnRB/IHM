@@ -1,8 +1,16 @@
 import auth from "./api_autenticar";
-
+import { setVariavelGlobal } from "../../GvarAuth";
 
 export default {
     enviar: async (id, tipo) => {
+        const it = sessionStorage.getItem('session');
+        
+        if (!it) {
+            setVariavelGlobal(false);
+            await auth.enviar();
+            return {ok: false, informacoes: "erro"};
+          }
+
         let user = {
             id: id,
             tipo: tipo,

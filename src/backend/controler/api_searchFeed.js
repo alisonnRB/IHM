@@ -1,9 +1,15 @@
 import auth from "./api_autenticar";
+import { setVariavelGlobal } from "../../GvarAuth";
 
 export default {
   //? prepara o objeto para enviar no padrão RESTful
   enviar: async () => {
     const id = sessionStorage.getItem('session');
+    if (!id) {
+      setVariavelGlobal(false);
+      await auth.enviar();
+      return {ok: false, informacoes: "erro"};
+    }
     let user = {
       id: id,
     };
@@ -21,6 +27,7 @@ export default {
 
     //TODO espera a resposta do servidor e armazena para retornar ao cliente
     const data = await response.json();
+    console.log(data);
     if (data.informacoes == "não autorizado") {
       await auth.enviar();
     }
