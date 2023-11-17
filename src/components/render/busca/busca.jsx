@@ -6,10 +6,23 @@ import api from '../../../backend/controler/api_Usuarios';
 
 import CardPessoa from "./cardPessoa/cardPessoa";
 
+import words from './busca.json';
+
 export default function Busca() {
     const [pesquisa, setPesquisa] = useState('');
 
     const [users, setUsers] = useState('');
+
+    const [Uword, setUword] = useState('EN');
+
+    const select_idioma = () => {
+        let idi = localStorage.getItem('idioma');
+        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+            idi = 'EN';
+        }
+        let word = words[idi];
+        setUword(word);
+    }
 
     const Busca = async () => {
         const resposta = await api.enviar(pesquisa);
@@ -19,7 +32,7 @@ export default function Busca() {
     }
 
     useEffect(() => {
-        Busca();
+        select_idioma();
     }, []);
 
 
@@ -44,9 +57,9 @@ export default function Busca() {
 
     return (
         <div className='TelaBusca'>
-            <span id='titlePerfil'>USUÁRIOS</span>
+            <span id='titlePerfil'>{Uword.title}</span>
             <span className='boxLivros'>
-                <input type='text' id='searchText' placeholder='Buscar' value={pesquisa} onChange={(e) => { setPesquisa(e.target.value) }} />
+                <input type='text' id='searchText' placeholder={Uword.buscar} value={pesquisa} onChange={(e) => { setPesquisa(e.target.value) }} />
                 <div id='searchImg'></div>
             </span>
             <div className="pessoasBOX">
