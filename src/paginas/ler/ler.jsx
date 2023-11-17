@@ -209,8 +209,8 @@ export default function Ler() {
 
             <div className="infosAutor">
                 <Link to={id != infos.id ? `/Busca/user?id=${encodeURIComponent(JSON.stringify(infos.id))}` : '/perfil'}><img id="perfil" src={foto} style={{ border: 'solid 4px' + cor }} /></Link>
-                <p>{infos.nome && infos.nome != '' ? infos.nome : "Autor"}</p>
-                {id != userId ? <div className="btSeguir" style={{ backgroundColor: cor }} onClick={() => { seguir(); setSeguido(!seguido) }} >{seguido ? 'SEGUINDO' : 'SEGUIR'}</div> : null}
+                <p>{infos.nome && infos.nome != '' ? infos.nome : Uword.autor}</p>
+                {id != userId ? <div className="btSeguir" style={{ backgroundColor: cor }} onClick={() => { seguir(); setSeguido(!seguido) }} >{seguido ? Uword.seguindo : Uword.seguir}</div> : null}
             </div>
             <BtFloatH />
         </div>
