@@ -11,8 +11,15 @@ export default {
       
     }
 
+    let idioma = localStorage.getItem("idioma");
+
+    if(!idioma || (idioma != 'PT' && idioma != 'EN' && idioma != 'ES')){
+        idioma = 'EN';
+    }
+
     formData.append('id', id);
     formData.append('nome', nome);
+    formData.append('idioma', idioma);
 
     //TODO faz a requisição
     //! coloque o seu ip ali

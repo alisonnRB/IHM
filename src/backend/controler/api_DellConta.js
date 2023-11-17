@@ -9,12 +9,18 @@ export default {
     if (!id) {
       setVariavelGlobal(false);
       await auth.enviar();
-      
+    }
+
+    let idioma = localStorage.getItem("idioma");
+
+    if(!idioma || (idioma != 'PT' && idioma != 'EN' && idioma != 'ES')){
+        idioma = 'EN';
     }
 
     let user = {
       id: id,
-      senha: senha
+      senha: senha,
+      idioma: idioma,
     };
     //? prepara as informações de methodo e cabeçalhos para fazer a requisição
     let requisição = {

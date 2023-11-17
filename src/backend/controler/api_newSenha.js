@@ -11,11 +11,18 @@ export default {
       await auth.enviar();
       
     }
+
+    let idioma = localStorage.getItem("idioma");
+
+    if(!idioma || (idioma != 'PT' && idioma != 'EN' && idioma != 'ES')){
+        idioma = 'EN';
+    }
     
     let user = {
       id: id,
       senhaAntiga: senhaAntiga,
       NovaSenha: NovaSenha,
+      idioma: idioma,
     };
 
     //? prepara as informações de methodo e cabeçalhos para fazer a requisição
