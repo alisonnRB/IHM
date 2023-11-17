@@ -2,16 +2,16 @@ import React, { useState, useMemo, useEffect, useCallback } from 'react';
 import JoditEditor from 'jodit-react';
 import './editor.css';
 
-import words from './editor.json';
+import words from './editorLan.json';
 
 const Editor = (props, { placeholder }) => {
   const [content, setContent] = useState('');
 
-  const [Uword, setUword] = useState('EN');
+  const [Uword, setUword] = useState(words["EN"]);
 
     useEffect(() => {
         select_idioma();
-    }, [])
+    }, []);
 
     const select_idioma = () => {
         let idi = localStorage.getItem('idioma');
@@ -48,10 +48,10 @@ const Editor = (props, { placeholder }) => {
   const config = useMemo(
     () => ({
       readonly: false,
-      placeholder: placeholder || Uword.place,
+      placeholder: placeholder || Uword.placed,
       ignoreDebounce: true, 
     }),
-    [placeholder]
+    [placeholder, Uword]
   );
 
   const handleChange = (newContent) => {
