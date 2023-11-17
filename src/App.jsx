@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './paginas/login';
-import Homepage from './paginas/homepage/homePage';
-import NovoLivro from './paginas/novoLivro/novoLivro';
-import Escrever from './paginas/escrever/escrever';
-import Edicao from './paginas/edicao/edicao';
-import Ler from './paginas/ler/ler';
-import Publi from './paginas/novaPubli/novaPubli';
+import Homepage from './paginas/homepage/homePage.jsx';
+import NovoLivro from './paginas/novoLivro/novoLivro.jsx';
+import Escrever from './paginas/escrever/escrever.jsx';
+import Edicao from './paginas/edicao/edicao.jsx';
+import Ler from './paginas/ler/ler.jsx';
+import Publi from './paginas/novaPubli/novaPubli.jsx';
 import PrivateRoute from './privateRoute';
 import './App.css';
 
@@ -21,7 +21,6 @@ const themes = {
 
 function App() {
    const [theme, setTheme] = useState('no');
-   console.log(theme)
 
 
    const toggleTheme = () => {

@@ -3,7 +3,7 @@ import './novoLivro.css';
 
 
 import Header from "../../components/header/header";
-import Create from './createLivro/createLivro';
+import Create from './createLivro/createLivro.jsx';
 
 
 export default function NovoLivro() {

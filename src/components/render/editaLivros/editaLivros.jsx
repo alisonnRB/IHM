@@ -1,12 +1,14 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import x from '../../../imgs/x.jpeg';
-import Selecao from '../.././../components/seleçãoGenero/seleciona';
+import Selecao from '../.././../components/seleçãoGenero/seleciona.jsx';
 import api from '../../../backend/controler/api_newLivro';
 
+import words from './editaLivros.json';
+
 export default function EditaLivros() {
-    
+
     const [imagePreview, setImagePreview] = useState('');
     const [file, setFile] = useState(null);
 
@@ -32,7 +34,20 @@ export default function EditaLivros() {
 
     });
 
+    const [Uword, setUword] = useState('EN');
 
+    useEffect(() => {
+        select_idioma();
+    }, [])
+
+    const select_idioma = () => {
+        let idi = localStorage.getItem('idioma');
+        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+            idi = 'EN';
+        }
+        let word = words[idi];
+        setUword(word);
+    }
 
     const enviar = async (event) => {
         const formData = new FormData();
@@ -41,7 +56,7 @@ export default function EditaLivros() {
         const nameBook = event.target.livroNome.value;
 
         const idUsuario = localStorage.getItem('id');
-        
+
         const resposta = await api.enviar(idUsuario, formData, nameBook, selecao);
 
         setFile(null);
@@ -64,40 +79,42 @@ export default function EditaLivros() {
         }
     };
 
-    return (<>
-        <div className="boxNewBookC">
-            <span className="topTitle">
-                <p>LIVRO NOVO</p>
-                <img src={x} id="xSair" />
-            </span>
-            <form className="formCreateBook" onSubmit={enviar}>
+    return (
+        <>
+            <div className="boxNewBookC">
+                <span className="topTitle">
+                    <p>{Uword.title}</p>
+                    <img src={x} id="xSair" />
+                </span>
+                <form className="formCreateBook" onSubmit={enviar}>
 
-                <div className="nomeDoLivro">
-                    <input type="text" name="livroNome" className="livroNome" />
-                </div>
-
-                <div className="capaDoLivro">
-                    <div id='fileBoxC'>
-                        <label htmlFor="editFile" className='labelBt'>
-                            <div className="custom-input">
-                                {imagePreview && <img src={imagePreview} style={{ width: '100%', height: '100%' }} />}
-                            </div>
-                        </label>
+                    <div className="nomeDoLivro">
+                        <input type="text" name="livroNome" className="livroNome" />
                     </div>
 
-                    <input type="file" id="editFile" name="editFile" onChange={handleImageChange} />
-                </div>
+                    <div className="capaDoLivro">
+                        <div id='fileBoxC'>
+                            <label htmlFor="editFile" className='labelBt'>
+                                <div className="custom-input">
+                                    {imagePreview && <img src={imagePreview} style={{ width: '100%', height: '100%' }} />}
+                                </div>
+                            </label>
+                        </div>
 
-                <span id="contadora"><p>{conta + '/3'}</p></span>
+                        <input type="file" id="editFile" name="editFile" onChange={handleImageChange} />
+                    </div>
 
-                <div className="generosLivro">
-                    <Selecao Limit={3} setConta={setConta} setSelecao={setSelecao} />
-                </div>
+                    <span id="contadora"><p>{conta + '/3'}</p></span>
 
-                <div className="salvaLivro">
-                    <button type="submit">CONTINUAR</button>
-                </div>
-            </form>
-        </div>
-    </>);
+                    <div className="generosLivro">
+                        <Selecao Limit={3} setConta={setConta} setSelecao={setSelecao} />
+                    </div>
+
+                    <div className="salvaLivro">
+                        <button type="submit">{Uword.continuar}</button>
+                    </div>
+                </form>
+            </div>
+        </>
+    );
 }

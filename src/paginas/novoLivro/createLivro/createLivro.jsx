@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import x from '../../../imgs/x.jpeg';
-import Selecao from '../.././../components/livroSelectGen/select';
+import Selecao from '../.././../components/livroSelectGen/select.jsx';
 import api from '../../../backend/controler/api_newLivro';
 import apiInfo from '../../../backend/controler/api_meusLivros';
 
