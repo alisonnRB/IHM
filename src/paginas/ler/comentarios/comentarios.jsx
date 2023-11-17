@@ -2,7 +2,7 @@ import React from "react";
 import './comentarios.css';
 import { useState, useEffect } from "react";
 
-import Card from '../../../components/cardComent/cardComent';
+import Card from '../../../components/cardComent/cardComent.jsx';
 
 import api from '../../../backend/controler/api_comenta';
 import apiBusca from '../../../backend/controler/api_comentarios';
