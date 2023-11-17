@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 09/11/2023 às 21:22
--- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.2.4
+-- Generation Time: Nov 17, 2023 at 07:20 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `ihm`
+-- Database: `ihm`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `chats`
+-- Table structure for table `chats`
 --
 
 CREATE TABLE `chats` (
@@ -36,7 +36,7 @@ CREATE TABLE `chats` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `chats`
+-- Dumping data for table `chats`
 --
 
 INSERT INTO `chats` (`id`, `id_user1`, `id_user2`, `texto`, `tempo`) VALUES
@@ -102,7 +102,7 @@ INSERT INTO `chats` (`id`, `id_user1`, `id_user2`, `texto`, `tempo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `comentarios`
+-- Table structure for table `comentarios`
 --
 
 CREATE TABLE `comentarios` (
@@ -119,7 +119,7 @@ CREATE TABLE `comentarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `comentarios`
+-- Dumping data for table `comentarios`
 --
 
 INSERT INTO `comentarios` (`id`, `user`, `tipo`, `id_ref`, `resposta`, `texto`, `id_resposta`, `tempo`, `conversa`, `curtidas`) VALUES
@@ -194,12 +194,13 @@ INSERT INTO `comentarios` (`id`, `user`, `tipo`, `id_ref`, `resposta`, `texto`, 
 (150, 55, 'coment', 29, 0, 'dd', 0, '2023-11-09', 0, 0),
 (151, 55, 'coment', 29, 1, 'ddd', 149, '2023-11-09', 149, 0),
 (152, 55, 'publi', 29, 0, 'oi', 0, '2023-11-09', 0, 2),
-(153, 50, 'publi', 27, 0, 'Udhd', 0, '2023-11-09', 0, 0);
+(153, 50, 'publi', 27, 0, 'Udhd', 0, '2023-11-09', 0, 0),
+(154, 62, 'livro', 153, 0, 'a', 0, '2023-11-17', 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `curtidas`
+-- Table structure for table `curtidas`
 --
 
 CREATE TABLE `curtidas` (
@@ -211,7 +212,7 @@ CREATE TABLE `curtidas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `curtidas`
+-- Dumping data for table `curtidas`
 --
 
 INSERT INTO `curtidas` (`id`, `id_user`, `id_ref`, `tipo`, `coment`) VALUES
@@ -271,7 +272,7 @@ INSERT INTO `curtidas` (`id`, `id_user`, `id_ref`, `tipo`, `coment`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `enquete`
+-- Table structure for table `enquete`
 --
 
 CREATE TABLE `enquete` (
@@ -282,7 +283,7 @@ CREATE TABLE `enquete` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `enquete`
+-- Dumping data for table `enquete`
 --
 
 INSERT INTO `enquete` (`id`, `titulo`, `quest`, `votos`) VALUES
@@ -290,7 +291,7 @@ INSERT INTO `enquete` (`id`, `titulo`, `quest`, `votos`) VALUES
 (15, 'oq achou dessa merda?😶', '{\"0\":\"gostei\\ud83e\\udd70\",\"1\":\"odiei\\ud83d\\ude11\",\"2\":\"\",\"3\":\"\"}', '{\"0\":2,\"1\":1,\"2\":0,\"3\":0}'),
 (16, 'VC VAI USAR O IHM??', '{\"0\":\"N\\u00c3O\",\"1\":\"NUNCA MAIS\",\"2\":\"S\\u00d3 TAPADO PRA USAR\",\"3\":\"VOU SIM\"}', '{\"0\":2,\"1\":0,\"2\":0,\"3\":1}'),
 (17, '...---...', '{\"0\":\"...---...\",\"1\":\"MLK ESTRANHO\",\"2\":\"\",\"3\":\"\"}', '{\"0\":1,\"1\":2,\"2\":0,\"3\":0}'),
-(18, 'Vc gostou??', '{\"0\":\"Sim\",\"1\":\"N\\u00e3o \",\"2\":\"\",\"3\":\"\"}', '{\"0\":1,\"1\":2,\"2\":0,\"3\":0}'),
+(18, 'Vc gostou??', '{\"0\":\"Sim\",\"1\":\"N\\u00e3o \",\"2\":\"\",\"3\":\"\"}', '{\"0\":2,\"1\":2,\"2\":0,\"3\":0}'),
 (19, 'Ihl?', '{\"0\":\"Ihl!\",\"1\":\"??\",\"2\":\"\",\"3\":\"\"}', '{\"0\":1,\"1\":3,\"2\":0,\"3\":0}'),
 (20, 'Morreu?', '{\"0\":\"Sim\",\"1\":\"No\",\"2\":\"\",\"3\":\"\"}', '{\"0\":1,\"1\":2,\"2\":0,\"3\":0}'),
 (21, 'td bem?', '{\"0\":\"ss\",\"1\":\"nn\",\"2\":\"vsfd mlk\",\"3\":\"\"}', '{\"0\":0,\"1\":2,\"2\":1,\"3\":0}');
@@ -298,7 +299,7 @@ INSERT INTO `enquete` (`id`, `titulo`, `quest`, `votos`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `favoritos`
+-- Table structure for table `favoritos`
 --
 
 CREATE TABLE `favoritos` (
@@ -308,7 +309,7 @@ CREATE TABLE `favoritos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `favoritos`
+-- Dumping data for table `favoritos`
 --
 
 INSERT INTO `favoritos` (`id`, `user_id`, `id_livro`) VALUES
@@ -330,7 +331,7 @@ INSERT INTO `favoritos` (`id`, `user_id`, `id_livro`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `feed_publi`
+-- Table structure for table `feed_publi`
 --
 
 CREATE TABLE `feed_publi` (
@@ -343,7 +344,7 @@ CREATE TABLE `feed_publi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `feed_publi`
+-- Dumping data for table `feed_publi`
 --
 
 INSERT INTO `feed_publi` (`id`, `user_id`, `texto`, `ref_livro`, `tempo`, `enquete`) VALUES
@@ -360,41 +361,43 @@ INSERT INTO `feed_publi` (`id`, `user_id`, `texto`, `ref_livro`, `tempo`, `enque
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `genero`
+-- Table structure for table `genero`
 --
 
 CREATE TABLE `genero` (
   `id` int(11) NOT NULL,
-  `nome` varchar(40) NOT NULL
+  `PT` varchar(40) NOT NULL,
+  `EN` varchar(50) NOT NULL,
+  `ES` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `genero`
+-- Dumping data for table `genero`
 --
 
-INSERT INTO `genero` (`id`, `nome`) VALUES
-(1, 'FICÇÃO'),
-(2, 'POESIA'),
-(3, 'DRAMA'),
-(4, 'HORROR'),
-(5, 'AUTOAJUDA'),
-(6, 'SUSPENSE'),
-(7, 'ROMANCE'),
-(8, ' AVENTURA'),
-(9, 'HUMOR'),
-(10, 'CRÔNICA'),
-(11, 'FANTASIA'),
-(12, 'MISTÉRIO'),
-(13, 'CRIMINAL'),
-(14, 'INFANTOJUVENIL'),
-(15, 'NÃO-FICÇÃO'),
-(16, 'BIOGRAFIA '),
-(17, 'DISTOPIA');
+INSERT INTO `genero` (`id`, `PT`, `EN`, `ES`) VALUES
+(1, 'FICÇÃO', 'FICTION', 'FICCIÓN'),
+(2, 'POESIA', 'POETRY', 'POESÍA'),
+(3, 'DRAMA', 'DRAMA', 'DRAMA'),
+(4, 'HORROR', 'HORROR', 'HORROR'),
+(5, 'AUTOAJUDA', 'SELF-HELP', 'AUTOAYUDA'),
+(6, 'SUSPENSE', 'THRILLER', 'SUSPENSO'),
+(7, 'ROMANCE', 'ROMANCE', 'ROMANCE'),
+(8, ' AVENTURA', 'ADVENTURE', 'AVENTURA'),
+(9, 'HUMOR', 'HUMOR', 'HUMOR'),
+(10, 'CRÔNICA', 'CHRONICLE', 'CRÓNICA'),
+(11, 'FANTASIA', 'FANTASY', 'FANTASÍA'),
+(12, 'MISTÉRIO', 'MYSTERY', 'MISTERIO'),
+(13, 'CRIMINAL', 'CRIMINAL', 'CRIMINAL'),
+(14, 'INFANTOJUVENIL', 'JUVENILE', 'INFANTIL'),
+(15, 'NÃO-FICÇÃO', 'NON-FICTION', 'NO FICCIÓN'),
+(16, 'BIOGRAFIA ', 'BIOGRAPHY', 'BIOGRAFÍA'),
+(17, 'DISTOPIA', 'DYSTOPIA', 'DISTOPÍA');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `livro_publi`
+-- Table structure for table `livro_publi`
 --
 
 CREATE TABLE `livro_publi` (
@@ -418,29 +421,31 @@ CREATE TABLE `livro_publi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `livro_publi`
+-- Dumping data for table `livro_publi`
 --
 
 INSERT INTO `livro_publi` (`id`, `user_id`, `nome`, `imagem`, `tempo`, `genero`, `texto`, `pronto`, `sinopse`, `classificacao`, `publico`, `finalizado`, `tema`, `tags`, `curtidas`, `favoritos`, `visus`) VALUES
 (68, 50, 'steven universo fake', '50_1694899893.jpeg', '2023-10-18', '[\"1\",\"12\",\"15\"]', '{\"1\":\"Elfo\",\"2\":\"capitulo Novo\"}', '{\"1\":1}', '<p>qwqw</p>', 'dezoito', 0, 0, '#352338', '{\"0\":\"bruno\",\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\",\"5\":\"\",\"6\":\"\",\"7\":\"\",\"8\":\"\",\"9\":\"\",\"10\":\"\"}', 2, 1, 21),
 (70, 50, 'alison amarelo', '50_1694899923.jpeg', '2023-10-18', '[\"7\",\"10\",\"14\"]', '{\"1\":\"capitulo Novo\"}', '{\"1\":1}', '<p>Neste romance emocionante, Alison, uma jovem de espírito livre com cabelos amarelos brilhantes, parte em uma jornada de autodescoberta e aventura. Em um mundo onde a conformidade é a norma, ela se destaca como um raio de sol. Ao seguir seu coração e suas paixões, Alison desencadeia uma série de eventos que a levam a lugares inesperados e a pessoas que mudarão sua vida para sempre. \"Alison Amarelo\" é uma história inspiradora sobre coragem, autenticidade e a busca pelo verdadeiro significado da vida.</p>', '', 0, 1, '#087F97', '{\"0\":\"\",\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\",\"5\":\"\",\"6\":\"\",\"7\":\"\",\"8\":\"\",\"9\":\"\",\"10\":\"\"}', 1, 1, 10),
 (71, 50, 'miguelias', '50_1694899997.jpeg', '2023-10-06', '[\"8\",\"17\"]', '[]', '[]', '<p>é uma história de superação e determinação que segue a jornada de um jovem chamado Miguel. Criado em um bairro difícil, Miguel enfrenta desafios extraordinários em sua busca por um futuro melhor. Inspirado por seu amor pela música e um antigo mistério de família, ele embarca em uma emocionante aventura que o leva a descobertas surpreendentes sobre seu passado e a verdade sobre o poder da perseverança. Miguelhias é uma história cativante sobre sonhos, família e a busca pela identidade.</p>', '', 1, 0, '#e6006f', '', 3, 2, 799),
-(73, 50, 'cachorro do bruno', '50_1694901075.jpeg', '2023-10-03', '[\"2\",\"3\"]', '[]', '[]', '<p>A história de Max, o cachorro do Bruno, é uma aventura repleta de amizade e diversão. Juntos, eles enfrentam desafios e fazem descobertas emocionantes enquanto exploram o mundo à sua maneira única. Uma história cativante sobre a ligação especial entre um homem e seu melhor amigo de quatro patas.</p>', '', 1, 0, '#087F97', '', 1, 2, 14),
+(73, 50, 'cachorro do bruno', '50_1694901075.jpeg', '2023-10-03', '[\"2\",\"3\"]', '[]', '[]', '<p>A história de Max, o cachorro do Bruno, é uma aventura repleta de amizade e diversão. Juntos, eles enfrentam desafios e fazem descobertas emocionantes enquanto exploram o mundo à sua maneira única. Uma história cativante sobre a ligação especial entre um homem e seu melhor amigo de quatro patas.</p>', '', 1, 0, '#087F97', '', 1, 2, 16),
 (123, 52, 'eu vou tomar um tacaca', '52_1696611831.jpeg', '2023-10-06', '[\"3\",\"7\",\"14\"]', '{\"1\":\"capitulo Novo\"}', '{\"1\":1}', '', 'livre', 0, 0, '#1a3736', '', 1, 1, 22),
-(124, 52, 'xin', '52_1696611879.jpeg', '2023-10-31', '[\"4\",\"8\"]', '{\"1\":\"BAFOM\\u00c9\"}', '{\"1\":1}', '<p>BAFOMÉEEEEEEEEEEEEEEEEEEE</p>', 'livre', 1, 0, '#700995', '{\"0\":\"BAFOMÉ\",\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\",\"5\":\"\",\"6\":\"\",\"7\":\"\",\"8\":\"\",\"9\":\"\",\"10\":\"\"}', 1, 0, 22),
-(125, 50, 'urinol', '50_1696699628.jpeg', '2023-10-07', '[\"2\",\"4\",\"15\"]', '{\"1\":\"\\u00e9 sobre isso\"}', '{\"1\":1}', '<p>Este livro explora as experiências e reflexões humanas que ocorrem nos banheiros públicos. De forma inesperada e humorística, ele revela as histórias, pensamentos e situações engraçadas que todos nós enfrentamos nesses espaços compartilhados. Uma leitura divertida que nos faz enxergar o cotidiano de uma maneira única.</p>', 'livre', 1, 0, '#efae1f', '', 2, 2, 130),
+(124, 52, 'xin', '52_1696611879.jpeg', '2023-10-31', '[\"4\",\"8\"]', '{\"1\":\"BAFOM\\u00c9\"}', '{\"1\":1}', '<p>BAFOMÉEEEEEEEEEEEEEEEEEEE</p>', 'livre', 1, 0, '#700995', '{\"0\":\"BAFOMÉ\",\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\",\"5\":\"\",\"6\":\"\",\"7\":\"\",\"8\":\"\",\"9\":\"\",\"10\":\"\"}', 1, 0, 24),
+(125, 50, 'urinol', '50_1696699628.jpeg', '2023-10-07', '[\"2\",\"4\",\"15\"]', '{\"1\":\"\\u00e9 sobre isso\"}', '{\"1\":1}', '<p>Este livro explora as experiências e reflexões humanas que ocorrem nos banheiros públicos. De forma inesperada e humorística, ele revela as histórias, pensamentos e situações engraçadas que todos nós enfrentamos nesses espaços compartilhados. Uma leitura divertida que nos faz enxergar o cotidiano de uma maneira única.</p>', 'livre', 1, 0, '#efae1f', '', 3, 3, 132),
 (131, 52, 'cuguy', '52_1697143886.jpeg', '2023-10-12', '[\"3\"]', '[]', '[]', '', 'livre', 0, 0, '#d20f0f', '{\"0\":\"\",\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\",\"5\":\"\",\"6\":\"\",\"7\":\"\",\"8\":\"\",\"9\":\"\",\"10\":\"\"}', 0, 0, 0),
 (145, 55, 'deus está morto', '55_1697644044.jpg', '2023-10-18', '[\"2\",\"8\",\"15\"]', '{\"1\":\"capitulo Novo\",\"2\":\"era\",\"3\":\"capitulo Novo\",\"4\":\"capitulo Velho\"}', '{\"1\":1,\"2\":1,\"3\":1,\"4\":0}', '<p><font style=\"vertical-align: inherit;\"><font style=\"vertical-align: inherit;\">Deus é o karai, deus é o karaiii</font></font></p>', '', 1, 0, '#940896', '{\"0\":\"\",\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\",\"5\":\"\",\"6\":\"\",\"7\":\"\",\"8\":\"\",\"9\":\"\",\"10\":\"\"}', 3, 3, 108),
 (147, 52, 'Observe', '52_1697773974.jpeg', '2023-10-20', '[\"14\"]', '{\"1\":\"lindoo\"}', '{\"1\":1}', '', '', 1, 0, '#ff0000', '{\"0\":\"bob\",\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\",\"5\":\"\",\"6\":\"\",\"7\":\"\",\"8\":\"\",\"9\":\"\",\"10\":\"\"}', 0, 0, 20),
 (148, 52, 'h2o', '52_1698171840.png', '2023-10-24', '[\"3\",\"8\",\"13\"]', '{\"1\":\"escasses\"}', '{\"1\":1}', '<p>aguá molhada e potavel</p>', '', 1, 1, '#5e2f08', '{\"0\":\"morte\",\"1\":\"enchente\",\"2\":\"brasil\",\"3\":\"real\",\"4\":\"\",\"5\":\"\",\"6\":\"\",\"7\":\"\",\"8\":\"\",\"9\":\"\",\"10\":\"\"}', 2, 1, 14),
 (149, 50, 'O romance de kauã ', '50_1699215954.jpg', '2023-11-05', '[\"9\",\"10\",\"17\"]', '{\"1\":\"capitulo Novo\"}', '[]', '', '', 0, 0, '', '', 0, 0, 0),
 (150, 55, 'xotaaaaaaaaaaaaaaaaaaaaaaaa', '55_1699216234.PNG', '2023-11-05', '[\"12\",\"13\",\"15\"]', '{\"1\":\"capitulo Novo\"}', '[]', '<p>fdgfdg</p>', '', 0, 0, '', '', 0, 0, 0),
-(151, 52, 'Radinho', '52_1699216626.png', '2023-11-05', '[\"6\",\"13\",\"15\"]', '[]', '[]', '<p>&nbsp;Um apos um longo período de assassinatos, voltam a ocorrer crimes q são anunciados em um rádio.</p>', '', 0, 0, '', '', 0, 0, 0);
+(151, 52, 'Radinho', '52_1699216626.png', '2023-11-05', '[\"6\",\"13\",\"15\"]', '[]', '[]', '<p>&nbsp;Um apos um longo período de assassinatos, voltam a ocorrer crimes q são anunciados em um rádio.</p>', '', 0, 0, '', '', 0, 0, 0),
+(152, 62, 'aaaaa', '62_1700188977.png', '2023-11-16', '[\"5\",\"10\"]', '[]', '[]', '', '152', 0, 0, '', '', 0, 0, 0),
+(153, 62, 'aaaaa', '62_1700188979.png', '2023-11-16', '[\"5\",\"10\"]', '[]', '[]', '', '153', 0, 0, '', '', 0, 0, 4);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `seguidores`
+-- Table structure for table `seguidores`
 --
 
 CREATE TABLE `seguidores` (
@@ -450,7 +455,7 @@ CREATE TABLE `seguidores` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `seguidores`
+-- Dumping data for table `seguidores`
 --
 
 INSERT INTO `seguidores` (`id`, `user_id`, `id_ref`) VALUES
@@ -463,38 +468,40 @@ INSERT INTO `seguidores` (`id`, `user_id`, `id_ref`) VALUES
 (93, 56, 55),
 (94, 56, 50),
 (98, 55, 50),
-(99, 55, 52);
+(99, 55, 52),
+(102, 62, 50);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `usuarios`
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `nome` varchar(45) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `senha` varchar(45) NOT NULL,
+  `senha` varchar(1000) NOT NULL,
   `fotoPerfil` varchar(1000) NOT NULL,
   `genero` varchar(1000) NOT NULL,
   `seguidores` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `usuarios`
+-- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `fotoPerfil`, `genero`, `seguidores`) VALUES
-(50, 'alisu', 'alisonkpops@gmail.com', 'minhasenha833', '50_1698866692.jpg', '[\"1\",\"3\",\"4\"]', 3),
+(50, 'alisu', 'alisonkpops@gmail.com', 'minhasenha833', '50_1698866692.jpg', '[\"1\",\"3\",\"4\"]', 4),
 (52, 'BAFOME', 'alisonkpopss@gmail.com', 'minhasenha833', '52_1697671142.jpg', '[\"3\",\"5\",\"6\",\"7\",\"11\",\"13\"]', 3),
-(55, 'miau', 'miau@gmail.com', 'miau', '55_1699065339.jpg', '[\"0\",\"3\",\"5\",\"6\",\"9\"]', 3),
-(56, 'Rosenara', 'rosenarabatista03888@gmail.com', 'rose', '56_1699051404.jpg', '[\"6\",\"8\",\"9\"]', 1);
+(55, 'miau', 'miau@gmail.com', 'au', '55_1699065339.jpg', '[\"0\",\"3\",\"5\",\"6\",\"9\"]', 3),
+(56, 'Rosenara', 'rosenarabatista03888@gmail.com', 'rose', '56_1699051404.jpg', '[\"6\",\"8\",\"9\"]', 1),
+(62, 'alison', 'krl@gmail.com', '$2y$10$IWiLxTQhUT8giXvJcK4vvOf2eETyFnXrFFhS3v3h2JJFU2AgTT0xi', '', '[\"1\",\"9\",\"11\"]', 0);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `votacao`
+-- Table structure for table `votacao`
 --
 
 CREATE TABLE `votacao` (
@@ -505,7 +512,7 @@ CREATE TABLE `votacao` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `votacao`
+-- Dumping data for table `votacao`
 --
 
 INSERT INTO `votacao` (`id`, `user_id`, `id_ref`, `chave`) VALUES
@@ -533,146 +540,146 @@ INSERT INTO `votacao` (`id`, `user_id`, `id_ref`, `chave`) VALUES
 (88, 50, 21, 1);
 
 --
--- Índices para tabelas despejadas
+-- Indexes for dumped tables
 --
 
 --
--- Índices de tabela `chats`
+-- Indexes for table `chats`
 --
 ALTER TABLE `chats`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `comentarios`
+-- Indexes for table `comentarios`
 --
 ALTER TABLE `comentarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `curtidas`
+-- Indexes for table `curtidas`
 --
 ALTER TABLE `curtidas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `enquete`
+-- Indexes for table `enquete`
 --
 ALTER TABLE `enquete`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `favoritos`
+-- Indexes for table `favoritos`
 --
 ALTER TABLE `favoritos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `feed_publi`
+-- Indexes for table `feed_publi`
 --
 ALTER TABLE `feed_publi`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- Índices de tabela `genero`
+-- Indexes for table `genero`
 --
 ALTER TABLE `genero`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `livro_publi`
+-- Indexes for table `livro_publi`
 --
 ALTER TABLE `livro_publi`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- Índices de tabela `seguidores`
+-- Indexes for table `seguidores`
 --
 ALTER TABLE `seguidores`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `usuarios`
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `votacao`
+-- Indexes for table `votacao`
 --
 ALTER TABLE `votacao`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT para tabelas despejadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `chats`
+-- AUTO_INCREMENT for table `chats`
 --
 ALTER TABLE `chats`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
--- AUTO_INCREMENT de tabela `comentarios`
+-- AUTO_INCREMENT for table `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=154;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
 
 --
--- AUTO_INCREMENT de tabela `curtidas`
+-- AUTO_INCREMENT for table `curtidas`
 --
 ALTER TABLE `curtidas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=526;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=528;
 
 --
--- AUTO_INCREMENT de tabela `enquete`
+-- AUTO_INCREMENT for table `enquete`
 --
 ALTER TABLE `enquete`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT de tabela `favoritos`
+-- AUTO_INCREMENT for table `favoritos`
 --
 ALTER TABLE `favoritos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
--- AUTO_INCREMENT de tabela `feed_publi`
+-- AUTO_INCREMENT for table `feed_publi`
 --
 ALTER TABLE `feed_publi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT de tabela `genero`
+-- AUTO_INCREMENT for table `genero`
 --
 ALTER TABLE `genero`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT de tabela `livro_publi`
+-- AUTO_INCREMENT for table `livro_publi`
 --
 ALTER TABLE `livro_publi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=154;
 
 --
--- AUTO_INCREMENT de tabela `seguidores`
+-- AUTO_INCREMENT for table `seguidores`
 --
 ALTER TABLE `seguidores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 
 --
--- AUTO_INCREMENT de tabela `usuarios`
+-- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
--- AUTO_INCREMENT de tabela `votacao`
+-- AUTO_INCREMENT for table `votacao`
 --
 ALTER TABLE `votacao`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
