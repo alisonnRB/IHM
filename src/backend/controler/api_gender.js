@@ -6,7 +6,7 @@ export default {
         const id = sessionStorage.getItem("session");
         let idioma = localStorage.getItem("idioma");
 
-        if(!idioma || idioma == ''){
+        if(!idioma || (idioma != 'PT' && idioma != 'EN' && idioma != 'ES')){
             idioma = 'EN';
         }
 
