@@ -129,7 +129,7 @@ export default function Escreve() {
     };
 
     const Novo = async () => {
-        const resposta = await apiEscreve.enviar('', numCaps, idLivro, 'capitulo Novo');
+        const resposta = await apiEscreve.enviar('', numCaps, idLivro, Uword.novo);
         if (resposta.ok == true) {
             Salva('i');
         }
