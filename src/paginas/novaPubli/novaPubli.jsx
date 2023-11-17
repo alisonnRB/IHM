@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import x from "../../imgs/cancel.png";
 
 import Header from '../../components/header/header';
-import Card from './cardPubli/cardPubli';
+import Card from './cardPubli/cardPubli.jsx';
 
 export default function NovaPubli() {
     const navigate = useNavigate();

@@ -3,8 +3,8 @@ import './cardPubli.css';
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import Enquete from '../enquete/enquete';
-import LinkLivro from "../linkLivros/linkLivro";
+import Enquete from '../enquete/enquete.jsx';
+import LinkLivro from "../linkLivros/linkLivro.jsx";
 
 import livroT from '../../../imgs/livro-true.png';
 import livroF from '../../../imgs/livro-false.png';
@@ -15,6 +15,7 @@ import abaX from '../../../imgs/aba_cancel.png';
 
 import api from '../../../backend/controler/api_publicacao';
 
+import words from './cardPubli.json';
 
 export default function CardPubli() {
     const navigate = useNavigate();
@@ -42,6 +43,21 @@ export default function CardPubli() {
 
     const [EnqueteS, setEnqueteS] = useState('');
     const [titleEnquete, setTitleEnquete] = useState('');
+
+    const [Uword, setUword] = useState('EN');
+
+    useEffect(() => {
+        select_idioma();
+    }, [])
+
+    const select_idioma = () => {
+        let idi = localStorage.getItem('idioma');
+        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+            idi = 'EN';
+        }
+        let word = words[idi];
+        setUword(word);
+    }
 
     useEffect(() => {
         var textarea = document.getElementById("textoPubli");
@@ -162,7 +178,7 @@ export default function CardPubli() {
                 <p style={limitTXT >= 260 && limitTXT <= 290? {color: '#DBB931'} : {color: '#FF3131'}} >{limitTXT >= 260 ? `${limitTXT}/306` : null}</p>
             </span>
 
-            <p id="Publicar" onClick={() => { publicar() }}>PUBLICAR</p>
+            <p id="Publicar" onClick={() => { publicar() }}>{Uword.publicar}</p>
 
         </div>
     );
