@@ -1,0 +1,16 @@
+{
+    "EN": {
+        "anexo": "ATTACH BOOK",
+        "place": "Search"
+    },
+
+    "PT":{
+        "anexo": "ANEXAR LIVRO",
+        "place": "Buscar"
+    },
+
+    "ES": {
+        "anexo": "ADJUNTAR LIBRO",
+        "place": "Buscar"
+    }
+}
