@@ -1,0 +1,16 @@
+{
+    "EN": {
+        "nova": "NEW POLL",
+        "pronto": "READY"
+    },
+
+    "PT":{
+        "nova": "NOVA ENQUETE",
+        "pronto": "PRONTO"
+    },
+
+    "ES": {
+        "nova": "NUEVA ENCUESTA",
+        "pronto": "LISTO"
+    }
+}
