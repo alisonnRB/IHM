@@ -4,6 +4,8 @@ import './select.css';
 
 import api from '../../backend/controler/api_gender';
 
+import words from './select.json';
+
 
 export default function Selecao(props) {
     const [genero, setgenero] = useState('...');
@@ -30,7 +32,10 @@ export default function Selecao(props) {
 
     });
 
+    const [Uword, setUword] = useState('EN');
+
     useEffect(() => {
+        select_idioma();
         Busca();
         if(props.Quantos){
             setQuantos(props.Quantos);
@@ -74,6 +79,17 @@ export default function Selecao(props) {
         }
         return list;
     }
+
+    const select_idioma = () => {
+        let idi = localStorage.getItem('idioma');
+        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+            idi = 'EN';
+        }
+        let word = words[idi];
+        setUword(word);
+    }
+
+
 
     function selecionando(index) {
         if (limit < quantos) {
@@ -120,7 +136,7 @@ export default function Selecao(props) {
     return (
         <div>
             <select id="selecao" value='' onChange={(event) => selecionando(event.target.value)}>
-                <option value='' hidden>selecionar gêneros</option>
+                <option value='' hidden>{Uword.title}</option>
                 {Options()}
             </select>
 
