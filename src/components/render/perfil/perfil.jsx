@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './perfil.css';
 
 import edit from '../../../imgs/lapis.png';
-import Edicao from './edicao/edicao';
+import Edicao from './edicao/edicao.jsx';
 import apiGender from '../../../backend/controler/api_gender';
 import FloatBt from '../../BtFloat/btFloat';
 

@@ -1,15 +1,31 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import React from "react";
 import './edicao.css';
 
 import api from '../../../../backend/controler/api_edição';
 import sair from '../../../../imgs/sair.png';
 
+import words from './edicao.json';
+
 export default function Edit(props) {
     const [imagePreview, setImagePreview] = useState(props.ft.Perfil);
     const [file, setFile] = useState(null);
     const [respost, setRespost] = useState('');
 
+    const [Uword, setUword] = useState('EN');
+
+    useEffect(()=>{
+        select_idioma();
+    },[])
+
+    const select_idioma = () => {
+        let idi = localStorage.getItem('idioma');
+        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+          idi = 'EN';
+        }
+        let word = words[idi];
+        setUword(word);
+      }
 
 
     //TODO função que atualiza dos estados da imagem e nome em tempo real para ter uma preview
@@ -72,8 +88,7 @@ export default function Edit(props) {
                     <p className='msgEdicao'>{respost}</p>
 
                     <div className='enviaBox'>
-
-                        <input type="submit" className="btOculto" value="enviar"/>
+                        <input type="submit" className="btOculto" value={Uword.enviar}/>
                     </div>
                     
                 </form>
