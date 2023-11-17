@@ -1,0 +1,16 @@
+{
+    "EN": {
+        "seguir": "FOLLOW",
+        "seguindo": "FOLLOWING"
+    },
+
+    "PT":{
+        "seguir": "SEGUIR",
+        "seguindo": "SEGUINDO"
+    },
+
+    "ES": {
+        "seguir": "SEGUIR",
+        "seguindo": "SIGUIENTE"
+    }
+}

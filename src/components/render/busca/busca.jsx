@@ -4,7 +4,7 @@ import './busca.css';
 
 import api from '../../../backend/controler/api_Usuarios';
 
-import CardPessoa from "./cardPessoa/cardPessoa";
+import CardPessoa from "./cardPessoa/cardPessoa.jsx";
 
 import words from './busca.json';
 

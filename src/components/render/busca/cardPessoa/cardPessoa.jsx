@@ -10,6 +10,8 @@ import diamante from '../../../../imgs/diamante.png';
 import Seguir from '../../../../backend/controler/api_seguir';
 import Seguindo from '../../../../backend/controler/api_buscaSeguidores';
 
+import words from './cardPessoa.json';
+
 
 function CardPessoa(props) {
     const id = localStorage.getItem('id');
@@ -20,6 +22,21 @@ function CardPessoa(props) {
 
     const [segue, setSegue] = useState(false);
     const [countS, setCountS] = useState(0);
+
+    const [Uword, setUword] = useState('EN');
+
+    useEffect(() => {
+        select_idioma();
+    }, [])
+
+    const select_idioma = () => {
+        let idi = localStorage.getItem('idioma');
+        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+            idi = 'EN';
+        }
+        let word = words[idi];
+        setUword(word);
+    }
 
     const seguir = async (user) => {
         const resposta = await Seguir.enviar(user);
@@ -100,7 +117,7 @@ function CardPessoa(props) {
                     </Link>
                     <span className="catPessoa">
                         <div className="categoria"><img src={medalha} id="medalhaC" />{seguidoresS}</div>
-                        {user.id != id ? <div className="opSeguir"><p onClick={() => { seguir(user.id); setCountS(1) }}>{segue ? 'SEGUINDO' : 'SEGUIR'}</p></div> : null}
+                        {user.id != id ? <div className="opSeguir"><p onClick={() => { seguir(user.id); setCountS(1) }}>{segue ? Uword.seguindo : Uword.seguir}</p></div> : null}
                     </span>
                 </div>
             </span>
