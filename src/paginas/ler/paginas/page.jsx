@@ -8,6 +8,8 @@ import apiC from '../../../backend/controler/api_contentCap';
 import Aba from '../abaSeleCap/abaSeleCap.jsx';
 import Comentarios from "../comentarios/comentarios.jsx";
 
+import words from './page.json';
+
 export default function Ler(props) {
     const [info, setInfo] = useState('');
     const [Sinopse, setSinopse] = useState('');
@@ -25,6 +27,21 @@ export default function Ler(props) {
     const [Curtindo, setCurtindo] = useState(false);
 
     const [auxiliar, setAux] = useState(false);
+
+    const [Uword, setUword] = useState('EN');
+
+    useEffect(() => {
+        select_idioma();
+    }, [])
+
+    const select_idioma = () => {
+        let idi = localStorage.getItem('idioma');
+        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+            idi = 'EN';
+        }
+        let word = words[idi];
+        setUword(word);
+    }
 
 
     useEffect(() => {
@@ -123,7 +140,7 @@ export default function Ler(props) {
         <>
             <Aba Cap={Cap} titleCap={titleCap} selecionado={selecionado} setSelecionado={setSelecionado} cor={info.tema} pronto={pronto} />
             <div className="paginaLer">
-                <span className="tituloLer">{selecionado == 0 ? 'Sinopse' : titleCap[selecionado]}</span>
+                <span className="tituloLer">{selecionado == 0 ? Uword.sinopse : titleCap[selecionado]}</span>
 
                 <div className="contentPagina" dangerouslySetInnerHTML={{ __html: selecionado == 0 ? Sinopse : content }}>
                 </div>
