@@ -14,7 +14,7 @@ import curtiram from '../../../../backend/controler/api_buscaCurtidas';
 import vote from '../../../../backend/controler/api_votar';
 import SearchVote from '../../../../backend/controler/api_BuscaVotos';
 
-import Comentarios from '../../../../paginas/ler/comentarios/comentarios';
+import Comentarios from '../../../../paginas/ler/comentarios/comentarios.jsx';
 
 import api from '../../../../backend/controler/api_enqueteVote';
 
