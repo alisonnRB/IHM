@@ -1,0 +1,16 @@
+{
+    "EN": {
+        "generos": "FAVORITE GENRES",
+        "salvar" : "SAVE"
+    },
+
+    "PT":{
+        "generos": "GENÊROS FAVORITOS",
+        "salvar" : "SALVAR"
+    },
+
+    "ES": {
+        "generos": "GENÉROS FAVORITOS",
+        "salvar" : "GUARDAR"
+    }
+}

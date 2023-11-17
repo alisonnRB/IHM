@@ -7,6 +7,8 @@ import Seleciona from '../../seleçãoGenero/seleciona';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
+import words from './gender.json';
+
 
 export default function Gender(props) {
     const Navigate = useNavigate();
@@ -33,6 +35,23 @@ export default function Gender(props) {
     const [conta, setConta] = useState(0);
     const [generos, setgeneros] = useState('');
 
+    const [Uword, setUword] = useState('EN');
+
+    useEffect(() => {
+        select_idioma();
+    }, [])
+
+    const select_idioma = () => {
+        let idi = localStorage.getItem('idioma');
+        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+            idi = 'EN';
+        }
+        let word = words[idi];
+        setUword(word);
+    }
+
+
+
 
     useEffect(() => {
         if (props.user && props.user.genero && Object.keys(props.user.genero).length > 0) {
@@ -54,7 +73,7 @@ export default function Gender(props) {
         <div className='boxGender'>
             <span id='boxTittleGender'>
                 <Link to='/perfil' id='linkVolta'><img src={volta} id='imgVoltaG' /></Link>
-                <p>GÊNEROS FAVORITOS</p>
+                <p>{Uword.generos}</p>
                 <p>{conta + '/7'}</p>
             </span>
             <form className='genderTable' onSubmit={alterar}>
@@ -63,7 +82,7 @@ export default function Gender(props) {
 
 
                 <div className='submitGenderF'>
-                    <button type='submit'>SALVAR</button>
+                    <button type='submit'>{Uword.salvar}</button>
                 </div>
             </form>
         </div>
