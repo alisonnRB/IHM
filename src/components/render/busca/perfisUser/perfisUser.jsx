@@ -15,7 +15,7 @@ import apiLivros from '../../../../backend/controler/api_meusLivros';
 import Seguir from '../../../../backend/controler/api_seguir';
 import Seguindo from '../../../../backend/controler/api_buscaSeguidores';
 
-import FloatBt from '../../../BtFloat/btFloat';
+import FloatBt from '../../../BtFloat/btFloat.jsx';
 import Livro from '../../../cardLivro/cardLivro';
 
 export default function User() {

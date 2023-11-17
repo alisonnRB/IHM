@@ -5,7 +5,7 @@ import './perfil.css';
 import edit from '../../../imgs/lapis.png';
 import Edicao from './edicao/edicao.jsx';
 import apiGender from '../../../backend/controler/api_gender';
-import FloatBt from '../../BtFloat/btFloat';
+import FloatBt from '../../BtFloat/btFloat.jsx';
 
 import apiCapa from "../../../backend/controler/api_meusLivros";
 import api from '../../../backend/controler/api_info';

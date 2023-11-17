@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import './feed.css';
 import Card from './cardPost/cardPost';
-import BtFloat from '../../BtFloat/btFloat';
+import BtFloat from '../../BtFloat/btFloat.jsx';
 
 import api from "../../../backend/controler/api_searchFeed";
 

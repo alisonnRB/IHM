@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 
-import FloatBt from "../../../BtFloat/btFloat";
+import FloatBt from "../../../BtFloat/btFloat.jsx";
 import Livro from "../../../cardLivro/cardLivro";
 
 import api from "../../../../backend/controler/api_meusFavoritos";

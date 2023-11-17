@@ -14,18 +14,18 @@ export default function Edit(props) {
 
     const [Uword, setUword] = useState('EN');
 
-    useEffect(()=>{
+    useEffect(() => {
         select_idioma();
-    },[])
+    }, [])
 
     const select_idioma = () => {
         let idi = localStorage.getItem('idioma');
         if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
-          idi = 'EN';
+            idi = 'EN';
         }
         let word = words[idi];
         setUword(word);
-      }
+    }
 
 
     //TODO função que atualiza dos estados da imagem e nome em tempo real para ter uma preview
@@ -66,31 +66,31 @@ export default function Edit(props) {
             setRespost(resposta.informacoes);
         }
     };
-    
+
     return (
-        <div className='edicao' onClick={()=>{props.fecharEdicao(false)}}>
+        <div className='edicao' onClick={() => { props.fecharEdicao(false) }}>
 
             <div className='boxEdita' onClick={(event) => event.stopPropagation()}>
-                <span id='fechaEdita' ><img src={sair} id='sairEdita' onClick={props.fecharEdicao}/></span>
+                <span id='fechaEdita' ><img src={sair} id='sairEdita' onClick={props.fecharEdicao} /></span>
                 <form onSubmit={alterar}>
 
                     <div id='fileBox'>
                         <label htmlFor="editFile" className='labelBt'>
-                            <div className="custom-input" style={imagePreview ? {backgroundImage: 'none'} : null}>
-                                {imagePreview && <img src={imagePreview}  style={{ width: '100%', height: '100%', borderRadius: '100%', objectFit: 'cover' }} />}
+                            <div className="custom-input" style={imagePreview ? { backgroundImage: 'none' } : null}>
+                                {imagePreview && <img src={imagePreview} style={{ width: '100%', height: '100%', borderRadius: '100%', objectFit: 'cover' }} />}
                             </div>
                         </label>
                     </div>
                     <input type="file" id="editFile" name="editFile" onChange={handleImageChange} />
 
-                    <input type="text" id="editNome" name="newName" placeholder={props.user}/>
+                    <input type="text" id="editNome" name="newName" placeholder={props.user} />
 
                     <p className='msgEdicao'>{respost}</p>
 
                     <div className='enviaBox'>
-                        <input type="submit" className="btOculto" value={Uword.enviar}/>
+                        <input type="submit" className="btOculto" value={Uword.enviar} />
                     </div>
-                    
+
                 </form>
             </div>
         </div>
