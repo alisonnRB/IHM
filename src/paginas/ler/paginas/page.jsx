@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 import api from '../../../backend/controler/api_InfosLivro';
 import apiC from '../../../backend/controler/api_contentCap';
 
-import Aba from '../abaSeleCap/abaSeleCap';
-import Comentarios from "../comentarios/comentarios";
+import Aba from '../abaSeleCap/abaSeleCap.jsx';
+import Comentarios from "../comentarios/comentarios.jsx";
 
 export default function Ler(props) {
     const [info, setInfo] = useState('');
