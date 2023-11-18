@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './header.css';
 
+import { Link } from 'react-router-dom';
 import logo from '../../../imgs/logo.png';
 
 function head() {
@@ -10,8 +11,8 @@ function head() {
         <span className='caixa-left'>
             <img src={logo} id='logoMAIN'/>
 
-            <button className='btMA'>Login</button>
-            <button className='btMA'>Cadastre-se</button>
+            <Link to='/login'><button className='btMA'>Login</button></Link>
+            <Link><button className='btMA'>Cadastre-se</button></Link>
         </span>
 
         <button className='btMA'>Sobre nós</button>
