@@ -27,7 +27,7 @@ export default function Login() {
 
     if (resposta.ok) {
       sessionStorage.setItem('session', resposta.informacoes);
-      navigate('/perfil');
+      navigate('/IHM/perfil');
       setVariavelGlobal(false);
     } else {
       setErro(resposta.informacoes)

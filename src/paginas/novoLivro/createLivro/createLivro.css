@@ -114,11 +114,6 @@
     align-items: center;
 }
 
-.Infos #Nome .nomeDoLivro::before {
-    content: 'NOME:';
-    font-size: 2em;
-}
-
 .Infos #Nome .livroNome {
     border-bottom: solid 1px #087F97;
     padding-left: 20px;

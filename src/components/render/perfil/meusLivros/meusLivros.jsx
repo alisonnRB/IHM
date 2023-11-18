@@ -3,16 +3,17 @@ import './meusLivros.css';
 import { useEffect } from "react";
 import { useState } from "react";
 
-import FloatBt from "../../../BtFloat/btFloat";
+import FloatBt from "../../../BtFloat/btFloat.jsx";
 import Livro from "../../../cardLivro/cardLivro";
 
 import api from "../../../../backend/controler/api_meusLivros";
 
-
+import words from './meusLivros.json';
 
 export default function MeusLivros() {
 
     const [livro, setLivro] = useState('');
+    const [Uword, setUword] = useState('EN');
 
     const Busca = async () => {
         const resposta = await api.enviar('i');
@@ -42,13 +43,24 @@ export default function MeusLivros() {
     };
 
 
+    const select_idioma = () => {
+        let idi = localStorage.getItem('idioma');
+        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+          idi = 'EN';
+        }
+        let word = words[idi];
+        setUword(word);
+      }
+
+
     useEffect(() => {
         Busca();
+        select_idioma();
     }, []);
 
     return (
         <div className="boxCardMeusLivro">
-            <span id='titlePerfil'>Meus Livros</span>
+            <span id='titlePerfil'>{Uword.title}</span>
 
 
                 {renderizarItens()}

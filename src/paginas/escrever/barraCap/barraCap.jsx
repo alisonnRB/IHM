@@ -9,6 +9,8 @@ import Interruptor from '../../../components/interruptor/interruptor';
 
 import api from '../../../backend/controler/api_CapPronto';
 
+import words from './barraCao.json';
+
 export default function BarraCap(props) {
     const [numCaps, setNumCaps] = useState(0);
     const [titulo, setTitulo] = useState('');
@@ -18,6 +20,21 @@ export default function BarraCap(props) {
 
     const [pronto, setPronto] = useState(false);
     const [listP, setListP] = useState(false);
+
+    const [Uword, setUword] = useState('EN');
+
+    useEffect(() => {
+        select_idioma();
+    }, [])
+
+    const select_idioma = () => {
+        let idi = localStorage.getItem('idioma');
+        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+            idi = 'EN';
+        }
+        let word = words[idi];
+        setUword(word);
+    }
 
 
     useEffect(() => {
@@ -66,7 +83,7 @@ export default function BarraCap(props) {
                         props.setCapSelected(i);
                         setSelecionado(i);
                     }}>
-                        {!titulo[i] ? 'Novo Capitulo' : titulo[i]}
+                        {!titulo[i] ? Uword.neWcap : titulo[i]}
 
                     </span>
                     <div className={`abaApaga ${Selecionado === i && Selecionado != 0 ? 'Selecionado' : 'some'}`} onClick={() => { setWindow(true) }}><img src={lixo} /></div>
@@ -83,12 +100,12 @@ export default function BarraCap(props) {
             <div id="janela">
                 <div className="Conteudo">
                     <span id="message">
-                        Você realmente quer excluir esse capítulo??<br></br>
-                        Será impossível recuperá-lo!!
+                        {Uword.message1}<br></br>
+                        {Uword.message2}
                     </span>
                     <div className="BTcomport">
-                        <button onClick={() => { props.setDelete(true); setWindow(false) }} className="BTS s">SIM</button>
-                        <button onClick={() => { setWindow(false) }} className="BTS n">NÃO</button>
+                        <button onClick={() => { props.setDelete(true); setWindow(false) }} className="BTS s">{Uword.ss}</button>
+                        <button onClick={() => { setWindow(false) }} className="BTS n">{Uword.n}</button>
                     </div>
                 </div>
             </div>
@@ -105,7 +122,7 @@ export default function BarraCap(props) {
                     props.setSave(true);
                     props.setCapSelected(0);
                     setSelecionado(0);
-                }}>Sinopse</span>
+                }}>{Uword.sinopse}</span>
 
                 {capitulos()}
 
@@ -119,7 +136,7 @@ export default function BarraCap(props) {
             </div>
 
             {Selecionado != 0 ? <div className="caixaINT">
-                <Interruptor id={1} title={'PRONTO'} alvo={pronto} setAlvo={setPronto} func={Change} />
+                <Interruptor id={1} title={Uword.pronto} alvo={pronto} setAlvo={setPronto} func={Change} />
             </div> : null}
         </>
     );

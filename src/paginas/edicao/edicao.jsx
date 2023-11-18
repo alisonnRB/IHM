@@ -3,7 +3,7 @@ import './edicao.css';
 
 
 import Header from "../../components/header/header";
-import Att from './att/att';
+import Att from './att/att.jsx';
 
 
 export default function NovoLivro() {

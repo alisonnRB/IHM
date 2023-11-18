@@ -14,7 +14,7 @@ import curtiram from '../../../../backend/controler/api_buscaCurtidas';
 import vote from '../../../../backend/controler/api_votar';
 import SearchVote from '../../../../backend/controler/api_BuscaVotos';
 
-import Comentarios from '../../../../paginas/ler/comentarios/comentarios';
+import Comentarios from '../../../../paginas/ler/comentarios/comentarios.jsx';
 
 import api from '../../../../backend/controler/api_enqueteVote';
 
@@ -188,8 +188,8 @@ export default function Card(props) {
         <span className='infosPost'>
 
           <span className='publiUser'>
-            <img className='perfilPubli' src={autor.fotoPerfil ? "http://10.1.1.211/imagens/" + autor.fotoPerfil : ""} />
-            <Link to={id != autor.id ? `/Busca/user?id=${encodeURIComponent(JSON.stringify(autor.id))}` : '/perfil'}><p id='nom'>{`@${autor.nome}`}</p></Link>
+            <img className='perfilPubli' src={autor.fotoPerfil ? "http://192.168.255.193/imagens/" + autor.fotoPerfil : ""} />
+            <Link to={id != autor.id ? `/IHM/Busca/user?id=${encodeURIComponent(JSON.stringify(autor.id))}` : '/perfil'}><p id='nom'>{`@${autor.nome}`}</p></Link>
           </span>
 
           {link && link != undefined ? <Link to={`/Ler/?id=${encodeURIComponent(JSON.stringify(link.id))}`}>

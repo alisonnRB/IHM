@@ -2,11 +2,13 @@ import React from "react";
 import './comentarios.css';
 import { useState, useEffect } from "react";
 
-import Card from '../../../components/cardComent/cardComent';
+import Card from '../../../components/cardComent/cardComent.jsx';
 
 import api from '../../../backend/controler/api_comenta';
 import apiBusca from '../../../backend/controler/api_comentarios';
 import enviar from '../../../imgs/enviar.png';
+
+import words from './comentarios.json';
 
 export default function Comentarios(props) {
     const [comentarios, setComentarios] = useState(0);
@@ -24,6 +26,21 @@ export default function Comentarios(props) {
 
     const [openRes, setOpenRes] = useState('fechado');
     const [curtindo, setCurtindo] = useState(false);
+
+    const [Uword, setUword] = useState('EN');
+
+    useEffect(() => {
+        select_idioma();
+    }, [])
+
+    const select_idioma = () => {
+        let idi = localStorage.getItem('idioma');
+        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+            idi = 'EN';
+        }
+        let word = words[idi];
+        setUword(word);
+    }
 
     useEffect(() => {
         props.setOpenRes(openRes);
@@ -68,8 +85,6 @@ export default function Comentarios(props) {
             setComentarios(response.informacoes);
         }
     }
-
-    console.log(comentarios);
 
     const GeraComents = () => {
         const list = [];
@@ -175,7 +190,7 @@ export default function Comentarios(props) {
     return (
         <div id="boxComent">
             <form className="campoComent" onSubmit={(event) => { Comentar(event); }}>
-                <input type="text" value={coment} onChange={(event) => { setComent(event.target.value); setTexto(event.target.value) }} placeholder="Escreva um comentario..." />
+                <input type="text" value={coment} onChange={(event) => { setComent(event.target.value); setTexto(event.target.value) }} placeholder={Uword.place} />
                 <img id="enviaCom" src={enviar} onClick={(event) => { Comentar(event)}} />
             </form>
 

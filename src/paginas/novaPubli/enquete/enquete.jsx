@@ -4,6 +4,8 @@ import './enquete.css';
 import x from '../../../imgs/cancel.png';
 import mais from '../../../imgs/mais.png';
 
+import words from './enquete.json';
+
 export default function Enquete(props) {
     const [content, setContent] = useState({
         0: '',
@@ -16,6 +18,22 @@ export default function Enquete(props) {
     const [mais2, setMais2] = useState(false);
 
     const [title, setTitle] = useState('');
+
+    const [Uword, setUword] = useState('EN');
+
+    useEffect(() => {
+        select_idioma();
+    }, [])
+
+    const select_idioma = () => {
+        let idi = localStorage.getItem('idioma');
+        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+            idi = 'EN';
+        }
+        let word = words[idi];
+        setUword(word);
+    }
+
 
     const handleInputChange = (e, index, tag) => {
         let newValue = "";
@@ -59,7 +77,7 @@ export default function Enquete(props) {
                 <span className="cancelIMG">
                     <img src={x} id="cancelaEnquete" onClick={() => { props.setCancel(true) }} />
                 </span>
-                <span className="tagBox">NOVA ENQUETE</span>
+                <span className="tagBox">{Uword.nova}</span>
 
                 <span className="titleEnquete">
                     <input type="text" className="titleEnqueteBox" value={title} onChange={(e) => { setTitle(e.target.value) }} />
@@ -108,7 +126,7 @@ export default function Enquete(props) {
                     </span> : <img className='mais' src={mais} onClick={()=>{setMais2(true)}}/>}
 
 
-                    <p id='pronto' onClick={() => { save() }}>PRONTO</p>
+                    <p id='pronto' onClick={() => { save() }}>{Uword.pronto}</p>
 
                 </div>
 

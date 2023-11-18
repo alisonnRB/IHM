@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import x from '../../../imgs/x.jpeg';
-import Selecao from '../.././../components/livroSelectGen/select';
+import Selecao from '../.././../components/livroSelectGen/select.jsx';
 import api from '../../../backend/controler/api_newLivro';
 import apiInfo from '../../../backend/controler/api_meusLivros';
 
@@ -17,6 +17,8 @@ import dezeseis from '../../../imgs/dezeseis.jpeg';
 import dezoito from '../../../imgs/dezoito.jpeg';
 
 import { useEffect } from "react";
+
+import words from './createLivro.json';
 
 export default function NovoLivro() {
     const navigate = useNavigate();
@@ -51,6 +53,21 @@ export default function NovoLivro() {
     const [close, setClose] = useState('');
 
     const [visuClass, setVisuClass] = useState(livre);
+
+    const [Uword, setUword] = useState('EN');
+
+    useEffect(() => {
+        select_idioma();
+    }, [])
+
+    const select_idioma = () => {
+        let idi = localStorage.getItem('idioma');
+        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+            idi = 'EN';
+        }
+        let word = words[idi];
+        setUword(word);
+    }
 
 
     const enviar = async (event) => {
@@ -163,7 +180,8 @@ export default function NovoLivro() {
                     <span id="Nome">
 
                         <div className="nomeDoLivro">
-                            <input type="text" name="livroNome" className="livroNome" />
+                            <label htmlFor="livroNome">{Uword.nome}</label>
+                            <input type="text" id="livroNome" name="livroNome" className="livroNome" />
                         </div>
 
                         <div className="xis">
@@ -182,7 +200,7 @@ export default function NovoLivro() {
                 </div>
 
                 <div className="salvaLivro">
-                    <button type="submit">CONTINUAR</button>
+                    <button type="submit">{Uword.continue}</button>
                 </div>
 
             </form >

@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import Mensagem from './mensagem/mensagem';
 import Conversas from './conversas/conversas';
-import BtFloat from '../../BtFloat/btFloat';
+import BtFloat from '../../BtFloat/btFloat.jsx';
 
 
 //? comporta os componente que montam a pagina de chats

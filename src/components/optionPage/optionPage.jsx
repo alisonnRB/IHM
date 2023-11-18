@@ -17,37 +17,37 @@ function Barraop() {
  return (
     //TODO a tag LINK faz o redirecionamento para as rotas de acord com os clicks
     <div id='barra'>
-      <Link to='/perfil'>
+      <Link to='/IHM/perfil'>
       <div className='optionP'>
         <img src={perfil} alt="" />
       </div>
       </Link>
 
-      <Link to='/Busca'>
+      <Link to='/IHM/Busca'>
       <div className='optionP'>
         <img id='pes' src={pessoas} alt="" />
       </div>
       </Link>
       
-      <Link to='/Livros'>
+      <Link to='/IHM/Livros'>
       <div className='optionP'>
         <img src={livros} alt="" />
       </div>
       </Link>
       
-      <Link to='/Chat'>
+      <Link to='/IHM/Chat'>
       <div className='optionP'>
         <img id='ch' src={chat} alt="" />
       </div>
       </Link>
       
-      <Link to='/Feed'>
+      <Link to='/IHM/Feed'>
       <div className='optionP'>
         <img src={feed} alt="" />
       </div>
       </Link>
       
-      <Link to='/Config'>
+      <Link to='/IHM/Config'>
       <div className='optionP'>
         <img src={config} alt="" />
       </div>

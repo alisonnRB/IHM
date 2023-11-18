@@ -18,9 +18,10 @@ import dezoito from '../../../imgs/dezoito.jpeg';
 import deletar from '../../../imgs/delete.png';
 
 import Interruptor from '../../../components/interruptor/interruptor';
-import Selecao from '../.././../components/livroSelectGen/select';
-import Tag from '../tags/tags';
+import Selecao from '../.././../components/livroSelectGen/select.jsx';
+import Tag from '../tags/tags.jsx';
 
+import words from './att.json';
 
 export default function NovoLivro() {
     const navigate = useNavigate();
@@ -87,6 +88,21 @@ export default function NovoLivro() {
 
     const [publico, setPublico] = useState(false);
     const [finalizado, setFinalizado] = useState(false);
+
+    const [Uword, setUword] = useState('EN');
+
+    useEffect(() => {
+        select_idioma();
+    }, [])
+
+    const select_idioma = () => {
+        let idi = localStorage.getItem('idioma');
+        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+            idi = 'EN';
+        }
+        let word = words[idi];
+        setUword(word);
+    }
 
 
     const enviar = async (event) => {
@@ -266,7 +282,8 @@ export default function NovoLivro() {
                     <span id="Nome">
 
                         <div className="nomeDoLivro">
-                            <input type="text" name="livroNome" value={nome} onChange={handleChange} className="livroNome" />
+                            <label htmlFor="livroNome">{Uword.nome}</label>
+                            <input type="text" name="livroNome" id="livroNome" value={nome} onChange={handleChange} className="livroNome" />
                         </div>
 
                         <div id="dell">
@@ -288,20 +305,20 @@ export default function NovoLivro() {
 
                 <div id="selectColor">
                     <div className="contain">
-                        <label htmlFor="head">Tema: </label>
+                        <label htmlFor="head">{Uword.tema} </label>
                         <input type="color" id="head" name="head" value={color} onChange={colorChange} />
                         {color == '#087F97' ? <div className="ocupa"></div> : <div className="circuloDellCor" onClick={() => { setColor('#087F97') }}></div>}
                     </div>
                 </div>
 
                 <div className="caixaInter">
-                    <Interruptor key={1} id={1} title={'Público'} alvo={publico} setAlvo={setPublico} />
+                    <Interruptor key={1} id={1} title={Uword.publico} alvo={publico} setAlvo={setPublico} />
 
-                    <Interruptor key={2} id={2} title={'Finalizado'} alvo={finalizado} setAlvo={setFinalizado} />
+                    <Interruptor key={2} id={2} title={Uword.finalizado} alvo={finalizado} setAlvo={setFinalizado} />
                 </div>
 
                 <div className="salvaLivro">
-                    <button type="submit">SALVAR</button>
+                    <button type="submit">{Uword.salvar}</button>
                 </div>
 
 
@@ -310,7 +327,7 @@ export default function NovoLivro() {
             <Tag tags={tags} setTags={setTags}/>
 
 
-            <button id="cancel" onClick={() => { navigate(-1) }}>CANCELAR</button>
+            <button id="cancel" onClick={() => { navigate(-1) }}>{Uword.cancelar}</button>
 
         </div >
     );

@@ -1,10 +1,24 @@
 import auth from "./api_autenticar";
+import { setVariavelGlobal } from "../../GvarAuth";
 
 export default {
     enviar: async () => {
         const id = sessionStorage.getItem("session");
+        if (!id) {
+            setVariavelGlobal(false);
+            await auth.enviar();
+            
+          }
+          
+        let idioma = localStorage.getItem("idioma");
+
+        if(!idioma || (idioma != 'PT' && idioma != 'EN' && idioma != 'ES')){
+            idioma = 'EN';
+        }
+
         let user = {
-            id: id
+            id: id,
+            idioma: idioma,
         };
 
         let requisição = {

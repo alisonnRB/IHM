@@ -7,6 +7,8 @@ import fecha from '../../../imgs/tags_fecha.png';
 import abre from '../../../imgs/tags_abre.png';
 import enviar from '../../../imgs/enviar.png'
 
+import words from './tags.json';
+
 export default function Tags(props) {
     const [abreTag, setAbreTag] = useState(false);
     const [tags, setTags] = useState('');
@@ -14,6 +16,21 @@ export default function Tags(props) {
     const [novaTag, setNovaTag] = useState("");
 
     const [att, setAtt] = useState(false);
+
+    const [Uword, setUword] = useState('EN');
+
+    useEffect(() => {
+        select_idioma();
+    }, [])
+
+    const select_idioma = () => {
+        let idi = localStorage.getItem('idioma');
+        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+            idi = 'EN';
+        }
+        let word = words[idi];
+        setUword(word);
+    }
 
     useEffect(() => {
         setTags(props.tags);
@@ -92,7 +109,7 @@ export default function Tags(props) {
             <div id="contentTAG">
                 <span className="titleTAG"> TAGS </span>
                 <form className="criaTAG" onSubmit={(event) => { updateValue(event, novaTag, 'chave') }}>
-                    <input type="text" name="tag" placeholder="escreva..." value={novaTag} onChange={(e) => { setNovaTag(e.target.value) }} />
+                    <input type="text" name="tag" placeholder={Uword.escrever} value={novaTag} onChange={(e) => { setNovaTag(e.target.value) }} />
                     <img id="enviaTAG" src={enviar} onClick={(event) => { updateValue(event, novaTag, 'chave') }}/>
                 </form>
                 <span className="contTAG"> <p>{`${conta}/10`}</p> </span>

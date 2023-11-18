@@ -1,13 +1,28 @@
 import auth from "./api_autenticar";
+import { setVariavelGlobal } from "../../GvarAuth";
 
 export default {
   //? prepara o objeto para enviar no padrão RESTful
   enviar: async (senhaAntiga , NovaSenha) => {
+
     const id = sessionStorage.getItem('session');
+    if (!id) {
+      setVariavelGlobal(false);
+      await auth.enviar();
+      
+    }
+
+    let idioma = localStorage.getItem("idioma");
+
+    if(!idioma || (idioma != 'PT' && idioma != 'EN' && idioma != 'ES')){
+        idioma = 'EN';
+    }
+    
     let user = {
       id: id,
       senhaAntiga: senhaAntiga,
       NovaSenha: NovaSenha,
+      idioma: idioma,
     };
 
     //? prepara as informações de methodo e cabeçalhos para fazer a requisição
@@ -18,6 +33,7 @@ export default {
     };
 
     //TODO faz a requisição
+    console.log(requisição);
 
     //! coloque o seu ip ali
     const response = await fetch('http://10.1.1.211/server/newSenha.php', requisição);

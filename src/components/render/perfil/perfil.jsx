@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import './perfil.css';
 
 import edit from '../../../imgs/lapis.png';
-import Edicao from './edicao/edicao';
+import Edicao from './edicao/edicao.jsx';
 import apiGender from '../../../backend/controler/api_gender';
-import FloatBt from '../../BtFloat/btFloat';
+import FloatBt from '../../BtFloat/btFloat.jsx';
 
 import apiCapa from "../../../backend/controler/api_meusLivros";
 import api from '../../../backend/controler/api_info';
 
-import MeusLivros from './slideLivro/slideLivro';
+import MeusLivros from './slideLivro/slideLivro.jsx';
 import MeusFav from '../../../backend/controler/api_meusFavoritos';
 
 import comum from '../../../imgs/comum.png';
@@ -87,23 +87,23 @@ function Perfil() {
   }, []);
 
   useEffect(() => {
-    if(seguidores >= 1000000){
-      setSeguidoresS(` ${seguidores/1000000} MI`);
+    if (seguidores >= 1000000) {
+      setSeguidoresS(` ${seguidores / 1000000} MI`);
       setMedalha(diamante);
     }
-    else if(seguidores >= 50000){
-      setSeguidoresS(` ${seguidores/1000} K`);
+    else if (seguidores >= 50000) {
+      setSeguidoresS(` ${seguidores / 1000} K`);
       setMedalha(ouro);
     }
-    else if(seguidores >= 1000){
-      setSeguidoresS(` ${seguidores/1000} K`);
+    else if (seguidores >= 1000) {
+      setSeguidoresS(` ${seguidores / 1000} K`);
       setMedalha(prata);
     }
-    else if(seguidores >= 500){
+    else if (seguidores >= 500) {
       setSeguidoresS(seguidores);
       setMedalha(bronze);
     }
-    else{
+    else {
       setSeguidoresS(seguidores);
       setMedalha(comum);
     }
@@ -131,78 +131,79 @@ function Perfil() {
 
   const select_idioma = () => {
     let idi = localStorage.getItem('idioma');
-    if(idi && idi != ''){
-      let word = words[idi];
-      setUword(word);
+    if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+      idi = 'EN';
     }
+    let word = words[idi];
+    setUword(word);
   }
 
-  return (
+return (
 
-    <div className='perfilpagep'>
-      <section className='boxName'>
-        <span id='titlePerfil'>{Uword.title}</span>
-        <img id='fotoPerfil' src={Perfil} style={Perfil !== '' ? { backgroundColor: 'transparent', backgroundImage: 'none' } : null} onClick={() => setEdita(true)} />
-        <span>
-          <div id='nome' >
-            <p>{name}</p>
-          </div>
-          <img className='edit' src={edit} alt='Editar' onClick={() => setEdita(true)} />
-        </span>
-        <span><img id='medalha' src={medalha} />{seguidoresS}</span>
-      </section>
-
-      {edita && <Edicao fecharEdicao={fecharEdicao} user={infos.nome} ft={Perfil} />}
-
-      <section className='boxGenero'>
-        <span className='boxtitleGender'>
-        <Link to='/perfil/gender'><p id='titleGen'>{Uword.genero}</p></Link>
-          <Link to='/perfil/gender'><img className='edit' src={edit} /></Link>
-        </span>
-        <div className='favGen'>
-          <span>
-            <div className='boxGen'>{mostraGender(0)}</div>
-            <div className='boxGen'>{mostraGender(1)}</div>
-          </span>
-          <span>
-            <div className='boxGen'>{mostraGender(2)}</div>
-            <div className='boxGen'>{mostraGender(3)}</div>
-            <div className='boxGen'>{mostraGender(4)}</div>
-          </span>
-          <span>
-            <div className='boxGen'>{mostraGender(5)}</div>
-            <div className='boxGen'>{mostraGender(6)}</div>
-          </span>
+  <div className='perfilpagep'>
+    <section className='boxName'>
+      <span id='titlePerfil'>{Uword.title}</span>
+      <img id='fotoPerfil' src={Perfil} style={Perfil !== '' ? { backgroundColor: 'transparent', backgroundImage: 'none' } : null} onClick={() => setEdita(true)} />
+      <span>
+        <div id='nome' >
+          <p>{name}</p>
         </div>
-      </section>
+        <img className='edit' src={edit} alt='Editar' onClick={() => setEdita(true)} />
+      </span>
+      <span><img id='medalha' src={medalha} />{seguidoresS}</span>
+    </section>
 
-      <section className='boxMeulivro'>
-        <span className='boxTitle'>
-          <span>
-            <p id='titleLivro'>{Uword.meusLivros}</p>
-            <Link to='/perfil/MeusLivros'><img className='edit' src={edit} /></Link>
-          </span>
+    {edita && <Edicao fecharEdicao={fecharEdicao} user={infos.nome} ft={Perfil} />}
+
+    <section className='boxGenero'>
+      <span className='boxtitleGender'>
+        <Link to='/IHM/perfil/gender'><p id='titleGen'>{Uword.genero}</p></Link>
+        <Link to='/IHM/perfil/gender'><img className='edit' src={edit} /></Link>
+      </span>
+      <div className='favGen'>
+        <span>
+          <div className='boxGen'>{mostraGender(0)}</div>
+          <div className='boxGen'>{mostraGender(1)}</div>
         </span>
-
-        <Link to='/perfil/MeusLivros' id='link'><MeusLivros meusOrFav={'meus'} livro={livro} comp={'1'} /></Link>
-
-      </section>
-
-      <section className='boxMeulivro'>
-        <span className='boxTitle favoo'>
-          <span>
-            <p id='titleLivro'>{Uword.meusFavoritos}</p>
-            <Link to='/perfil/MeusFavoritos'><img className='edit' src={edit} /></Link>
-          </span>
+        <span>
+          <div className='boxGen'>{mostraGender(2)}</div>
+          <div className='boxGen'>{mostraGender(3)}</div>
+          <div className='boxGen'>{mostraGender(4)}</div>
         </span>
+        <span>
+          <div className='boxGen'>{mostraGender(5)}</div>
+          <div className='boxGen'>{mostraGender(6)}</div>
+        </span>
+      </div>
+    </section>
 
-        <Link to='/perfil/MeusFavoritos' id='link'><MeusLivros meusOrFav={'fav'} livro={livroF} comp={'2'} /></Link>
+    <section className='boxMeulivro'>
+      <span className='boxTitle'>
+        <span>
+          <p id='titleLivro'>{Uword.meusLivros}</p>
+          <Link to='/IHM/perfil/MeusLivros'><img className='edit' src={edit} /></Link>
+        </span>
+      </span>
 
-      </section>
+      <Link to='/IHM/perfil/MeusLivros' id='link'><MeusLivros meusOrFav={'meus'} livro={livro} comp={'1'} /></Link>
 
-      <FloatBt />
-    </div>
-  );
+    </section>
+
+    <section className='boxMeulivro'>
+      <span className='boxTitle favoo'>
+        <span>
+          <p id='titleLivro'>{Uword.meusFavoritos}</p>
+          <Link to='/IHM/perfil/MeusFavoritos'><img className='edit' src={edit} /></Link>
+        </span>
+      </span>
+
+      <Link to='/IHM/perfil/MeusFavoritos' id='link'><MeusLivros meusOrFav={'fav'} livro={livroF} comp={'2'} /></Link>
+
+    </section>
+
+    <FloatBt />
+  </div>
+);
 }
 
 export default Perfil;

@@ -2,6 +2,8 @@ import React from "react";
 import './abaSeleCap.css';
 import { useState, useEffect } from "react";
 
+import words from './abaSeleCap.json';
+
 export default function Aba(props) {
     const [Caps, setCaps] = useState(0);
     const [titleCap, setTitleCap] = useState('');
@@ -9,6 +11,21 @@ export default function Aba(props) {
     const [cor, setCor] = useState('#fffff');
 
     const [ishovered, setIsHovered] = useState(null);
+
+    const [Uword, setUword] = useState('EN');
+
+    useEffect(() => {
+        select_idioma();
+    }, [])
+
+    const select_idioma = () => {
+        let idi = localStorage.getItem('idioma');
+        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+            idi = 'EN';
+        }
+        let word = words[idi];
+        setUword(word);
+    }
 
     const Capitulos = () => {
         if (props.pronto) {
@@ -57,7 +74,7 @@ export default function Aba(props) {
                 className={`abaT`}
                 style={props.selecionado == 0 || ishovered == 0 ? { backgroundColor: cor, color: "white" } : null}
                 onClick={() => { props.setSelecionado(0) }}>
-                SINOPSE
+                {Uword.sinopse}
             </span>
 
             {Capitulos()}

@@ -8,6 +8,9 @@ import curtida from '../../backend/controler/api_curtir';
 import like from '../../imgs/like.png';
 import enviar from '../../imgs/enviar.png';
 
+
+import words from './cardComent.json';
+
 export default function Comentarios(props) {
     const [infos, setInfos] = useState('');
     const [data, setData] = useState('');
@@ -30,6 +33,21 @@ export default function Comentarios(props) {
 
     const [curtido, setCurtido] = useState(false);
     const [quantCurti, setQuantCurti] = useState(0);
+
+    const [Uword, setUword] = useState('EN');
+
+    useEffect(() => {
+        select_idioma();
+    }, [])
+
+    const select_idioma = () => {
+        let idi = localStorage.getItem('idioma');
+        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+            idi = 'EN';
+        }
+        let word = words[idi];
+        setUword(word);
+    }
 
     const Busca = async (i) => {
         if (i) {
@@ -167,19 +185,19 @@ export default function Comentarios(props) {
 
             if (diasDecorridos > 365) {
                 tempo = diasDecorridos % 365;
-                time = tempo > 1 ? 'ano' : 'anos';
+                time = tempo > 1 ? Uword.ano : Uword.anos;
             }
             else if (diasDecorridos > 30) {
                 tempo = diasDecorridos % 30;
-                time = tempo > 1 ? 'mês' : 'meses';
+                time = tempo > 1 ? Uword.mes : Uword.meses;
             }
             else if (diasDecorridos > 7) {
                 tempo = diasDecorridos % 7;
-                time = tempo > 1 ? 'semana' : 'semanas';
+                time = tempo > 1 ? Uword.semana : Uword.semanas;
             }
             else {
                 tempo = diasDecorridos;
-                time = tempo < 2 ? 'hoje' : 'dias';
+                time = tempo < 2 ? Uword.hoje : Uword.dias;
 
             }
 
@@ -218,8 +236,8 @@ export default function Comentarios(props) {
             </span>
 
             <span id="infosComent" onClick={(e) => { e.stopPropagation() }} >
-                <p>{`${dataTime != 'hoje' ? 'há' : ''} ${dataTime != 'hoje' ? data : ''} ${dataTime}`} </p>
-                <p className="reply" onClick={() => { props.setOpenRes(props.chave) }} style={props.cor && props.cor != '' ? { color: props.cor } : { color: '#0A6E7D' }}>RESPONDER</p>
+                <p>{`${dataTime != Uword.hoje ? Uword.ha : ''} ${dataTime != Uword.hoje ? data : ''} ${dataTime}`} </p>
+                <p className="reply" onClick={() => { props.setOpenRes(props.chave) }} style={props.cor && props.cor != '' ? { color: props.cor } : { color: '#0A6E7D' }}>{Uword.reply}</p>
                 {!props.res ? <p className="seeReply" style={{ color: props.cor ? props.cor : '' }} onClick={() => {
                     if (props.setVerMais) {
                         if (props.verMais === props.idConv) {
@@ -232,7 +250,7 @@ export default function Comentarios(props) {
             </span>
 
             {props.openRes == props.chave ? <form id="resposta" onClick={(e) => { e.stopPropagation() }} onSubmit={(event) => { respondendo(event) }}>
-                <input type="text" placeholder="Responder..." value={resposta} onChange={(event) => { setResposta(event.target.value) }} /><img id="enviaRes" onClick={(event) => { respondendo(event) }} src={enviar} />
+                <input type="text" placeholder={Uword.place} value={resposta} onChange={(event) => { setResposta(event.target.value) }} /><img id="enviaRes" onClick={(event) => { respondendo(event) }} src={enviar} />
             </form> : null}
 
 

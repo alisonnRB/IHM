@@ -1,8 +1,15 @@
 import auth from "./api_autenticar";
+import { setVariavelGlobal } from "../../GvarAuth";
 
 export default {
     enviar: async (formData, nome, selecao, classificacao) => {
         const id = sessionStorage.getItem('session');
+
+        if (!id) {
+            setVariavelGlobal(false);
+            await auth.enviar();
+            
+          }
         //? recebe um objeto formData e adiciona as informações que faltam 
         formData.append('id', id);
         formData.append('nome', nome);

@@ -1,0 +1,16 @@
+{
+    "EN": {
+        "title": "USERS",
+        "buscar": "SEARCH"
+    },
+
+    "PT":{
+        "title": "USUÁRIOS",
+        "buscar": "BUSCAR"
+    },
+
+    "ES": {
+        "title": "USUARIOS",
+        "buscar": "BUSCAR"
+    }
+}

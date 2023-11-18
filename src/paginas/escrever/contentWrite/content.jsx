@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./content.css";
-import Editor from "../../../components/editor/editor";
+import Editor from "../../../components/editor/editor.js";
 
 import api from '../../../backend/controler/api_contentCap';
 

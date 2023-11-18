@@ -1,0 +1,29 @@
+.MAIN{
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 30px;
+    background-color: white;
+
+}
+.caixa-left{
+    height: 100%;
+    align-items: center;
+    gap: 20px;
+}
+#logoMAIN{
+    height: 100%;
+    width: 150px;
+}
+
+.btMA{
+    cursor: pointer;
+    font-weight: bold;
+    font-size: .9em;
+    color: white;
+    height: 30px;
+    width: 120px;
+    border-radius: 20px;
+    background-color: #2A7A8D;
+    margin-top: 10px;
+}

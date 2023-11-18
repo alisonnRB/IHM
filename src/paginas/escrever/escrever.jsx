@@ -10,9 +10,9 @@ import apiBook from '../../backend/controler/api_InfosLivro';
 import apiEscreve from '../../backend/controler/api_salvaLivro';
 import apiDell from '../../backend/controler/api_DellCap';
 
-import BarraCap from './barraCap/barraCap';
-import Paginas from "./contentWrite/content";
-import BtFloat from './btFloatH/btFloatH';
+import BarraCap from './barraCap/barraCap.jsx';
+import Paginas from "./contentWrite/content.jsx";
+import BtFloat from './btFloatH/btFloatH.jsx';
 
 import logo from '../../imgs/livro_mine.png';
 import abinha from '../../imgs/abinha.png';
@@ -26,7 +26,7 @@ import quatorze from '../../imgs/quatorze.jpeg';
 import dezeseis from '../../imgs/dezeseis.jpeg';
 import dezoito from '../../imgs/dezoito.jpeg';
 
-
+import words from './escrever.json';
 
 
 export default function Escreve() {
@@ -67,7 +67,21 @@ export default function Escreve() {
     const [primeira, setPrimeira] = useState(false);
 
     const [prontos, setProntos] = useState('');
-    //TODO controle
+    
+    const [Uword, setUword] = useState('EN');
+
+    useEffect(() => {
+        select_idioma();
+    }, [])
+
+    const select_idioma = () => {
+        let idi = localStorage.getItem('idioma');
+        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+            idi = 'EN';
+        }
+        let word = words[idi];
+        setUword(word);
+    }
 
     useEffect(() => {
         if (primeira) {
@@ -115,7 +129,7 @@ export default function Escreve() {
     };
 
     const Novo = async () => {
-        const resposta = await apiEscreve.enviar('', numCaps, idLivro, 'capitulo Novo');
+        const resposta = await apiEscreve.enviar('', numCaps, idLivro, Uword.novo);
         if (resposta.ok == true) {
             Salva('i');
         }
@@ -301,7 +315,7 @@ export default function Escreve() {
 
             <span className="infosDoLivro">
                 <img className="boxLogo" src={logo} />
-                <p>{capSelected == 0 ? 'Sinopse' : 'Capitulo ' + capSelected}</p>
+                <p>{capSelected == 0 ? Uword.sinopse : Uword.cap + capSelected}</p>
             </span>
             <BarraCap
                 setNumCaps={setNumCaps}

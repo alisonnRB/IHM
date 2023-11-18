@@ -15,8 +15,10 @@ import apiLivros from '../../../../backend/controler/api_meusLivros';
 import Seguir from '../../../../backend/controler/api_seguir';
 import Seguindo from '../../../../backend/controler/api_buscaSeguidores';
 
-import FloatBt from '../../../BtFloat/btFloat';
+import FloatBt from '../../../BtFloat/btFloat.jsx';
 import Livro from '../../../cardLivro/cardLivro';
+
+import words from './perfisUser.json';
 
 export default function User() {
     const location = useLocation();
@@ -36,6 +38,21 @@ export default function User() {
     const [Perfil, setPerfil] = useState('');
 
     const [livro, setLivro] = useState([]);
+
+    const [Uword, setUword] = useState('EN');
+
+    useEffect(() => {
+        select_idioma();
+    }, [])
+
+    const select_idioma = () => {
+        let idi = localStorage.getItem('idioma');
+        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+            idi = 'EN';
+        }
+        let word = words[idi];
+        setUword(word);
+    }
 
 
     const Busca = async () => {
@@ -176,14 +193,14 @@ export default function User() {
 
                     <span><img id='medalha' src={medalha} />{seguidoresS}</span>
 
-                    <span className='seguir' onClick={() => { seguir(); setSeguindo(!seguindo) }}>{seguindo ? 'SEGUINDO' : "SEGUIR"}</span>
+                    <span className='seguir' onClick={() => { seguir(); setSeguindo(!seguindo) }}>{seguindo ? Uword.seguindo : Uword.seguir}</span>
 
                 </div>
             </section>
 
             <section className='boxGenero'>
                 <span className='boxtitleGender'>
-                    <p id='titleGen'>Gêneros favoritos</p>
+                    <p id='titleGen'>{Uword.generos}</p>
                 </span>
                 <div className='favGen'>
                     <span>
@@ -205,7 +222,7 @@ export default function User() {
             <section className='boxMeulivroUser'>
                 <span className='boxTitleUser'>
                     <span>
-                        <p id='titleLivro'>Livros</p>
+                        <p id='titleLivro'>{Uword.livros}</p>
                     </span>
                 </span>
                 <div className='livrosUser'>

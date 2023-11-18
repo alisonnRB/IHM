@@ -1,0 +1,28 @@
+{
+    "EN": {
+        "tema": "theme:",
+        "salvar": "SAVE",
+        "cancelar": "CANCEL",
+        "publico": "PUBLIC",
+        "finalizado": "FINISHED",
+        "nome": "NAME :"
+    },
+
+    "PT":{
+        "tema": "tema:",
+        "salvar": "SALVAR",
+        "cancelar": "CANCELAR",
+        "publico": "PÚBLICO",
+        "finalizado": "FINALIZADO",
+        "nome": "NOME :"
+    },
+
+    "ES": {
+        "tema": "tema:",
+        "salvar": "GUARDAR",
+        "cancelar": "CANCELAR",
+        "publico": "PUBLICO",
+        "finalizado": "FINALIZADO",
+        "nome": "NOMBRE :"
+    }
+}

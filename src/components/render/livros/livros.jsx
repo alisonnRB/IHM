@@ -2,10 +2,9 @@ import React from 'react';
 import './livros.css';
 import { useState, useEffect } from 'react';
 
-import Selecao from '../../livroSelectGen/select';
+import Selecao from '../../livroSelectGen/select.jsx';
 import Interruptor from '../../interruptor/interruptor';
-import MostraLivros from './mostraLivros/mostraLivros';
-
+import MostraLivros from './mostraLivros/mostraLivros.jsx';
 
 import livre from '../../../imgs/livre.jpeg';
 import dez from '../../../imgs/dez.jpeg';
@@ -15,6 +14,9 @@ import dezeseis from '../../../imgs/dezeseis.jpeg';
 import dezoito from '../../../imgs/dezoito.jpeg';
 
 import api from "../../../backend/controler/api_search";
+
+import words from './livros.json';
+
 
 export default function Livros() {
     const [conta, setConta] = useState(0);
@@ -53,6 +55,17 @@ export default function Livros() {
     const [nome, setNome] = useState('');
     const [classificacao, setClassificacao] = useState('');
 
+    const [Uword, setUword] = useState('EN');
+
+
+    const select_idioma = () => {
+        let idi = localStorage.getItem('idioma');
+        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+            idi = 'EN';
+        }
+        let word = words[idi];
+        setUword(word);
+    }
 
     const Busca = async () => {
         if (!open) {
@@ -124,15 +137,15 @@ export default function Livros() {
                     </div>
 
                     <div className='boxSelection'>
-                        <span className='indi' onClick={() => { setOpenClass(!openClass) }}>CLASSIFICAÇÃO INDICATIVA</span>
+                        <span className='indi' onClick={() => { setOpenClass(!openClass) }}>{Uword.classificacao}</span>
                         {!openClass && classificacao != '' ? Classificado() : null}
                         {openClass ? selecionaClass() : null}
                     </div>
 
                     <div className='boxSelection inter'>
-                        <Interruptor key={1} id={1} title={'LivrosNovos'} alvo={Novo} setAlvo={setNovo} />
+                        <Interruptor key={1} id={1} title={Uword.Novo_livro} alvo={Novo} setAlvo={setNovo} />
 
-                        <Interruptor key={2} id={2} title={'Finalizados'} alvo={Finalizado} setAlvo={setFinalizado} />
+                        <Interruptor key={2} id={2} title={Uword.finalizado} alvo={Finalizado} setAlvo={setFinalizado} />
                     </div>
 
                 </span>
@@ -141,6 +154,7 @@ export default function Livros() {
     };
 
     useEffect(() => {
+        select_idioma();
         Busca();
     }, []);
 
@@ -164,21 +178,21 @@ export default function Livros() {
 
     return (
         <div className='TelaLivros'>
-            <span id='titlePerfil'>LIVROS</span>
+            <span id='titlePerfil'>{Uword.title}</span>
             <div id='pesquisa'>
                 <span className='boxLivros'>
-                    <input type='text' id='searchText' placeholder='Buscar' value={nome} onChange={(e) => { setNome(e.target.value); Busca(); }} />
+                    <input type='text' id='searchText' placeholder={Uword.buscar} value={nome} onChange={(e) => { setNome(e.target.value); Busca(); }} />
                     <div id='searchImg'></div>
                 </span>
 
                 <div className='filtros'>
-                    <span id='title'><p onClick={() => { abreFilter() }}>FILTRO {Caracter ? <>&and;</> : <>&or;</>}</p></span>
+                    <span id='title'><p onClick={() => { abreFilter() }}>{Uword.filtros} {Caracter ? <>&and;</> : <>&or;</>}</p></span>
                     {open ? Filters() : null}
                 </div>
             </div>
 
             <section className='buscaLivros'>
-                {Livro != '' ? <MostraLivros Livro={Livro}/> : <p id='notFound'>LIVRO NÃO ENCONTRADO :&#40;</p>}
+                {Livro != '' ? <MostraLivros Livro={Livro}/> : <p id='notFound'>{Uword.notFound}</p>}
             </section>
 
 

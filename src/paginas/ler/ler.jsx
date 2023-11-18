@@ -19,8 +19,10 @@ import logo from '../../imgs/logo.png';
 import Fav from "../../imgs/estrela.png";
 import Curti from "../../imgs/coracao.png";
 
-import Page from "./paginas/page";
+import Page from "./paginas/page.jsx";
 import BtFloatH from "../escrever/btFloatH/btFloatH";
+
+import words from './ler.json';
 
 export default function Ler() {
     
@@ -48,6 +50,21 @@ export default function Ler() {
 
     const [hoverC, setHoverC] = useState(false);
     const [hoverF, setHoverF] = useState(false);
+
+    const [Uword, setUword] = useState('EN');
+
+    useEffect(() => {
+        select_idioma();
+    }, [])
+
+    const select_idioma = () => {
+        let idi = localStorage.getItem('idioma');
+        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+            idi = 'EN';
+        }
+        let word = words[idi];
+        setUword(word);
+    }
 
 
     useEffect(() => {
@@ -163,7 +180,7 @@ export default function Ler() {
             <header>
                 <img id="logoP" src={logo} />
                 <div id="CurtiL">
-                    <span className="tituloBox">{tituloL && tituloL != '' ? tituloL : 'Nome Do Livro'}</span>
+                    <span className="tituloBox">{tituloL && tituloL != '' ? tituloL : Uword.load}</span>
 
                     <span id="BOXCURTI">
                         <div className="BoxVisu fav">
@@ -171,14 +188,14 @@ export default function Ler() {
                                 if (typeof window.ontouchstart === "undefined") {
                                     setHoverC(true);
                                 }
-                            }} onMouseLeave={() => { setHoverF(false) }} style={styleF} ><img src={Fav} className={fav ? 'favN' : 'favS'} /><p className="ps">Favoritar</p></span>
+                            }} onMouseLeave={() => { setHoverF(false) }} style={styleF} ><img src={Fav} className={fav ? 'favN' : 'favS'} /><p className="ps">{Uword.fav}</p></span>
                         </div>
                         <div className='BoxVisu curti' >
                             <span onClick={() => { curtir() }} onMouseEnter={() => {
                                 if (typeof window.ontouchstart === "undefined") {
                                     setHoverC(true);
                                 }
-                            }} onMouseLeave={() => { setHoverC(false) }} style={styleC}><img src={Curti} className={curtido ? 'curtiN' : 'curtiS'} /><p className="ps">Curtir</p></span>
+                            }} onMouseLeave={() => { setHoverC(false) }} style={styleC}><img src={Curti} className={curtido ? 'curtiN' : 'curtiS'} /><p className="ps">{Uword.curti}</p></span>
                         </div>
                     </span>
 
@@ -192,8 +209,8 @@ export default function Ler() {
 
             <div className="infosAutor">
                 <Link to={id != infos.id ? `/Busca/user?id=${encodeURIComponent(JSON.stringify(infos.id))}` : '/perfil'}><img id="perfil" src={foto} style={{ border: 'solid 4px' + cor }} /></Link>
-                <p>{infos.nome && infos.nome != '' ? infos.nome : "Autor"}</p>
-                {id != userId ? <div className="btSeguir" style={{ backgroundColor: cor }} onClick={() => { seguir(); setSeguido(!seguido) }} >{seguido ? 'SEGUINDO' : 'SEGUIR'}</div> : null}
+                <p>{infos.nome && infos.nome != '' ? infos.nome : Uword.autor}</p>
+                {id != userId ? <div className="btSeguir" style={{ backgroundColor: cor }} onClick={() => { seguir(); setSeguido(!seguido) }} >{seguido ? Uword.seguindo : Uword.seguir}</div> : null}
             </div>
             <BtFloatH />
         </div>

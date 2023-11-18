@@ -4,6 +4,10 @@ export default {
     //? prepara o objeto para enviar no padrão RESTful
     enviar: async () => {
         let token = sessionStorage.getItem('session');
+        if(!token){
+            setVariavelGlobal(true);
+            window.location.reload();
+        }
 
         const authorizationHeader = `Bearer ${token}`;
 
@@ -25,12 +29,14 @@ export default {
             const data = await response.json();
             if (!data.ok) {
                 setVariavelGlobal(true);
+                window.location.reload();
             } else {
                 setVariavelGlobal(false);
             }
             return data;
         }catch(e){
             setVariavelGlobal(true);
+            window.location.reload();
         }
     },
 };

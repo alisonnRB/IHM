@@ -3,9 +3,27 @@ import { useState } from "react";
 
 import Livro from "../../../cardLivro/cardLivro";
 
+import words from './mostrarLivros.json';
+
+
 export default function MostraLivros(props) {
 
     const [livro, setLivro] = useState('');
+
+    const [Uword, setUword] = useState('EN');
+
+    useEffect(() => {
+        select_idioma();
+    }, [])
+
+    const select_idioma = () => {
+        let idi = localStorage.getItem('idioma');
+        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+            idi = 'EN';
+        }
+        let word = words[idi];
+        setUword(word);
+    }
     
     useEffect(()=>{
         setLivro(props.Livro);
@@ -19,7 +37,7 @@ export default function MostraLivros(props) {
 
         for (let i = 0; i < livro.length; i++) {
             count++;
-            tempRow.push(<div className="coluna" key={i}><Livro mine={false} info={livro[i]} text={'Começar a ler'}/></div>);
+            tempRow.push(<div className="coluna" key={i}><Livro mine={false} info={livro[i]} text={Uword.ler}/></div>);
 
             if (count === 3 || i === livro.length - 1) {
                 count = 0;

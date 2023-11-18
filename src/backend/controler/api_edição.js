@@ -1,12 +1,25 @@
 import auth from "./api_autenticar";
+import { setVariavelGlobal } from "../../GvarAuth";
 
 export default {
   enviar: async (formData, nome) => {
     //? recebe um objeto formData e adiciona as informações que faltam 
     const id = sessionStorage.getItem("session");
+    if (!id) {
+      setVariavelGlobal(false);
+      await auth.enviar();
+      
+    }
+
+    let idioma = localStorage.getItem("idioma");
+
+    if(!idioma || (idioma != 'PT' && idioma != 'EN' && idioma != 'ES')){
+        idioma = 'EN';
+    }
 
     formData.append('id', id);
     formData.append('nome', nome);
+    formData.append('idioma', idioma);
 
     //TODO faz a requisição
     //! coloque o seu ip ali

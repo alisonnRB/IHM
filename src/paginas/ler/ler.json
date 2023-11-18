@@ -1,0 +1,28 @@
+{
+    "EN": {
+        "load": "BOOK'S NAME",
+        "fav": "FAVORITE",
+        "curti": "LIKE",
+        "seguir": "Follow",
+        "seguindo": "Following",
+        "autor": "Author"
+    },
+
+    "PT":{
+        "load": "NOME DO LIVRO",
+        "fav": "FAVORITAR",
+        "curti": "CURTIR",
+        "seguir": "Seguir",
+        "seguindo": "Seguindo",
+        "autor": "Autor"
+    },
+
+    "ES": {
+        "load": "NOMBRE DEL LIBRO",
+        "fav": "FAVORITO",
+        "curti": "ME GUSTA",
+        "seguir": "Seguir",
+        "seguindo": "Seguiente",
+        "autor": "Autor"
+    }
+}

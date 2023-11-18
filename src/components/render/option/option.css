@@ -77,3 +77,29 @@
     object-fit: scale-down;
     cursor: pointer;
 }
+
+#conta{
+    flex-direction: column;
+    gap: 10px;
+}
+
+#sair, #excluir{
+    border-radius: 20px;
+    padding: 5px 2px;
+    width: 130px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+}
+
+.errorBOX{
+    color: red;
+    height: 1rem;
+}
+
+#sair{
+    background-color:#5CA5B2 ;
+}
+#excluir{
+    background-color: #FF7070;
+}
