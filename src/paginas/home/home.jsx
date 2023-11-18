@@ -17,7 +17,7 @@ function Home() {
       <Header />
       <section className='apresentation'>
         <img src={apresentation} />
-        <button className="junte">JUNTE-SE A NÓS</button>
+        <Link to='/login' className='link'><button className="junte">JUNTE-SE A NÓS</button></Link>
       </section>
 
       <section className='features'>

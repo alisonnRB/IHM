@@ -12,7 +12,7 @@ function head() {
             <img src={logo} id='logoMAIN'/>
 
             <Link to='/login'><button className='btMA'>Login</button></Link>
-            <Link><button className='btMA'>Cadastre-se</button></Link>
+            <Link to='/login'><button className='btMA'>Cadastre-se</button></Link>
         </span>
 
         <button className='btMA'>Sobre nós</button>

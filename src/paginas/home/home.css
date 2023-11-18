@@ -5,6 +5,11 @@
     background: linear-gradient(130deg, #F9FBFB 20%, #B7CED3 80%);
 }
 
+.HOME .link{
+    height: 50px;
+    width: 35%;
+}
+
 .apresentation{
     display: flex;
     flex-direction: column;
@@ -23,8 +28,8 @@
 .junte{
     cursor: pointer;
     color: #00414A;
-    height: 50px;
-    width: 35%;
+    height: 100%;
+    width: 100%;
     font-size: 1.4em;
     font-weight: bold;
     border-radius: 30px;
