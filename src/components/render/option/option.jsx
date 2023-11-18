@@ -134,7 +134,7 @@ export default function Option() {
         <div className="com">
           <label htmlFor="conta">{Uword.conta}</label>
           <span id='conta'>
-            <button id='sair' onClick={() => { sessionStorage.clear(); navigate('/IHM/login') }}>{Uword.sair}</button>
+            <button id='sair' onClick={() => { sessionStorage.clear(); navigate('/') }}>{Uword.sair}</button>
             <button id='excluir' onClick={() => { setAbreWindow(true) }}>{Uword.excluir}</button>
           </span>
 
