@@ -51,7 +51,7 @@ function App() {
    return (
       <Router>
          <Routes>
-            <Route exact path='*/' element={<Home/>}/>
+            <Route exact path='*' element={<Home/>}/>
             <Route path="/login" element={<Login />} />
             <Route path="/IHM/perfil/MeusLivros/escreva/editar/" element={<PrivateRoute><Edicao /></PrivateRoute>} />
             <Route path="/Ler/" element={<PrivateRoute><Ler /></PrivateRoute>} />
