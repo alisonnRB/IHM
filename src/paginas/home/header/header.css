@@ -1,11 +1,16 @@
 .MAIN{
     height: 80px;
+    min-width: 98vw;
+    max-width: 98vw;
     display: flex;
     justify-content: space-between;
-    padding-right: 30px;
+    padding-right: 100px;
     background-color: white;
-
+    position: fixed;
+    top: 0;
+    z-index: 200;
 }
+
 .caixa-left{
     height: 100%;
     align-items: center;
@@ -16,6 +21,9 @@
     width: 150px;
 }
 
+.nos{
+    margin-right: 30px;
+}
 .btMA{
     cursor: pointer;
     font-weight: bold;

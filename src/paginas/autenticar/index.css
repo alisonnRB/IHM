@@ -4,6 +4,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    background-color: #E5EDEF;
 }
 
 .content-log{
@@ -16,6 +18,7 @@
     display: block;
     border-radius: 10px;
     background-color: #EBEBEB;
+    box-shadow: 0px 0px 20px 0px  rgba(87, 91, 92, 0.397);
 }
 
 .invisible-log{

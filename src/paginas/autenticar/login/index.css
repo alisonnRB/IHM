@@ -38,15 +38,20 @@
 
 .rec-log{
     width: 70%;
-    margin-top: 50px;
-    border-top: solid black 1px;
     display: flex;
     justify-content: center;
     padding-top: 10px;
+    margin-top: 15px;
 }
 
 .rec-log #recuperar{
     cursor: pointer;
+    font-size: .8em;
+    font-weight: bold;
+}
+
+#recuperar:hover{
+    color: #0B6E7D;
 }
 
 .err{

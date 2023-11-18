@@ -15,7 +15,7 @@ function head() {
             <Link to='/login'><button className='btMA'>Cadastre-se</button></Link>
         </span>
 
-        <button className='btMA'>Sobre nós</button>
+        <button className='btMA nos'>Sobre nós</button>
     </header>
   );
 }
