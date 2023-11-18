@@ -48,3 +48,12 @@
 .rec-log #recuperar{
     cursor: pointer;
 }
+
+.err{
+    color: red;
+    height: 1em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+}

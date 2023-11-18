@@ -3,7 +3,7 @@ import './index.css';
 
 import { useNavigate } from 'react-router-dom';
 
-import api from '../../../../backend/controler/api_login';
+import api from '../../../backend/controler/api_login';
 
 import { setVariavelGlobal } from '../../../GvarAuth';
 
@@ -36,7 +36,7 @@ export default function Login() {
   return (
     <>
       <form className="form" onSubmit={handleSubmit}>
-        <p>{erro}</p>
+        <p className='err'>{erro}</p>
 
         <label htmlFor="email">E-MAIL</label>
         <input className="form_pass" id='email' type="email" name="email" placeholder="Digite aqui..." />

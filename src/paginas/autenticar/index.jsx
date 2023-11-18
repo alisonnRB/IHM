@@ -26,7 +26,7 @@ export default function Login() {
                 </span>
 
                 <div id='cotente-form-log'>
-                    {!select ? <LoginForm /> : <Cadastro />}
+                    {!select ? <LoginForm /> : <Cadastro setSelect={setSelect}/>}
                 </div>
             </div>
         </span>

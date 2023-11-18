@@ -24,8 +24,7 @@ export default function Cadastro(props) {
       //? caso a resposta do server seja positiva emite um alert e fecha a janela
 
       if (confirmacao) {
-
-        props.fecharCadastro();
+        props.setSelect(false);
       }
     } else {
       setErro(resposta.informacoes);
@@ -35,7 +34,7 @@ export default function Cadastro(props) {
   return (
     <>
       <form className="form" onSubmit={handleSubmit}>
-        <p>{Erro}</p>
+        <p className='err'>{Erro}</p>
 
         <label htmlFor="nomee">NOME</label>
         <input className="form_pass" id='nomee' type="text" name="nome" placeholder="Digite aqui..." />
@@ -51,7 +50,7 @@ export default function Cadastro(props) {
 
 
         <span className='contain-butt'>
-          <input className="form_button" type="submit" value="ENTRAR" />
+          <input className="form_button" type="submit" value="CADASTRAR" />
           <button className="form_button gog">ENTRAR COM GOOGLE</button>
         </span>
 
