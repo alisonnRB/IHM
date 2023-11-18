@@ -107,3 +107,82 @@
 .cont-frase p{
     text-align: center;
 }
+
+.novidades{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 500px;
+    background: linear-gradient(130deg, #b7ced300 80%, #ffffff6e 90%);
+}
+
+.content-novi{
+    height: 400px;
+    width: 70%;
+}
+
+.pc-novi, .text-novi{
+    width: 50%;
+}
+
+.pc-novi{
+    display: flex;
+    justify-content: center;
+}
+
+.pc-novi img{
+    object-fit: fill;
+    height: 70%;
+    width: 70%;
+}
+
+.text-novi{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    text-align: end;
+}
+
+.text-novi img{
+    margin-right: 50px;
+    object-fit: fill;
+    height: 50%;
+    width: 90%;
+}
+
+.text-novi p{
+    padding-right: 20%;
+    font-size: 1.5em;
+    width: 100%;
+    font-weight: lighter;
+}
+
+.novi-email{
+    flex-direction: column;
+    align-items: center;
+}
+
+.novi-email label{
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+.novi-email input{
+    height: 30px;
+    padding-left: 10px;
+    padding-right: 40px;
+    border-radius: 30px;
+    width: 550px;
+}
+
+.novi-email span{
+    align-items: center;
+}
+
+#envia{
+    height: 25px;
+    position: relative;
+    right: 30px;
+}

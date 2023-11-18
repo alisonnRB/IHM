@@ -10,6 +10,10 @@ import chat from '../../imgs/Pchat.png';
 import pessoas from '../../imgs/Ppessoas.png';
 import livro from '../../imgs/Plivro.png';
 
+import pc from "../../imgs/pc-check.png";
+import check from "../../imgs/check.png";
+import envia from "../../imgs/enviar-preto.png";
+
 function Home() {
   //TODO passa como propriedades as informações(user) do usuario para os elementos filhos acessarem
   return (
@@ -68,6 +72,35 @@ function Home() {
             </p>
           </div>
         </span>
+      </section>
+
+
+      <section className='novidades'>
+
+        <span className='content-novi'>
+          <div className='pc-novi'>
+            <img src={pc} />
+          </div>
+
+
+          <div className='text-novi'>
+            <img src={check} />
+            <p>
+              Nossa plataforma se adapta aos<br></br>
+              mais variados tamanhos e tipos de<br></br>
+              tela, sem prejudicar sua experiência!
+            </p>
+          </div>
+        </span>
+
+        <span className='novi-email'>
+          <label htmlFor="email">Insira seu e-mail para receber novidades!</label>
+          <span>          
+            <input type="email" id='email' className='email-novi' />
+            <img src={envia} id="envia" />
+          </span>
+        </span>
+        
       </section>
     </div>
   );
