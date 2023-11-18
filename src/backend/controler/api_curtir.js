@@ -21,8 +21,8 @@ export default {
     //TODO faz a requisição
 
     //! coloque o seu ip ali
-    const response = await fetch('http://192.168.255.193/server/curtir.php', requisição);
-    fetch('http://192.168.255.193/server/contaCurtidas.php');
+    const response = await fetch('http://10.1.1.211/server/curtir.php', requisição);
+    fetch('http://10.1.1.211/server/contaCurtidas.php');
 
     //TODO espera a resposta do servidor e armazena para retornar ao cliente
     const data = await response.json();
