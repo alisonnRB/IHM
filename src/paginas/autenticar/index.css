@@ -1,9 +1,11 @@
 #box{
     height: 100vh;
+    max-height: 100vh;
     width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
     
     background-color: #E5EDEF;
 }
