@@ -11,11 +11,33 @@ import pessoas from '../../imgs/Ppessoas.png';
 import livro from '../../imgs/Plivro.png';
 
 import pc from "../../imgs/pc-check.png";
+import tablet from "../../imgs/tablet.png";
+import cell from "../../imgs/cell.png";
+
 import check from "../../imgs/check.png";
 import envia from "../../imgs/enviar-preto.png";
 
 function Home() {
   //TODO passa como propriedades as informações(user) do usuario para os elementos filhos acessarem
+  const [tempo, setTempo] = useState(0);
+  const [control, setControl] = useState(false);
+  const list = { 0: pc, 1: cell, 2: tablet };
+
+  setTimeout(() => {
+    if (tempo == 2) {
+      setTempo(0)
+    } else {
+      setTempo(tempo + 1);
+    }
+    setControl(true);
+  }, 3010);
+
+  useEffect(()=>{
+    if(control){
+      setControl(false);
+    }
+  },[control])
+
   return (
     <div className='HOME'>
       <Header />
@@ -79,7 +101,7 @@ function Home() {
 
         <span className='content-novi'>
           <div className='pc-novi'>
-            <img src={pc} />
+            {!control ? <img src={list[tempo]}/> : null}
           </div>
 
 
@@ -95,12 +117,11 @@ function Home() {
 
         <span className='novi-email'>
           <label htmlFor="email">Insira seu e-mail para receber novidades!</label>
-          <span>          
+          <span>
             <input type="email" id='email' className='email-novi' />
             <img src={envia} id="envia" />
           </span>
         </span>
-        
       </section>
     </div>
   );

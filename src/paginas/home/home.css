@@ -3,6 +3,7 @@
     width: 100vw;
     display: block;
     background: linear-gradient(130deg, #F9FBFB 20%, #B7CED3 80%);
+    padding-bottom: 200px;
 }
 
 .HOME .link{
@@ -88,6 +89,7 @@
     gap: 20px;
     margin-right: 50px;
     margin-left: 50px;
+    animation: sobe-aparece 1s ease;
 }
 
 .catMain{
@@ -137,6 +139,8 @@
     object-fit: fill;
     height: 70%;
     width: 70%;
+
+    animation: pc 3s ease;
 }
 
 .text-novi{
@@ -187,4 +191,31 @@
     height: 25px;
     position: relative;
     right: 30px;
+}
+
+@keyframes sobe-aparece {
+    0% {
+        transform: translateY(200px); opacity: 0;
+    }
+
+    40%{opacity: 0;}
+
+    100% {
+        transform: translateY(0); opacity: 1;
+    }
+}
+
+@keyframes pc {
+    0% {
+        transform: translateX(-400px); opacity: 0;
+    }
+    60% {
+        transform: translateX(0); opacity: 1;
+    }
+    90% {
+        transform: translateX(0); opacity: 1;
+    }
+    100% {
+        transform: translateX(100px); opacity: 0;
+    }
 }
