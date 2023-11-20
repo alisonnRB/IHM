@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2023 at 07:20 AM
+-- Generation Time: Nov 20, 2023 at 04:49 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -32,72 +32,42 @@ CREATE TABLE `chats` (
   `id_user1` int(11) NOT NULL,
   `id_user2` int(11) NOT NULL,
   `texto` varchar(2000) NOT NULL,
-  `tempo` date NOT NULL
+  `tempo` date NOT NULL,
+  `visu` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `chats`
 --
 
-INSERT INTO `chats` (`id`, `id_user1`, `id_user2`, `texto`, `tempo`) VALUES
-(9, 55, 52, 'oi, td bem?', '2023-10-30'),
-(10, 52, 55, 'oi, td sim e com vc?', '2023-10-30'),
-(11, 55, 52, 'ahh, eu to bem', '2023-10-30'),
-(12, 55, 52, 'bom', '2023-10-30'),
-(13, 55, 52, 'n sou bom com assunto', '2023-10-30'),
-(14, 52, 55, 'kkkk eu tbm não', '2023-10-30'),
-(15, 52, 55, 'mas, q faz?', '2023-10-30'),
-(16, 55, 52, 'eu nada, e vc?', '2023-10-30'),
-(17, 52, 55, 'to atoa kkk', '2023-10-30'),
-(18, 52, 55, 'é de onde?', '2023-10-30'),
-(19, 55, 52, 'do cu do mundo', '2023-10-30'),
-(20, 52, 55, 'kskskskks acontece', '2023-10-30'),
-(21, 55, 52, 'e vc? donde eres?', '2023-10-30'),
-(22, 52, 55, 'tbmmm', '2023-10-30'),
-(23, 52, 55, 'ksks oq vc gosta de fazer?', '2023-10-30'),
-(24, 55, 52, 'ah sla, eu gosto de dormir skkssk', '2023-10-30'),
-(25, 55, 52, 'ksksksk e vc?', '2023-10-30'),
-(26, 55, 52, 'ver vc dormir', '2023-10-30'),
-(27, 52, 55, 'eita poha', '2023-10-30'),
-(28, 55, 52, 'brincadeira', '2023-10-30'),
-(29, 52, 55, 'gosto de psicopatas', '2023-10-30'),
-(30, 55, 52, 'uiui que dlç', '2023-10-30'),
-(31, 52, 55, 'vc curte?', '2023-10-30'),
-(32, 55, 52, 'até que curto', '2023-10-30'),
-(33, 55, 52, 'mas tenho medo', '2023-10-30'),
-(34, 55, 52, 'sabe, é estranho', '2023-10-30'),
-(35, 52, 55, 'ahh sla, eu gosto', '2023-10-30'),
-(36, 52, 55, 'BAFOMÉEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE', '2023-10-30'),
-(37, 55, 52, 'SATANN', '2023-10-30'),
-(38, 55, 52, 'CD VOCÊ MEU AMOR', '2023-10-30'),
-(39, 52, 55, 'peraa, uvaa, maçã, salada mistaa', '2023-10-30'),
-(40, 55, 52, 'XUCRUTE', '2023-10-30'),
-(41, 52, 55, 'loloollololol', '2023-10-30'),
-(42, 52, 55, 'CD o TACACÁ', '2023-10-31'),
-(43, 50, 55, 'Mé', '2023-11-09'),
-(44, 50, 52, 'Oi', '2023-11-09'),
-(45, 50, 52, 'Foda né mana', '2023-11-09'),
-(46, 52, 50, 'Oxi', '2023-11-09'),
-(47, 50, 52, 'Mana, ta bugado o trem do tacaca', '2023-11-09'),
-(48, 50, 52, 'Pois ta mulher', '2023-11-09'),
-(49, 50, 55, 'Oxe', '2023-11-09'),
-(50, 52, 50, 'Sla', '2023-11-09'),
-(51, 50, 52, 'Tão ta', '2023-11-09'),
-(52, 55, 50, 'Oi ', '2023-11-09'),
-(53, 50, 55, 'Ola', '2023-11-09'),
-(54, 50, 55, 'Meu chat está funcionando ', '2023-11-09'),
-(55, 55, 50, 'Ó ', '2023-11-09'),
-(56, 50, 55, 'Kkkk', '2023-11-09'),
-(57, 50, 55, 'A', '2023-11-09'),
-(58, 55, 50, '🫡', '2023-11-09'),
-(59, 50, 55, '11', '2023-11-09'),
-(60, 55, 50, '🫡', '2023-11-09'),
-(61, 55, 50, 'Oi', '2023-11-09'),
-(62, 50, 55, 'Oi', '2023-11-09'),
-(63, 55, 50, 'Ta', '2023-11-09'),
-(64, 50, 55, 'Recebeu?', '2023-11-09'),
-(65, 55, 50, 'Oi', '2023-11-09'),
-(66, 50, 55, 'Agr foi?', '2023-11-09');
+INSERT INTO `chats` (`id`, `id_user1`, `id_user2`, `texto`, `tempo`, `visu`) VALUES
+(68, 66, 62, 'ola', '2023-11-19', 1),
+(69, 66, 62, 'td bem?', '2023-11-19', 1),
+(70, 66, 62, 'fazer oq né', '2023-11-19', 1),
+(71, 66, 62, 'mana, n vai responder n??', '2023-11-19', 1),
+(72, 62, 67, 'oi', '2023-11-19', 1),
+(73, 67, 62, 'Olaa', '2023-11-19', 1),
+(74, 66, 62, 'aloooo', '2023-11-19', 1),
+(75, 66, 62, 'q vacuoooo', '2023-11-19', 1),
+(76, 66, 62, 'alrigth', '2023-11-19', 1),
+(77, 62, 67, 'td bem?', '2023-11-19', 1),
+(78, 67, 62, 'Ss e ctg?', '2023-11-19', 1),
+(79, 62, 67, 'kkkk', '2023-11-19', 1),
+(80, 62, 67, 'what you think a bout that', '2023-11-19', 1),
+(81, 67, 62, 'Sla, acho meio estranho as vezes', '2023-11-19', 1),
+(82, 66, 62, 'n vai responder?', '2023-11-19', 1),
+(83, 67, 62, 'Ksks', '2023-11-19', 1),
+(84, 62, 67, 'mas pq?', '2023-11-19', 1),
+(85, 66, 62, 'valeu então', '2023-11-19', 1),
+(86, 66, 67, 'tu é a piranha que ta falando com meu macho?', '2023-11-19', 0),
+(87, 66, 67, 'ei cachorra', '2023-11-19', 0),
+(88, 66, 67, 'em', '2023-11-19', 0),
+(89, 66, 67, 'novaaa', '2023-11-19', 0),
+(90, 66, 62, 'cu', '2023-11-19', 0),
+(91, 66, 62, 'aaaa', '2023-11-19', 0),
+(92, 67, 62, 'Aonde vc ta?', '2023-11-19', 1),
+(93, 67, 62, 'Shit', '2023-11-20', 1),
+(94, 62, 67, 'desculpa, tava ignorando a amane', '2023-11-20', 0);
 
 -- --------------------------------------------------------
 
@@ -292,7 +262,7 @@ INSERT INTO `enquete` (`id`, `titulo`, `quest`, `votos`) VALUES
 (16, 'VC VAI USAR O IHM??', '{\"0\":\"N\\u00c3O\",\"1\":\"NUNCA MAIS\",\"2\":\"S\\u00d3 TAPADO PRA USAR\",\"3\":\"VOU SIM\"}', '{\"0\":2,\"1\":0,\"2\":0,\"3\":1}'),
 (17, '...---...', '{\"0\":\"...---...\",\"1\":\"MLK ESTRANHO\",\"2\":\"\",\"3\":\"\"}', '{\"0\":1,\"1\":2,\"2\":0,\"3\":0}'),
 (18, 'Vc gostou??', '{\"0\":\"Sim\",\"1\":\"N\\u00e3o \",\"2\":\"\",\"3\":\"\"}', '{\"0\":2,\"1\":2,\"2\":0,\"3\":0}'),
-(19, 'Ihl?', '{\"0\":\"Ihl!\",\"1\":\"??\",\"2\":\"\",\"3\":\"\"}', '{\"0\":1,\"1\":3,\"2\":0,\"3\":0}'),
+(19, 'Ihl?', '{\"0\":\"Ihl!\",\"1\":\"??\",\"2\":\"\",\"3\":\"\"}', '{\"0\":1,\"1\":4,\"2\":0,\"3\":0}'),
 (20, 'Morreu?', '{\"0\":\"Sim\",\"1\":\"No\",\"2\":\"\",\"3\":\"\"}', '{\"0\":1,\"1\":2,\"2\":0,\"3\":0}'),
 (21, 'td bem?', '{\"0\":\"ss\",\"1\":\"nn\",\"2\":\"vsfd mlk\",\"3\":\"\"}', '{\"0\":0,\"1\":2,\"2\":1,\"3\":0}');
 
@@ -430,7 +400,7 @@ INSERT INTO `livro_publi` (`id`, `user_id`, `nome`, `imagem`, `tempo`, `genero`,
 (71, 50, 'miguelias', '50_1694899997.jpeg', '2023-10-06', '[\"8\",\"17\"]', '[]', '[]', '<p>é uma história de superação e determinação que segue a jornada de um jovem chamado Miguel. Criado em um bairro difícil, Miguel enfrenta desafios extraordinários em sua busca por um futuro melhor. Inspirado por seu amor pela música e um antigo mistério de família, ele embarca em uma emocionante aventura que o leva a descobertas surpreendentes sobre seu passado e a verdade sobre o poder da perseverança. Miguelhias é uma história cativante sobre sonhos, família e a busca pela identidade.</p>', '', 1, 0, '#e6006f', '', 3, 2, 799),
 (73, 50, 'cachorro do bruno', '50_1694901075.jpeg', '2023-10-03', '[\"2\",\"3\"]', '[]', '[]', '<p>A história de Max, o cachorro do Bruno, é uma aventura repleta de amizade e diversão. Juntos, eles enfrentam desafios e fazem descobertas emocionantes enquanto exploram o mundo à sua maneira única. Uma história cativante sobre a ligação especial entre um homem e seu melhor amigo de quatro patas.</p>', '', 1, 0, '#087F97', '', 1, 2, 16),
 (123, 52, 'eu vou tomar um tacaca', '52_1696611831.jpeg', '2023-10-06', '[\"3\",\"7\",\"14\"]', '{\"1\":\"capitulo Novo\"}', '{\"1\":1}', '', 'livre', 0, 0, '#1a3736', '', 1, 1, 22),
-(124, 52, 'xin', '52_1696611879.jpeg', '2023-10-31', '[\"4\",\"8\"]', '{\"1\":\"BAFOM\\u00c9\"}', '{\"1\":1}', '<p>BAFOMÉEEEEEEEEEEEEEEEEEEE</p>', 'livre', 1, 0, '#700995', '{\"0\":\"BAFOMÉ\",\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\",\"5\":\"\",\"6\":\"\",\"7\":\"\",\"8\":\"\",\"9\":\"\",\"10\":\"\"}', 1, 0, 24),
+(124, 52, 'xin', '52_1696611879.jpeg', '2023-10-31', '[\"4\",\"8\"]', '{\"1\":\"BAFOM\\u00c9\"}', '{\"1\":1}', '<p>BAFOMÉEEEEEEEEEEEEEEEEEEE</p>', 'livre', 1, 0, '#700995', '{\"0\":\"BAFOMÉ\",\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\",\"5\":\"\",\"6\":\"\",\"7\":\"\",\"8\":\"\",\"9\":\"\",\"10\":\"\"}', 1, 0, 26),
 (125, 50, 'urinol', '50_1696699628.jpeg', '2023-10-07', '[\"2\",\"4\",\"15\"]', '{\"1\":\"\\u00e9 sobre isso\"}', '{\"1\":1}', '<p>Este livro explora as experiências e reflexões humanas que ocorrem nos banheiros públicos. De forma inesperada e humorística, ele revela as histórias, pensamentos e situações engraçadas que todos nós enfrentamos nesses espaços compartilhados. Uma leitura divertida que nos faz enxergar o cotidiano de uma maneira única.</p>', 'livre', 1, 0, '#efae1f', '', 3, 3, 132),
 (131, 52, 'cuguy', '52_1697143886.jpeg', '2023-10-12', '[\"3\"]', '[]', '[]', '', 'livre', 0, 0, '#d20f0f', '{\"0\":\"\",\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\",\"5\":\"\",\"6\":\"\",\"7\":\"\",\"8\":\"\",\"9\":\"\",\"10\":\"\"}', 0, 0, 0),
 (145, 55, 'deus está morto', '55_1697644044.jpg', '2023-10-18', '[\"2\",\"8\",\"15\"]', '{\"1\":\"capitulo Novo\",\"2\":\"era\",\"3\":\"capitulo Novo\",\"4\":\"capitulo Velho\"}', '{\"1\":1,\"2\":1,\"3\":1,\"4\":0}', '<p><font style=\"vertical-align: inherit;\"><font style=\"vertical-align: inherit;\">Deus é o karai, deus é o karaiii</font></font></p>', '', 1, 0, '#940896', '{\"0\":\"\",\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\",\"5\":\"\",\"6\":\"\",\"7\":\"\",\"8\":\"\",\"9\":\"\",\"10\":\"\"}', 3, 3, 108),
@@ -440,7 +410,7 @@ INSERT INTO `livro_publi` (`id`, `user_id`, `nome`, `imagem`, `tempo`, `genero`,
 (150, 55, 'xotaaaaaaaaaaaaaaaaaaaaaaaa', '55_1699216234.PNG', '2023-11-05', '[\"12\",\"13\",\"15\"]', '{\"1\":\"capitulo Novo\"}', '[]', '<p>fdgfdg</p>', '', 0, 0, '', '', 0, 0, 0),
 (151, 52, 'Radinho', '52_1699216626.png', '2023-11-05', '[\"6\",\"13\",\"15\"]', '[]', '[]', '<p>&nbsp;Um apos um longo período de assassinatos, voltam a ocorrer crimes q são anunciados em um rádio.</p>', '', 0, 0, '', '', 0, 0, 0),
 (152, 62, 'aaaaa', '62_1700188977.png', '2023-11-16', '[\"5\",\"10\"]', '[]', '[]', '', '152', 0, 0, '', '', 0, 0, 0),
-(153, 62, 'aaaaa', '62_1700188979.png', '2023-11-16', '[\"5\",\"10\"]', '[]', '[]', '', '153', 0, 0, '', '', 0, 0, 4);
+(153, 62, 'aaaaa', '62_1700188979.png', '2023-11-16', '[\"5\",\"10\"]', '[]', '[]', '<p><br></p>', '153', 0, 0, '', '', 0, 0, 4);
 
 -- --------------------------------------------------------
 
@@ -469,7 +439,14 @@ INSERT INTO `seguidores` (`id`, `user_id`, `id_ref`) VALUES
 (94, 56, 50),
 (98, 55, 50),
 (99, 55, 52),
-(102, 62, 50);
+(102, 62, 50),
+(103, 62, 52),
+(104, 66, 62),
+(105, 62, 66),
+(106, 67, 66),
+(107, 67, 62),
+(108, 62, 67),
+(109, 66, 67);
 
 -- --------------------------------------------------------
 
@@ -493,10 +470,12 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `fotoPerfil`, `genero`, `seguidores`) VALUES
 (50, 'alisu', 'alisonkpops@gmail.com', 'minhasenha833', '50_1698866692.jpg', '[\"1\",\"3\",\"4\"]', 4),
-(52, 'BAFOME', 'alisonkpopss@gmail.com', 'minhasenha833', '52_1697671142.jpg', '[\"3\",\"5\",\"6\",\"7\",\"11\",\"13\"]', 3),
+(52, 'BAFOME', 'alisonkpopss@gmail.com', 'minhasenha833', '52_1697671142.jpg', '[\"3\",\"5\",\"6\",\"7\",\"11\",\"13\"]', 4),
 (55, 'miau', 'miau@gmail.com', 'au', '55_1699065339.jpg', '[\"0\",\"3\",\"5\",\"6\",\"9\"]', 3),
 (56, 'Rosenara', 'rosenarabatista03888@gmail.com', 'rose', '56_1699051404.jpg', '[\"6\",\"8\",\"9\"]', 1),
-(62, 'alison', 'krl@gmail.com', '$2y$10$IWiLxTQhUT8giXvJcK4vvOf2eETyFnXrFFhS3v3h2JJFU2AgTT0xi', '', '[\"1\",\"9\",\"11\"]', 0);
+(62, 'alison', 'krl@gmail.com', '$2y$10$IWiLxTQhUT8giXvJcK4vvOf2eETyFnXrFFhS3v3h2JJFU2AgTT0xi', '', '[\"1\",\"9\",\"11\"]', 2),
+(66, 'amane', 'ama@gmail.com', '$2y$10$190WmwwCmmdtyPPMH3XImOgl09PRZGYt2t1Vm7th3LJZOLVAM7y3K', '', '', 2),
+(67, 'Nova', 'nova@gmail.com', '$2y$10$FC690bvAJwMvTKEojx69xOX1gwJCFNen0.T8rohOF6WDU1CgTnUNy', '', '', 2);
 
 -- --------------------------------------------------------
 
@@ -537,7 +516,9 @@ INSERT INTO `votacao` (`id`, `user_id`, `id_ref`, `chave`) VALUES
 (83, 52, 21, 2),
 (86, 55, 21, 1),
 (87, 50, 18, 1),
-(88, 50, 21, 1);
+(88, 50, 21, 1),
+(90, 62, 18, 0),
+(91, 62, 19, 1);
 
 --
 -- Indexes for dumped tables
@@ -619,7 +600,7 @@ ALTER TABLE `votacao`
 -- AUTO_INCREMENT for table `chats`
 --
 ALTER TABLE `chats`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT for table `comentarios`
@@ -667,19 +648,19 @@ ALTER TABLE `livro_publi`
 -- AUTO_INCREMENT for table `seguidores`
 --
 ALTER TABLE `seguidores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `votacao`
 --
 ALTER TABLE `votacao`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
