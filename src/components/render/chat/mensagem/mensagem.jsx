@@ -11,6 +11,8 @@ import api from '../../../../backend/controler/api_chats';
 export default function Mensagem(props) {
   const id = localStorage.getItem('id');
 
+  const [visivel, setVisivel] = useState(false);
+
   const [mensagem, setMensagem] = useState('');
 
   const [messageHistori, setMessageHistori] = useState({});
@@ -26,7 +28,7 @@ export default function Mensagem(props) {
         console.log('recebido');
       }
     },
-    queryParams: { 'id': id },
+    queryParams: { 'id': id, 'for': infos.id },
     onError: (event) => { console.error(event); },
     shouldReconnect: (closeEvent) => true,
     reconnectInterval: 3000
@@ -42,6 +44,7 @@ export default function Mensagem(props) {
   useEffect(() => {
     if (props.selecionado && props.selecionado != 0) {
       setinfos(props.selecionado);
+      setVisivel(true);
     }
   }, [props.selecionado])
 
@@ -62,16 +65,20 @@ export default function Mensagem(props) {
 
       let msgs = messageHistori;
 
-      let obj = {
-        'id_user1': JSON.parse(lastJsonMessage.by),
-        'id_user2': lastJsonMessage.for,
-        'texto': lastJsonMessage.message,
-      };
+      if (lastJsonMessage.code != 500) {
+        let obj = {
+          'id_user1': JSON.parse(lastJsonMessage.by),
+          'id_user2': lastJsonMessage.for,
+          'texto': lastJsonMessage.message,
+          'code': lastJsonMessage.code,
+        };
 
-      msgs[Object.keys(msgs).length] = obj;
-      setMessageHistori(msgs);
-      setNew(!New);
-
+        msgs[Object.keys(msgs).length] = obj;
+        setMessageHistori(msgs);
+        setNew(!New);
+      }else{
+        props.setAtt(true);
+      }
     } else {
       console.log(lastJsonMessage);
     }
@@ -81,7 +88,7 @@ export default function Mensagem(props) {
   const handleEnviarMensagem = (e) => {
     e.preventDefault()
     if (mensagem.trim() !== '') {
-      sendMessage(JSON.stringify({ message: mensagem, for: infos.id, by: id }));
+      sendMessage(JSON.stringify({ message: mensagem, for: infos.id, by: id, code: 0 }));
 
       let msgs = messageHistori;
 
@@ -130,7 +137,7 @@ export default function Mensagem(props) {
   }
 
   return (
-    <div className='mensagem'>
+    <div className='mensagem' style={visivel ? null : {visibility:'hidden'}}>
 
       <span className='perfilMsg'>
         <img src={foto} />

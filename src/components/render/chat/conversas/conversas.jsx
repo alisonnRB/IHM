@@ -10,10 +10,23 @@ import Card from './cardAmigo/cardAmigo';
 export default function Conversas(props) {
   const [amigos, setAmigos] = useState({});
   const [selecionado, setSelecionado] = useState(0);
+  const [att, setAtt] = useState(false);
 
   useEffect(() => {
     Busca();
   }, [])
+ 
+  useEffect(() => {
+    if(props.att){
+      setAtt(true);
+    }
+  }, [props.att]);
+
+  useEffect(()=>{
+    if(!att){
+      props.setAtt(false);
+    }
+  },[att])
 
   useEffect(() => {
     props.setSelecionado(selecionado);
@@ -30,7 +43,7 @@ export default function Conversas(props) {
     const list = [];
 
     for(let i = 0; i<Object.keys(amigos).length;i++){
-      let a = <Card key={i} amigo={amigos[i]} selecionado={selecionado} setSelecionado={setSelecionado}/>;
+      let a = <Card key={i} amigo={amigos[i]} setAtt={setAtt} att={att} selecionado={selecionado} setSelecionado={setSelecionado}/>;
 
       list.push(a);
     }
