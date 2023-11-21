@@ -162,7 +162,7 @@
     }
 }
 
-@media (min-width: 577px) and (max-width: 768px)  {
+@media (min-width: 577px) and (max-width: 768px) and (orientation: portrait){
     /* Estilos para tablets e dispositivos em modo paisagem */
     .enqueteBox{
         height: 60px;
@@ -176,7 +176,7 @@
 }
 
 
-@media (min-width: 768px) and (max-width: 992px) {
+@media (min-width: 768px) and (max-width: 992px) and (orientation: portrait){
     /* Estilos para tablets e dispositivos em modo paisagem */
     .enqueteBox{
         height: 60px;
@@ -188,7 +188,7 @@
         gap: 10%;
     }
 }
-@media (min-width: 993px) and (max-width: 1200px) {
+@media (min-width: 993px) and (max-width: 1200px) and (orientation: portrait){
     .enqueteBox{
         height: 60px;
         width: 520px;
@@ -200,6 +200,43 @@
     }
 }
 
+@media (max-width: 577px) and (orientation: landscape){
+    #cardEnquete{
+        height: 100vh;
+        width: 100vw;
+        display: block;
+        border-radius: 0;
+    }
+    #cancelaEnquete{
+        margin: 10px;
+        height: 40px;
+        width: 40px;
+        position: relative;
+        left: calc(100% - 70px);
+        bottom: 5px;
+    }
+
+    .enqueteBox{
+        height: 60px;
+        width: 70%;
+    }
+    
+    .apagaEn{
+        height: 60px;
+        width: 45px;
+    }
+
+    #pronto{
+        left: 50%;
+    }
+
+    .contentEnquete{
+        height: 70%;
+        display: grid;
+        grid-template-columns: calc(100vw / 4) calc(100vw / 4);
+        gap: 15px;
+    }
+}
 @media (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
  
     #cardEnquete{
@@ -209,8 +246,9 @@
         border-radius: 0;
     }
     #cancelaEnquete{
-        height: 70px;
-        width: 70px;
+        height: 50px;
+        width: 50px;
+        margin: 10px;
         position: relative;
         left: calc(100% - 70px);
         bottom: 5px;
@@ -218,7 +256,7 @@
 
     .enqueteBox{
         height: 60px;
-        width: 75%;
+        width: 70%;
     }
     
     .apagaEn{
@@ -227,12 +265,11 @@
     }
 
     #pronto{
-        left: 70%;
-        top: 20px;
+        left: 60%;
     }
 
     .contentEnquete{
-        height: 75%;
+        height: 70%;
         display: grid;
         grid-template-columns: calc(100vw / 4) calc(100vw / 4);
         gap: 15px;
@@ -249,8 +286,9 @@
         border-radius: 0;
     }
     #cancelaEnquete{
-        height: 70px;
-        width: 70px;
+        height: 50px;
+        width: 50px;
+        margin: 10px;
         position: relative;
         left: calc(100% - 70px);
         bottom: 5px;
@@ -258,7 +296,7 @@
 
     .enqueteBox{
         height: 60px;
-        width: 75%;
+        width: 70%;
     }
     
     .apagaEn{
@@ -272,9 +310,43 @@
     }
 
     .contentEnquete{
-        height: 75%;
+        height: 60%;
         display: grid;
         grid-template-columns: calc(100vw / 4) calc(100vw / 4);
         gap: 15px;
+    }
+}
+@media (min-width: 992px) and (orientation: landscape){
+    #cancelaEnquete{
+        height: 50px;
+        width: 50px;
+        margin: 10px;
+        position: relative;
+        left: calc(100% - 70px);
+        bottom: 5px;
+    }
+
+    .enqueteBox{
+        height: 60px;
+        width: 70%;
+    }
+    
+    .apagaEn{
+        height: 60px;
+        width: 45px;
+    }
+
+    #pronto{
+        position: static;
+        top: 20px;
+    }
+    .contentEnquete{
+        margin-top: 30px;
+        height: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 35px;
     }
 }
