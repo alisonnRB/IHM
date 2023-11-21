@@ -11,13 +11,14 @@ import BtFloat from '../../BtFloat/btFloat.jsx';
 
 export default function Chat() {
   const [selecionado, setSelecionado] = useState(0);
+  const [att, setAtt] = useState(false);
 
   return (
     <div className='chat'>
       <span id='titlePerfil'>CHAT</span>
       <span className='contentMSG'>
-        <Conversas setSelecionado={setSelecionado}/>
-        {selecionado != 0 ? <Mensagem selecionado={selecionado}/> : null}
+        <Conversas setSelecionado={setSelecionado} setAtt={setAtt} att={att}/>
+        <Mensagem selecionado={selecionado} setAtt={setAtt}/>
       </span>
 
       <BtFloat />

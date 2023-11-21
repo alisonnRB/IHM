@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './paginas/home/home.jsx';
-import Login from './paginas/login';
+import Login from './paginas/autenticar/index.jsx';
 import Homepage from './paginas/homepage/homePage.jsx';
 import NovoLivro from './paginas/novoLivro/novoLivro.jsx';
 import Escrever from './paginas/escrever/escrever.jsx';

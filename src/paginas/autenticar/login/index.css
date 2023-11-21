@@ -1,0 +1,64 @@
+.form .form_pass{
+    border-radius: 20px;
+    padding-left: 20px;
+    height: 35px;
+    margin-bottom: 15px;
+}
+
+.form label{
+    margin-left: 20px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form_button{
+    margin-top: 20px;
+    width: 50%;
+    height: 35px;
+    border-radius: 30px;
+    padding: 7px;
+    color: white;
+    font-weight: bold;
+    background-color: #0B6E7D;
+    cursor: pointer;
+}
+
+.form_button.gog{
+    margin-top: 5px;
+    background-color: white;
+    color: #00414A;
+    font-size: .7em;
+}
+.contain-butt{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rec-log{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    margin-top: 15px;
+}
+
+.rec-log #recuperar{
+    cursor: pointer;
+    font-size: .8em;
+    font-weight: bold;
+}
+
+#recuperar:hover{
+    color: #0B6E7D;
+}
+
+.err{
+    color: red;
+    height: 1em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+}

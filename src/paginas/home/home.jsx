@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './home.css';
-
+import { Link } from 'react-router-dom';
 import Header from './header/header.jsx';
 
 import apresentation from '../../imgs/apresentation.png';
@@ -10,14 +10,40 @@ import chat from '../../imgs/Pchat.png';
 import pessoas from '../../imgs/Ppessoas.png';
 import livro from '../../imgs/Plivro.png';
 
+import pc from "../../imgs/pc-check.png";
+import tablet from "../../imgs/tablet.png";
+import cell from "../../imgs/cell.png";
+
+import check from "../../imgs/check.png";
+import envia from "../../imgs/enviar-preto.png";
+
 function Home() {
   //TODO passa como propriedades as informações(user) do usuario para os elementos filhos acessarem
+  const [tempo, setTempo] = useState(0);
+  const [control, setControl] = useState(false);
+  const list = { 0: pc, 1: cell, 2: tablet };
+
+  setTimeout(() => {
+    if (tempo == 2) {
+      setTempo(0)
+    } else {
+      setTempo(tempo + 1);
+    }
+    setControl(true);
+  }, 3010);
+
+  useEffect(()=>{
+    if(control){
+      setControl(false);
+    }
+  },[control])
+
   return (
     <div className='HOME'>
       <Header />
       <section className='apresentation'>
         <img src={apresentation} />
-        <button className="junte">JUNTE-SE A NÓS</button>
+        <Link to='/login' className='link'><button className="junte">JUNTE-SE A NÓS</button></Link>
       </section>
 
       <section className='features'>
@@ -67,6 +93,34 @@ function Home() {
               e comentar nas publicações!
             </p>
           </div>
+        </span>
+      </section>
+
+
+      <section className='novidades'>
+
+        <span className='content-novi'>
+          <div className='pc-novi'>
+            {!control ? <img src={list[tempo]}/> : null}
+          </div>
+
+
+          <div className='text-novi'>
+            <img src={check} />
+            <p>
+              Nossa plataforma se adapta aos<br></br>
+              mais variados tamanhos e tipos de<br></br>
+              tela, sem prejudicar sua experiência!
+            </p>
+          </div>
+        </span>
+
+        <span className='novi-email'>
+          <label htmlFor="email">Insira seu e-mail para receber novidades!</label>
+          <span>
+            <input type="email" id='email' className='email-novi' />
+            <img src={envia} id="envia" />
+          </span>
         </span>
       </section>
     </div>

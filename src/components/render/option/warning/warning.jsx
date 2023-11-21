@@ -33,7 +33,7 @@ export default function Warning(props) {
         if(resposta.ok){
             sessionStorage.clear();
             localStorage.clear();
-            navigate('/IHM/login');
+            navigate('/');
         }else{
             setmessage(resposta.informacoes);
         }
