@@ -400,10 +400,18 @@
     }
 
 }
-@media (min-width: 992px) and (max-width: 1025px){
+@media (min-width: 992px) and (max-width: 1200px){
+    .textPubli {
+        min-height: 45vh;
+        max-height: 45vh;
+    }
     .textoPubli.Com {
-        min-width: 500px;
-        max-width: 500px;
+        min-width: 60vw;
+        max-width: 60vw;
+    }
+    #Publicar {
+        bottom: 0px;
+        right: 2%;
     }
 }
 

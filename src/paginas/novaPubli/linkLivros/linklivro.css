@@ -61,8 +61,8 @@
     height: 80px;
     width: 80px;
     margin-bottom: -80px;
-    left: 95%;
-    bottom: 30px;
+    left: 93%;
+    bottom: 10px;
 }
 
 @media (orientation: portrait) {
@@ -85,6 +85,24 @@
         margin-top: 50px;
     }
 }
+@media (max-width: 577px) and (orientation: landscape){
+    .abaPesquisa{
+        height: 100vh;
+        width: 100vw;
+        border-radius: 0;
+    }
+    #cancelB{
+        margin-bottom: -80px;
+        left: calc(100% - 70px);
+        bottom: 20px;
+        height: 70px;
+        width: 70px;
+    }
+    #cancelB{
+        height: 40px;
+        width: 40px;
+    }
+}
 
 @media (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
     .abaPesquisa{
@@ -99,6 +117,10 @@
         height: 70px;
         width: 70px;
     }
+    #cancelB{
+        height: 40px;
+        width: 40px;
+    }
 }
 @media (min-width: 769px) and (max-width: 992px) and (orientation: landscape) {
     .abaPesquisa{
@@ -112,5 +134,9 @@
         bottom: 20px;
         height: 70px;
         width: 70px;
+    }
+    #cancelB{
+        height: 40px;
+        width: 40px;
     }
 }

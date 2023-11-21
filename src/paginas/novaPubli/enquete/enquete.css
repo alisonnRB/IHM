@@ -27,7 +27,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 50px;
 }
 
 .enqueteBox{
@@ -85,7 +85,7 @@
     width: 50px;
     position: relative;
     left: 93%;
-    bottom: px;
+    bottom: -20px;
 }
 
 .cancelIMG{
@@ -316,7 +316,7 @@
         gap: 15px;
     }
 }
-@media (min-width: 992px) and (orientation: landscape){
+@media (min-width: 992px) and (max-width: 1200px) and (orientation: landscape){
     #cancelaEnquete{
         height: 50px;
         width: 50px;
@@ -347,6 +347,15 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 35px;
+        gap: 8%;
+    }
+
+    .apagaEn{
+        height: 100%;
+        width: 5vw;
+    }
+    .enqueteBox{
+        height: 60px;
+        width: 45vw;
     }
 }
