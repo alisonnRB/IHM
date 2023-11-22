@@ -94,7 +94,7 @@ export default function Ler() {
 
     useEffect(() => {
         const idLivroG = new URLSearchParams(location.search).get('id');
-        setIdLivro(idLivroG);
+        setIdLivro(JSON.parse(idLivroG));
         if (idLivroG) {
             fetch('http://192.168.255.193/server/visus.php', {
               method: 'POST', // Use POST para atualizar o servidor

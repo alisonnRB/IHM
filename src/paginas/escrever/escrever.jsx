@@ -187,7 +187,7 @@ export default function Escreve() {
 
     useEffect(() => {
         const idLivroG = new URLSearchParams(location.search).get('id');
-        setIdLivro(idLivroG);
+        setIdLivro(JSON.parse(idLivroG));
     }, []);
 
     useEffect(() => {
