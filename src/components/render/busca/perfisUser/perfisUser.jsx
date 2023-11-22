@@ -92,7 +92,7 @@ export default function User() {
 
     useEffect(() => {
         const idUsers = new URLSearchParams(location.search).get('id');
-        setIdUser(JSON.parse(idLivroG));
+        setIdUser(JSON.parse(idUsers));
     }, []);
 
     useEffect(() => {
