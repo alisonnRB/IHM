@@ -115,9 +115,12 @@ export default function Card(props) {
 
   }
 
+
   const gera_enquete = () => {
     const list = [];
     let en = JSON.parse(enquete.quest);
+
+
 
     for (let i = 0; i < Object.keys(en).length; i++) {
       if (votado) {
@@ -205,7 +208,7 @@ export default function Card(props) {
             <div className='publiText' style={!link || link == undefined && !enquete || enquete == undefined ? { fontSize: '2.3em' } : null}>
               {texto != '' ? texto : '...'}
             </div>
-            {enquete && enquete != undefined ?
+            {enquete && enquete != undefined && enquete.quest ?
               <div className='enquetePubli'>
                 <span className='enqueteTitle'>{enquete.titulo}</span>
                 <div className='enquet'>

@@ -103,6 +103,9 @@ export default function Comentarios(props) {
     }, [props.curtidas, infos]);
 
     useEffect(() => {
+        if(infos['curtidas'] && typeof infos['curtidas'] != "number"){
+            infos['curtidas'] = JSON.parse(infos['curtidas']);
+        }
         if (curt === 1) {
             let a = infos['curtidas'];
             if (statInit) {

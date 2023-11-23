@@ -83,15 +83,19 @@ export default function Comentarios(props) {
         const response = await apiBusca.enviar(props.idLivro, props.tipo);
         if (response.ok) {
             setComentarios(response.informacoes);
+
+            console.log(comentarios);
         }
     }
 
     const GeraComents = () => {
         const list = [];
         let quant = Object.keys(comentarios).length;
+        console.log(quant);
 
         for (let i = 0; i < quant; i++) {
-            if (!comentarios[i].resposta) {
+            if (comentarios[i].resposta == 0) {
+                console.log('vim')
                 let a = <span className="comentaP"><Card
                     rest={rest}
                     setConversa={setConversa}
