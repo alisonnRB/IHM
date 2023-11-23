@@ -272,7 +272,7 @@ export default function Escreve() {
             <div id="content-aba">
 
                 <div className={`caixa-aba ${fecharAba}`}>
-                    <span><Link className="link" to={`/perfil/MeusLivros/escreva/editar?id=${encodeURIComponent(idLivro)}`}><img src={config} /></Link></span>
+                    <span><Link className="link" to={`/IHM/perfil/MeusLivros/escreva/editar?id=${encodeURIComponent(idLivro)}`}><img src={config} /></Link></span>
 
                     <span className="boxNAME">
                         {info.nome}
