@@ -107,7 +107,7 @@ function CardPessoa(props) {
             <span className="cardPessoa">
                 <div id="perfilPessoa">
                     <Link className="Link" to={id != user.id ? `/IHM/Busca/user?id=${encodeURIComponent(JSON.stringify(user.id))}` : '/perfil'}>
-                        <img src={user && user.fotoPerfil ? `${'http://192.168.255.193/imagens/' + user.fotoPerfil}` : ""} />
+                        <img src={user && user.fotoPerfil ? `${'http://192.168.255.56/imagens/' + user.fotoPerfil}` : ""} />
                     </Link>
                 </div>
 

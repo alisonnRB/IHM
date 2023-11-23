@@ -14,7 +14,7 @@ export default function CardLink(props) {
 
     useEffect(() => {
         if (livro && livro.imagem) {
-            setFoto("http://192.168.255.193/livros/" + livro.user_id + '/' + livro.nome + '_' + livro.id + '/' + livro.imagem);
+            setFoto("http://192.168.255.56/livros/" + livro.user_id + '/' + livro.nome + '_' + livro.id + '/' + livro.imagem);
         }
     }, [livro]);
 
