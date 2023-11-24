@@ -96,7 +96,7 @@ export default function Ler() {
         const idLivroG = new URLSearchParams(location.search).get('id');
         setIdLivro(JSON.parse(idLivroG));
         if (idLivroG) {
-            fetch('http://192.168.255.56/server/visus.php', {
+            fetch('http://localhost/server/visus.php', {
               method: 'POST', // Use POST para atualizar o servidor
               headers: {
                 'Content-Type': 'application/json',
@@ -114,7 +114,7 @@ export default function Ler() {
 
     useEffect(() => {
         if (infos && infos != '') {
-            setFoto("http://192.168.255.56/imagens/" + infos.fotoPerfil);
+            setFoto("http://localhost/imagens/" + infos.fotoPerfil);
         }
     }, [infos]);
 

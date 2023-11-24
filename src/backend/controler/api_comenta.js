@@ -18,6 +18,7 @@ export default {
             idResposta: idResposta,
             conversa: conversa,
         };
+        console.log(user)
 
         let requisição = {
             method: 'POST',
@@ -29,7 +30,7 @@ export default {
 
         //TODO faz a requisição
         //! coloque o seu ip alii
-        const response = await fetch('http://192.168.255.56/server/comenta.php', requisição);
+        const response = await fetch('http://localhost/server/comenta.php', requisição);
 
         //TODO espera a resposta do servidor e armazena para retornar ao cliente
         const data = await response.json(); //* aguarda um resposta json

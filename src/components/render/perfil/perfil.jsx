@@ -71,7 +71,7 @@ function Perfil() {
       }
       setName(infos.nome);
       if (infos.fotoPerfil) {
-        setPerfil("http://192.168.255.56/imagens/" + infos.fotoPerfil);
+        setPerfil("http://localhost/imagens/" + infos.fotoPerfil);
       }
       if (infos.seguidores) {
         const seguidores = JSON.parse(infos.seguidores);

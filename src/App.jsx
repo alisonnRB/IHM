@@ -11,12 +11,49 @@ import Publi from './paginas/novaPubli/novaPubli.jsx';
 import PrivateRoute from './privateRoute';
 import './App.css';
 
+//!contiuar a partir da edição dos dados do livro
 const themes = {
    dark: {
-      '--header-bg': 'black',
+      '--header-bg': '#041114',
+      '--background':'#191F27',
+      '--barra':'#010809',
+      '--genero':'#00414A',
+      '--letra':'#FFFFFF',
+      '--caixafeed':'#000000',
+      '--enquetevazio':'#FFFFFF',
+      '--chat-bg':'#023034',
+      '--shadow-contato':'#00647E',
+      '--shadow-contato1':'#7EA7AB',
+      '--info-contato':'#00414A',
+      '--balao-envia-msg':'#FFFFFF',
+      '--envia-msg':'#000000',
+      '--barra-busca':'#131314', 
+      '--balão-filtro':'#1B2532',
+      '--selecionar-filtro':'#01181B',
+      '--escreve-book-bg':'#051012',
+      '--deleta-cap':'#000000',
+
+      
    },
    light: {
       '--header-bg': '#B7CFD3',
+      '--background':'#FFFFFF',
+      '--barra':'#EEF7FF',
+      '--genero':'#74ABBB',
+      '--letra':'#000000',
+      '--caixafeed':'#EBF8FF',
+      '--enquetevazio':'#000000',
+      '--chat-bg':'#7EA7AB',
+      '--shadow-contato':'#3CDBB4',
+      '--shadow-contato1':'#B7CED3',
+      '--info-contato':'#5CA5B2',
+      '--balao-envia-msg':'#022F39',
+      '--envia-msg':'#FFFFFF',
+      '--barra-busca':'#F0F8FF',
+      '--balão-filtro':'#F0F8FF',
+      '--selecionar-filtro':'#CFFBFF',
+      '--escreve-book-bg':'#FFFFFF',
+      '--deleta-cap':'#F5F5F5',
    },
 };
 
