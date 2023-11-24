@@ -23,7 +23,7 @@ export default {
       body: JSON.stringify(user),
     };
 
-    const response = await fetch('http://192.168.255.56/server/DellCap.php', requisição);
+    const response = await fetch('http://localhost/server/DellCap.php', requisição);
 
     const data = await response.json();
     if (data.informacoes == "não autorizado") {

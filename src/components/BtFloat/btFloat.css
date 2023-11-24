@@ -141,7 +141,7 @@
 }
 
 
-@media (max-width: 576px) {
+@media (max-width: 576px){
 
     /* Estilos para dispositivos com largura máxima de 576px (ex: smartphones em modo retrato) */
     .fab {
@@ -180,6 +180,19 @@
     .fab ul li label {
         display: none;
     }
+
+}
+@media (max-width: 576px) and (orientation: landscape){
+ 
+    .fab button.main {
+        right: -455px;
+    }
+
+    .fab ul {
+        right: -447px;
+        bottom: -10px;
+    }
+
 
 }
 
@@ -222,9 +235,6 @@
     .fab ul li label {
         display: none;
     }
-
-
-
 }
 
 @media (min-width: 577px) and (max-width: 768px) and (orientation: landscape){
