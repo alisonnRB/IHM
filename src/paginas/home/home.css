@@ -193,6 +193,12 @@
     right: 30px;
 }
 
+@media (orientation: portrait){
+    
+}
+
+@media (orientation: landscape){}
+
 @keyframes sobe-aparece {
     0% {
         transform: translateY(200px); opacity: 0;
