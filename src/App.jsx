@@ -11,7 +11,6 @@ import Publi from './paginas/novaPubli/novaPubli.jsx';
 import PrivateRoute from './privateRoute';
 import './App.css';
 
-//!contiuar a partir da edição dos dados do livro
 const themes = {
    dark: {
       '--header-bg': '#041114',
@@ -32,7 +31,21 @@ const themes = {
       '--selecionar-filtro':'#01181B',
       '--escreve-book-bg':'#051012',
       '--deleta-cap':'#000000',
-
+      '--genero-edita-livro':'#00414A',
+      '--card-edita-livro':'#000000',
+      '--config-edita':'#FFFFFF',
+      '--header-edita-livro':'#06333C',
+      '--header-edita-livro1':'#5C848A',
+      '--fracao-edit-livro':'#7EA7AB',
+      '--tags-bg':'#00414A',
+      'botao-tag':'#05323C',
+      '--botao-publi':'#1E7F96',
+      '--publi-enquete':'#010F10',
+      '--publi-enquete1':'#000000',
+      '--box-publi-livro':'#031C22',
+      'botão-config':'#023440',
+      'sair-conta':'#05323C',
+      'exclui-conta':'#FF3131',
       
    },
    light: {
@@ -54,6 +67,22 @@ const themes = {
       '--selecionar-filtro':'#CFFBFF',
       '--escreve-book-bg':'#FFFFFF',
       '--deleta-cap':'#F5F5F5',
+      '--genero-edita-livro':'#087F97',
+      '--card-edita-livro':'#BACFD1',
+      '--header-edita-livro':'#688DED',
+      '--header-edita-livro1':'#BACFD1',
+      '--fracao-edit-livro':'#BACFD1',
+      '--tags-bg':'#087F97',
+      'botao-tag':'#688DED',
+      '--botao-publi':'#00647E',
+      '--publi-enquete':'#CDFFD8',
+      '--publi-enquete1':'#CCD7ED',
+      '--box-publi-livro':'#FFFFFF',
+      'botão-config':'#EBECF0',
+      'sair-conta':'#5CA5B2',
+      'exclui-conta':'FF7070',
+
+      
    },
 };
 
