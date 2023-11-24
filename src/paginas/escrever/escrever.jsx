@@ -187,7 +187,7 @@ export default function Escreve() {
 
     useEffect(() => {
         const idLivroG = new URLSearchParams(location.search).get('id');
-        setIdLivro(idLivroG);
+        setIdLivro(JSON.parse(idLivroG));
     }, []);
 
     useEffect(() => {
@@ -272,7 +272,7 @@ export default function Escreve() {
             <div id="content-aba">
 
                 <div className={`caixa-aba ${fecharAba}`}>
-                    <span><Link className="link" to={`/perfil/MeusLivros/escreva/editar?id=${encodeURIComponent(idLivro)}`}><img src={config} /></Link></span>
+                    <span><Link className="link" to={`/IHM/perfil/MeusLivros/escreva/editar?id=${encodeURIComponent(idLivro)}`}><img src={config} /></Link></span>
 
                     <span className="boxNAME">
                         {info.nome}
@@ -282,7 +282,7 @@ export default function Escreve() {
 
                         <div className="boxIMG">
                             <img id="classifica" src={visuClass} />
-                            <img src={`http://10.1.1.211/livros/${id}/${info.nome}_${info.id}/${info.imagem}`} />
+                            <img src={`http://localhost/livros/${id}/${info.nome}_${info.id}/${info.imagem}`} />
                         </div>
 
                         <div className="boxGEN">

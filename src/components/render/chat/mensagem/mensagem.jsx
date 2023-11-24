@@ -21,7 +21,7 @@ export default function Mensagem(props) {
   const [infos, setinfos] = useState('');
   const [foto, setFoto] = useState('');
 
-  const { lastJsonMessage, sendMessage } = useWebSocket('ws://10.1.1.211:8080', {
+  const { lastJsonMessage, sendMessage } = useWebSocket('ws://localhost:8080', {
     onOpen: () => console.log('a'),
     onMessage: () => {
       if (lastJsonMessage) {
@@ -56,7 +56,7 @@ export default function Mensagem(props) {
 
   useEffect(() => {
     if (typeof infos.fotoPerfil == "string") {
-      setFoto("http://10.1.1.211/imagens/" + infos.fotoPerfil);
+      setFoto("http://localhost/imagens/" + infos.fotoPerfil);
     }
   }, [infos.fotoPerfil]);
 

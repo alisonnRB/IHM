@@ -92,7 +92,7 @@ export default function User() {
 
     useEffect(() => {
         const idUsers = new URLSearchParams(location.search).get('id');
-        setIdUser(idUsers);
+        setIdUser(JSON.parse(idUsers));
     }, []);
 
     useEffect(() => {
@@ -107,7 +107,7 @@ export default function User() {
             }
             setName(infos.nome);
             if (infos.fotoPerfil) {
-                setPerfil("http://10.1.1.211/imagens/" + infos.fotoPerfil);
+                setPerfil("http://localhost/imagens/" + infos.fotoPerfil);
             }
 
         }

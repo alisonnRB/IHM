@@ -94,9 +94,9 @@ export default function Ler() {
 
     useEffect(() => {
         const idLivroG = new URLSearchParams(location.search).get('id');
-        setIdLivro(idLivroG);
+        setIdLivro(JSON.parse(idLivroG));
         if (idLivroG) {
-            fetch('http://10.1.1.211/server/visus.php', {
+            fetch('http://localhost/server/visus.php', {
               method: 'POST', // Use POST para atualizar o servidor
               headers: {
                 'Content-Type': 'application/json',
@@ -114,7 +114,7 @@ export default function Ler() {
 
     useEffect(() => {
         if (infos && infos != '') {
-            setFoto("http://10.1.1.211/imagens/" + infos.fotoPerfil);
+            setFoto("http://localhost/imagens/" + infos.fotoPerfil);
         }
     }, [infos]);
 
@@ -208,7 +208,7 @@ export default function Ler() {
             </div>
 
             <div className="infosAutor">
-                <Link to={id != infos.id ? `/Busca/user?id=${encodeURIComponent(JSON.stringify(infos.id))}` : '/perfil'}><img id="perfil" src={foto} style={{ border: 'solid 4px' + cor }} /></Link>
+                <Link to={id != infos.id ? `/IHM/Busca/user?id=${encodeURIComponent(JSON.stringify(infos.id))}` : '/IHM/perfil'}><img id="perfil" src={foto} style={{ border: 'solid 4px' + cor }} /></Link>
                 <p>{infos.nome && infos.nome != '' ? infos.nome : Uword.autor}</p>
                 {id != userId ? <div className="btSeguir" style={{ backgroundColor: cor }} onClick={() => { seguir(); setSeguido(!seguido) }} >{seguido ? Uword.seguindo : Uword.seguir}</div> : null}
             </div>

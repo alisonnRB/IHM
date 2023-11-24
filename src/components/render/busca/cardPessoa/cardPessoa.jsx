@@ -69,7 +69,7 @@ function CardPessoa(props) {
     useEffect(() => {
         if (countS === 1) {
             if (segue) {
-                setSeguidores(seguidores + 1);
+                setSeguidores(parseInt(seguidores) + 1);
             }
             else {
                 setSeguidores(seguidores - 1);
@@ -106,13 +106,13 @@ function CardPessoa(props) {
         <span className="BoxCardPessoas">
             <span className="cardPessoa">
                 <div id="perfilPessoa">
-                    <Link className="Link" to={id != user.id ? `/IHM/Busca/user?id=${encodeURIComponent(JSON.stringify(user.id))}` : '/perfil'}>
-                        <img src={user && user.fotoPerfil ? `${'http://192.168.255.193/imagens/' + user.fotoPerfil}` : ""} />
+                    <Link className="Link" to={id != user.id ? `/IHM/Busca/user?id=${encodeURIComponent(JSON.stringify(user.id))}` : '/IHM/perfil'}>
+                        <img src={user && user.fotoPerfil ? `${'http://localhost/imagens/' + user.fotoPerfil}` : ""} />
                     </Link>
                 </div>
 
                 <div className="infosPessoa">
-                    <Link className="Link" to={id != user.id ? `/IHM/Busca/user?id=${encodeURIComponent(JSON.stringify(user.id))}` : '/perfil'}>
+                    <Link className="Link" to={id != user.id ? `/IHM/Busca/user?id=${encodeURIComponent(JSON.stringify(user.id))}` : '/IHM/perfil'}>
                         <span className="nomePessoa">{`@${user.nome}`}</span>
                     </Link>
                     <span className="catPessoa">

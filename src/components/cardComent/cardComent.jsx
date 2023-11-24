@@ -103,6 +103,9 @@ export default function Comentarios(props) {
     }, [props.curtidas, infos]);
 
     useEffect(() => {
+        if(infos['curtidas'] && typeof infos['curtidas'] != "number"){
+            infos['curtidas'] = JSON.parse(infos['curtidas']);
+        }
         if (curt === 1) {
             let a = infos['curtidas'];
             if (statInit) {
@@ -169,7 +172,7 @@ export default function Comentarios(props) {
 
     useEffect(() => {
         if (typeof user.fotoPerfil == "string") {
-            setFoto("http://10.1.1.211/imagens/" + user.fotoPerfil);
+            setFoto("http://localhost/imagens/" + user.fotoPerfil);
         }
     }, [user.fotoPerfil]);
 

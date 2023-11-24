@@ -177,7 +177,7 @@ export default function NovoLivro() {
     useEffect(() => {
         setGen(info.genero);
         if (id && info.nome && info.imagem) {
-            const foto = "http://10.1.1.211/livros/" + id + "/" + info.nome + '_' + info.id + '/' + info.imagem;
+            const foto = "http://localhost/livros/" + id + "/" + info.nome + '_' + info.id + '/' + info.imagem;
             setImagePreview(foto);
         }
         setNome(info.nome);
