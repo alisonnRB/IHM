@@ -12,10 +12,10 @@
 
 .TelaBusca .boxLivros #searchText {
     width: 74%;
+    background-color: var(--barra-busca);
 }
 
 .TelaBusca .searchUSER {
-
     height: 100px;
     width: 100%;
     display: flex;
@@ -76,6 +76,10 @@
 .cardPessoa .infosPessoa .nomePessoa {
     height: 40%;
     align-items: center;
+}
+
+#searchImg.dark{
+    background-image: url('../../../imgs/lupa-dark.png');
 }
 
 .cardPessoa .infosPessoa .catPessoa {

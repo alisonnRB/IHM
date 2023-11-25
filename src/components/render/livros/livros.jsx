@@ -189,7 +189,7 @@ export default function Livros() {
             <div id='pesquisa'>
                 <span className='boxLivros'>
                     <input type='text' id='searchText' placeholder={Uword.buscar} value={nome} onChange={(e) => { setNome(e.target.value); Busca(); }} />
-                    <div id='searchImg'></div>
+                    <div id='searchImg' className={`${theme == 'light' ? '' : 'dark'}`}></div>
                 </span>
 
                 <div className='filtros'>

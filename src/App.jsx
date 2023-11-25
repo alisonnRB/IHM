@@ -53,6 +53,7 @@ const themes = {
       '--slideCor2': '#0c4550',
       '--slideCor3': '#00414A',
       '--hover-barra': '#215358',
+      '--shadow-search': 'transparent'
       
    },
    light: {
@@ -95,6 +96,7 @@ const themes = {
       '--slideCor2': '#7eaeb8',
       '--slideCor3': '#13505C',
       '--hover-barra': '#85B2B7',
+      '--shadow-search': '#BACFD2'
    },
 };
 

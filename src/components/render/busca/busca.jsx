@@ -67,7 +67,7 @@ export default function Busca() {
             <span id='titlePerfil' className={`${theme == 'light' ? null : 'dark'}`}>{Uword.title}</span>
             <span className='boxLivros'>
                 <input type='text' id='searchText' placeholder={Uword.buscar} value={pesquisa} onChange={(e) => { setPesquisa(e.target.value) }} />
-                <div id='searchImg'></div>
+                <div id='searchImg' className={`${theme == 'light' ? '' : 'dark'}`}></div>
             </span>
             <div className="pessoasBOX">
 

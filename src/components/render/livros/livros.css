@@ -29,25 +29,33 @@
     width: 75px;
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
-    background-color: #EBECF0;
+    background-color: var(--barra-busca);
     cursor: pointer;
     background-image: url('../../../imgs/lupa.png');
     background-size: 55% 55%;
     background-repeat: no-repeat;
     background-position: 50%;
-    box-shadow: 0px 0px 10px 0px #BACFD2;
+    box-shadow: 0px 0px 10px 0px var(--shadow-search);
 
 }
 
+#searchImg.dark{
+    background-image: url('../../../imgs/lupa-dark.png');
+}
+
 .boxLivros #searchText {
-    box-shadow: 0px 0px 10px 0px #BACFD2;
+    box-shadow: 0px 0px 10px 0px  var(--shadow-search);
     height: 60%;
     width: 80%;
     padding-left: 1em;
-    background-color: #EBECF0;
+    background-color: var(--barra-busca);
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
     font-weight: bold;
+}
+
+#searchText::placeholder{
+    color: var(--letra);
 }
 
 .filtros {
