@@ -6,12 +6,14 @@ import { useState, useEffect } from "react";
 import api from '../../backend/controler/api_info';
 import curtida from '../../backend/controler/api_curtir';
 import like from '../../imgs/like.png';
+import likeD from '../../imgs/like-dark.png';
 import enviar from '../../imgs/enviar.png';
 
 
 import words from './cardComent.json';
 
 export default function Comentarios(props) {
+    const [theme, setTheme] = useState('light');
     const [infos, setInfos] = useState('');
     const [data, setData] = useState('');
     const [dataTime, setDataTime] = useState('');
@@ -38,6 +40,10 @@ export default function Comentarios(props) {
 
     useEffect(() => {
         select_idioma();
+        let a = localStorage.getItem('tema');
+        if(a){
+            setTheme(a);
+        }
     }, [])
 
     const select_idioma = () => {
@@ -227,7 +233,7 @@ export default function Comentarios(props) {
 
                 <div className="btsCurti" >
                     <div className={`boxDEimg ${curtido ? 'c' : ''}`} style={style}>
-                        <img src={like} className={`core`} onClick={() => { curtir(); setCurt(1); setAuxCurt(!auxCurti); }} onMouseEnter={() => {
+                        <img src={theme == 'light' ? like : likeD} className={`core`} onClick={() => { curtir(); setCurt(1); setAuxCurt(!auxCurti); }} onMouseEnter={() => {
                             if (typeof window.ontouchstart === "undefined") {
                                 setHover(true);
                             }
