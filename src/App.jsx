@@ -48,6 +48,9 @@ const themes = {
       '--botão-config':'#023440',
       '--sair-conta':'#05323C',
       '--exclui-conta':'#FF3131',
+      '--slideCor1': '#13505C',
+      '--slideCor2': '#0c4550',
+      '--slideCor3': '#00414A',
       
    },
    light: {
@@ -85,7 +88,9 @@ const themes = {
       '--botão-config':'#EBECF0',
       '--sair-conta':'#5CA5B2',
       '--exclui-conta':'#FF7070',
-
+      '--slideCor1': '#BACFD2',
+      '--slideCor2': '#7eaeb8',
+      '--slideCor3': '#13505C',
       
    },
 };
