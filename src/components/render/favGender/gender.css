@@ -12,10 +12,11 @@
     justify-content: space-around;
     height: 10%;
     width: 100%;
+    color: var(--letra);
 }
 #boxTittleGender p:last-child{
     font-size: 1em;
-    color: #3392a6;
+    color: var(--letra-g);
 }
 #boxTittleGender P{
     font-size: 1.7em;
@@ -32,7 +33,7 @@
     height: 90px;
     width: 100px;
     margin-top: 3%;
-    background-image: url('../../../imgs/submitGender.jpeg');
+    background-image: url('../../../imgs/submitGender.png');
     background-size: cover;
 }
 
@@ -40,7 +41,7 @@
     cursor: pointer;
     color: white;
     font-size: 1.3em;
-    background-color: var(--genero);
+    background-color: #3392A6;
     height: 58%;
     width: 80%;
 }

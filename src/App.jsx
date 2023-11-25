@@ -19,6 +19,7 @@ const themes = {
       '--barra':'#010809',
       '--genero':'#00414A',
       '--letra-p':'#000000',
+      '--letra-g': '#FFFFFF',
       '--letra':'#FFFFFF',
       '--caixafeed':'#000000',
       '--enquetevazio':'#FFFFFF',
@@ -51,6 +52,7 @@ const themes = {
       '--slideCor1': '#13505C',
       '--slideCor2': '#0c4550',
       '--slideCor3': '#00414A',
+      '--hover-barra': '#215358',
       
    },
    light: {
@@ -60,6 +62,7 @@ const themes = {
       '--barra':'#EEF7FF',
       '--genero':'#74ABBB',
       '--letra-p':'#FFFFFF',
+      '--letra-g': '#3392a6',
       '--letra':'#000000',
       '--caixafeed':'#EBF8FF',
       '--enquetevazio':'#000000',
@@ -91,7 +94,7 @@ const themes = {
       '--slideCor1': '#BACFD2',
       '--slideCor2': '#7eaeb8',
       '--slideCor3': '#13505C',
-      
+      '--hover-barra': '#85B2B7',
    },
 };
 

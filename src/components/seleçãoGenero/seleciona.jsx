@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import api from '../../backend/controler/api_gender';
 
 export default function SelecionaGeneros(props) {
+    const [theme, setTheme] = useState('light');
     const [genero, setgenero] = useState('...');
     const [selecionados, setSelecionado] = useState({
         0: false,
@@ -54,6 +55,10 @@ export default function SelecionaGeneros(props) {
 
     useEffect(() => {
         Busca();
+        let a = localStorage.getItem('tema');
+        if(a){
+            setTheme(a);
+        }
     }, []);
 
     function selecao(index) {
@@ -94,7 +99,7 @@ export default function SelecionaGeneros(props) {
 
     const gen = document.getElementsByClassName('gender');
     for (let i = 0; i < gen.length; i++) {
-        gen[i].style.backgroundColor = selecionados[i] ? '#3392a6' : '';
+        gen[i].style.backgroundColor = selecionados[i] ? theme == 'light' ? '#3392a6' : '#00414A'  : '';
         gen[i].style.color = selecionados[i] ? 'white' : '';
     }
 

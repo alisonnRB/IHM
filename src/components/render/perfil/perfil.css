@@ -50,6 +50,10 @@
 
 }
 
+.numS{
+    color: var(--letra);
+}
+
 #titleGen,
 #titleLivro {
     color: var(--letra);

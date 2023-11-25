@@ -163,7 +163,7 @@ return (
         </div>
         <img className='edit' src={theme == 'light' ? edit : editD} alt='Editar' onClick={() => setEdita(true)} />
       </span>
-      <span><img id='medalha' src={medalha} />{seguidoresS}</span>
+      <span className='numS'><img id='medalha' src={medalha} />{seguidoresS}</span>
     </section>
 
     {edita && <Edicao fecharEdicao={fecharEdicao} user={infos.nome} ft={Perfil} />}

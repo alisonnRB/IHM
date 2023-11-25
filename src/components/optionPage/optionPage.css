@@ -23,7 +23,7 @@
 }
 
 .optionP:hover {
-    background-color: #85B2B7;
+    background-color: var(--hover-barra);
 
 }
 
