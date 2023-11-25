@@ -1,5 +1,5 @@
 .chat{
-    background-color: #1E7489;
+    background-color: var(--chat-bg);
     height: 100vh;
 }
 

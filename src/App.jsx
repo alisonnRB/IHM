@@ -55,8 +55,9 @@ const themes = {
       '--hover-barra': '#215358',
       '--shadow-search': 'transparent',
       '--shadow-select': 'transparent',
-      '--card-livro': '#2E3136',
+      '--shadow-feed': "transparent",
       '--shadow-card': '#2e313677',
+      '--card-livro': '#2E3136',
    },
    light: {
       '--header-bg': '#B7CFD3',
@@ -102,6 +103,7 @@ const themes = {
       '--shadow-select': '#BACFD2',
       '--shadow-card': '#2e313677',
       '--card-livro': '#f5f5f5',
+      '--shadow-feed': "#d0e0e9c8",
    },
 };
 
