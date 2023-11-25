@@ -4,8 +4,6 @@ import './card.css';
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import teste from "../../../imgs/x.jpeg";
-
 import api from "../../../backend/controler/api_info";
 import apiL from "../../../backend/controler/api_InfosLivro";
 
@@ -29,7 +27,7 @@ export default function Card(props) {
             if (resposta.ok) {
                 setUser(resposta.informacoes);
             }
-        } else if (infos.tipo == 'curtidas') {
+        } else if (infos.tipo == 'curtidas-livro' || infos.tipo == 'curtidas-coment' || infos.tipo == 'curtidas-publi' || infos.tipo == "curtidas-Pcoment") {
             const resposta = await api.enviar(infos.info.id_user);
             if (resposta.ok) {
                 setUser(resposta.informacoes);
@@ -43,28 +41,25 @@ export default function Card(props) {
             const resposta = await apiL.enviar(infos.info.id_livro);
             if (resposta.ok) {
                 setUser(resposta.informacoes);
-                console.log(resposta.informacoes)
             }
-        } 
+        }
 
     }
 
     const Action = () => {
         switch (infos.tipo) {
             case 'seguidores':
-                return 'Começou a seguir você';
-            case 'curtidas':
-                if (infos.info.tipo == 'livro' && infos.info.coment == 0) {
-                    return 'Curtiu seu Livro!';
-                } else if (infos.info.tipo == 'livro' && infos.info.coment != 0) {
-                    return 'Curtiu seu comentario em um livro!';
-                } else if (infos.info.tipo == 'publi' && infos.info.coment == 0) {
-                    return 'Curtiu sua publicação!';
-                } else if (infos.info.tipo == 'publi' && infos.info.coment != 0) {
-                    return 'Curtiu seu comentario em uma publicação!';
-                }
+                return 'Começou a seguir você!';
+            case 'curtidas-livro':
+                return "curtiu seu livro!";
             case "livros-coment":
                 return "Comentou no seu Livro!";
+            case "curtidas-coment":
+                return "Curtiu seu Comentario em um livro!";
+            case "curtidas-publi":
+                return "Curtiu sua Publicação!";
+            case "curtidas-Pcoment":
+                return "Curtiu seu Comentario em uma Publição!";
             case "coment-coment":
                 return "Respondeu seu comentario!";
             case "publi":
@@ -78,7 +73,15 @@ export default function Card(props) {
 
     return (
         <span className="not-card">
-            <Link id="linky"><img src={infos.tipo == 'favoritos' ?  "http://192.168.255.56/livros/" + user.user_id + '/' + user.nome + '_' + user.id + '/' + user.imagem :  `http://192.168.255.56/imagens/` + user.fotoPerfil} /></Link>
+            <Link id="linky" to={(infos.tipo === 'favoritos')
+                ? `/Ler/?id=${encodeURIComponent(JSON.stringify(user.id))}`
+                : `/IHM/Busca/user?id=${encodeURIComponent(JSON.stringify(user.id))}`}>
+                <img src={
+                    (infos.tipo === 'favoritos' && user.imagem)
+                        ? `http://192.168.255.56/livros/${user.user_id}/${user.nome}_${user.id}/${user.imagem}`
+                        : (user.fotoPerfil ? `http://192.168.255.56/imagens/${user.fotoPerfil}` : '')
+                } />
+            </Link>
             <div className="not-content">
                 <span className="not-nome">{infos.tipo == 'favoritos' ? user.nome : `@${user.nome}`}</span>
                 <span className="not-not">{Action()}</span>

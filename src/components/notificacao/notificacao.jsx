@@ -4,6 +4,7 @@ import noti from "../../imgs/notofica.png";
 import Card from "./card/card.jsx";
 
 import api from "../../backend/controler/api_notificacao.js";
+import ver from "../../backend/controler/api_visuNotifica.js";
 
 export default function Notificações() {
     const [isWindowOpen, setIsWindowOpen] = useState(false);
@@ -12,11 +13,13 @@ export default function Notificações() {
 
 
     useEffect(() => {
-        const timeoutId = setTimeout(() => {
+        Busca();
+        const intervalId = setInterval(() => {
             Busca();
         }, 30000);
-        return () => clearTimeout(timeoutId); // Limpeza do setTimeout
+        return () => clearInterval(intervalId); 
     }, []);
+
 
     const handleBackgroundClick = (event) => {
         // Verifica se o clique ocorreu no elemento com a classe "fundo-notifica"
@@ -28,43 +31,27 @@ export default function Notificações() {
     const gera_notificacao = () => {
         const list = [];
 
-        for (let i = 0; i < Object.keys(notificar['seguidores']).length; i++) {
-            let a = <Card key={i} tipo={'seguidores'} info={notificar['seguidores'][i]} />
-            list.push(a);
+        if (!notificar || typeof notificar !== 'object') {
+
+            return list;
         }
 
-        for (let i = 0; i < Object.keys(notificar['curtidas']).length; i++) {
-            let a = <Card key={i} tipo={'curtidas'} info={notificar['curtidas'][i]} />
-            list.push(a);
-        }
+        const tiposNotificacoes = ['seguidores', 'curtidas-livro', 'curtidas-coment', 'curtidas-publi', 'curtidas-Pcoment', 'livros-coment', 'coment-coment', 'publi', 'favoritos'];
 
-        for (let i = 0; i < Object.keys(notificar['livros-coment']).length; i++) {
-            let a = <Card key={i} tipo={'livros-coment'} info={notificar['livros-coment'][i]} />
-            list.push(a);
-        }
-
-        for (let i = 0; i < Object.keys(notificar['coment-coment']).length; i++) {
-            let a = <Card key={i} tipo={'coment-coment'} info={notificar['coment-coment'][i]} />
-            list.push(a);
-        }
-
-
-        for (let i = 0; i < Object.keys(notificar['publi']).length; i++) {
-            let a = <Card key={i} tipo={'publi'} info={notificar['publi'][i]} />
-            list.push(a);
-        }
-
-        for (let i = 0; i < Object.keys(notificar['favoritos']).length; i++) {
-            let a = <Card key={i} tipo={'favoritos'} info={notificar['favoritos'][i]} />
-            list.push(a);
-        }
+        tiposNotificacoes.forEach((tipo) => {
+            if (notificar[tipo] && Array.isArray(notificar[tipo])) {
+                notificar[tipo].forEach((info, i) => {
+                    let a = <Card key={`${tipo}_${i}`} tipo={tipo} info={info} />;
+                    list.push(a);
+                });
+            }
+        });
 
         function comparacaoAleatoria() {
             return Math.random() - 0.5;
         }
 
         list.sort(comparacaoAleatoria);
-
         return list;
     }
 
@@ -72,18 +59,30 @@ export default function Notificações() {
         const resposta = await api.enviar();
         if (resposta.ok) {
             setNotficar(resposta.informacoes);
+            const hasNotifications = resposta.informacoes && typeof resposta.informacoes === 'object' &&
+                (Object.values(resposta.informacoes).some(notifArray => notifArray && notifArray.length > 0));
+            setNew(hasNotifications);
+            console.log('hum')
+        }
+    }
+
+    const visualizar = async () => {
+        const resposta = await ver.enviar();
+        if (resposta.ok) {
+            setNew(false);
+            Busca();
         }
     }
 
     return (
         <>
-            <div className="content-notifica" onClick={() => { setIsWindowOpen(true) }}>
+            <div className="content-notifica" onClick={() => { setIsWindowOpen(true); }}>
                 <img src={noti} />
                 {New ? <div className="not-cot"></div> : null}
             </div>
 
             {isWindowOpen && (
-                <div className="fundo-notifica" onClick={handleBackgroundClick}>
+                <div className="fundo-notifica" onClick={(e) => { handleBackgroundClick(e); visualizar(); }}>
                     <div className="box-notifica">
                         <span className="title-notifica">Notificações</span>
                         <div className="cards-notifica">

@@ -83,6 +83,7 @@ export default function Ler() {
             let keys = Object.keys(curtidas).length;
             let id = localStorage.getItem('id');
             for (let i = 0; i < keys; i++) {
+                console.log(curtidas[i]);
                 if (curtidas[i].coment == 0 && curtidas[i].id_user == id) {
                     setCurtido(true);
                     return;
