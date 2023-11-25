@@ -4,6 +4,7 @@ import './index.css';
 import { useNavigate } from 'react-router-dom';
 
 import api from '../../../backend/controler/api_login';
+import api_google from "../../../backend/controler/api_loginGoogle";
 
 import { setVariavelGlobal } from '../../../GvarAuth';
 
@@ -12,14 +13,21 @@ export default function Login() {
   const [erro, setErro] = useState(null);
   const navigate = useNavigate();
 
-  function handleCallbackResponse(response){
-    console.log(response.credential);
+  async function handleCallbackResponse(response) {
     var userOBJ = response.credential;
+
+    const resposta = await api_google.enviar(userOBJ);
+    if (resposta.ok) {
+      sessionStorage.setItem('session', resposta.informacoes);
+      navigate('/IHM/perfil');
+      setVariavelGlobal(false);
+    } else {
+      setErro(resposta.informacoes)
+    }
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     /* global google */
-
     google.accounts.id.initialize({
       client_id: "592499016939-fat3h1m0beidscm4qfsnafamh4rj94of.apps.googleusercontent.com",
       callback: handleCallbackResponse
@@ -27,9 +35,9 @@ export default function Login() {
 
     google.accounts.id.renderButton(
       document.getElementById("signInDiv"),
-      {theme: "outline", sixe: "large"}
+      { theme: "outline", sixe: "large" }
     )
-  },[])
+  }, [])
 
   const handleSubmit = async (event) => {
     event.preventDefault();
