@@ -54,6 +54,7 @@ const themes = {
       '--slideCor3': '#00414A',
       '--hover-barra': '#215358',
       '--shadow-search': 'transparent',
+      '--shadow-select': 'transparent',
    },
    light: {
       '--header-bg': '#B7CFD3',
@@ -96,6 +97,7 @@ const themes = {
       '--slideCor3': '#13505C',
       '--hover-barra': '#85B2B7',
       '--shadow-search': '#BACFD2',
+      '--shadow-select': '#BACFD2',
    },
 };
 

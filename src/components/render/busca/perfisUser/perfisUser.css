@@ -22,7 +22,7 @@
 }
 
 .boxNameUser #nomeUser {
-    color: #0A6E7D;
+    color: var(--letra-g);
 }
 
 .boxGenero {

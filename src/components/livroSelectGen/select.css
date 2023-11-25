@@ -5,11 +5,11 @@
     font-size: 1.5em;
     cursor: pointer;
     padding-left: 20px;
-    background-color: #F0F8FF;
-    box-shadow: 0px 0px 15px 0px #087f9757;
+    background-color: var(--barra);
+    box-shadow: 0px 0px 15px 0px var(--shadow-select);
 }
 .op{
-    background-color: #F0F8FF;
+    background-color: var(--barra);
 }
 .op:hover{
     background-color: var(--genero) ;
