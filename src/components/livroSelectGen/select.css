@@ -12,7 +12,7 @@
     background-color: #F0F8FF;
 }
 .op:hover{
-    background-color: #087F97 ;
+    background-color: var(--genero) ;
 }
 .boxGend{
     display: flex;
@@ -24,7 +24,7 @@
     word-break: break-all;
 }
 .Genero{
-    background-color: #087F97;
+    background-color: var(--genero);
     display: flex;
     align-items: center;
     justify-content: center;

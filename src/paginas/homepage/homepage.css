@@ -11,7 +11,7 @@
 }
 .boxOnPage{
     overflow-y: scroll;
-    background-color: #FFFFFF;
+    background-color: var(--background);
     height: 100%;
     width: 100%;
 }

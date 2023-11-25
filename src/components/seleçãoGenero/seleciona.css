@@ -1,6 +1,6 @@
 .gender{
-    color: #3392a6;
-    border: solid #3392a6;
+    color: var(--genero);
+    border: solid var(--genero);
     cursor: pointer;
     height: 80%;
     width: 20%;

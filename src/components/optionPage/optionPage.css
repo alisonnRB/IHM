@@ -2,7 +2,7 @@
     display: block;
     height: 100%;
     width: 120px;
-    background-color: #EFF8FF;
+    background-color: var(--barra);
     z-index: 100;
 }
 

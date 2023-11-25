@@ -40,7 +40,7 @@
     cursor: pointer;
     color: white;
     font-size: 1.3em;
-    background-color: #3392a6;
+    background-color: var(--genero);
     height: 58%;
     width: 80%;
 }

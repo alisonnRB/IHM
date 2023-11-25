@@ -11,9 +11,40 @@
 
 :root {
     --header-bg: #B7CFD3;
+    --background: #FFFFFF;
+    --barra: #EEF7FF;
+    --genero: #74ABBB;
+    --letra: #000000;
+    --caixafeed: #EBF8FF;
+    --enquetevazio: #000000;
+    --chat-bg: #7EA7AB;
+    --shadow-contato: #3CDBB4;
+    --shadow-contato1: #B7CED3;
+    --info-contato: #5CA5B2;
+    --balao-envia-msg: #022F39;
+    --envia-msg: #FFFFFF;
+    --barra-busca: #F0F8FF;
+    --balão-filtro: #F0F8FF;
+    --selecionar-filtro: #CFFBFF;
+    --escreve-book-bg: #FFFFFF;
+    --deleta-cap: #F5F5F5;
+    --genero-edita-livro: #087F97;
+    --card-edita-livro: #BACFD1;
+    --header-edita-livro: #688DED;
+    --header-edita-livro1: #BACFD1;
+    --fracao-edit-livro: #BACFD1;
+    --tags-bg: #087F97;
+    --botao-tag: #688DED;
+    --botao-publi: #00647E;
+    --publi-enquete: #CDFFD8;
+    --publi-enquete1: #CCD7ED;
+    --box-publi-livro: #FFFFFF;
+    --botão-config: #EBECF0;
+    --sair-conta: #5CA5B2;
+    --exclui-conta: #FF7070;
 }
 
-span{
+span {
     display: flex;
     flex-direction: row;
 }
@@ -23,22 +54,25 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     height: 100vh;
     max-height: 100vh;
-    width:100vw;
+    width: 100vw;
     max-width: 100vw;
     overflow-x: hidden;
 }
-::-webkit-scrollbar{
+
+::-webkit-scrollbar {
     background-color: #C2D1D6;
     width: 7px;
 }
-::-webkit-scrollbar-thumb{
+
+::-webkit-scrollbar-thumb {
     background-color: black;
 }
-input:focus{
+
+input:focus {
     box-shadow: 0 0 0 0;
     outline: 0;
 }
 
-img{
+img {
     object-fit: cover;
 }
