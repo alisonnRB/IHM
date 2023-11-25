@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import api from "../../../backend/controler/api_cadastro";
 
+import api_google from "../../../backend/controler/api_cadastraGoogle";
+
 //* as propriedades do elemento pai são recebidas no args props
 export default function Cadastro(props) {
   const [Erro, setErro] = useState('');
@@ -30,8 +32,21 @@ export default function Cadastro(props) {
     }
   };
 
-  async function handleCallbackResponse (response) {
+  async function handleCallbackResponse(response) {
     var userOBJ = response.credential;
+
+    const resposta = await api_google.enviar(userOBJ);
+    if (resposta.ok) {
+      const confirmacao = window.confirm('Cadastro realizado com sucesso!');
+      //? caso a resposta do server seja positiva emite um alert e fecha a janela
+
+      if (confirmacao) {
+        props.setSelect(false);
+      }
+    } else {
+      setErro(resposta.informacoes);
+    }
+
   }
 
   useEffect(() => {
