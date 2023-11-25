@@ -10,6 +10,7 @@ import api from "../../../../backend/controler/api_meusFavoritos";
 import words from './meusFav.json';
 
 export default function MeusFav() {
+    const [theme, setTheme] = useState('light');
 
     const [livro, setLivro] = useState('');
     const [Uword, setUword] = useState('EN');
@@ -54,11 +55,15 @@ export default function MeusFav() {
     useEffect(() => {
         Busca();
         select_idioma();
+        let a = localStorage.getItem('tema');
+        if(a){
+          setTheme(a);
+        }
     }, []);
 
     return (
         <div className="boxCardMeusLivro">
-            <span id='titlePerfil'>{Uword.title}</span>
+            <span id='titlePerfil' className={`${theme == 'light' ? null : 'dark'}`}>{Uword.title}</span>
 
 
             {renderizarItens()}

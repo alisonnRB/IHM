@@ -15,8 +15,10 @@ const themes = {
    dark: {
       '--header-bg': '#041114',
       '--background':'#191F27',
+      '--caixa-name':'#FFFFFF',
       '--barra':'#010809',
       '--genero':'#00414A',
+      '--letra-p':'#000000',
       '--letra':'#FFFFFF',
       '--caixafeed':'#000000',
       '--enquetevazio':'#FFFFFF',
@@ -51,8 +53,10 @@ const themes = {
    light: {
       '--header-bg': '#B7CFD3',
       '--background':'#FFFFFF',
+      '--caixa-name':'#000000',
       '--barra':'#EEF7FF',
       '--genero':'#74ABBB',
+      '--letra-p':'#FFFFFF',
       '--letra':'#000000',
       '--caixafeed':'#EBF8FF',
       '--enquetevazio':'#000000',

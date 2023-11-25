@@ -97,7 +97,7 @@ export default function Option() {
 
   return (
     <div className='option'>
-      <span id='titlePerfil'>{Uword.title}</span>
+      <span id='titlePerfil' className={`${tema == 'light' ? null : 'dark'}`}>{Uword.title}</span>
 
       <div className='comport'>
 

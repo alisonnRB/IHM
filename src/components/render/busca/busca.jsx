@@ -10,6 +10,7 @@ import Noti from "../../notificacao/notificacao.jsx";
 import words from './busca.json';
 
 export default function Busca() {
+    const [theme, setTheme] = useState('light');
     const [pesquisa, setPesquisa] = useState('');
 
     const [users, setUsers] = useState('');
@@ -34,6 +35,10 @@ export default function Busca() {
 
     useEffect(() => {
         select_idioma();
+        let a = localStorage.getItem('tema');
+        if(a){
+          setTheme(a);
+        }
     }, []);
 
 
@@ -59,7 +64,7 @@ export default function Busca() {
     return (
         <div className='TelaBusca'>
             <Noti />
-            <span id='titlePerfil'>{Uword.title}</span>
+            <span id='titlePerfil' className={`${theme == 'light' ? null : 'dark'}`}>{Uword.title}</span>
             <span className='boxLivros'>
                 <input type='text' id='searchText' placeholder={Uword.buscar} value={pesquisa} onChange={(e) => { setPesquisa(e.target.value) }} />
                 <div id='searchImg'></div>

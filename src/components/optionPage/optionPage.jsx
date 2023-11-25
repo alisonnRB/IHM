@@ -12,6 +12,13 @@ import feed from '../../imgs/feed.png';
 import config from '../../imgs/config.png';
 import pessoas from '../../imgs/pessoas.png';
 
+import perfilD from '../../imgs/perfil-dark.png';
+import livrosD from '../../imgs/livro-dark.png';
+import chatD from '../../imgs/chat-dark.png';
+import feedD from '../../imgs/feed-dark.png';
+import configD from '../../imgs/config-dark.png';
+import pessoasD from '../../imgs/busca-dark.png';
+
 import api from '../../backend/controler/api_AllMSG';
 
 //? este é o componente que carrega os caminhos da pagina
@@ -19,10 +26,17 @@ import api from '../../backend/controler/api_AllMSG';
 function Barraop() {
   const [select, setSelect] = useState(false);
   const [num, setNum] = useState(0);
+  const [theme, setTheme] = useState('light');
+
+  console.log(localStorage.getItem('tema'))
 
   useEffect(() => {
     if (!select) {
       Busca();
+    }
+    let a = localStorage.getItem('tema');
+    if(a){
+      setTheme(a);
     }
   }, []);
 
@@ -64,38 +78,38 @@ useEffect(() => {
     <div id='barra'>
       <Link to='/IHM/perfil'>
         <div className='optionP' onClick={() => { setSelect(false) }}>
-          <img src={perfil} alt="" />
+          <img src={theme == 'light' ? perfil : perfilD} alt="" />
         </div>
       </Link>
 
       <Link to='/IHM/Busca'>
         <div className='optionP' onClick={() => { setSelect(false) }}>
-          <img id='pes' src={pessoas} alt="" />
+          <img id='pes' src={theme == 'light' ? pessoas : pessoasD} alt="" />
         </div>
       </Link>
 
       <Link to='/IHM/Livros'>
         <div className='optionP' onClick={() => { setSelect(false) }}>
-          <img src={livros} alt="" />
+          <img src={theme == 'light' ? livros : livrosD} />
         </div>
       </Link>
 
       <Link to='/IHM/Chat'>
         <div className='optionP' onClick={() => { setSelect(true) }}>
-          <img id='ch' src={chat} alt="" />
+          <img id='ch' src={theme == 'light' ? chat : chatD} alt="" />
           <div className={`msg-new ${num == 0 ? 'not' : null}`} style={num < 10 ? { fontSize: '1.2em' } : null}>{num != 0 ? num : null}</div>
         </div>
       </Link>
 
       <Link to='/IHM/Feed'>
         <div className='optionP' onClick={() => { setSelect(false) }}>
-          <img src={feed} alt="" />
+          <img src={theme == 'light' ? feed : feedD} alt="" />
         </div>
       </Link>
 
       <Link to='/IHM/Config'>
         <div className='optionP' onClick={() => { setSelect(false) }}>
-          <img src={config} alt="" />
+          <img src={theme == 'light' ? config : configD} alt="" />
         </div>
       </Link>
 

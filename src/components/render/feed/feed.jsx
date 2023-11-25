@@ -9,10 +9,15 @@ import api from "../../../backend/controler/api_searchFeed";
 
 //? page reponsavel por mostrar as postagens 
 export default function Feed() {
+  const [theme, setTheme] = useState('light');
   const [publis, setPublis] = useState({});
 
   useEffect(() => {
     Busca();
+    let a = localStorage.getItem('tema');
+    if(a){
+      setTheme(a);
+    }
   }, [])
 
   const Busca = async () => {
@@ -36,7 +41,7 @@ export default function Feed() {
   return (
     <div className='feed'>
       <Noti />
-      <span id='titlePerfil'>FEED</span>
+      <span id='titlePerfil' className={`${theme == 'light' ? null : 'dark'}`}>FEED</span>
 
       <div className='renderPosts'>
         {gera_posts()}

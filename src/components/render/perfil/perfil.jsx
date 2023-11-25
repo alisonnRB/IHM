@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import './perfil.css';
 
 import edit from '../../../imgs/lapis.png';
+import editD from '../../../imgs/lapis-dark.png';
+
 import Edicao from './edicao/edicao.jsx';
 import apiGender from '../../../backend/controler/api_gender';
 import FloatBt from '../../BtFloat/btFloat.jsx';
@@ -20,12 +22,16 @@ import prata from '../../../imgs/prata.png';
 import ouro from '../../../imgs/ouro.png';
 import diamante from '../../../imgs/diamante.png';
 
+import caixa from '../../../imgs/caixa.png';
+import caixaD from '../../../imgs/trapezio.png';
+
 import words from './perfil.json';
 
 
 //? componente que comporta o perfil
 
 function Perfil() {
+  const [theme, setTheme] = useState('light');
   const [infos, setInfos] = useState(null);
   const [Uword, setUword] = useState('EN');
 
@@ -85,6 +91,11 @@ function Perfil() {
   useEffect(() => {
     Busca();
     select_idioma();
+
+    let a = localStorage.getItem('tema');
+    if(a){
+      setTheme(a);
+    }
   }, []);
 
   useEffect(() => {
@@ -144,13 +155,13 @@ return (
   <div className='perfilpagep'>
     <section className='boxName'>
       <Notificações />
-      <span id='titlePerfil'>{Uword.title}</span>
+      <span id='titlePerfil' className={`${theme == 'light' ? null : 'dark'}`}>{Uword.title}</span>
       <img id='fotoPerfil' src={Perfil} style={Perfil !== '' ? { backgroundColor: 'transparent', backgroundImage: 'none' } : null} onClick={() => setEdita(true)} />
       <span>
         <div id='nome' >
           <p>{name}</p>
         </div>
-        <img className='edit' src={edit} alt='Editar' onClick={() => setEdita(true)} />
+        <img className='edit' src={theme == 'light' ? edit : editD} alt='Editar' onClick={() => setEdita(true)} />
       </span>
       <span><img id='medalha' src={medalha} />{seguidoresS}</span>
     </section>
@@ -160,7 +171,7 @@ return (
     <section className='boxGenero'>
       <span className='boxtitleGender'>
         <Link to='/IHM/perfil/gender'><p id='titleGen'>{Uword.genero}</p></Link>
-        <Link to='/IHM/perfil/gender'><img className='edit' src={edit} /></Link>
+        <Link to='/IHM/perfil/gender'><img className='edit' src={theme == 'light' ? edit : editD} /></Link>
       </span>
       <div className='favGen'>
         <span>
@@ -183,7 +194,7 @@ return (
       <span className='boxTitle'>
         <span>
           <p id='titleLivro'>{Uword.meusLivros}</p>
-          <Link to='/IHM/perfil/MeusLivros'><img className='edit' src={edit} /></Link>
+          <Link to='/IHM/perfil/MeusLivros'><img className='edit' src={theme == 'light' ? edit : editD} /></Link>
         </span>
       </span>
 
@@ -195,7 +206,7 @@ return (
       <span className='boxTitle favoo'>
         <span>
           <p id='titleLivro'>{Uword.meusFavoritos}</p>
-          <Link to='/IHM/perfil/MeusFavoritos'><img className='edit' src={edit} /></Link>
+          <Link to='/IHM/perfil/MeusFavoritos'><img className='edit' src={theme == 'light' ? edit : editD} /></Link>
         </span>
       </span>
 
