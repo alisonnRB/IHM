@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.css';
 
 import { useNavigate } from 'react-router-dom';
@@ -11,6 +11,25 @@ import { setVariavelGlobal } from '../../../GvarAuth';
 export default function Login() {
   const [erro, setErro] = useState(null);
   const navigate = useNavigate();
+
+  function handleCallbackResponse(response){
+    console.log(response.credential);
+    var userOBJ = response.credential;
+  }
+
+  useEffect(()=>{
+    /* global google */
+
+    google.accounts.id.initialize({
+      client_id: "592499016939-fat3h1m0beidscm4qfsnafamh4rj94of.apps.googleusercontent.com",
+      callback: handleCallbackResponse
+    })
+
+    google.accounts.id.renderButton(
+      document.getElementById("signInDiv"),
+      {theme: "outline", sixe: "large"}
+    )
+  },[])
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -46,7 +65,7 @@ export default function Login() {
 
         <span className='contain-butt'>
           <input className="form_button" type="submit" value="ENTRAR" />
-          <button className="form_button gog">ENTRAR COM GOOGLE</button>
+          <div id='signInDiv' className="form_button gog">ENTRAR COM GOOGLE</div>
         </span>
 
       </form>

@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import api from "../../../backend/controler/api_cadastro";
-
 
 //* as propriedades do elemento pai são recebidas no args props
 export default function Cadastro(props) {
-
   const [Erro, setErro] = useState('');
+
   const handleSubmit = async (event) => {
     event.preventDefault(); //? previne o comportamento padrão da pagina de recarregar ao envio de form
 
@@ -31,6 +30,23 @@ export default function Cadastro(props) {
     }
   };
 
+  async function handleCallbackResponse (response) {
+    var userOBJ = response.credential;
+  }
+
+  useEffect(() => {
+    /* global google */
+    google.accounts.id.initialize({
+      client_id: "592499016939-fat3h1m0beidscm4qfsnafamh4rj94of.apps.googleusercontent.com",
+      callback: handleCallbackResponse
+    })
+
+    google.accounts.id.renderButton(
+      document.getElementById("signInDiv"),
+      { theme: "outline", sixe: "large" }
+    )
+  }, [])
+
   return (
     <>
       <form className="form" onSubmit={handleSubmit}>
@@ -51,7 +67,7 @@ export default function Cadastro(props) {
 
         <span className='contain-butt'>
           <input className="form_button" type="submit" value="CADASTRAR" />
-          <button className="form_button gog">ENTRAR COM GOOGLE</button>
+          <div id="signInDiv" className="form_buttom gog">ENTRAR COM GOOGLE</div>
         </span>
 
       </form>
