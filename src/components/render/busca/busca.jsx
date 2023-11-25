@@ -5,6 +5,7 @@ import './busca.css';
 import api from '../../../backend/controler/api_Usuarios';
 
 import CardPessoa from "./cardPessoa/cardPessoa.jsx";
+import Noti from "../../notificacao/notificacao.jsx";
 
 import words from './busca.json';
 
@@ -57,6 +58,7 @@ export default function Busca() {
 
     return (
         <div className='TelaBusca'>
+            <Noti />
             <span id='titlePerfil'>{Uword.title}</span>
             <span className='boxLivros'>
                 <input type='text' id='searchText' placeholder={Uword.buscar} value={pesquisa} onChange={(e) => { setPesquisa(e.target.value) }} />

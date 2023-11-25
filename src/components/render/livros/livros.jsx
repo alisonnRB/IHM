@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import Selecao from '../../livroSelectGen/select.jsx';
 import Interruptor from '../../interruptor/interruptor';
 import MostraLivros from './mostraLivros/mostraLivros.jsx';
+import Noti from "../../notificacao/notificacao.jsx";
 
 import livre from '../../../imgs/livre.jpeg';
 import dez from '../../../imgs/dez.jpeg';
@@ -178,6 +179,7 @@ export default function Livros() {
 
     return (
         <div className='TelaLivros'>
+            <Noti />
             <span id='titlePerfil'>{Uword.title}</span>
             <div id='pesquisa'>
                 <span className='boxLivros'>

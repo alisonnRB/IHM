@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import './feed.css';
 import Card from './cardPost/cardPost';
 import BtFloat from '../../BtFloat/btFloat.jsx';
+import Noti from "../../notificacao/notificacao.jsx";
 
 import api from "../../../backend/controler/api_searchFeed";
 
@@ -34,6 +35,7 @@ export default function Feed() {
 
   return (
     <div className='feed'>
+      <Noti />
       <span id='titlePerfil'>FEED</span>
 
       <div className='renderPosts'>
