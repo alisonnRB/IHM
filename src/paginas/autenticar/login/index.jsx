@@ -35,7 +35,13 @@ export default function Login() {
 
     google.accounts.id.renderButton(
       document.getElementById("signInDiv"),
-      { theme: "outline", sixe: "large" }
+      {
+        type:"icon",
+        shape:"circle",
+        theme:"outline",
+        text:"signin_with",
+        size:"large"
+      }
     )
   }, [])
 
@@ -73,7 +79,8 @@ export default function Login() {
 
         <span className='contain-butt'>
           <input className="form_button" type="submit" value="ENTRAR" />
-          <div id='signInDiv' className="form_button gog">ENTRAR COM GOOGLE</div>
+          <div id='signInDiv' className="form_button gog">
+          </div>
         </span>
 
       </form>

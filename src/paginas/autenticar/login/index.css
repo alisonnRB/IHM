@@ -13,7 +13,7 @@
 
 .form_button{
     margin-top: 20px;
-    width: 50%;
+    width: 200px;
     height: 35px;
     border-radius: 30px;
     padding: 7px;
@@ -25,10 +25,12 @@
 
 .form_button.gog{
     margin-top: 5px;
-    background-color: white;
-    color: #00414A;
-    font-size: .7em;
+    width: 40px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
 }
+
 .contain-butt{
     width: 100%;
     display: flex;
