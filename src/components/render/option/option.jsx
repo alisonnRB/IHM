@@ -89,7 +89,7 @@ export default function Option() {
 
   const Troca_senha = async (e) => {
     e.preventDefault();
-    const resposta = await api.enviar(senhaAntiga, senhaNova);
+    const resposta = await api.enviar(senhaAntiga, senhaNova, typeA);
     if (resposta.ok) {
       setMessage(resposta.informacoes);
       setSenhaAntiga('');

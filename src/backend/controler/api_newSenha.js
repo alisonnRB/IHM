@@ -3,7 +3,7 @@ import { setVariavelGlobal } from "../../GvarAuth";
 
 export default {
   //? prepara o objeto para enviar no padrão RESTful
-  enviar: async (senhaAntiga , NovaSenha) => {
+  enviar: async (senhaAntiga , NovaSenha, tipo) => {
 
     const id = sessionStorage.getItem('session');
     if (!id) {
@@ -23,6 +23,7 @@ export default {
       senhaAntiga: senhaAntiga,
       NovaSenha: NovaSenha,
       idioma: idioma,
+      tipo: tipo,
     };
 
     //? prepara as informações de methodo e cabeçalhos para fazer a requisição
