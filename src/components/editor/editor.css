@@ -3,7 +3,7 @@
     min-width: 1200px !important;
     max-width: 1200px !important;
     margin-top: 30px !important;
-    box-shadow: 0px 0px 30px 0px #a2babd;
+    box-shadow: 0px 0px 30px 0px var(--shadow-search);
     border: none !important;
 }
 .content-page .jodit-wysiwyg{
@@ -43,7 +43,6 @@
         min-width: 100vw !important;
         max-width: 100vw !important;
         margin-top: 30px !important;
-        box-shadow: 0px 0px 30px 0px #a2babd;
         border: none !important;
     }
     .content-page .jodit-wysiwyg{
@@ -61,7 +60,6 @@
         min-width: 100vw !important;
         max-width: 100vw !important;
         margin-top: 30px !important;
-        box-shadow: 0px 0px 30px 0px #a2babd;
         border: none !important;
     }
     .content-page .jodit-wysiwyg{
@@ -80,7 +78,6 @@
         min-width: 100vw !important;
         max-width: 100vw !important;
         margin-top: 30px !important;
-        box-shadow: 0px 0px 30px 0px #a2babd;
         border: none !important;
     }
     .content-page .jodit-wysiwyg{
@@ -99,7 +96,6 @@
         min-width: 100vw !important;
         max-width: 100vw !important;
         margin-top: 30px !important;
-        box-shadow: 0px 0px 30px 0px #a2babd;
         border: none !important;
     }
     .content-page .jodit-wysiwyg{

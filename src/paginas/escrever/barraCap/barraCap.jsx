@@ -4,6 +4,7 @@ import './barraCap.css';
 
 import mais from '../../../imgs/mais.png';
 import lixo from '../../../imgs/sair.png';
+import lixoD from '../../../imgs/x.png';
 
 import Interruptor from '../../../components/interruptor/interruptor';
 
@@ -17,6 +18,8 @@ export default function BarraCap(props) {
     const [Selecionado, setSelecionado] = useState(0);
     const [window, setWindow] = useState(false);
 
+    const [theme, setThemme] = useState('light');
+
 
     const [pronto, setPronto] = useState(false);
     const [listP, setListP] = useState(false);
@@ -25,6 +28,10 @@ export default function BarraCap(props) {
 
     useEffect(() => {
         select_idioma();
+        let a = localStorage.getItem('tema');
+        if(a){
+            setThemme(a);
+        }
     }, [])
 
     const select_idioma = () => {
@@ -86,8 +93,8 @@ export default function BarraCap(props) {
                         {!titulo[i] ? Uword.neWcap : titulo[i]}
 
                     </span>
-                    <div className={`abaApaga ${Selecionado === i && Selecionado != 0 ? 'Selecionado' : 'some'}`} onClick={() => { setWindow(true) }}><img src={lixo} /></div>
-                    {listP && listP[i] == 1 ? <div className="prontiCAP"></div> : null}
+                    <div className={`abaApaga ${Selecionado === i && Selecionado != 0 ? 'Selecionado' : 'some'}`} onClick={() => { setWindow(true) }}><img src={theme == 'light' ? lixo : lixoD} /></div>
+                    {listP && listP[i] == 1 ? <div className={`prontiCAP ${theme == 'light' ? null : 'dark'}`}></div> : null}
                 </div>;
                 list.push(a);
             

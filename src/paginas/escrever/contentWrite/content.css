@@ -7,12 +7,13 @@
 .caixaCap input{
     margin-top: 100px;
     border: none;
-    border-bottom: 1px solid #BACFD1;
+    border-bottom: 1px solid var(--borda);
     height: 35%;
     min-width: 20%;
     font-size: 2em;
     font-weight: 1000;
-    color: #087F97;
+    color: var(--letra-g);
+    background-color: var(--background);
 }
 .content-page{
     height: 100%;
@@ -20,6 +21,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    background-color: var(--background);
 }
 
 @media (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {

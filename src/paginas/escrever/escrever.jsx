@@ -17,7 +17,10 @@ import BtFloat from './btFloatH/btFloatH.jsx';
 import logo from '../../imgs/livro_mine.png';
 import abinha from '../../imgs/abinha.png';
 import config from '../../imgs/config.png';
+import configD from '../../imgs/config-dark.png';
+
 import fechaAba from '../../imgs/abinha-fecha.png';
+import fechaAbaD from '../../imgs/abinha-fecha-dark.png';
 
 import livre from '../../imgs/livre.jpeg';
 import dez from '../../imgs/dez.jpeg';
@@ -31,6 +34,7 @@ import words from './escrever.json';
 
 export default function Escreve() {
     const location = useLocation();
+    const [theme, setTheme] = useState('light');
 
     //TODO aba livro
     const [aberto, setAberto] = useState(false);
@@ -72,6 +76,10 @@ export default function Escreve() {
 
     useEffect(() => {
         select_idioma();
+        let a = localStorage.getItem('tema');
+        if(a){
+            setTheme(a);
+        }
     }, [])
 
     const select_idioma = () => {
@@ -272,7 +280,7 @@ export default function Escreve() {
             <div id="content-aba">
 
                 <div className={`caixa-aba ${fecharAba}`}>
-                    <span><Link className="link" to={`/IHM/perfil/MeusLivros/escreva/editar?id=${encodeURIComponent(idLivro)}`}><img src={config} /></Link></span>
+                    <span><Link className="link" to={`/IHM/perfil/MeusLivros/escreva/editar?id=${encodeURIComponent(idLivro)}`}><img src={theme == 'light' ? config : configD} /></Link></span>
 
                     <span className="boxNAME">
                         {info.nome}
@@ -294,7 +302,7 @@ export default function Escreve() {
                     </span>
                 </div>
 
-                <img className={`abinhaFecha ${fecharAba}`} src={fechaAba} onClick={() => {
+                <img className={`abinhaFecha ${fecharAba}`} src={theme == 'light' ? fechaAba : fechaAbaD} onClick={() => {
                     setFechar('fechar');
                     setTimeout(() => {
                         setAberto(!aberto);

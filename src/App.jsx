@@ -59,6 +59,9 @@ const themes = {
       '--shadow-feed': "transparent",
       '--shadow-card': '#2e313677',
       '--card-livro': '#2E3136',
+      '--fundo-barra-cap': '#010809',
+      '--apagar-cap': '#fff',
+      '--borda': '#fff',
    },
    light: {
       '--header-bg': '#B7CFD3',
@@ -106,6 +109,9 @@ const themes = {
       '--shadow-card': '#2e313677',
       '--card-livro': '#f5f5f5',
       '--shadow-feed': "#d0e0e9c8",
+      '--fundo-barra-cap': "#F5F5F5",
+      '--apagar-cap': '#087F97',
+      '--borda': '#7EA7AB',
    },
 };
 
