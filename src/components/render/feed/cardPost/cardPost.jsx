@@ -168,17 +168,21 @@ export default function Card(props) {
 
   const Busca = async () => {
     setAux(auxiliar + 1);
-    if (enquete && enquete != undefined) {
+    
+    if (enquete && enquete != undefined && enquete.id) {
       const respost = await SearchVote.enviar(enquete.id);
       if (respost.informacoes) {
         setVotado(true);
       }
     }
 
-    const resposta = await curtiram.enviar(id, props.publi.id, 'publi');
-    if (resposta.ok) {
-      setCurtidas(resposta.informacoes);
+    if (props.publi.id) {
+      const resposta = await curtiram.enviar(id, props.publi.id, 'publi');
+      if (resposta.ok) {
+        setCurtidas(resposta.informacoes);
+      }
     }
+
   }
 
   const curtir = async () => {
