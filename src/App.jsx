@@ -46,7 +46,7 @@ const themes = {
       '--botão-config':'#023440',
       '--sair-conta':'#05323C',
       '--exclui-conta':'#FF3131',
-      
+
    },
    light: {
       '--header-bg': '#B7CFD3',
