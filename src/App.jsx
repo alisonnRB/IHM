@@ -25,7 +25,6 @@ const themes = {
       '--enquetevazio': '#FFFFFF',
       '--chat-bg': '#023034',
       '--shadow-contato': '#00647E',
-      '--shadow-contato1': '#7EA7AB',
       '--info-contato': '#00414A',
       '--balao-envia-msg': '#FFFFFF',
       '--envia-msg': '#000000',
@@ -63,6 +62,7 @@ const themes = {
       '--apagar-cap': '#fff',
       '--borda': '#fff',
       '--header-publi': '#041114',
+      '--fundo-msg': '#000000',
    },
    light: {
       '--header-bg': '#B7CFD3',
@@ -77,7 +77,6 @@ const themes = {
       '--enquetevazio': '#000000',
       '--chat-bg': '#7EA7AB',
       '--shadow-contato': '#3CDBB4',
-      '--shadow-contato1': '#B7CED3',
       '--info-contato': '#5CA5B2',
       '--balao-envia-msg': '#022F39',
       '--envia-msg': '#FFFFFF',
@@ -114,6 +113,7 @@ const themes = {
       '--apagar-cap': '#087F97',
       '--borda': '#7EA7AB',
       '--header-publi': 'inherit',
+      '--fundo-msg': '#98BEC1',
    },
 };
 

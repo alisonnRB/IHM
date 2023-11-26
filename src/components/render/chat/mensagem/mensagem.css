@@ -1,6 +1,6 @@
 
 .mensagem{
-    background-color: #98BEC1;
+    background-color: var(--fundo-msg);
     height: 600px;
     width: 40%;
     margin-top: 50px;
@@ -12,7 +12,7 @@
     border-radius: 6px;
 }
 .mensagem .perfilMsg{
-    background-color: #5CA5B2;
+    background-color: var(--info-contato);
     height: 120px;
     align-items: center;
     border-radius: 6px;
@@ -45,7 +45,7 @@
     height: 120px;
 }
 .caixaEnviar form{
-    background-color: #022F39;
+    background-color: var(--balao-envia-msg);
     padding-left: 10px;
     padding-right: 0;
     padding: 5px;
@@ -62,8 +62,8 @@
     padding-right: 10px;
     min-height: 40px;
     width: 90%;
-    color: black;
-    background-color: white;
+    color: var(--letra);
+    background-color: var(--envia-msg);
     overflow-y: scroll;
 }
 .caixaEnviar button{    
@@ -104,7 +104,7 @@
 }
 
 .msg.by{
-    background-color: #71A0A6;
+    background-color: var(--genero);
     color: white;
     margin-left: 10px;
 }
