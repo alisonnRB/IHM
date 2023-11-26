@@ -19,7 +19,6 @@
     --enquetevazio: #000000;
     --chat-bg: #7EA7AB;
     --shadow-contato: #3CDBB4;
-    --shadow-contato1: #B7CED3;
     --info-contato: #5CA5B2;
     --balao-envia-msg: #022F39;
     --envia-msg: #FFFFFF;
@@ -42,6 +41,22 @@
     --botão-config: #EBECF0;
     --sair-conta: #5CA5B2;
     --exclui-conta: #FF7070;
+    --slideCor1: #BACFD2;
+    --slideCor2: #7eaeb8;
+    --slideCor3: #13505C;
+    --hover-barra: #85B2B7;
+    --letra-g: #3392a6;
+    --shadow-search: #BACFD2;
+    --shadow-select: #BACFD2;
+    --shadow-card: #2e313677;
+    --shadow-feed: #d0e0e9c8;
+    --card-livro: #f5f5f5;
+    --exclui-conta-hover: #ff7070c4;
+    --fundo-barra-cap: #F5F5F5;
+    --apagar-cap: #087F97;
+    --borda: #7EA7AB;
+    --header-publi: inherit;
+    --fundo-msg: #98BEC1;
 }
 
 span {

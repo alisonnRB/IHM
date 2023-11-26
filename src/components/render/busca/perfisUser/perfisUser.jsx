@@ -191,7 +191,7 @@ export default function User() {
                         <p>{`@${name}`}</p>
                     </div>
 
-                    <span><img id='medalha' src={medalha} />{seguidoresS}</span>
+                    <span  className='numS'><img id='medalha' src={medalha} />{seguidoresS}</span>
 
                     <span className='seguir' onClick={() => { seguir(); setSeguindo(!seguindo) }}>{seguindo ? Uword.seguindo : Uword.seguir}</span>
 

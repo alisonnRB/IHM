@@ -22,8 +22,8 @@
 #nome {
     display: flex;
     justify-content: center;
-    color: white;
-    background-color: black;
+    color: var(--letra-p);
+    background-color: var(--caixa-name);
     height: 100%;
     min-width: 200px;
     border-radius: 30px;
@@ -50,8 +50,13 @@
 
 }
 
+.numS{
+    color: var(--letra);
+}
+
 #titleGen,
 #titleLivro {
+    color: var(--letra);
     margin-bottom: 2.5rem;
     font-size: 2.5em;
 }
@@ -71,7 +76,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #78adb8;
+    background-color: var(--genero);
     border-radius: 50px;
 }
 
@@ -357,11 +362,16 @@
         color: white;
         min-height: 200px;
         min-width: 300px;
-        background-image: url('../../../imgs/caixa.png');
+        background: url('../../../imgs/caixa.png');
         background-size: 100% 100%;
         position: relative;
         top: -70px;
         margin-bottom: -70px;
+    }
+
+    #titlePerfil.dark{
+        background: url('../../../imgs/trapezio.png');
+        background-size: 100% 100%;
     }
 
 

@@ -11,7 +11,7 @@ import api from "../../../../backend/controler/api_meusLivros";
 import words from './meusLivros.json';
 
 export default function MeusLivros() {
-
+    const [theme, setTheme] = useState('light');
     const [livro, setLivro] = useState('');
     const [Uword, setUword] = useState('EN');
 
@@ -56,11 +56,15 @@ export default function MeusLivros() {
     useEffect(() => {
         Busca();
         select_idioma();
+        let a = localStorage.getItem('tema');
+        if(a){
+          setTheme(a);
+        }
     }, []);
 
     return (
         <div className="boxCardMeusLivro">
-            <span id='titlePerfil'>{Uword.title}</span>
+            <span id='titlePerfil' className={`${theme == 'light' ? null : 'dark'}`}>{Uword.title}</span>
 
 
                 {renderizarItens()}

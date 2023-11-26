@@ -9,7 +9,7 @@ import Att from './att/att.jsx';
 export default function NovoLivro() {
     return (
         <div className="boxNewBook">
-            <Header />
+            <Header create={true}/>
             <div className="ConfigBook">
                 <Att />
             </div>

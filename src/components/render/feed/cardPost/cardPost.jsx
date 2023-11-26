@@ -6,7 +6,11 @@ import { Link } from 'react-router-dom';
 
 import curti from '../../../../imgs/core-like.png';
 import curtiT from '../../../../imgs/curtiT.png';
+import curtiD from '../../../../imgs/curti-dark.png';
+import curtiTD from '../../../../imgs/curtiN-dark.png';
+
 import coment from '../../../../imgs/bal-coment.png';
+import comentD from '../../../../imgs/coments-dark.png';
 
 import curtida from '../../../../backend/controler/api_curtir';
 import curtiram from '../../../../backend/controler/api_buscaCurtidas';
@@ -20,6 +24,8 @@ import api from '../../../../backend/controler/api_enqueteVote';
 
 export default function Card(props) {
   const id = localStorage.getItem('id');
+
+  const [theme, setTheme] = useState('light');
 
   //TODo coment function 
   const [openRes, setOpenRes] = useState('');
@@ -43,6 +49,10 @@ export default function Card(props) {
 
   useEffect(() => {
     Busca();
+    let a = localStorage.getItem('tema');
+    if (a) {
+      setTheme(a)
+    }
   }, [props])
 
   useEffect(() => {
@@ -221,8 +231,8 @@ export default function Card(props) {
 
         </span>
         <span className='curtiComent'>
-          <img src={coment} onClick={() => { setAbreComent(!abreComent) }} />
-          <img src={curtido ? curtiT : curti} className={curtido ? 'Nom' : 'Sin'} onClick={() => { curtir(); setCurtido(!curtido) }} />
+          <img src={theme == 'light' ? coment : comentD} onClick={() => { setAbreComent(!abreComent) }} />
+          <img src={curtido ? (theme == 'light' ? curtiT : curtiD) : (theme == 'light' ? curti : curtiTD)} className={curtido ? 'Nom' : 'Sin'} onClick={() => { curtir(); setCurtido(!curtido) }} />
         </span>
       </div>
 

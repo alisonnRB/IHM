@@ -1,5 +1,5 @@
 .gender{
-    color: var(--genero);
+    color: var(--letra-g);
     border: solid var(--genero);
     cursor: pointer;
     height: 80%;

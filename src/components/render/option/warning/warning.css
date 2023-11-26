@@ -15,13 +15,13 @@
     display: block;
     height: 50vh;
     width: 40vw;
-    background-color: #F5F5F5;
+    background-color: var(--deleta-cap);
     border-radius: 5px;
 }
 
 .titleWarning{
     height: 25%;
-    background-color: #FF7070;
+    background-color: var(--exclui-conta);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -45,6 +45,7 @@
     width: 75%;
     margin-bottom: 10px;
     background-color: white;
+    color: black;
 }
 
 .wMSG{
@@ -68,8 +69,8 @@
 }
 
 .Wbt.dell{
-    background-color: #FF7070;
+    background-color: var(--exclui-conta);
 }
 .Wbt.canc{
-    background-color: #5CA5B2;
+    background-color: var(--sair-conta);
 }

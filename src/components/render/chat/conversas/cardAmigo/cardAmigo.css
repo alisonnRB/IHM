@@ -7,7 +7,7 @@
     border-radius: 50px;
     width: 80%;
     height: 60px;
-    background-color: #F5F5F5;
+    background-color: var(--deleta-cap);
 
     transition: all .3s ease;
 }
@@ -24,14 +24,14 @@
 }
 
 .set {
-    box-shadow: -15px -8px 0px 0px #65D6BE;
+    box-shadow: -15px -8px 0px 0px var(--shadow-contato);
     margin-top: 20px;
 }
 
 .nomes p:first-child {
     height: 40%;
     font-size: 1.3em;
-    color: #0A6E7D;
+    color: var(--letra-g);
 }
 
 .nomes p:last-child {

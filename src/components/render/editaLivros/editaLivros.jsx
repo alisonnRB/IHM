@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-import x from '../../../imgs/x.jpeg';
+import x from '../../../imgs/x.png';
 import Selecao from '../.././../components/seleçãoGenero/seleciona.jsx';
 import api from '../../../backend/controler/api_newLivro';
 

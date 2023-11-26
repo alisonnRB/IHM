@@ -19,6 +19,7 @@
     height: 25%;
     width: calc(100% - 7px);
     padding-left: 7px;
+    color: var(--letra-g);
 }
 
 #comentary .boxComent .coment {
@@ -28,6 +29,7 @@
     display: flex;
     align-items: center;
     word-break: break-all;
+    color: var(--letra);
 }
 
 #comentary .btsCurti {
@@ -84,16 +86,22 @@
 }
 
 #resposta input {
-    background-color: #EBECF0;
+    background-color: var(--barra-busca);
     padding-left: 20px;
     height: 90%;
     width: calc(100% - 20px);
     border-radius: 30px;
+    color: var(--letra);
+}
+
+#resposta input::placeholder{
+    color: var(--letra);
 }
 
 .likeNUM {
     position: relative;
     z-index: 100;
+    color: var(--letra);
 }
 
 @keyframes curti {

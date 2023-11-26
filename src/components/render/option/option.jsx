@@ -1,21 +1,27 @@
 import React from 'react';
 import './option.css';
-
-import sol from '../../../imgs/sol.png';
-import lua from '../../../imgs/lua.png';
-
-import api from "../../../backend/controler/api_newSenha";
-
 import { useState, useEffect } from 'react';
-import Warning from './warning/warning.jsx';
 import { useNavigate } from 'react-router-dom';
 
+import sol from '../../../imgs/sol.png';
+import solD from '../../../imgs/sol-dark.png';
+
+import lua from '../../../imgs/lua.png';
+import luaD from '../../../imgs/lua-dark.png';
+
+import api from "../../../backend/controler/api_newSenha";
+import verify from "../../../backend/controler/api_verificaTipo.js";
+
+
+import Warning from './warning/warning.jsx';
+import WarningG from './warningG/warning.jsx';
 import words from './option.json';
 
 //? componente que comporta as opções
 
 export default function Option() {
   const navigate = useNavigate();
+  const [typeA, setTypeA] = useState('');
 
   const [tema, setTema] = useState('light');
   const [idioma, setIdioma] = useState('EN');
@@ -34,6 +40,7 @@ export default function Option() {
 
     useEffect(() => {
         select_idioma();
+        verify_tipoConta();
     }, [])
 
     const select_idioma = () => {
@@ -80,10 +87,9 @@ export default function Option() {
     }
   }
 
-
   const Troca_senha = async (e) => {
     e.preventDefault();
-    const resposta = await api.enviar(senhaAntiga, senhaNova);
+    const resposta = await api.enviar(senhaAntiga, senhaNova, typeA);
     if (resposta.ok) {
       setMessage(resposta.informacoes);
       setSenhaAntiga('');
@@ -95,9 +101,16 @@ export default function Option() {
     }
   }
 
+  const verify_tipoConta = async () => {
+    const resposta = await verify.enviar();
+    if(resposta.ok){
+      setTypeA(resposta.informacoes);
+    }
+  }
+
   return (
     <div className='option'>
-      <span id='titlePerfil'>{Uword.title}</span>
+      <span id='titlePerfil' className={`${tema == 'light' ? null : 'dark'}`}>{Uword.title}</span>
 
       <div className='comport'>
 
@@ -113,8 +126,8 @@ export default function Option() {
         <div className="com">
           <label htmlFor="tema">{Uword.tema}</label>
           <span id='tema'>
-            <img src={sol} className="tema" onClick={() => { localStorage.setItem('tema', 'light'); window.location.reload() }} style={tema === 'light' ? { backgroundColor: '#EBECF0' } : null} />
-            <img src={lua} className="tema" onClick={() => { localStorage.setItem('tema', 'dark'); window.location.reload() }} style={tema === 'dark' ? { backgroundColor: '#EBECF0' } : null} />
+            <img src={tema == 'light' ? sol : solD} className="tema" onClick={() => { localStorage.setItem('tema', 'light'); window.location.reload() }} style={tema === 'light' ? tema == 'light' ? {backgroundColor: '#EBECF0' } : {backgroundColor: '#023440'} : null} />
+            <img src={tema == 'light' ? lua : luaD} className="tema" onClick={() => { localStorage.setItem('tema', 'dark'); window.location.reload() }} style={tema === 'dark' ? tema == 'light' ? {backgroundColor: '#EBECF0' } : {backgroundColor: '#023440'}: null} />
           </span>
         </div>
 
@@ -138,7 +151,7 @@ export default function Option() {
             <button id='excluir' onClick={() => { setAbreWindow(true) }}>{Uword.excluir}</button>
           </span>
 
-          {abreWindow ? <Warning setAbre={setAbreWindow} /> : null}
+          {abreWindow ? typeA == 'google' ? <WarningG  setAbre={setAbreWindow}/> : <Warning setAbre={setAbreWindow} /> : null}
         </div>
 
       </div>

@@ -5,11 +5,13 @@ import { useState, useEffect } from 'react';
 import useWebSocket from 'react-use-websocket';
 
 import send from '../../../../imgs/enviar.png';
+import sendD from '../../../../imgs/enviar-preto.png';
 import api from '../../../../backend/controler/api_chats';
 
 
 export default function Mensagem(props) {
   const id = localStorage.getItem('id');
+  const [theme, settheme] = useState('light');
 
   const [visivel, setVisivel] = useState(false);
 
@@ -51,6 +53,10 @@ export default function Mensagem(props) {
   useEffect(() => {
     if (infos) {
       Busca();
+    }
+    let a = localStorage.getItem('tema');
+    if(a){
+      settheme(a);
     }
   }, [infos])
 
@@ -157,7 +163,7 @@ export default function Mensagem(props) {
           <input className='inputEnvio' type="text" value={mensagem} onChange={(e) => { setMensagem(e.target.value) }} />
 
           <button type='submit'>
-            <img src={send} alt="" />
+            <img src={theme == 'light' ? send : sendD} alt="" />
           </button>
         </form>
 

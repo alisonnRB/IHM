@@ -39,6 +39,11 @@
     background-size: 100% 75%;
 }
 
+.custom-input.dark{
+    background-image: url('../../../imgs//MaisBranco-dark.png') !important;
+    background-color: #01181B !important;
+}
+
 .quad {
     position: absolute;
     z-index: 10;
@@ -120,6 +125,12 @@
     font-size: 2em;
     height: 100%;
     width: 80%;
+    background-color: var(--background);
+    color: var(--letra);
+}
+
+.Infos #Nome label{
+    color: var(--letra);
 }
 
 .Infos #Nome .xis {
@@ -127,6 +138,7 @@
     width: 10%;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .Infos #Nome .xis img {
@@ -153,7 +165,7 @@
 }
 
 #contadora p {
-    color: #087F97;
+    color: var(--fracao-edit-livro) !important;
     font-size: 1.5em;
     font-weight: bold;
     margin-right: 25%;
@@ -171,7 +183,7 @@
     cursor: pointer;
     height: 10%;
     cursor: pointer;
-    color: #087F97;
+    color: var(--letra-g) !important;
     font-size: 2.5em;
     font-weight: bold;
     margin-right: 10%;

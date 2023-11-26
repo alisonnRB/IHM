@@ -8,12 +8,17 @@
     background-size: 120% 65%;
     background-repeat: no-repeat;
     background-position: center;
-    background-color: #0B6E7D;
+    background-color: var(--letra-g);
     z-index: 80;
     height: 80px;
     width: 80px;
 
 }
+
+.btFloat.dark{
+    background-image: url("../../../imgs/casa-dark.png");
+}
+
 .btFloat:hover{
     box-shadow: 0px 0px 15px 0px #0b6e7dd5;
 }

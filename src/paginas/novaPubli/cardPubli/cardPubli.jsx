@@ -7,8 +7,11 @@ import Enquete from '../enquete/enquete.jsx';
 import LinkLivro from "../linkLivros/linkLivro.jsx";
 
 import livroT from '../../../imgs/livro-true.png';
+import livroTD from '../../../imgs/link-dark.png';
 import livroF from '../../../imgs/livro-false.png';
+
 import enqueteT from '../../../imgs/enquete-true.png';
+import enqueteTD from "../../../imgs/enquete-dark.png";
 import enqueteF from '../../../imgs/enquete-false.png';
 
 import abaX from '../../../imgs/aba_cancel.png';
@@ -21,6 +24,8 @@ export default function CardPubli() {
     const navigate = useNavigate();
 
     //TODO conteudo ou não
+    const [theme, setTheme] = useState('light');
+
     const [livro, setlivro] = useState(false);
     const [enqueteTem, setEnqueteTem] = useState(false);
 
@@ -48,6 +53,10 @@ export default function CardPubli() {
 
     useEffect(() => {
         select_idioma();
+        let a = localStorage.getItem('light');
+        if(a){
+            setTheme(a);
+        }
     }, [])
 
     const select_idioma = () => {
@@ -171,8 +180,8 @@ export default function CardPubli() {
             </span>
             <span className={`btPubli ${linkLivro != '' ? 'Com' : ''}`}>
                 <span id="btss">
-                    <img src={livro ? livroT : livroF} onClick={() => { setLivro(true) }} />
-                    <img src={enqueteTem ? enqueteT : enqueteF} onClick={() => { setEnquete(true) }} />
+                    <img src={livro ? livroT : theme == 'light' ? livroTD : livroF} onClick={() => { setLivro(true) }} />
+                    <img src={enqueteTem ? enqueteT : theme == 'light' ? enqueteTD : enqueteT} onClick={() => { setEnquete(true) }} />
                 </span>
 
                 <p style={limitTXT >= 260 && limitTXT <= 290? {color: '#DBB931'} : {color: '#FF3131'}} >{limitTXT >= 260 ? `${limitTXT}/306` : null}</p>

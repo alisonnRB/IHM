@@ -4,14 +4,12 @@
     padding: 10px;
     display: flex;
     flex-direction: row;
-    box-shadow: 0px 0px 20px 0px #13505c80;
-    background-color: #f5f5f5;
+    box-shadow: 0px 0px 20px 0px var(--shadow-card);
+    background-color: var(--card-livro);
     overflow: hidden;
     overflow-y: hidden;
     transition: max-width 1s ease;
 }
-
-
 
 .CardLivro .IMGbox {
     height: 100%;
@@ -55,7 +53,7 @@
     justify-content: center;
     font-size: 1.3em;
     font-weight: bold;
-    color: #087F97;
+    color: var(--letra-g);
 }
 
 .CardLivro .infos #VisuLivro {
@@ -109,6 +107,7 @@
     overflow: hidden;
     overflow-y: auto;
     word-wrap: break-word;
+    color: var(--letra);
 }
 .CardLivro .infos #Box_text::-webkit-scrollbar{
     width: 0px;

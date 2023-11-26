@@ -9,7 +9,7 @@ import Create from './createLivro/createLivro.jsx';
 export default function NovoLivro() {
     return (
         <div className="boxNewBook">
-            <Header />
+            <Header create={true}/>
             <div className="ConfigBook">
                 <Create />
             </div>

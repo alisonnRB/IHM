@@ -142,11 +142,11 @@
 }
 
 @keyframes bgalterna {
-    0%{background-color: #BACFD2; }
-    25%{background-color: #7eaeb8;}
-    50%{background-color: #13505C;}
-    75%{background-color: #7eaeb8;}
-    100%{background-color: #BACFD2;}
+    0%{background-color: var(--slideCor1); }
+    25%{background-color: var(--slideCor2);}
+    50%{background-color: var(--slideCor3);}
+    75%{background-color: var(--slideCor2);}
+    100%{background-color: var(--slideCor1);}
 }
 @keyframes moveRight {
     0% {

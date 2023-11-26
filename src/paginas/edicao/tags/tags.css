@@ -17,7 +17,7 @@
 }
 
 .abaTAG {
-    background-color: #087F97;
+    background-color: var(--tags-bg);
     height: 120px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -27,7 +27,7 @@
 }
 
 #contentTAG {
-    background-color: #087F97;
+    background-color: var(--tags-bg);
     display: block;
     height: 100%;
     width: 100%;
@@ -93,7 +93,7 @@
 
 .contentTAGt {
     color: white;
-    background-color: #6A8FED;
+    background-color: var(--botao-tag);
     align-items: center;
    
     padding-left: 20px;

@@ -1,7 +1,8 @@
 import React from 'react';
 import './gender.css';
 
-import volta from '../../../imgs/voltar.jpeg';
+import volta from '../../../imgs/voltar.png';
+import voltaD from '../../../imgs/voltar-dark.png';
 import apiEdit from '../../../backend/controler/api_GenderEdit';
 import Seleciona from '../../seleçãoGenero/seleciona';
 import { useEffect, useState } from 'react';
@@ -12,6 +13,7 @@ import words from './gender.json';
 
 export default function Gender(props) {
     const Navigate = useNavigate();
+    const [theme, setTheme] = useState('light');
     const [selecao, setSelecao] = useState({
         0: false,
         1: false,
@@ -39,6 +41,10 @@ export default function Gender(props) {
 
     useEffect(() => {
         select_idioma();
+        let a = localStorage.getItem('tema');
+        if(a){
+            setTheme(a);
+        }
     }, [])
 
     const select_idioma = () => {
@@ -72,7 +78,7 @@ export default function Gender(props) {
     return (
         <div className='boxGender'>
             <span id='boxTittleGender'>
-                <Link to='/IHM/perfil' id='linkVolta'><img src={volta} id='imgVoltaG' /></Link>
+                <Link to='/IHM/perfil' id='linkVolta'><img src={theme == 'light' ? volta : voltaD } id='imgVoltaG' /></Link>
                 <p>{Uword.generos}</p>
                 <p>{conta + '/7'}</p>
             </span>

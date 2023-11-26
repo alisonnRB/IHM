@@ -2,10 +2,12 @@
     height: 100vh;
     width: 100vw;
     display: block;
+    background-color: var(--background);
 }
 
 .telaPubli header{
     height: 100px;
+    background-color: var(--header-publi);
 }
 #cancelPubli{
     height: 5%;

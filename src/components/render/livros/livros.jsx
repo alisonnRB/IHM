@@ -20,6 +20,7 @@ import words from './livros.json';
 
 
 export default function Livros() {
+    const [theme, setTheme] = useState('light');
     const [conta, setConta] = useState(0);
     const [Livro, setLivro] = useState('');
     const [classe, setClasse] = useState('fecha');
@@ -157,6 +158,10 @@ export default function Livros() {
     useEffect(() => {
         select_idioma();
         Busca();
+        let a = localStorage.getItem('tema');
+        if(a){
+          setTheme(a);
+        }
     }, []);
 
     useEffect(() => {
@@ -180,11 +185,11 @@ export default function Livros() {
     return (
         <div className='TelaLivros'>
             <Noti />
-            <span id='titlePerfil'>{Uword.title}</span>
+            <span id='titlePerfil' className={`${theme == 'light' ? null : 'dark'}`}>{Uword.title}</span>
             <div id='pesquisa'>
                 <span className='boxLivros'>
                     <input type='text' id='searchText' placeholder={Uword.buscar} value={nome} onChange={(e) => { setNome(e.target.value); Busca(); }} />
-                    <div id='searchImg'></div>
+                    <div id='searchImg' className={`${theme == 'light' ? '' : 'dark'}`}></div>
                 </span>
 
                 <div className='filtros'>

@@ -29,25 +29,34 @@
     width: 75px;
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
-    background-color: #EBECF0;
+    background-color: var(--barra-busca);
     cursor: pointer;
     background-image: url('../../../imgs/lupa.png');
     background-size: 55% 55%;
     background-repeat: no-repeat;
     background-position: 50%;
-    box-shadow: 0px 0px 10px 0px #BACFD2;
+    box-shadow: 0px 0px 10px 0px var(--shadow-search);
 
 }
 
+#searchImg.dark{
+    background-image: url('../../../imgs/lupa-dark.png');
+}
+
 .boxLivros #searchText {
-    box-shadow: 0px 0px 10px 0px #BACFD2;
+    box-shadow: 0px 0px 10px 0px  var(--shadow-search);
     height: 60%;
     width: 80%;
     padding-left: 1em;
-    background-color: #EBECF0;
+    background-color: var(--barra-busca);
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
     font-weight: bold;
+    color: var(--letra);
+}
+
+#searchText::placeholder{
+    color: var(--letra);
 }
 
 .filtros {
@@ -73,6 +82,7 @@
     font-size: .8em;
     font-weight: bold;
     cursor: pointer;
+    color: var(--letra);
 }
 
 .BOXS {
@@ -94,8 +104,8 @@
 }
 
 .BOXS .boxSelection {
-    box-shadow: 0px 0px 10px 0px #BACFD2;
-    background-color: #EBECF0;
+    box-shadow: 0px 0px 10px 0px var(--shadow-search);
+    background-color: var(--balão-filtro);
     height: 90%;
     width: 33%;
     border-radius: 20px;
@@ -106,7 +116,8 @@
 }
 
 .BOXS .boxSelection.Gener #selecao {
-    background-color: #CFFBFF;
+    background-color: var(--selecionar-filtro);
+    color: var(--letra);
     position: relative;
     height: 30px;
     width: 300px;
@@ -138,14 +149,15 @@
     justify-content: center;
     height: 40px;
     width: 300px;
-    background-color: #CFFBFF;
-    box-shadow: 0px 0px 15px 0px #087f9757;
+    background-color: var(--selecionar-filtro);
+    color: var(--letra);
+    box-shadow: 0px 0px 15px 0px var(--shadow-select);
     border-radius: 30px;
 }
 
 
 .BOXS .boxSelection.inter {
-    background-color: white;
+    background-color: var(--background);
     box-shadow: none;
     display: flex;
     flex-direction: column;
@@ -155,9 +167,9 @@
 }
 
 .BOXS .boxSelection.inter center {
-    box-shadow: 0px 0px 10px 0px #BACFD2;
+    box-shadow: 0px 0px 10px 0px var(--shadow-search);
     border-radius: 25px;
-    background-color: #EBECF0;
+    background-color: var(--balão-filtro);
     justify-content: center;
     height: 30%;
     width: 100%;
@@ -316,7 +328,8 @@
         height: 30px;
         width: 130px;
         font-size: .6em;
-        background-color: #CFFBFF;
+        background-color: var(--selecionar-filtro);
+        color: var(--letra);
         box-shadow: 0px 0px 15px 0px #087f9757;
         border-radius: 30px;
     }
@@ -393,7 +406,8 @@
         text-align: center;
         height: 30px;
         width: 200px;
-        background-color: #CFFBFF;
+        background-color: var(--selecionar-filtro);
+        color: var(--letra);
         box-shadow: 0px 0px 15px 0px #087f9757;
         border-radius: 30px;
     }
@@ -458,7 +472,8 @@
         height: 30px;
         width: 130px;
         font-size: .6em;
-        background-color: #CFFBFF;
+        background-color: var(--selecionar-filtro);
+        color: var(--letra);
         box-shadow: 0px 0px 15px 0px #087f9757;
         border-radius: 30px;
     }
@@ -531,7 +546,8 @@
         text-align: center;
         height: 30px;
         width: 200px;
-        background-color: #CFFBFF;
+        background-color: var(--selecionar-filtro);
+        color: var(--letra);
         box-shadow: 0px 0px 15px 0px #087f9757;
         border-radius: 30px;
     }
@@ -596,7 +612,8 @@
         text-align: center;
         height: 30px;
         width: 200px;
-        background-color: #CFFBFF;
+        background-color: var(--selecionar-filtro);
+        color: var(--letra);
         box-shadow: 0px 0px 15px 0px #087f9757;
         border-radius: 30px;
     }
@@ -660,7 +677,7 @@
         text-align: center;
         height: 30px;
         width: 200px;
-        background-color: #CFFBFF;
+        background-color: var(--selecionar-filtro);
         box-shadow: 0px 0px 15px 0px #087f9757;
         border-radius: 30px;
     }
