@@ -34,7 +34,6 @@ export default {
     };
 
     //TODO faz a requisição
-    console.log(requisição);
 
     //! coloque o seu ip ali
     const response = await fetch('http://localhost/server/newSenha.php', requisição);

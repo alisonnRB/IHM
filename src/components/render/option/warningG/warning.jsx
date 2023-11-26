@@ -27,7 +27,6 @@ export default function Warning(props) {
 
     const Dell = async () =>{
         const resposta = await api.enviar();
-        console.log(resposta)
         if(resposta.ok){
             sessionStorage.clear();
             localStorage.clear();

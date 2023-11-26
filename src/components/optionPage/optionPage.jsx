@@ -28,8 +28,6 @@ function Barraop() {
   const [num, setNum] = useState(0);
   const [theme, setTheme] = useState('light');
 
-  console.log(localStorage.getItem('tema'))
-
   useEffect(() => {
     if (!select) {
       Busca();

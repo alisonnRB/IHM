@@ -25,7 +25,6 @@ export default {
     const response = await fetch('http://localhost/server/cap_pronto.php', requisição);
 
     const data = await response.json();
-    console.log(data.informacoes);
     if (data.informacoes == "não autorizado") {
       await auth.enviar();
     }
