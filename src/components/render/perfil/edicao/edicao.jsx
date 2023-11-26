@@ -8,7 +8,7 @@ import sair from '../../../../imgs/sair.png';
 import words from './edicao.json';
 
 export default function Edit(props) {
-    const [imagePreview, setImagePreview] = useState(props.ft.Perfil);
+    const [imagePreview, setImagePreview] = useState(props.ft);
     const [file, setFile] = useState(null);
     const [respost, setRespost] = useState('');
 
@@ -32,35 +32,42 @@ export default function Edit(props) {
     const handleImageChange = (event) => {
         const file = event.target.files[0];
         setFile(file);
-
+    
         const reader = new FileReader();
-
+    
         reader.onloadend = () => {
             setImagePreview(reader.result);
         };
-
+    
         if (file) {
             reader.readAsDataURL(file);
+        } else {
+            setImagePreview(null); // Adicione esta linha para lidar com nenhum arquivo selecionado
         }
     };
+    
 
 
     //TODO manda para a api para que seja feito o update no banco de dados
     const alterar = async (event) => {
         event.preventDefault();
-
+    
+        if (!file) {
+            setRespost('Por favor, selecione uma imagem.');
+            return;
+        }
+    
         const formData = new FormData();
         formData.append('image', file);
-
+    
         const userName = event.target.newName.value;
-
+    
         const resposta = await api.enviar(formData, userName);
-
+    
         setFile(null);
         setImagePreview(null);
-
-        //? volta para o perfil
-        if (resposta.ok == true) {
+    
+        if (resposta.ok) {
             props.fecharEdicao(true);
         } else {
             setRespost(resposta.informacoes);
@@ -77,7 +84,7 @@ export default function Edit(props) {
                     <div id='fileBox'>
                         <label htmlFor="editFile" className='labelBt'>
                             <div className="custom-input" style={imagePreview ? { backgroundImage: 'none' } : null}>
-                                {imagePreview && <img src={imagePreview} style={{ width: '100%', height: '100%', borderRadius: '100%', objectFit: 'cover' }} />}
+                                {imagePreview ? <img src={imagePreview} style={{ width: '100%', height: '100%', borderRadius: '100%', objectFit: 'cover' }} /> : null}
                             </div>
                         </label>
                     </div>
