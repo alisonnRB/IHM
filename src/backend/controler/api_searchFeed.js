@@ -27,7 +27,6 @@ export default {
 
     //TODO espera a resposta do servidor e armazena para retornar ao cliente
     const data = await response.json();
-    console.log(data);
     if (data.informacoes == "não autorizado") {
       await auth.enviar();
     }

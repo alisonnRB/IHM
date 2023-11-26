@@ -18,7 +18,6 @@ export default {
             idResposta: idResposta,
             conversa: conversa,
         };
-        console.log(user)
 
         let requisição = {
             method: 'POST',

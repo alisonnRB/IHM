@@ -11,8 +11,6 @@ export default {
       confSenha: confSenha,
     };
 
-    console.log(user);
-
     //? prepara as informações de methodo e cabeçalhos para fazer a requisição
     let requisição = {
       method: 'POST',

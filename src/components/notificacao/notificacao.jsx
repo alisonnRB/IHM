@@ -62,7 +62,6 @@ export default function Notificações() {
             const hasNotifications = resposta.informacoes && typeof resposta.informacoes === 'object' &&
                 (Object.values(resposta.informacoes).some(notifArray => notifArray && notifArray.length > 0));
             setNew(hasNotifications);
-            console.log('hum')
         }
     }
 
