@@ -62,6 +62,7 @@ const themes = {
       '--fundo-barra-cap': '#010809',
       '--apagar-cap': '#fff',
       '--borda': '#fff',
+      '--header-publi': '#041114',
    },
    light: {
       '--header-bg': '#B7CFD3',
@@ -112,6 +113,7 @@ const themes = {
       '--fundo-barra-cap': "#F5F5F5",
       '--apagar-cap': '#087F97',
       '--borda': '#7EA7AB',
+      '--header-publi': 'inherit',
    },
 };
 

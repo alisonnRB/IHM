@@ -13,7 +13,7 @@
 }
 
 #cardEnquete{
-    background: linear-gradient(90deg, rgba(205,252,218,1) 31%, rgba(204,216,237,1) 92%);
+    background: linear-gradient(90deg, var(--publi-enquete) 31%, var(--publi-enquete1) 92%);
     height: 90%;
     width: 70%;
     display: block;
@@ -68,16 +68,18 @@
     font-weight: bold;
     align-items: center;
     justify-content: center;
+    color: var(--letra-g);
 }
 
 .titleEnqueteBox{
     text-align: center;
     font-weight: bold;
-    border-bottom: solid .5px black;
+    border-bottom: solid .5px var(--letra);
     background-color: transparent;
     font-size: 3em;
     height: 100%;
     width: 70%;
+    color: var(--letra);
 }
 
 #cancelaEnquete{
@@ -101,7 +103,7 @@
     
     font-weight: bold;
     font-size: 2.3em;
-    color: #00647E;
+    color: var(--letra);
 }
 
 .mais{

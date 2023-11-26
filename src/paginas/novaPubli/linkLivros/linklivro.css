@@ -16,11 +16,12 @@
     width: 70%;
     border-radius: 30px;
     display: block;
-    background: linear-gradient(90deg, rgba(205,252,218,1) 31%, rgba(204,216,237,1) 92%);
+    background: linear-gradient(90deg, var(--publi-enquete) 31%, var(--publi-enquete1) 92%);
 }
+
 .abaPesquisa #searchText{
     border-radius: 50px;
-    background-color: #fff;
+    background-color: var(--box-publi-livro);
     width: 83%;
 }
 .abaPesquisa .titleBox{
@@ -29,7 +30,7 @@
     height: 50px;
     font-weight: bold;
     font-size: 1.3em;
-    color: #00647E;
+    color: var(--letra-g);
 }
 
 .BuscaLivros .boxLivros {
