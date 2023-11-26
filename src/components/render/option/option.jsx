@@ -1,5 +1,7 @@
 import React from 'react';
 import './option.css';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import sol from '../../../imgs/sol.png';
 import solD from '../../../imgs/sol-dark.png';
@@ -8,17 +10,18 @@ import lua from '../../../imgs/lua.png';
 import luaD from '../../../imgs/lua-dark.png';
 
 import api from "../../../backend/controler/api_newSenha";
+import verify from "../../../backend/controler/api_verificaTipo.js";
 
-import { useState, useEffect } from 'react';
+
 import Warning from './warning/warning.jsx';
-import { useNavigate } from 'react-router-dom';
-
+import WarningG from './warningG/warning.jsx';
 import words from './option.json';
 
 //? componente que comporta as opções
 
 export default function Option() {
   const navigate = useNavigate();
+  const [typeA, setTypeA] = useState('');
 
   const [tema, setTema] = useState('light');
   const [idioma, setIdioma] = useState('EN');
@@ -37,6 +40,7 @@ export default function Option() {
 
     useEffect(() => {
         select_idioma();
+        verify_tipoConta();
     }, [])
 
     const select_idioma = () => {
@@ -83,7 +87,6 @@ export default function Option() {
     }
   }
 
-
   const Troca_senha = async (e) => {
     e.preventDefault();
     const resposta = await api.enviar(senhaAntiga, senhaNova);
@@ -95,6 +98,13 @@ export default function Option() {
       setPronto(false);
     } else {
       setMessage(resposta.informacoes);
+    }
+  }
+
+  const verify_tipoConta = async () => {
+    const resposta = await verify.enviar();
+    if(resposta.ok){
+      setTypeA(resposta.informacoes);
     }
   }
 
@@ -141,7 +151,7 @@ export default function Option() {
             <button id='excluir' onClick={() => { setAbreWindow(true) }}>{Uword.excluir}</button>
           </span>
 
-          {abreWindow ? <Warning setAbre={setAbreWindow} /> : null}
+          {abreWindow ? typeA == 'google' ? <WarningG  setAbre={setAbreWindow}/> : <Warning setAbre={setAbreWindow} /> : null}
         </div>
 
       </div>

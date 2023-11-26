@@ -1,18 +1,18 @@
 {
     "EN": {
-        "confirmar": "Confirme your password to delete the account!",
+        "confirmar": "Are you sure you want to delete your account?",
         "cancelar": "CANCEL",
         "excluir": "DELETE"
     },
 
     "PT":{
-        "confirmar": "Confirme sua senha para excluir a conta!",
+        "confirmar": "Tem certeza que quer excluir a conta?",
         "cancelar": "CANCELAR",
         "excluir": "EXCLUIR"
     },
 
     "ES": {
-        "confirmar": "¡Confirme su contraseña para eliminar la cuenta!",
+        "confirmar": "¿Estás seguro de que quieres eliminar tu cuenta?",
         "cancelar": "CANCELAR",
         "excluir": "ELIMINAR"
     }
