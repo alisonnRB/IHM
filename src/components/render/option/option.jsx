@@ -2,7 +2,10 @@ import React from 'react';
 import './option.css';
 
 import sol from '../../../imgs/sol.png';
+import solD from '../../../imgs/sol-dark.png';
+
 import lua from '../../../imgs/lua.png';
+import luaD from '../../../imgs/lua-dark.png';
 
 import api from "../../../backend/controler/api_newSenha";
 
@@ -113,8 +116,8 @@ export default function Option() {
         <div className="com">
           <label htmlFor="tema">{Uword.tema}</label>
           <span id='tema'>
-            <img src={sol} className="tema" onClick={() => { localStorage.setItem('tema', 'light'); window.location.reload() }} style={tema === 'light' ? { backgroundColor: '#EBECF0' } : null} />
-            <img src={lua} className="tema" onClick={() => { localStorage.setItem('tema', 'dark'); window.location.reload() }} style={tema === 'dark' ? { backgroundColor: '#EBECF0' } : null} />
+            <img src={tema == 'light' ? sol : solD} className="tema" onClick={() => { localStorage.setItem('tema', 'light'); window.location.reload() }} style={tema === 'light' ? tema == 'light' ? {backgroundColor: '#EBECF0' } : {backgroundColor: '#023440'} : null} />
+            <img src={tema == 'light' ? lua : luaD} className="tema" onClick={() => { localStorage.setItem('tema', 'dark'); window.location.reload() }} style={tema === 'dark' ? tema == 'light' ? {backgroundColor: '#EBECF0' } : {backgroundColor: '#023440'}: null} />
           </span>
         </div>
 
