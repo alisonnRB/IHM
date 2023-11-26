@@ -41,7 +41,7 @@ export default function Comentarios(props) {
     useEffect(() => {
         select_idioma();
         let a = localStorage.getItem('tema');
-        if(a){
+        if (a) {
             setTheme(a);
         }
     }, [])
@@ -109,7 +109,7 @@ export default function Comentarios(props) {
     }, [props.curtidas, infos]);
 
     useEffect(() => {
-        if(infos['curtidas'] && typeof infos['curtidas'] != "number"){
+        if (infos['curtidas'] && typeof infos['curtidas'] != "number") {
             infos['curtidas'] = JSON.parse(infos['curtidas']);
         }
         if (curt === 1) {
@@ -258,9 +258,10 @@ export default function Comentarios(props) {
                 }}>{props.verMais == props.idConv ? <>&#8743;</> : <>&#8744;</>}</p> : null}
             </span>
 
-            {props.openRes == props.chave ? <form id="resposta" onClick={(e) => { e.stopPropagation() }} onSubmit={(event) => { respondendo(event) }}>
-                <input type="text" placeholder={Uword.place} value={resposta} onChange={(event) => { setResposta(event.target.value) }} /><img id="enviaRes" onClick={(event) => { respondendo(event) }} src={enviar} />
-            </form> : null}
+            {props.openRes == props.chave ?
+                <form id="resposta" onClick={(e) => { e.stopPropagation() }} onSubmit={(event) => { respondendo(event) }}>
+                    <input type="text" placeholder={Uword.place} value={resposta} onChange={(event) => { setResposta(event.target.value) }} /><img id="enviaRes" onClick={(event) => { respondendo(event) }} src={enviar} />
+                </form> : null}
 
 
         </>

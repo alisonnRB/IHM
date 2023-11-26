@@ -91,6 +91,7 @@
     height: 90%;
     width: calc(100% - 20px);
     border-radius: 30px;
+    color: var(--letra);
 }
 
 #resposta input::placeholder{
