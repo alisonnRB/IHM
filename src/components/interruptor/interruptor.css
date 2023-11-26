@@ -6,7 +6,7 @@ center{
     align-items: center;
 }
 center h1 {
-    color: black;
+    color: var(--letra);
     position: absolute;
     left: 70px;
     font-size: 1.2em;

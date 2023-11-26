@@ -39,6 +39,11 @@
     background-size: 100% 75%;
 }
 
+.custom-input.dark{
+    background-image: url('../../../imgs//MaisBranco-dark.png') !important;
+    background-color: #01181B !important;
+}
+
 .quad {
     position: absolute;
     z-index: 10;
@@ -153,6 +158,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    color: var(--letra);
 }
 
 #selectColor .contain {
@@ -196,7 +202,7 @@
 #selectColor #head {
     height: 40px;
     width: 40px;
-    background-color: white;
+    background-color: var(--background) !important;
     cursor: pointer;
 }
 

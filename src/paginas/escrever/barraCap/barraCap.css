@@ -135,13 +135,13 @@
     width: 100vw;
 }
 #janela .Conteudo{
-    background-color: #f5f5f5;
+    background-color: var(--deleta-cap);
     height: 300px;
     width: 550px;
     border-radius: 8px;
 }
 .Conteudo #message{
-    background-color: #FF7070;
+    background-color: var(--exclui-conta);
     height: 35%;
     color: white;
     font-size: 1.3em;
@@ -168,10 +168,10 @@
     cursor: pointer;
 }
 .Conteudo .BTcomport .BTS.s{
-    background-color: #FF7070;
+    background-color: var(--exclui-conta);
 }
 .Conteudo .BTcomport .BTS.s:hover{
-    background-color: #ff7070c4;
+    background-color: var(--exclui-conta-hover);
 }
 .Conteudo .BTcomport .BTS.n{
     background-color: #9EB0B2;

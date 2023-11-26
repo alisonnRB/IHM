@@ -29,6 +29,7 @@ export default function NovoLivro() {
     const id = localStorage.getItem('id');
 
     const [window, setWindow] = useState(false);
+    const [theme, setTheme] = useState('light');
 
     const [imagePreview, setImagePreview] = useState('');
     const [file, setFile] = useState(null);
@@ -93,6 +94,10 @@ export default function NovoLivro() {
 
     useEffect(() => {
         select_idioma();
+        let a = localStorage.getItem('tema');
+        if(a){
+            setTheme(a)
+        }
     }, [])
 
     const select_idioma = () => {
@@ -124,7 +129,7 @@ export default function NovoLivro() {
 
         const resposta = await apiDell.enviar(idLivro);
         if (resposta.ok) {
-            navigate('/perfil/MeusLivros');
+            navigate('/IHM/perfil/MeusLivros');
         }
     }
 
@@ -243,12 +248,12 @@ export default function NovoLivro() {
             <div id="janela">
                 <div className="Conteudo">
                     <span id="message">
-                        Você realmente quer excluir esse Livro??<br></br>
-                        Será impossível recuperá-lo!!
+                        {Uword ? Uword.text1 : '...'}<br></br>
+                        {Uword ? Uword.text2 : '...'}
                     </span>
                     <div className="BTcomport">
-                        <button onClick={() => { DeletaLivro(); setWindow(false) }} className="BTS s">SIM</button>
-                        <button onClick={() => { setWindow(false) }} className="BTS n">NÃO</button>
+                        <button onClick={() => { DeletaLivro(); setWindow(false) }} className="BTS s">{Uword ? Uword.ss : '...'}</button>
+                        <button onClick={() => { setWindow(false) }} className="BTS n">{Uword ? Uword.n : '...'}</button>
                     </div>
                 </div>
             </div>
@@ -267,7 +272,7 @@ export default function NovoLivro() {
 
                     <div id='fileBoxC'>
                         <label htmlFor="editFile" className='labelBt'>
-                            <div className="custom-input">
+                            <div className={`custom-input ${theme == 'light' ? null : 'dark'}`}>
                                 {imagePreview && <img src={imagePreview} style={{ width: '100%', height: '100%' }} />}
                             </div>
                         </label>

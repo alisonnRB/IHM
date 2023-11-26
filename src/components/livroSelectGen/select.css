@@ -5,11 +5,13 @@
     font-size: 1.5em;
     cursor: pointer;
     padding-left: 20px;
-    background-color: var(--barra);
+    background-color: var(--genero-edita-livro);
     box-shadow: 0px 0px 15px 0px var(--shadow-select);
+    color: var(--letra);
 }
 .op{
     background-color: var(--barra);
+    color: var(--letra);
 }
 .op:hover{
     background-color: var(--genero) ;
@@ -31,7 +33,7 @@
     border-radius: 40px;
     font-size: 2em;
     font-weight: bold;
-    color: white;
+    color: var(--letra);
     height: 15%;
     width: 100%;
     cursor: pointer;

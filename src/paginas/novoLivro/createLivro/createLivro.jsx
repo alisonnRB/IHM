@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
-import x from '../../../imgs/x.jpeg';
+import x from '../../../imgs/sair.png';
 import Selecao from '../.././../components/livroSelectGen/select.jsx';
 import api from '../../../backend/controler/api_newLivro';
 import apiInfo from '../../../backend/controler/api_meusLivros';
@@ -22,6 +22,8 @@ import words from './createLivro.json';
 
 export default function NovoLivro() {
     const navigate = useNavigate();
+
+    const [theme, setTheme] = useState('light');
     const [imagePreview, setImagePreview] = useState('');
     const [file, setFile] = useState(null);
 
@@ -58,6 +60,10 @@ export default function NovoLivro() {
 
     useEffect(() => {
         select_idioma();
+        let a = localStorage.getItem('tema');
+        if(a){
+            setTheme(a)
+        }
     }, [])
 
     const select_idioma = () => {
@@ -165,7 +171,7 @@ export default function NovoLivro() {
 
                     <div id='fileBoxC'>
                         <label htmlFor="editFile" className='labelBt'>
-                            <div className="custom-input">
+                            <div className={`custom-input ${theme == 'light' ? null : 'dark'}`}>
                                 {imagePreview && <img src={imagePreview} style={{ width: '100%', height: '100%' }} />}
                             </div>
                         </label>

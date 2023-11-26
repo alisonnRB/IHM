@@ -5,7 +5,11 @@
         "cancelar": "CANCEL",
         "publico": "PUBLIC",
         "finalizado": "FINISHED",
-        "nome": "NAME :"
+        "nome": "NAME :",
+        "text1": "Do you really want to delete this Book??",
+        "text2": "It will be possible to recover it!!",
+        "ss": "YES",
+        "n": "NO" 
     },
 
     "PT":{
@@ -14,7 +18,11 @@
         "cancelar": "CANCELAR",
         "publico": "PÚBLICO",
         "finalizado": "FINALIZADO",
-        "nome": "NOME :"
+        "nome": "NOME :",
+        "text1": "Você realmente quer excluir esse Livro??",
+        "text2": "Será possível recuperá-lo!!",
+        "ss": "SIM",
+        "n": "NÃO"
     },
 
     "ES": {
@@ -23,6 +31,10 @@
         "cancelar": "CANCELAR",
         "publico": "PUBLICO",
         "finalizado": "FINALIZADO",
-        "nome": "NOMBRE :"
+        "nome": "NOMBRE :",
+        "text1": "¿Realmente quieres eliminar este libro?",
+        "text2": "¡¡Será imposible recuperarlo!!",
+        "ss": "SI",
+        "n": "NO"
     }
 }
