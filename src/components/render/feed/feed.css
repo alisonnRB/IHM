@@ -28,6 +28,13 @@
     bottom: 20px;
 }
 
+.disparador{
+    height: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 @media (orientation: portrait){
     .renderPosts {
         width: 100%;
