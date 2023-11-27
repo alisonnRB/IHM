@@ -1,43 +1,63 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import { useInView } from 'react-intersection-observer';
 import './feed.css';
 import Card from './cardPost/cardPost';
 import BtFloat from '../../BtFloat/btFloat.jsx';
 import Noti from "../../notificacao/notificacao.jsx";
-
 import api from "../../../backend/controler/api_searchFeed";
-
 import Load from "../../loading/loading.jsx";
-//? page reponsavel por mostrar as postagens 
+
 export default function Feed() {
   const [theme, setTheme] = useState('light');
   const [publis, setPublis] = useState({});
+  const [publicacoes, setPublicacoes] = useState([]);
+  const num = useRef(0);
+  const [ref, inView] = useInView();
+
+  const [Loadi, setLoad] = useState(false);
 
   useEffect(() => {
     Busca();
     let a = localStorage.getItem('tema');
-    if(a){
+    if (a) {
       setTheme(a);
     }
-  }, [])
+  }, []);
+
+  useEffect(() => {
+    if (inView) {
+      Busca();
+    }
+
+  }, [inView]);
 
   const Busca = async () => {
-    const resposta = await api.enviar();
+    setLoad(true);
+
+
+    const resposta = await api.enviar(num.current);
     if (resposta.ok) {
       setPublis(resposta.informacoes);
+
+      // Adiciona novas publicações ao estado atual
+      setPublicacoes((prevPublicacoes) => [
+        ...prevPublicacoes,
+        ...Object.values(resposta.informacoes),
+      ]);
+
+      num.current += Object.keys(resposta.informacoes).length;
     }
-  }
+
+
+
+    setLoad(false);
+  };
 
   const gera_posts = () => {
-    const list = []
-    for (let i = 0; i < Object.keys(publis).length; i++) {
-      let a = <Card key={i} publi={publis[i]} />
-
-      list.push(a);
-    }
-
-    return list;
-  }
+    return publicacoes.map((post, index) => (
+      <Card key={index} publi={post} />
+    ));
+  };
 
   return (
     <div className='feed'>
@@ -50,6 +70,9 @@ export default function Feed() {
 
       <BtFloat />
 
+      <div className='disparador' ref={ref}>
+        {Loadi ? <Load /> : null}
+      </div>
     </div>
   );
 }
