@@ -138,7 +138,7 @@
 .Infos #Nome #dell img {
     cursor: pointer;
     height: 60%;
-    width: 60%;
+    width: 45%;
     object-fit: fill;
 }
 
@@ -680,5 +680,16 @@
 
     100% {
         transform: translateY(-500px);
+    }
+}
+
+@media (max-width: 2560px) and (min-width: 1080px) {
+    /*estilo pra computadores com até 2560px*/
+    .capaDoLivro {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 26.5%;
+        height: 115%;
     }
 }

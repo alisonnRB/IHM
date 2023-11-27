@@ -710,3 +710,12 @@
         height: 0;
     }
 }
+
+@media (max-width: 2560px) and (min-width: 1080px) {
+    /*estilo pra computadores com até 2560px*/
+    .TelaLivros #titlePerfil {
+        left: 43.75%;
+        margin-bottom: -100px;
+        width: 300px;
+    }
+}

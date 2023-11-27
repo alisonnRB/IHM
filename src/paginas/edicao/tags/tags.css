@@ -209,3 +209,16 @@
         bottom: 80vh;
     }
 }
+
+/*!tratar das tags*/
+@media (max-width: 2560px) and (min-width: 1080px) {
+    /*estilo pra computadores com até 2560px*/
+    
+    /*#contentTAG .mostraTAG {
+        display: flex;
+        flex-direction: column;
+        left: 100%;
+        height: 100%;
+        gap: 15px;
+    }*/
+}

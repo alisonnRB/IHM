@@ -274,3 +274,38 @@
         transform: translateY(0);
     }
 }
+
+@media (max-width: 2560px) and (min-width: 1080px) {
+    /*estilo pra computadores com até 2560px*/
+    #content-aba .abinhaFecha{
+        position: absolute;
+        z-index: 10;
+        top: 440px;
+        left: 46.2%;
+        height: 100px;
+        width: 200px;
+        object-fit: fill;
+        animation: abre 1s ease;
+    }
+
+    .abinha{
+        position: absolute;
+        height: 80px;
+        width: 160px;
+        top: -43px;
+        left: 47%;
+        object-fit: fill;
+        border-bottom-right-radius: 100%;
+        border-bottom-left-radius: 100%;
+        cursor: pointer;
+        animation: abre 0.7s cubic-bezier(0.25, 0.90, 0.10, 1);
+    }
+
+    .infosDoLivro .boxLogo{
+        height: 85%;
+        width: 5%;
+        margin-left: 1%;
+        object-fit: fill;
+    }
+
+}

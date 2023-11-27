@@ -78,8 +78,8 @@ export default function Card(props) {
                 : `/IHM/Busca/user?id=${encodeURIComponent(JSON.stringify(user.id))}`}>
                 <img src={
                     (infos.tipo === 'favoritos' && user.imagem)
-                        ? `http://192.168.255.56/livros/${user.user_id}/${user.nome}_${user.id}/${user.imagem}`
-                        : (user.fotoPerfil ? `http://192.168.255.56/imagens/${user.fotoPerfil}` : '')
+                        ? `http://localhost/livros/${user.user_id}/${user.nome}_${user.id}/${user.imagem}`
+                        : (user.fotoPerfil ? `http://localhost/imagens/${user.fotoPerfil}` : '')
                 } />
             </Link>
             <div className="not-content">

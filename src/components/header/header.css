@@ -61,3 +61,22 @@ header {
     }
 
 }
+
+@media (max-width: 2560px) and (min-width: 1080px) {
+    /*estilo pra computadores com até 2560px*/
+    #logoH {
+        position: relative;
+        left: 1.6%;
+    }
+
+
+    #logoH {
+        height: 200px;
+        width: 200px;
+    }
+    
+
+
+
+}
+
