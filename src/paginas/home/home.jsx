@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 import './home.css';
 import { Link } from 'react-router-dom';
 import Header from './header/header.jsx';
@@ -22,6 +23,10 @@ function Home() {
   const [tempo, setTempo] = useState(0);
   const [control, setControl] = useState(false);
   const list = { 0: pc, 1: cell, 2: tablet };
+
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  })
 
   setTimeout(() => {
     if (tempo == 2) {
@@ -56,8 +61,8 @@ function Home() {
           </div>
         </span>
 
-        <span className='frases'>
-          <div className='cont-frase'>
+        <span className='frases' ref={ref}>
+          <div className={`cont-frase ${inView ? 'anima' : null}`}>
             <img className='catMain' src={livro} />
             <h4>DESCUBRA A ARTE</h4>
             <p>
@@ -66,7 +71,7 @@ function Home() {
             </p>
           </div>
 
-          <div className='cont-frase'>
+          <div className={`cont-frase ${inView ? 'anima1' : null}`}>
             <img className='catMain' src={pessoas} />
             <h4>CONSTRUA VÍNCULOS</h4>
             <p>
@@ -74,7 +79,7 @@ function Home() {
             </p>
           </div>
 
-          <div className='cont-frase'>
+          <div className={`cont-frase ${inView ? 'anima2' : null}`}>
             <img className='catMain' src={chat} />
             <h4>CONVERSE COM AMIGOS</h4>
             <p>
@@ -84,7 +89,7 @@ function Home() {
             </p>
           </div>
 
-          <div className='cont-frase'>
+          <div className={`cont-frase ${inView ? 'anima3' : null}`}>
             <img className='catMain' src={publi} />
             <h4>FAÇA PUBLICAÇÕES</h4>
             <p>

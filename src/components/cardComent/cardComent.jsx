@@ -217,8 +217,7 @@ export default function Comentarios(props) {
 
     const style = {
         backgroundColor: curtido
-            ? (props.cor ? props.cor : '#C4BFB2')
-            : (hover ? (props.cor ? props.cor : '#0A6E7D') : '#C4BFB2'),
+            ? (props.cor ? props.cor : '#C4BFB2') : null
     };
 
     return (
@@ -233,12 +232,7 @@ export default function Comentarios(props) {
 
                 <div className="btsCurti" >
                     <div className={`boxDEimg ${curtido ? 'c' : ''}`} style={style}>
-                        <img src={theme == 'light' ? like : likeD} className={`core`} onClick={() => { curtir(); setCurt(1); setAuxCurt(!auxCurti); }} onMouseEnter={() => {
-                            if (typeof window.ontouchstart === "undefined") {
-                                setHover(true);
-                            }
-                        }
-                        } onMouseLeave={() => { setHover(false) }} />
+                        <img src={theme == 'light' ? like : likeD} className={`core`} onClick={() => { curtir(); setCurt(1); setAuxCurt(!auxCurti); setCurtido(!curtido) }} />
                     </div>
                     <span className="likeNUM">{quantCurti}</span>
                 </div>
