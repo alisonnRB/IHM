@@ -11,6 +11,7 @@
     "node-vibrant": "^3.2.1-alpha.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-intersection-observer": "^9.5.3",
     "react-router-dom": "^6.11.1",
     "react-scripts": "^5.0.1",
     "react-use-websocket": "^4.5.0",
