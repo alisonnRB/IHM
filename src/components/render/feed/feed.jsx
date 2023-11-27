@@ -7,6 +7,7 @@ import Noti from "../../notificacao/notificacao.jsx";
 
 import api from "../../../backend/controler/api_searchFeed";
 
+import Load from "../../loading/loading.jsx";
 //? page reponsavel por mostrar as postagens 
 export default function Feed() {
   const [theme, setTheme] = useState('light');
