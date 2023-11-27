@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 
 import api from '../../backend/controler/api_info';
+import vision from '../../backend/controler/api_visuL.js';
 
 import curtida from '../../backend/controler/api_curtir';
 import curtiram from '../../backend/controler/api_buscaCurtidas';
@@ -25,7 +26,7 @@ import BtFloatH from "../escrever/btFloatH/btFloatH";
 import words from './ler.json';
 
 export default function Ler() {
-    
+
     const location = useLocation();
     const [idLivro, setIdLivro] = useState(0);
     const id = localStorage.getItem('id');
@@ -95,16 +96,18 @@ export default function Ler() {
     useEffect(() => {
         const idLivroG = new URLSearchParams(location.search).get('id');
         setIdLivro(JSON.parse(idLivroG));
-        if (idLivroG) {
-            fetch('http://localhost/server/visus.php', {
-              method: 'POST', // Use POST para atualizar o servidor
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({ id: idLivroG }),
-            })
-        }
     }, [location]);
+
+    const ver = async () => {
+        const resposta = await vision.enviar(idLivro);
+    }
+
+    useEffect(() => {
+        if (idLivro) {
+            ver();
+        }
+    }, [idLivro])
+
 
     useEffect(() => {
         if (userId && userId != 0) {

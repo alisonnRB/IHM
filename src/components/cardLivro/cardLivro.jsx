@@ -72,12 +72,12 @@ export default function Livro(props) {
         }
 
         if(props.info && props.info['visus']){
-            let a = props.info['visus']/2;
-            if((props.info['visus']/2)>1000000){
-                a = (props.info['visus']/2)/1000000 + 'M';
+            let a = props.info['visus'];
+            if((props.info['visus'])>1000000){
+                a = (props.info['visus'])/1000000 + 'M';
             }
-            else if((props.info['visus']/2)>1000){
-                a = (props.info['visus']/2)/1000 + 'K';
+            else if((props.info['visus'])>1000){
+                a = (props.info['visus'])/1000 + 'K';
             }
             setVisus(Math.round(a));
         }
