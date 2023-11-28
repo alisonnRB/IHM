@@ -35,3 +35,10 @@
     }
 }
 
+@media (max-width: 2560px) and (min-width: 1080px) {
+    .caixaCap input{
+        position: relative;
+        left: 345px;
+    }
+}
+

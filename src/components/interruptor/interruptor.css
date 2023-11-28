@@ -11,6 +11,7 @@ center h1 {
     left: 70px;
     font-size: 1.2em;
     font-weight: bold;
+    white-space: nowrap;
 }
         
 /* toggle in label designing */
@@ -49,4 +50,16 @@ center h1 {
 /* Checkbox vanished */
 .checkbox { 
     display : none;
+}
+
+@media (max-width: 2560px) and (min-width: 1080px) {
+    /*estilo pra computadores com até 2560px*/
+    center h1 {
+        color: var(--letra);
+        position: absolute;
+        left: 80px;
+        font-size: 1.2em;
+        font-weight: bold;
+        white-space: nowrap;
+    }
 }

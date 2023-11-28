@@ -114,3 +114,14 @@
 #excluir {
     background-color: var(--exclui-conta);
 }
+
+@media (max-width: 2560px) and (min-width: 1080px) {
+
+    /*estilo pra computadores com até 2560px*/
+    .option #titlePerfil {
+        left: 43.44%;
+        margin-bottom: -100px;
+        width: 300px;
+        font-size: 1em;
+    }
+}

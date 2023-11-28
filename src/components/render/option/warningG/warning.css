@@ -7,3 +7,11 @@
     align-items: center;
     justify-content: space-evenly ;
 }
+
+@media (max-width: 2560px) and (min-width: 1080px) {
+    .warningBts{
+        height: 30%;
+        align-items: center;
+        justify-content: space-evenly ;
+    }
+}

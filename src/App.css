@@ -91,3 +91,17 @@ input:focus {
 img {
     object-fit: cover;
 }
+
+@media (max-width: 2560px) and (min-width: 1080px) {
+    /*estilo pra computadores com até 2560px*/
+    * {
+        margin: 0;
+        font-size: 0.90rem;
+        margin: 0;
+        padding: 0;
+        border: none;
+        outline: none;
+        text-decoration: none;
+        color: inherit;
+    }
+}

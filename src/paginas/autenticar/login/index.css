@@ -179,3 +179,22 @@
     }
 
 }
+
+@media (max-width: 2560px) and (min-width: 1080px) {
+    #head-log img:first-child {
+        top: 20%;
+        height: 100%;
+        width: 100%;
+    }
+    
+    #head-log{
+        position: relative;
+        gap:200px;
+        width: 50%;
+        height: 10%;
+        left: 37%;
+        bottom: 2%;
+    }
+
+    
+}

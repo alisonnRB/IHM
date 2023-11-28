@@ -714,3 +714,29 @@
         height: 0;
     }
 }
+
+@media (max-width: 2560px) and (min-width: 1080px) {
+    /*estilo pra computadores com até 2560px*/
+    .TelaLivros #titlePerfil {
+        left: 43.75%;
+        margin-bottom: -100px;
+        width: 300px;
+    }
+    .BOXS .boxSelection.inter center {
+        box-shadow: 0px 0px 10px 0px var(--shadow-search);
+        border-radius: 25px;
+        background-color: var(--balão-filtro);
+        justify-content: center;
+        height: 30%;
+        width: 90%;
+        padding-left: -80%;
+    }
+    
+    .BOXS .boxSelection.inter center h1 {
+        position:relative;
+        left: 20%;
+        font-size: 1em;
+        width: 10px;
+    
+    }
+}
