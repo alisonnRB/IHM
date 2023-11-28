@@ -15,25 +15,32 @@ export default function Feed() {
   const [ref, inView] = useInView();
 
   const [Loadi, setLoad] = useState(false);
+  let init = false;
 
   useEffect(() => {
-    Busca();
+    if (!init) {
+      Busca();
+    }
+
     let a = localStorage.getItem('tema');
     if (a) {
       setTheme(a);
     }
+    init = true;
   }, []);
 
   useEffect(() => {
-    if (inView) {
+    if (inView && !Loadi) {
       Busca();
     }
-
-  }, [inView]);
+  }, [inView, Loadi]);
 
   const Busca = async () => {
-    setLoad(true);
+    if (Loadi) {
+      return;
+    }
 
+    setLoad(true);
     const resposta = await api.enviar(num.current);
     if (resposta.ok) {
       setPublis(resposta.informacoes);
@@ -49,6 +56,7 @@ export default function Feed() {
 
 
     setLoad(false);
+
   };
 
   const gera_posts = () => {
