@@ -125,3 +125,26 @@
         font-size: 1em;
     }
 }
+
+@media (max-width: 576px) and (orientation: portrait){
+    .option option, .option select {
+        background-color: var(--botão-config);
+        border-radius: 30px;
+        height: 40px;
+        width: 150px; 
+        padding: 10px;
+        color: var(--letra-g);
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .option input {
+        background-color: var(--botão-config);
+        border-radius: 30px;
+        height: 40px;
+        width: 175px;
+        padding: 3px;
+        padding-left: 10px;
+        color: var(--letra-g);
+    }    
+}

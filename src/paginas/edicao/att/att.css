@@ -683,6 +683,15 @@
     }
 }
 
+@media (max-width: 576px) and (orientation: portrait){
+    .Infos #Nome #dell img {
+        cursor: pointer;
+        height: 60%;
+        width: 90%;
+        object-fit: fill;
+    }
+}
+
 @media (max-width: 2560px) and (min-width: 1080px) {
     /*estilo pra computadores com até 2560px*/
     .capaDoLivro {

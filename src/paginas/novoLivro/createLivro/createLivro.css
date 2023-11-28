@@ -131,6 +131,7 @@
 
 .Infos #Nome label{
     color: var(--letra);
+    white-space: nowrap;
 }
 
 .Infos #Nome .xis {
@@ -245,10 +246,6 @@
         align-items: center;
     }
 
-    .boxNewBookC .Infos #Nome .nomeDoLivro::before {
-        content: 'NOME:';
-        font-size: 1em;
-    }
 
     .Infos #Nome .livroNome {
         font-size: 2em;

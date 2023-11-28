@@ -213,7 +213,8 @@
     #BTs .link .bt {
         font-size: 1em;
         max-height: 25px;
-        max-width: 100px;
+        max-width: 150px;
+        white-space: nowrap;
     }
 
     .CardLivro .infos #Box_text {
