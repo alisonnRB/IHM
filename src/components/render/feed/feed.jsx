@@ -51,7 +51,7 @@ export default function Feed() {
         ...Object.values(resposta.informacoes),
       ]);
 
-      num.current += Object.keys(resposta.informacoes).length;
+      num.current += 20;
     }
 
 

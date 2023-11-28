@@ -1,11 +1,14 @@
 import React from 'react';
 import './livros.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 import Selecao from '../../livroSelectGen/select.jsx';
 import Interruptor from '../../interruptor/interruptor';
 import MostraLivros from './mostraLivros/mostraLivros.jsx';
 import Noti from "../../notificacao/notificacao.jsx";
+
+import Load from "../../loading/loading.jsx";
 
 import livre from '../../../imgs/livre.jpeg';
 import dez from '../../../imgs/dez.jpeg';
@@ -20,12 +23,19 @@ import words from './livros.json';
 
 
 export default function Livros() {
+    const num = useRef(0);
+    let init = false;
+    const [ref, inView] = useInView();
+    const [Loadi, setLoad] = useState(false);
+    const [reload, setReload] = useState(false);
+    const [mude, setMude] = useState(false);
+    const [att, setAtt] = useState(false);
+
     const [theme, setTheme] = useState('light');
     const [conta, setConta] = useState(0);
     const [Livro, setLivro] = useState('');
     const [classe, setClasse] = useState('fecha');
     const [Caracter, setCaracter] = useState(false);
-
 
     const [selecao, setSelecao] = useState({
         0: false,
@@ -70,18 +80,31 @@ export default function Livros() {
     }
 
     const Busca = async () => {
+        if (Loadi) {
+            return;
+        }
+
+        setLoad(true);
+
         if (!open) {
-            const resposta = await api.enviar(nome, null, null, null, null);
+            const resposta = await api.enviar(nome, null, null, null, null, num.current);
             if (resposta.ok) {
                 setLivro(resposta.informacoes);
+                num.current += 5;
             }
         } else {
-            const resposta = await api.enviar(nome, Novo, Finalizado, classificacao, selecao);
+            const resposta = await api.enviar(nome, Novo, Finalizado, classificacao, selecao, num.current);
             if (resposta.ok) {
                 setLivro(resposta.informacoes);
+                num.current += 5;
             }
         }
+
+        setAtt(false);
+        setLoad(false);
+
     }
+
     const selecionaClass = () => {
         return (
             <div className="opsClass">
@@ -99,7 +122,7 @@ export default function Livros() {
         return (
             <div className="opsClass">
                 <div className='caixaDeClass'>
-                    <img src={Class} onClick={()=>{setClassificacao('')}} id='imagemClass'/>
+                    <img src={Class} onClick={() => { setClassificacao('') }} id='imagemClass' />
                 </div>
             </div>
         );
@@ -157,16 +180,39 @@ export default function Livros() {
 
     useEffect(() => {
         select_idioma();
-        Busca();
+        if (!init) {
+            Busca();
+            init = true;
+        }
+
         let a = localStorage.getItem('tema');
-        if(a){
-          setTheme(a);
+        if (a) {
+            setTheme(a);
         }
     }, []);
 
     useEffect(() => {
-        Busca();
+        setMude(true);
     }, [Novo, Finalizado, nome, classificacao, selecao]);
+
+    
+    useEffect(() => {
+        num.current = 0;
+        setMude(true);
+    }, [Novo, Finalizado, classificacao, selecao]);
+
+    useEffect(() => {
+        if (att) {
+            setMude(false);
+            Busca();
+        }
+    }, [att]);
+
+    useEffect(() => {
+        if (inView && !Loadi) {
+            Busca();
+        }
+    }, [inView, Loadi]);
 
     const abreFilter = () => {
         if (classe === 'abre') {
@@ -188,7 +234,7 @@ export default function Livros() {
             <span id='titlePerfil' className={`${theme == 'light' ? null : 'dark'}`}>{Uword.title}</span>
             <div id='pesquisa'>
                 <span className='boxLivros'>
-                    <input type='text' id='searchText' placeholder={Uword.buscar} value={nome} onChange={(e) => { setNome(e.target.value); Busca(); }} />
+                    <input type='text' id='searchText' placeholder={Uword.buscar} value={nome} onChange={(e) => { setNome(e.target.value); }} />
                     <div id='searchImg' className={`${theme == 'light' ? '' : 'dark'}`}></div>
                 </span>
 
@@ -199,8 +245,12 @@ export default function Livros() {
             </div>
 
             <section className='buscaLivros'>
-                {Livro != '' ? <MostraLivros Livro={Livro}/> : <p id='notFound'>{Uword.notFound}</p>}
+                {Livro != '' || reload ? <MostraLivros setAtt={setAtt} Livro={Livro} setReload={setReload} num={num} mude={mude} /> : <p id='notFound'>{Uword.notFound}</p>}
             </section>
+
+            <div className='disparador' ref={ref}>
+                {Loadi ? <Load /> : null}
+            </div>
 
 
         </div>

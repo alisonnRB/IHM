@@ -188,7 +188,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
 }
 
 .boxSelection .opsClass {
@@ -235,6 +234,11 @@
     word-break: break-all;
     margin-bottom: 100px;
     color: #BACFD1;
+}
+
+.TelaLivros .disparador{
+    height: 20px;
+    margin-top: 200px;
 }
 
 @media (max-width: 576px) and (orientation: portrait){

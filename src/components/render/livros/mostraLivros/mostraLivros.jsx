@@ -1,45 +1,58 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
-
+import React, { useEffect, useState } from "react";
 import Livro from "../../../cardLivro/cardLivro";
-
 import words from './mostrarLivros.json';
 
-
 export default function MostraLivros(props) {
-
-    const [livro, setLivro] = useState('');
-
+    const [livros, setLivros] = useState([]);
     const [Uword, setUword] = useState('EN');
 
     useEffect(() => {
         select_idioma();
-    }, [])
+    }, []);
+
+    useEffect(() => {
+        if(props.mude){
+            setLivros([]);
+            props.num.current = 0;
+             
+            props.setAtt(true)
+        }
+    }, [props.mude]);
 
     const select_idioma = () => {
         let idi = localStorage.getItem('idioma');
-        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+        if (!idi || (idi !== 'PT' && idi !== 'EN' && idi !== 'ES')) {
             idi = 'EN';
         }
         let word = words[idi];
         setUword(word);
-    }
-    
-    useEffect(()=>{
-        setLivro(props.Livro);
-    },[props.Livro]);
+    };
 
+    useEffect(() => {
+        if (props.Livro) {
+            if (Object.keys(props.Livro).length > 0) {
+                setLivros((prevLivros) => {
+                    const novosLivros = Object.values(props.Livro);
+                    const livrosNaoDuplicados = novosLivros.filter(
+                        (novoLivro) => !prevLivros.some((livro) => livro.id === novoLivro.id)
+                    );
+                    return [...prevLivros, ...livrosNaoDuplicados];
+                });
+                props.setReload(true);
+            }
+        }
+    }, [props.Livro]);
 
     const renderizarItens = () => {
         const elementos = [];
         let tempRow = [];
         let count = 0;
 
-        for (let i = 0; i < livro.length; i++) {
+        for (let i = 0; i < livros.length; i++) {
             count++;
-            tempRow.push(<div className="coluna" key={i}><Livro mine={false} info={livro[i]} text={Uword.ler}/></div>);
+            tempRow.push(<div className="coluna" key={i}><Livro mine={false} info={livros[i]} text={Uword.ler} /></div>);
 
-            if (count === 3 || i === livro.length - 1) {
+            if (count === 3 || i === livros.length - 1) {
                 count = 0;
                 elementos.push(<span className="linha" key={i}>{tempRow}</span>);
                 tempRow = [];
@@ -49,14 +62,10 @@ export default function MostraLivros(props) {
         return elementos;
     };
 
-
     return (
-        <div className="boxCardMeusLivro">
-
-
+        <>
             {renderizarItens()}
-
             <div id="margem"></div>
-        </div>
+        </>
     );
 }
