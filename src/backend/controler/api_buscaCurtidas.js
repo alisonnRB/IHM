@@ -9,13 +9,15 @@ export default {
       setVariavelGlobal(false);
       await auth.enviar();
       
-    }
+    } 
+    
     let user = {
       id: id,
       id_user: id_user,
       id_ref: id_ref,
       tipo: tipo,
     };
+
     //? prepara as informações de methodo e cabeçalhos para fazer a requisição
     let requisição = {
       method: 'POST',

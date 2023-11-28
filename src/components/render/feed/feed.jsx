@@ -34,7 +34,6 @@ export default function Feed() {
   const Busca = async () => {
     setLoad(true);
 
-
     const resposta = await api.enviar(num.current);
     if (resposta.ok) {
       setPublis(resposta.informacoes);
@@ -47,7 +46,6 @@ export default function Feed() {
 
       num.current += Object.keys(resposta.informacoes).length;
     }
-
 
 
     setLoad(false);

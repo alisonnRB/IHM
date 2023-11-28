@@ -10,6 +10,7 @@ export default {
       await auth.enviar();
       
     }
+    
     let user = {
       id: id,
       id_ref: id_ref,

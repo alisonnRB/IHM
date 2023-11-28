@@ -19,8 +19,6 @@ export default {
       body: JSON.stringify(user),
     };
 
-    console.log(requisição.body)
-
     const response = await fetch('http://localhost/server/visus.php', requisição);
 
     const data = await response.json();

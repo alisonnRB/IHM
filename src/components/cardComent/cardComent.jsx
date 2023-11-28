@@ -232,7 +232,7 @@ export default function Comentarios(props) {
 
                 <div className="btsCurti" >
                     <div className={`boxDEimg ${curtido ? 'c' : ''}`} style={style}>
-                        <img src={theme == 'light' ? like : likeD} className={`core`} onClick={() => { curtir(); setCurt(1); setAuxCurt(!auxCurti); setCurtido(!curtido) }} />
+                        <img src={theme == 'light' ? like : likeD} className={`core`} onClick={() => { curtir(); setCurt(1); setAuxCurt(!auxCurti);}} />
                     </div>
                     <span className="likeNUM">{quantCurti}</span>
                 </div>
