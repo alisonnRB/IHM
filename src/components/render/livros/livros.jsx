@@ -114,9 +114,7 @@ export default function Livros() {
             const resposta = await api.enviar(nome, null, null, null, null, num.current);
             if (resposta.ok) {
                 setLivro(resposta.informacoes);
-                if (resposta.informacoes == 'nao') {
-                }
-                else if (resposta.informacoes == 'naoM') {
+                if (resposta.informacoes == 'naoM') {
                     setResponsed(true);
                 }
                 num.current += 18;
@@ -125,9 +123,7 @@ export default function Livros() {
             const resposta = await api.enviar(nome, Novo, Finalizado, classificacao, selecao, num.current);
             if (resposta.ok) {
                 setLivro(resposta.informacoes);
-                if (resposta.informacoes == 'nao') {
-                }
-                else if (resposta.informacoes == 'naoM') {
+                if (resposta.informacoes == 'naoM') {
                     setResponsed(true);
                 }
                 num.current += 18;
