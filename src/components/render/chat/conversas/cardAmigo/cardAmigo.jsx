@@ -17,8 +17,8 @@ export default function CardAmigo(props) {
     const [att, setAtt] = useState(false);
 
     useEffect(() => {
-        if (props.amigo && props.amigo[0]) {
-            setUser(props.amigo[0]);
+        if (props.amigo && props.amigo) {
+            setUser(props.amigo);
         }
     }, [props]);
 
