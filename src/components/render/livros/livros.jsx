@@ -106,8 +106,6 @@ export default function Livros() {
             return;
         }
 
-        console.log('entro')
-
         setLoad(true);
 
         if (!open) {
