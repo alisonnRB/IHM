@@ -37,6 +37,8 @@
     height: 110px;
     display: flex;
     justify-content: center;
+
+    animation: surge 2s ease;
 }
 
 
