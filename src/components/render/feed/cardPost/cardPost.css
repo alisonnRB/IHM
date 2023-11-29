@@ -405,6 +405,21 @@
 
 }
 
+@media (max-width: 576px) {
+    .infosPost {
+        height: 100%;
+        width: 100%;
+    }
+    
+    .textContent {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
+        padding-top: 20px;
+        font-size: .5em;
+    }
+}
+
 @media (min-width: 577px) and  (max-width: 1200px)  and (orientation: landscape) {
     /* Estilos para tablets maiores e dispositivos em modo paisagem */
     .cardPost {

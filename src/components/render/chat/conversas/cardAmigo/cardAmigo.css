@@ -89,6 +89,8 @@
         width: 230px;
         min-width: 230px;
         height: 30px;
+        position: relative;
+        left: 20px;
     }
 
     .conversas .listaC li img {

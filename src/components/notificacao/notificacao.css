@@ -94,7 +94,8 @@
         z-index: 200;
         right: 30px;
         margin-top: 30px;
-        /*! ver se isso aqui procede: top: 1px;*/
+        top: 37px;
+        left: 82px;
         cursor: pointer;
     }
 
