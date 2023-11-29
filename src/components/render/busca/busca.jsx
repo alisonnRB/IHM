@@ -37,17 +37,19 @@ export default function Busca() {
     }
 
     const Busca = async () => {
-        if (Loadi) {
+        if (Loadi || users == 'nao' || (users == 'naoM' && num.current != 0)) {
             return;
         }
 
         setLoad(true);
 
-        console.log(pesquisa);
-        console.log(num.current);
         const resposta = await api.enviar(pesquisa, num.current);
         if (resposta.ok) {
             setUsers(resposta.informacoes);
+            if (resposta.informacoes == 'naoM') {
+                setLoad(false);
+                return;
+            }
 
             setUsersList((prevPublicacoes) => [
                 ...prevPublicacoes,
@@ -60,7 +62,6 @@ export default function Busca() {
 
         setLoad(false);
     }
-
     const debounce = (func, delay) => {
         let timeoutId;
         return function (...args) {
@@ -71,10 +72,12 @@ export default function Busca() {
 
     const debouncedSearch = useCallback(
         debounce(() => {
+            setUsersList([]);
+            setUsers('');
             num.current = 0;
-            Busca();
+            setControl(true);
         }, 1000),
-        [pesquisa]
+        []
     );
 
 
@@ -96,18 +99,15 @@ export default function Busca() {
     useEffect(() => {
         setUsersList([]);
         num.current = 0;
-
-        setControl(true);
-
-
-    }, [pesquisa]);
+        debouncedSearch();
+    }, [pesquisa, debouncedSearch]);
 
     useEffect(() => {
         if (control) {
             setControl(false);
-            debouncedSearch();
+            Busca();
         }
-    }, [debouncedSearch, control]);
+    }, [control]);
 
     const geraUser = () => {
         return usersList.map((usuario, index) => (
@@ -131,11 +131,12 @@ export default function Busca() {
             </span>
             <div className="pessoasBOX">
 
-                {geraUser()}
+                {users == 'nao' ? <p id='notFound'>Não achamu ninguem</p> : geraUser()}
 
             </div>
 
             <div className='disparador' ref={ref}>
+                {users == 'naoM' ? <p id='notMore'>NAO HÁ mais Pessooas</p> : null}
                 {Loadi ? <Load /> : null}
             </div>
         </div>
