@@ -90,13 +90,13 @@ export default function Livros() {
             const resposta = await api.enviar(nome, null, null, null, null, num.current);
             if (resposta.ok) {
                 setLivro(resposta.informacoes);
-                num.current += 5;
+                num.current += 12;
             }
         } else {
             const resposta = await api.enviar(nome, Novo, Finalizado, classificacao, selecao, num.current);
             if (resposta.ok) {
                 setLivro(resposta.informacoes);
-                num.current += 5;
+                num.current += 12;
             }
         }
 
@@ -195,11 +195,18 @@ export default function Livros() {
         setMude(true);
     }, [Novo, Finalizado, nome, classificacao, selecao]);
 
-    
+
     useEffect(() => {
         num.current = 0;
         setMude(true);
     }, [Novo, Finalizado, classificacao, selecao]);
+
+    useEffect(() => {
+        if (nome == '') {
+            num.current = 0;
+            setMude(true);
+        }
+    }, [nome]);
 
     useEffect(() => {
         if (att) {
