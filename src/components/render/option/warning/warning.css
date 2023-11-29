@@ -75,7 +75,7 @@
     background-color: var(--sair-conta);
 }
 
-@media (max-width: 2560px) and (min-width: 1080px) {
+@media (max-width: 2560px) and (min-width: 1440px) {
     .warningBts{
         height: 30%;
         align-items: center;

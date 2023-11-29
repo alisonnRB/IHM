@@ -48,6 +48,16 @@
     }
 }
 
+@media (max-width: 576px) and (orientation: portrait){
+    #notMore {
+        font-size: 1.5em;
+        word-break: break-all;
+        color: #BACFD1;
+        position: relative;
+        bottom: 350px;
+    }
+}
+
 @media (min-width: 577px) and  (max-width: 992px)  and (orientation: landscape){
     .renderPosts {
         padding: 0;

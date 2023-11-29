@@ -52,7 +52,14 @@ center h1 {
     display : none;
 }
 
-@media (max-width: 2560px) and (min-width: 1080px) {
+@media (max-width: 576px) and (orientation: portrait){
+    center h1{
+        margin-left: -200px;
+    }
+}
+
+
+@media (max-width: 2560px) and (min-width: 1440px) {
     /*estilo pra computadores com até 2560px*/
     center h1 {
         color: var(--letra);

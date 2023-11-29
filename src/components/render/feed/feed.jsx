@@ -81,7 +81,7 @@ export default function Feed() {
       <BtFloat />
 
       <div className='disparador' ref={ref}>
-        {publis == 'nao' ? <p id='notMore'>NAO HÁ Novas publicações</p> : null}
+        {publis == 'nao' ? <p id='notMore'>NÃO HÁ Novas publicações</p> : null}
         {Loadi ? <Load /> : null}
       </div>
     </div>

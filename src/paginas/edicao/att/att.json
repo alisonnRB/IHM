@@ -7,7 +7,7 @@
         "finalizado": "FINISHED",
         "nome": "NAME :",
         "text1": "Do you really want to delete this Book??",
-        "text2": "It will be possible to recover it!!",
+        "text2": "It will be impossible to recover it!!",
         "ss": "YES",
         "n": "NO" 
     },
@@ -20,7 +20,7 @@
         "finalizado": "FINALIZADO",
         "nome": "NOME :",
         "text1": "Você realmente quer excluir esse Livro??",
-        "text2": "Será possível recuperá-lo!!",
+        "text2": "Será impossível recuperá-lo!!",
         "ss": "SIM",
         "n": "NÃO"
     },

@@ -136,7 +136,7 @@ export default function Busca() {
             </div>
 
             <div className='disparador' ref={ref}>
-                {users == 'naoM' ? <p id='notMore'>NAO HÁ mais Pessooas</p> : null}
+                {users == 'naoM' ? <p id='notMore'>NÃO HÁ mais Pessoas</p> : null}
                 {Loadi ? <Load /> : null}
             </div>
         </div>
