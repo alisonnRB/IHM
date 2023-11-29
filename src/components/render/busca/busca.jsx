@@ -1,15 +1,25 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useInView } from 'react-intersection-observer';
 import './busca.css';
 
 import api from '../../../backend/controler/api_Usuarios';
 
 import CardPessoa from "./cardPessoa/cardPessoa.jsx";
 import Noti from "../../notificacao/notificacao.jsx";
+import Load from "../../loading/loading.jsx";
 
 import words from './busca.json';
 
 export default function Busca() {
+    const num = useRef(0);
+    const [ref, inView] = useInView();
+    const [Loadi, setLoad] = useState(false);
+    const [usersList, setUsersList] = useState([]);
+    let init = false;
+    const [control, setControl] = useState(false);
+
+
     const [theme, setTheme] = useState('light');
     const [pesquisa, setPesquisa] = useState('');
 
@@ -27,39 +37,70 @@ export default function Busca() {
     }
 
     const Busca = async () => {
-        const resposta = await api.enviar(pesquisa);
+        if (Loadi) {
+            return;
+        }
+
+        setLoad(true);
+
+        console.log(pesquisa);
+        console.log(num.current);
+        const resposta = await api.enviar(pesquisa, num.current);
         if (resposta.ok) {
             setUsers(resposta.informacoes);
+            console.log(resposta.informacoes)
+
+            setUsersList((prevPublicacoes) => [
+                ...prevPublicacoes,
+                ...Object.values(resposta.informacoes),
+            ]);
+
+            num.current += 5;
         }
+
+
+        setLoad(false);
     }
 
     useEffect(() => {
         select_idioma();
         let a = localStorage.getItem('tema');
-        if(a){
-          setTheme(a);
+        if (a) {
+            setTheme(a);
+        }
+
+        if(!init){
+            Busca();
+
+            init = true;
         }
     }, []);
 
 
     useEffect(() => {
-        Busca();
+        setUsersList([]);
+        num.current = 0;
+        setControl(true);
     }, [pesquisa]);
 
-    const geraUser = () => {
-        let keys = Object.keys(users).length;
-        const list = [];
-        for (let i = 0; i < keys; i++) {
-            if (users && users[i]) {
-                let a = <CardPessoa key={i} user={users[i]}/>
-
-                list.push(a);
-            }
-
+    useEffect(() => {
+        if (control) {
+            setControl(false);
+            Busca()
         }
+    }, [control])
 
-        return list;
+    const geraUser = () => {
+        return usersList.map((usuario, index) => (
+            <CardPessoa key={index} user={usuario} />
+        ));
     }
+
+    useEffect(() => {
+        if (inView && !Loadi) {
+            Busca();
+        }
+    }, [inView, Loadi]);
 
     return (
         <div className='TelaBusca'>
@@ -73,6 +114,10 @@ export default function Busca() {
 
                 {geraUser()}
 
+            </div>
+
+            <div className='disparador' ref={ref}>
+                {Loadi ? <Load /> : null}
             </div>
         </div>
     );
