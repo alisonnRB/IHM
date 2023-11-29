@@ -35,6 +35,12 @@
     justify-content: center;
 }
 
+#notMore {
+    font-size: 5em;
+    word-break: break-all;
+    color: #BACFD1;
+}
+
 @media (orientation: portrait){
     .renderPosts {
         width: 100%;

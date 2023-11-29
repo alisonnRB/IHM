@@ -237,7 +237,7 @@
     color: #BACFD1;
 }
 
-#notMore {
+.TelaLivros #notMore {
     position: relative;
     bottom: 200px;
     font-size: 5em;
