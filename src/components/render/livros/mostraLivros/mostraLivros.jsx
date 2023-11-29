@@ -11,10 +11,10 @@ export default function MostraLivros(props) {
     }, []);
 
     useEffect(() => {
-        if(props.mude){
+        if (props.mude) {
             setLivros([]);
             props.num.current = 0;
-             
+
             props.setAtt(true)
         }
     }, [props.mude]);
@@ -38,12 +38,12 @@ export default function MostraLivros(props) {
                     );
                     return [...prevLivros, ...livrosNaoDuplicados];
                 });
-                props.setReload(true);
             }
         }
     }, [props.Livro]);
 
     const renderizarItens = () => {
+
         const elementos = [];
         let tempRow = [];
         let count = 0;

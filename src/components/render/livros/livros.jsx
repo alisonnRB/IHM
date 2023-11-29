@@ -30,6 +30,7 @@ export default function Livros() {
     const [reload, setReload] = useState(false);
     const [mude, setMude] = useState(false);
     const [att, setAtt] = useState(false);
+    const [Responsed, setResponsed] = useState(false);
 
     const [theme, setTheme] = useState('light');
     const [conta, setConta] = useState(0);
@@ -79,19 +80,14 @@ export default function Livros() {
 
     const debouncedSearch = useCallback(
         debounce(() => {
+            setLivro('');
+            setResponsed(false);
             num.current = 0;
             setMude(true);
         }, 1000),
         []
     );
 
-    useEffect(() => {
-        debouncedSearch();
-        return () => {
-          // Limpar o timer quando o componente for desmontado
-          clearTimeout(debouncedSearch.current);
-        };
-      }, [debouncedSearch]);
 
 
     const select_idioma = () => {
@@ -106,24 +102,35 @@ export default function Livros() {
     const Busca = async () => {
         if (Loadi) {
             return;
+        } else if (Livro == 'nao' || (Livro == 'naoM' && num.current != 0)) {
+            return;
         }
 
-        setLoad(true);
+        console.log('entro')
 
-        console.log(nome);
-        console.log(num.current)
+        setLoad(true);
 
         if (!open) {
             const resposta = await api.enviar(nome, null, null, null, null, num.current);
             if (resposta.ok) {
                 setLivro(resposta.informacoes);
-                num.current += 5;
+                if (resposta.informacoes == 'nao') {
+                }
+                else if (resposta.informacoes == 'naoM') {
+                    setResponsed(true);
+                }
+                num.current += 18;
             }
         } else {
             const resposta = await api.enviar(nome, Novo, Finalizado, classificacao, selecao, num.current);
             if (resposta.ok) {
                 setLivro(resposta.informacoes);
-                num.current += 5;
+                if (resposta.informacoes == 'nao') {
+                }
+                else if (resposta.informacoes == 'naoM') {
+                    setResponsed(true);
+                }
+                num.current += 18;
             }
         }
 
@@ -222,7 +229,7 @@ export default function Livros() {
         debouncedSearch();
     }, [Novo, Finalizado, debouncedSearch, nome, classificacao, selecao]);
 
-    
+
     useEffect(() => {
         num.current = 0;
         debouncedSearch();
@@ -255,6 +262,7 @@ export default function Livros() {
         }
     }
 
+
     return (
         <div className='TelaLivros'>
             <Noti />
@@ -272,12 +280,14 @@ export default function Livros() {
             </div>
 
             <section className='buscaLivros'>
-                {Livro != '' || reload ? <MostraLivros setAtt={setAtt} Livro={Livro} setReload={setReload} num={num} mude={mude} /> : <p id='notFound'>{Uword.notFound}</p>}
+                {Livro === 'nao' ? <p id='notFound'>{Uword.notFound}</p> : <MostraLivros setAtt={setAtt} Livro={Livro != 'naoM' ? Livro : null} setReload={setReload} num={num} mude={mude} />}
             </section>
 
             <div className='disparador' ref={ref}>
+                {Livro == 'naoM' ? <p id='notMore'>NAO HÁ MAIS LIVROS! </p> : null}
                 {Loadi ? <Load /> : null}
             </div>
+
 
 
         </div>

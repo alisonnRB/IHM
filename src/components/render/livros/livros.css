@@ -237,6 +237,15 @@
     color: #BACFD1;
 }
 
+#notMore {
+    position: relative;
+    bottom: 200px;
+    font-size: 5em;
+    word-break: break-all;
+    color: #BACFD1;
+}
+
+
 .TelaLivros .disparador{
     height: 20px;
     margin-top: 200px;
