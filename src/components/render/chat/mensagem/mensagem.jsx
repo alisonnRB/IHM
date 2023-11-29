@@ -85,8 +85,6 @@ export default function Mensagem(props) {
       }else{
         props.setAtt(true);
       }
-    } else {
-      console.log(lastJsonMessage);
     }
 
   }, [lastJsonMessage]);

@@ -25,8 +25,10 @@ export default function Conversas(props) {
   useEffect(()=>{
     if(!att){
       props.setAtt(false);
+      Busca();
     }
   },[att])
+  
 
   useEffect(() => {
     props.setSelecionado(selecionado);

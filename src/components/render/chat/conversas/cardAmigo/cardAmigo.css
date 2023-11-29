@@ -10,6 +10,7 @@
     background-color: var(--deleta-cap);
 
     transition: all .3s ease;
+    animation: surge 1s ease;
 }
 
 .conversas .listaC li img {
