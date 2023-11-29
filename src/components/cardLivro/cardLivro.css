@@ -9,6 +9,8 @@
     overflow: hidden;
     overflow-y: hidden;
     transition: max-width 1s ease;
+
+    animation: surge 2s ease;
 }
 
 .CardLivro .IMGbox {
