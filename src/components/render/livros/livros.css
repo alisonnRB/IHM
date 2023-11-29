@@ -183,6 +183,7 @@
 }
 
 .buscaLivros {
+    min-height: 80%;
     padding-top: 50px;
     display: flex;
     flex-direction: column;

@@ -1,6 +1,6 @@
 import React from 'react';
 import './livros.css';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import Selecao from '../../livroSelectGen/select.jsx';
@@ -69,6 +69,30 @@ export default function Livros() {
 
     const [Uword, setUword] = useState('EN');
 
+    const debounce = (func, delay) => {
+        let timeoutId;
+        return function (...args) {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => func(...args), delay);
+        };
+    };
+
+    const debouncedSearch = useCallback(
+        debounce(() => {
+            num.current = 0;
+            setMude(true);
+        }, 1000),
+        []
+    );
+
+    useEffect(() => {
+        debouncedSearch();
+        return () => {
+          // Limpar o timer quando o componente for desmontado
+          clearTimeout(debouncedSearch.current);
+        };
+      }, [debouncedSearch]);
+
 
     const select_idioma = () => {
         let idi = localStorage.getItem('idioma');
@@ -86,17 +110,20 @@ export default function Livros() {
 
         setLoad(true);
 
+        console.log(nome);
+        console.log(num.current)
+
         if (!open) {
             const resposta = await api.enviar(nome, null, null, null, null, num.current);
             if (resposta.ok) {
                 setLivro(resposta.informacoes);
-                num.current += 12;
+                num.current += 5;
             }
         } else {
             const resposta = await api.enviar(nome, Novo, Finalizado, classificacao, selecao, num.current);
             if (resposta.ok) {
                 setLivro(resposta.informacoes);
-                num.current += 12;
+                num.current += 5;
             }
         }
 
@@ -192,21 +219,14 @@ export default function Livros() {
     }, []);
 
     useEffect(() => {
-        setMude(true);
-    }, [Novo, Finalizado, nome, classificacao, selecao]);
+        debouncedSearch();
+    }, [Novo, Finalizado, debouncedSearch, nome, classificacao, selecao]);
 
-
+    
     useEffect(() => {
         num.current = 0;
-        setMude(true);
-    }, [Novo, Finalizado, classificacao, selecao]);
-
-    useEffect(() => {
-        if (nome == '') {
-            num.current = 0;
-            setMude(true);
-        }
-    }, [nome]);
+        debouncedSearch();
+    }, [Novo, Finalizado, debouncedSearch, classificacao, selecao]);
 
     useEffect(() => {
         if (att) {

@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useInView } from 'react-intersection-observer';
 import './busca.css';
 
@@ -48,19 +48,35 @@ export default function Busca() {
         const resposta = await api.enviar(pesquisa, num.current);
         if (resposta.ok) {
             setUsers(resposta.informacoes);
-            console.log(resposta.informacoes)
 
             setUsersList((prevPublicacoes) => [
                 ...prevPublicacoes,
                 ...Object.values(resposta.informacoes),
             ]);
 
-            num.current += 5;
+            num.current += 20;
         }
 
 
         setLoad(false);
     }
+
+    const debounce = (func, delay) => {
+        let timeoutId;
+        return function (...args) {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => func(...args), delay);
+        };
+    };
+
+    const debouncedSearch = useCallback(
+        debounce(() => {
+            num.current = 0;
+            Busca();
+        }, 1000),
+        [pesquisa]
+    );
+
 
     useEffect(() => {
         select_idioma();
@@ -69,7 +85,7 @@ export default function Busca() {
             setTheme(a);
         }
 
-        if(!init){
+        if (!init) {
             Busca();
 
             init = true;
@@ -80,15 +96,18 @@ export default function Busca() {
     useEffect(() => {
         setUsersList([]);
         num.current = 0;
+
         setControl(true);
+
+
     }, [pesquisa]);
 
     useEffect(() => {
         if (control) {
             setControl(false);
-            Busca()
+            debouncedSearch();
         }
-    }, [control])
+    }, [debouncedSearch, control]);
 
     const geraUser = () => {
         return usersList.map((usuario, index) => (
