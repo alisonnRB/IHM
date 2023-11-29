@@ -1,16 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import api from "../../../backend/controler/api_cadastro";
+import './form_cadastro.css';
+
+import Load from '../../../components/loading/loading.jsx';
+import certo from '../../../imgs/marcado.png';
+import errado from '../../../imgs/cancel.png';
 
 import api_google from "../../../backend/controler/api_cadastraGoogle";
 
 //* as propriedades do elemento pai são recebidas no args props
 export default function Cadastro(props) {
   const [Erro, setErro] = useState('');
+  const [load, setLoad] = useState(false);
+  const [respondido, setRespondido] = useState(false);
+  const [certo_erro, setCerto_erro] = useState('');
 
   const handleSubmit = async (event) => {
-    event.preventDefault(); //? previne o comportamento padrão da pagina de recarregar ao envio de form
+    event.preventDefault();
 
-    //? prepara os avlores para a api
+    setLoad(true);
+
     const nome = event.target.nome.value;
     const email = event.target.email.value;
     const senha = event.target.senha.value;
@@ -19,35 +28,61 @@ export default function Cadastro(props) {
 
 
     const resposta = await api.enviar(nome, email, senha, confSenha);
-
+    setRespondido(true);
     if (resposta.ok) {
-      const confirmacao = window.confirm('Cadastro realizado com sucesso!');
-      //? caso a resposta do server seja positiva emite um alert e fecha a janela
+      setCerto_erro('certo');
 
-      if (confirmacao) {
+      setTimeout(() => {
+        setRespondido(false);
+        setLoad(false);
+        setCerto_erro('');
         props.setSelect(false);
       }
+        , 1000)
+
     } else {
+      setCerto_erro('erro');
       setErro(resposta.informacoes);
     }
+
+    setTimeout(() => {
+      setRespondido(false);
+      setLoad(false);
+      setCerto_erro('');
+    }
+      , 980);
   };
 
   async function handleCallbackResponse(response) {
     var userOBJ = response.credential;
 
-    const resposta = await api_google.enviar(userOBJ);
-    if (resposta.ok) {
-      const confirmacao = window.confirm('Cadastro realizado com sucesso!');
-      //? caso a resposta do server seja positiva emite um alert e fecha a janela
+    setLoad(true);
 
-      if (confirmacao) {
+    const resposta = await api_google.enviar(userOBJ);
+    setRespondido(true);
+    if (resposta.ok) {
+      setCerto_erro('certo');
+
+      setTimeout(() => {
+        setRespondido(false);
+        setLoad(false);
+        setCerto_erro('');
         props.setSelect(false);
       }
+        , 1000)
+
     } else {
+      setCerto_erro('erro');
       setErro(resposta.informacoes);
     }
 
-  }
+    setTimeout(() => {
+      setRespondido(false);
+      setLoad(false);
+      setCerto_erro('');
+    }
+      , 980);
+  };
 
   useEffect(() => {
     /* global google */
@@ -92,6 +127,14 @@ export default function Cadastro(props) {
         </span>
 
       </form>
+
+      {load ? <div className={`fundoAWAIT ${certo_erro == 'erro' ? 'err' : null}`}>
+        <Load virar={respondido} />
+        <img src={certo} className={`certinho ${certo_erro == 'certo' ? 'vire' : null}`} />
+        <img src={errado} className={`erradinho ${certo_erro == 'erro' ? 'vire' : null}`} />
+
+        {certo_erro == 'certo' ? <p className='msgC'>CADASTRO REALIZADO</p> : null}
+      </div> : null}
     </>
   );
 }
