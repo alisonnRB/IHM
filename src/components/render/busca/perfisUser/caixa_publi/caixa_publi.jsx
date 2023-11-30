@@ -1,11 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-import './caixa_publi.css';
-
-import Card from '../../feed/cardPost/cardPost.jsx';
-import api from "../../../../backend/controler/api_minhasPublis.js";
-import Load from "../../../../components/loading/loading.jsx";
+import Card from '../../../feed/cardPost/cardPost.jsx';
+import api from "../../../../../backend/controler/api_minhasPublis.js";
+import Load from "../../../../../components/loading/loading.jsx";
 
 export default function Caixa_publi(props) {
     const [publis, setPublis] = useState({});
@@ -38,7 +36,7 @@ export default function Caixa_publi(props) {
         }
 
         setLoad(true);
-        const resposta = await api.enviar('i',num.current);
+        const resposta = await api.enviar(props.idUser, num.current);
         if (resposta.ok) {
             setPublis(resposta.informacoes);
             if (resposta.informacoes == 'nao') {

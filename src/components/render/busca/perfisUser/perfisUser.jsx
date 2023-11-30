@@ -17,6 +17,7 @@ import Seguindo from '../../../../backend/controler/api_buscaSeguidores';
 import FloatBt from '../../../BtFloat/btFloat.jsx';
 
 import Caixa_livros from './caixa_livro/caixa_livro.jsx';
+import Caixa_publi from './caixa_publi/caixa_publi.jsx';
 
 import words from './perfisUser.json';
 
@@ -199,7 +200,7 @@ export default function User() {
                 <p onClick={() => { setSelect(true) }} className={`btL ${select ? 'sets' : null}`}>PUBLICAÇÕES</p>
             </span>
 
-            {!select ? <Caixa_livros idUser={idUser}/> : null}
+            {!select ? <Caixa_livros idUser={idUser}/> : <Caixa_publi idUser={idUser}/>}
 
             <FloatBt />
         </div>
