@@ -379,6 +379,16 @@
 
 }
 
+@media (max-width: 667px) and (min-width: 375px) {
+    .TelaLivros #notMore {
+        font-size: 2em;
+    }   
+    
+    .BOXS .boxSelection.inter center h1 {
+        left: 90px;
+    }
+}
+
 
 @media (min-width: 577px) and (max-width: 768px) and (orientation: portrait) {
 
