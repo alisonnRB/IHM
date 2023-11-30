@@ -9,6 +9,9 @@ import curtiT from '../../../../imgs/curtiT.png';
 import curtiD from '../../../../imgs/curti-dark.png';
 import curtiTD from '../../../../imgs/curtiN-dark.png';
 
+import opPubli from '../../../../imgs/opPubli.png';
+import lixo from '../../../../imgs/lixeira.png';
+
 import coment from '../../../../imgs/bal-coment.png';
 import comentD from '../../../../imgs/coments-dark.png';
 
@@ -21,9 +24,11 @@ import SearchVote from '../../../../backend/controler/api_BuscaVotos';
 import Comentarios from '../../../../paginas/ler/comentarios/comentarios.jsx';
 
 import api from '../../../../backend/controler/api_enqueteVote';
+import dell from '../../../../backend/controler/api_dellPubli.js';
 
 export default function Card(props) {
   const id = localStorage.getItem('id');
+  const [deletar, setDeletar] = useState(false);
 
   const [theme, setTheme] = useState('light');
 
@@ -168,7 +173,7 @@ export default function Card(props) {
 
   const Busca = async () => {
     setAux(auxiliar + 1);
-    
+
     if (enquete && enquete != undefined && enquete.id) {
       const respost = await SearchVote.enviar(enquete.id);
       if (respost.informacoes) {
@@ -199,6 +204,20 @@ export default function Card(props) {
     }
   }
 
+  const fechar_dell = (e) => {
+    e.stopPropagation();
+    setDeletar(false);
+  }
+
+  const dell_Publi = async () =>{
+    const resposta = await dell.enviar(props.publi.id);
+    if(resposta.ok){
+      window.location.reload();
+    }else{
+      setDeletar(false);
+    }
+  }
+
   return (
     <>
       <div className='cardPost'>
@@ -208,6 +227,17 @@ export default function Card(props) {
             <img className='perfilPubli' src={autor.fotoPerfil ? "http://localhost/imagens/" + autor.fotoPerfil : ""} />
             <Link to={id != autor.id ? `/IHM/Busca/user?id=${encodeURIComponent(JSON.stringify(autor.id))}` : '/perfil'}><p id='nom'>{`@${autor.nome}`}</p></Link>
           </span>
+
+          {id === autor.id ? <img src={opPubli} className='opPubli' onClick={() => { setDeletar(true) }} /> : null}
+
+          {deletar ? (
+            <div className='deletePubli' onClick={(e) => { fechar_dell(e) }}>
+              <span className='boxDellPubli' onClick={(e) => { e.stopPropagation(); dell_Publi() }}>
+                <p>EXCLUIR</p>
+                <div><img src={lixo}/></div>
+              </span>
+            </div>
+          ) : null}
 
           {link && link != undefined ? <Link to={`/Ler/?id=${encodeURIComponent(JSON.stringify(link.id))}`}>
             <div className='imgLinkBox'>

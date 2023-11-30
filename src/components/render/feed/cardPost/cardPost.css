@@ -186,6 +186,58 @@
     margin-top: -30px;
 }
 
+.opPubli{
+    height: 40px;
+    position: relative;
+    left: 95%;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.deletePubli{
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.678);
+    height: 100vh;
+    width: 100vw;
+    z-index: 200;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.boxDellPubli{
+    background-color: black;
+    height: 200px;
+    width: 400px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.boxDellPubli p{
+    color: var(--letra);
+    height: 100%;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+.boxDellPubli div{
+    height: 100%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxDellPubli div img{
+    height: 50px;
+}
+
 
 @media (orientation: portrait) {
     .cardPost {
