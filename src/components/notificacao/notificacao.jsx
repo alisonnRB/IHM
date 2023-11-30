@@ -6,18 +6,28 @@ import Card from "./card/card.jsx";
 import api from "../../backend/controler/api_notificacao.js";
 import ver from "../../backend/controler/api_visuNotifica.js";
 
+import audioSrc from '../../sounds/notificacao.ogg';
+
 export default function Notificações() {
+    const [audio] = useState(new Audio(audioSrc));
+
+
     const [isWindowOpen, setIsWindowOpen] = useState(false);
     const [notificar, setNotficar] = useState({});
     const [New, setNew] = useState(false);
 
+    useEffect(() => {
+        if (New) {
+            audio.play();
+        }
+    }, [New])
 
     useEffect(() => {
         Busca();
         const intervalId = setInterval(() => {
             Busca();
         }, 30000);
-        return () => clearInterval(intervalId); 
+        return () => clearInterval(intervalId);
     }, []);
 
 
@@ -62,6 +72,7 @@ export default function Notificações() {
             const hasNotifications = resposta.informacoes && typeof resposta.informacoes === 'object' &&
                 (Object.values(resposta.informacoes).some(notifArray => notifArray && notifArray.length > 0));
             setNew(hasNotifications);
+
         }
     }
 

@@ -26,7 +26,19 @@ import Comentarios from '../../../../paginas/ler/comentarios/comentarios.jsx';
 import api from '../../../../backend/controler/api_enqueteVote';
 import dell from '../../../../backend/controler/api_dellPubli.js';
 
+import audioSrc from '../../../../sounds/curtida.ogg';
+
 export default function Card(props) {
+  const [audio] = useState(new Audio(audioSrc));
+
+  const CurtiPlay = () => {
+    if (!curtido) {
+      audio.play();
+    }
+
+  };
+
+
   const id = localStorage.getItem('id');
   const [deletar, setDeletar] = useState(false);
 
@@ -209,11 +221,11 @@ export default function Card(props) {
     setDeletar(false);
   }
 
-  const dell_Publi = async () =>{
+  const dell_Publi = async () => {
     const resposta = await dell.enviar(props.publi.id);
-    if(resposta.ok){
+    if (resposta.ok) {
       window.location.reload();
-    }else{
+    } else {
       setDeletar(false);
     }
   }
@@ -234,7 +246,7 @@ export default function Card(props) {
             <div className='deletePubli' onClick={(e) => { fechar_dell(e) }}>
               <span className='boxDellPubli' onClick={(e) => { e.stopPropagation(); dell_Publi() }}>
                 <p>EXCLUIR</p>
-                <div><img src={lixo}/></div>
+                <div><img src={lixo} /></div>
               </span>
             </div>
           ) : null}
@@ -266,7 +278,7 @@ export default function Card(props) {
         </span>
         <span className='curtiComent'>
           <img src={theme == 'light' ? coment : comentD} onClick={() => { setAbreComent(!abreComent) }} />
-          <img src={curtido ? (theme == 'light' ? curtiT : curtiD) : (theme == 'light' ? curti : curtiTD)} className={curtido ? 'Nom' : 'Sin'} onClick={() => { curtir(); setCurtido(!curtido) }} />
+          <img src={curtido ? (theme == 'light' ? curtiT : curtiD) : (theme == 'light' ? curti : curtiTD)} className={curtido ? 'Nom' : 'Sin'} onClick={() => { CurtiPlay(); curtir(); setCurtido(!curtido) }} />
         </span>
       </div>
 
