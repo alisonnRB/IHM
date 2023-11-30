@@ -135,7 +135,7 @@ export default function LinkLivro(props) {
                 <div className="Buscas">
                     {geraLivros()}
                     <div className="disparato" style={{ height: '300px', width: '50px' }} ref={ref}></div>
-                    {livro == 'naoM' ? <p id='notMore'>NAO HÁ MAIS LIVROS! </p> : null}
+                    {livro == 'naoM' ? <p id='notMore'>NÃO HÁ MAIS LIVROS! </p> : null}
                     {Loadi ? <Load /> : null}
                 </div>
 

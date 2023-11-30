@@ -278,7 +278,7 @@ export default function Livros() {
             </section>
 
             <div className='disparador' ref={ref}>
-                {Livro == 'naoM' ? <p id='notMore'>NAO HÁ MAIS LIVROS! </p> : null}
+                {Livro == 'naoM' ? <p id='notMore'>NÃO HÁ MAIS LIVROS! </p> : null}
                 {Loadi ? <Load /> : null}
             </div>
 

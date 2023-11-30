@@ -109,9 +109,13 @@
 }
 
 
-@media (min-width: 1201px) {
-    /* Estilos para dispositivos desktop (telas maiores) */
-
+@media (max-width: 1920px) and (min-width: 1440px) {
+    /*estilo pra computadores com até 1920px*/
+    #barra img {
+        height: 45%;
+        width: 65%;
+        object-fit: fill;
+    }
 }
 
 @media (orientation: portrait) {
