@@ -5,7 +5,11 @@ import { useState, useEffect } from "react";
 import api from '../../../../../backend/controler/api_info';
 import New from '../../../../../backend/controler/api_novaMSG';
 
+import audioSrc from '../../../../../sounds/notificacao.ogg';
+
 export default function CardAmigo(props) {
+    const [audio] = useState(new Audio(audioSrc));
+
     const [user, setUser] = useState({});
     const [info, setInfo] = useState({});
     const [foto, setFoto] = useState('');
@@ -15,6 +19,14 @@ export default function CardAmigo(props) {
     const [novasM, setNovasM] = useState(0);
 
     const [att, setAtt] = useState(false);
+
+
+    useEffect(()=>{
+        if(novasM > 0){
+            audio.play();
+        }
+    },[novasM])
+
 
     useEffect(() => {
         if (props.amigo && props.amigo) {
@@ -82,7 +94,7 @@ export default function CardAmigo(props) {
 
         }
     }
-console.log(info)
+
     return (
         <li className={`${set ? 'set' : null}`} onClick={() => { props.setSelecionado(info); setNovasM(0); }}>
             <img src={foto} />

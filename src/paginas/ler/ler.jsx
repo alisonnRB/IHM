@@ -25,7 +25,17 @@ import BtFloatH from "../escrever/btFloatH/btFloatH";
 
 import words from './ler.json';
 
+import audioSrc from '../../sounds/curtida.ogg';
+
 export default function Ler() {
+    const [audio] = useState(new Audio(audioSrc));
+
+    const CurtiPlay = () => {
+      if (!curtido) {
+        audio.play();
+      }
+  
+    };
 
     const location = useLocation();
     const [idLivro, setIdLivro] = useState(0);
@@ -194,7 +204,7 @@ export default function Ler() {
                             }} onMouseLeave={() => { setHoverF(false) }} style={styleF} ><img src={Fav} className={fav ? 'favN' : 'favS'} /><p className="ps">{Uword.fav}</p></span>
                         </div>
                         <div className='BoxVisu curti' >
-                            <span onClick={() => { curtir() }} onMouseEnter={() => {
+                            <span onClick={() => { curtir(); CurtiPlay(); }} onMouseEnter={() => {
                                 if (typeof window.ontouchstart === "undefined") {
                                     setHoverC(true);
                                 }

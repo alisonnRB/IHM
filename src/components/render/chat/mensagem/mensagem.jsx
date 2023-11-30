@@ -8,8 +8,15 @@ import send from '../../../../imgs/enviar.png';
 import sendD from '../../../../imgs/enviar-preto.png';
 import api from '../../../../backend/controler/api_chats';
 
+import audioSrc from '../../../../sounds/mensagem.ogg';
 
 export default function Mensagem(props) {
+  const [audio] = useState(new Audio(audioSrc));
+
+  const escrevePlay = () => {
+      audio.play();
+  };
+
   const id = localStorage.getItem('id');
   const [theme, settheme] = useState('light');
 
@@ -107,6 +114,7 @@ export default function Mensagem(props) {
       setNew(!New);
 
       setMensagem('');
+      escrevePlay();
     }
   };
 
