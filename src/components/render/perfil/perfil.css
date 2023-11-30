@@ -515,3 +515,9 @@
         padding-bottom: 100px;
     }
 }
+
+@media (max-width: 667px) and (min-width: 375px) {
+    .btPB .btL {
+        font-size: 1em;
+    }
+}
