@@ -4,7 +4,7 @@ import './form_cadastro.css';
 
 import Load from '../../../components/loading/loading.jsx';
 import certo from '../../../imgs/marcado.png';
-import errado from '../../../imgs/cancel.png';
+import errado from '../../../imgs/xis.jpeg';
 
 import api_google from "../../../backend/controler/api_cadastraGoogle";
 

@@ -10,7 +10,7 @@ import { setVariavelGlobal } from '../../../GvarAuth';
 
 import Load from '../../../components/loading/loading.jsx';
 import certo from '../../../imgs/marcado.png';
-import errado from '../../../imgs/cancel.png';
+import errado from '../../../imgs/xis.jpeg';
 
 
 export default function Login() {
