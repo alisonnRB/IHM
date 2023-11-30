@@ -21,9 +21,6 @@ import prata from '../../../imgs/prata.png';
 import ouro from '../../../imgs/ouro.png';
 import diamante from '../../../imgs/diamante.png';
 
-import caixa from '../../../imgs/caixa.png';
-import caixaD from '../../../imgs/trapezio.png';
-
 import words from './perfil.json';
 
 import Caixa_livros from './caixa_livros/caixa_livros.jsx';

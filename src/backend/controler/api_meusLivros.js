@@ -2,7 +2,7 @@ import auth from "./api_autenticar";
 import { setVariavelGlobal } from "../../GvarAuth";
 
 export default {
-    enviar: async (idUser) => {
+    enviar: async (idUser, indice) => {
         const id = sessionStorage.getItem("session");
         if (!id) {
             setVariavelGlobal(false);
@@ -12,6 +12,7 @@ export default {
         let user = {
             id: id,
             idUser: idUser,
+            indice: indice
         };
 
         //? prepara as informações de methodo e cabeçalhos para fazer a requisição
