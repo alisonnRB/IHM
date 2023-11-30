@@ -54,12 +54,12 @@ function Perfil() {
       setGeneros(resposta.informacoes);
     }
 
-    const respostaIMG = await apiCapa.enviar('i');
+    const respostaIMG = await apiCapa.enviar('i', 0);
     if (respostaIMG.ok == true) {
       setLivro(respostaIMG.informacoes);
     }
 
-    const respontaFav = await MeusFav.enviar('i');
+    const respontaFav = await MeusFav.enviar('i', 0);
     if (respontaFav.ok == true) {
       setLivroF(respontaFav.informacoes);
     }
