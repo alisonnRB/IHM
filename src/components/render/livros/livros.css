@@ -379,6 +379,16 @@
 
 }
 
+@media (max-width: 667px) and (min-width: 375px) {
+    .TelaLivros #notMore {
+        font-size: 2em;
+    }   
+    
+    .BOXS .boxSelection.inter center h1 {
+        left: 90px;
+    }
+}
+
 
 @media (min-width: 577px) and (max-width: 768px) and (orientation: portrait) {
 
@@ -736,7 +746,16 @@
     }
 }
 
-@media (max-width: 2560px) and (min-width: 1440px) {
+@media (max-width: 1920px) and (min-width: 1440px) {
+    /*estilo pra computadores com até 1920px*/
+    .TelaLivros #titlePerfil {
+        left: 750px; 
+        margin-bottom: -100px;
+        width: 300px;
+    }
+}
+
+@media (max-width: 2560px) and (min-width: 1921px) {
     /*estilo pra computadores com até 2560px*/
     .TelaLivros #titlePerfil {
         left: 43.75%;
