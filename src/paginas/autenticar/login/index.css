@@ -197,10 +197,8 @@
 
 @media (max-width: 2560px) and (min-width: 1921px) {
     #head-log img:first-child {
-        top: 20%;
-        height: 100%;
-        width: 100%;
+       width: 200px;
+       height: 200px;
+       margin-right: 45px;
     }   
 }
-
-@media (orie)

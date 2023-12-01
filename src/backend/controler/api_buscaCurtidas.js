@@ -28,7 +28,7 @@ export default {
     //TODO faz a requisição
 
     //! coloque o seu ip ali
-    const response = await fetch('http://10.1.1.211/server/busca_curtidas.php', requisição);
+    const response = await fetch('http://localhost/server/busca_curtidas.php', requisição);
 
     //TODO espera a resposta do servidor e armazena para retornar ao cliente
     const data = await response.json();

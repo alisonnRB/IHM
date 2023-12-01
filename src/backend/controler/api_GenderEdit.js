@@ -28,7 +28,7 @@ export default {
         };
         //TODO faz a requisição
         //! coloque o seu ip ali
-        const response = await fetch('http://10.1.1.211/server/update_gender.php', requisição);
+        const response = await fetch('http://localhost/server/update_gender.php', requisição);
 
 
         //TODO espera a resposta do servidor e armazena para retornar ao cliente
