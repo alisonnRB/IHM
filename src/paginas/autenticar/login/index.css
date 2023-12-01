@@ -114,6 +114,13 @@
     .form .form_pass {
         height: 8%;
     }
+    .contain-butt {
+        margin-top: 10%;
+    }
+    .form_button {
+        width: 200px;
+        height: 40px;
+    }
 }
 @media (min-width: 768px) and (max-width: 992px) and (orientation: portrait){
     #head-log img:first-child {
@@ -125,6 +132,13 @@
     .form .form_pass {
         height: 8%;
     }
+    .contain-butt {
+        margin-top: 10%;
+    }
+    .form_button {
+        width: 200px;
+        height: 40px;
+    }
 }
 @media (min-width: 992px) and (max-width: 1200px) and (orientation: portrait){
     #head-log img:first-child {
@@ -135,6 +149,13 @@
     }
     .form .form_pass {
         height: 8%;
+    }
+    .contain-butt {
+        margin-top: 10%;
+    }
+    .form_button {
+        width: 300px;
+        height: 50px;
     }
 }
 @media (min-width: 1201px) and (orientation: portrait){
@@ -150,34 +171,10 @@
 }
 
 @media (orientation: landscape) and (max-width: 577px){
-    #box{
-        width: 100vw;
-    }
-    .card-log{
+    .card-log {
         width: 100vw;
         height: 100vh;
-        align-items: center;
-        align-content: center;
-        
     }
-    #cotente-form-log .form{
-        height: 100vh;
-        width: 70vw;
-        gap: 2%;
-    }
-    #head-log{
-        gap:0px;
-        width: 100vw;
-        height: 10vh;
-    }
-    .rec-log #recuperar {
-        margin-bottom: 13%;
-    }
-    #head-log img:last-child {
-        height: 50%;
-        margin: 10px;
-    }
-
 }
 
 @media (max-width: 2560px) and (min-width: 1080px) {
@@ -185,16 +182,7 @@
         top: 20%;
         height: 100%;
         width: 100%;
-    }
-    
-    #head-log{
-        position: relative;
-        gap:200px;
-        width: 50%;
-        height: 10%;
-        left: 37%;
-        bottom: 2%;
-    }
-
-    
+    }   
 }
+
+@media (orie)

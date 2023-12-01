@@ -117,7 +117,7 @@ export default function Ler() {
 
     useEffect(() => {
         if (infos && infos != '') {
-            setFoto("http://localhost/imagens/" + infos.fotoPerfil);
+            setFoto("http://10.1.1.211/imagens/" + infos.fotoPerfil);
         }
     }, [infos]);
 
