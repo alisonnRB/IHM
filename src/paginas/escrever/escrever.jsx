@@ -290,7 +290,7 @@ export default function Escreve() {
 
                         <div className="boxIMG">
                             <img id="classifica" src={visuClass} />
-                            <img src={`http://10.1.1.211/livros/${id}/${info.nome}_${info.id}/${info.imagem}`} />
+                            <img src={`http://localhost/livros/${id}/${info.nome}_${info.id}/${info.imagem}`} />
                         </div>
 
                         <div className="boxGEN">

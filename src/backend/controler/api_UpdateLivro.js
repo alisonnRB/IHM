@@ -25,7 +25,7 @@ export default {
 
         //TODO faz a requisição
         //! coloque o seu ip ali
-        const response = await fetch('http://10.1.1.211/server/UpdateLivro.php', {
+        const response = await fetch('http://localhost/server/UpdateLivro.php', {
             method: 'POST',
             body: formData,
         });
