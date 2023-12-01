@@ -27,6 +27,7 @@ export default function Conversas(props) {
       props.setAtt(false);
     }
   },[att])
+  
 
   useEffect(() => {
     props.setSelecionado(selecionado);
@@ -41,6 +42,8 @@ export default function Conversas(props) {
 
   const gera_amigos = () => {
     const list = [];
+
+    
 
     for(let i = 0; i<Object.keys(amigos).length;i++){
       let a = <Card key={i} amigo={amigos[i]} setAtt={setAtt} att={att} selecionado={selecionado} setSelecionado={setSelecionado}/>;

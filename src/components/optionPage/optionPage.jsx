@@ -21,12 +21,22 @@ import pessoasD from '../../imgs/busca-dark.png';
 
 import api from '../../backend/controler/api_AllMSG';
 
-//? este é o componente que carrega os caminhos da pagina
+import audioSrc from '../../sounds/notificacao.ogg';
 
 function Barraop() {
+
+  const [audio] = useState(new Audio(audioSrc));
+
   const [select, setSelect] = useState(false);
   const [num, setNum] = useState(0);
   const [theme, setTheme] = useState('light');
+
+
+  useEffect(()=>{
+    if(num > 0){
+        audio.play();
+    }
+},[num])
 
   useEffect(() => {
     if (!select) {

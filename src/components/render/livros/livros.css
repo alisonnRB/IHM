@@ -183,6 +183,7 @@
 }
 
 .buscaLivros {
+    min-height: 80%;
     padding-top: 50px;
     display: flex;
     flex-direction: column;
@@ -235,6 +236,15 @@
     margin-bottom: 100px;
     color: #BACFD1;
 }
+
+.TelaLivros #notMore {
+    position: relative;
+    bottom: 200px;
+    font-size: 5em;
+    word-break: break-all;
+    color: #BACFD1;
+}
+
 
 .TelaLivros .disparador{
     height: 20px;
@@ -367,6 +377,16 @@
 
 
 
+}
+
+@media (max-width: 667px) and (min-width: 375px) {
+    .TelaLivros #notMore {
+        font-size: 2em;
+    }   
+    
+    .BOXS .boxSelection.inter center h1 {
+        left: 90px;
+    }
 }
 
 
@@ -726,7 +746,16 @@
     }
 }
 
-@media (max-width: 2560px) and (min-width: 1080px) {
+@media (max-width: 1920px) and (min-width: 1440px) {
+    /*estilo pra computadores com até 1920px*/
+    .TelaLivros #titlePerfil {
+        left: 750px; 
+        margin-bottom: -100px;
+        width: 300px;
+    }
+}
+
+@media (max-width: 2560px) and (min-width: 1921px) {
     /*estilo pra computadores com até 2560px*/
     .TelaLivros #titlePerfil {
         left: 43.75%;

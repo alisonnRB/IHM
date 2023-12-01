@@ -3,7 +3,7 @@ import { setVariavelGlobal } from "../../GvarAuth";
 
 export default {
   //? prepara o objeto para enviar no padrão RESTful
-  enviar: async (nome, indice) => {
+  enviar: async (id_ref, indice) => {
     const id = sessionStorage.getItem('session');
     if (!id) {
       setVariavelGlobal(false);
@@ -12,8 +12,9 @@ export default {
     }
 
     let user = {
-      nome: nome,
-      indice: indice
+      id: id,
+      id_ref: id_ref,
+      indice: indice,
     };
     //? prepara as informações de methodo e cabeçalhos para fazer a requisição
     let requisição = {
@@ -25,7 +26,7 @@ export default {
     //TODO faz a requisição
 
     //! coloque o seu ip ali
-    const response = await fetch('http://10.1.1.211/server/buscaPessoa.php', requisição);
+    const response = await fetch('http://localhost/server/Busca_minhasPublis.php', requisição);
 
     //TODO espera a resposta do servidor e armazena para retornar ao cliente
     const data = await response.json();

@@ -13,7 +13,6 @@ import Notificações from '../../notificacao/notificacao.jsx';
 import apiCapa from "../../../backend/controler/api_meusLivros";
 import api from '../../../backend/controler/api_info';
 
-import MeusLivros from './slideLivro/slideLivro.jsx';
 import MeusFav from '../../../backend/controler/api_meusFavoritos';
 
 import comum from '../../../imgs/comum.png';
@@ -22,10 +21,10 @@ import prata from '../../../imgs/prata.png';
 import ouro from '../../../imgs/ouro.png';
 import diamante from '../../../imgs/diamante.png';
 
-import caixa from '../../../imgs/caixa.png';
-import caixaD from '../../../imgs/trapezio.png';
-
 import words from './perfil.json';
+
+import Caixa_livros from './caixa_livros/caixa_livros.jsx';
+import Caixa_publi from './caixa_publi/caixa_publi.jsx';
 
 
 //? componente que comporta o perfil
@@ -47,18 +46,20 @@ function Perfil() {
   const [livro, setLivro] = useState([]);
   const [livroF, setLivroF] = useState([]);
 
+  const [select, setSelect] = useState(false);
+
   const Busca = async () => {
     const resposta = await apiGender.enviar();
     if (resposta.ok == true) {
       setGeneros(resposta.informacoes);
     }
 
-    const respostaIMG = await apiCapa.enviar('i');
+    const respostaIMG = await apiCapa.enviar('i', 0);
     if (respostaIMG.ok == true) {
       setLivro(respostaIMG.informacoes);
     }
 
-    const respontaFav = await MeusFav.enviar('i');
+    const respontaFav = await MeusFav.enviar('i', 0);
     if (respontaFav.ok == true) {
       setLivroF(respontaFav.informacoes);
     }
@@ -93,7 +94,7 @@ function Perfil() {
     select_idioma();
 
     let a = localStorage.getItem('tema');
-    if(a){
+    if (a) {
       setTheme(a);
     }
   }, []);
@@ -150,73 +151,60 @@ function Perfil() {
     setUword(word);
   }
 
-return (
+  return (
 
-  <div className='perfilpagep'>
-    <section className='boxName'>
-      <Notificações />
-      <span id='titlePerfil' className={`${theme == 'light' ? null : 'dark'}`}>{Uword.title}</span>
-      <img id='fotoPerfil' src={Perfil} style={Perfil !== '' ? { backgroundColor: 'transparent', backgroundImage: 'none' } : null} onClick={() => setEdita(true)} />
-      <span>
-        <div id='nome' >
-          <p>{name}</p>
+    <div className='perfilpagep'>
+      <section className='boxName'>
+        <Notificações />
+        <span id='titlePerfil' className={`${theme == 'light' ? null : 'dark'}`}>{Uword.title}</span>
+        <img id='fotoPerfil' src={Perfil} style={Perfil !== '' ? { backgroundColor: 'transparent', backgroundImage: 'none' } : null} onClick={() => setEdita(true)} />
+        <span>
+          <div id='nome' >
+            <p>{name}</p>
+          </div>
+          <img className='edit' src={theme == 'light' ? edit : editD} alt='Editar' onClick={() => setEdita(true)} />
+        </span>
+        <span className='numS'><img id='medalha' src={medalha} />{seguidoresS}</span>
+      </section>
+
+      {edita && <Edicao fecharEdicao={fecharEdicao} user={infos.nome} ft={Perfil} />}
+
+      <section className='boxGenero'>
+        <span className='boxtitleGender'>
+          <Link to='/IHM/perfil/gender'><p id='titleGen'>{Uword.genero}</p></Link>
+          <Link to='/IHM/perfil/gender'><img className='edit' src={theme == 'light' ? edit : editD} /></Link>
+        </span>
+        <div className='favGen'>
+          <span>
+            <div className='boxGen'>{mostraGender(0)}</div>
+            <div className='boxGen'>{mostraGender(1)}</div>
+          </span>
+          <span>
+            <div className='boxGen'>{mostraGender(2)}</div>
+            <div className='boxGen'>{mostraGender(3)}</div>
+            <div className='boxGen'>{mostraGender(4)}</div>
+          </span>
+          <span>
+            <div className='boxGen'>{mostraGender(5)}</div>
+            <div className='boxGen'>{mostraGender(6)}</div>
+          </span>
         </div>
-        <img className='edit' src={theme == 'light' ? edit : editD} alt='Editar' onClick={() => setEdita(true)} />
-      </span>
-      <span className='numS'><img id='medalha' src={medalha} />{seguidoresS}</span>
-    </section>
+      </section>
 
-    {edita && <Edicao fecharEdicao={fecharEdicao} user={infos.nome} ft={Perfil} />}
 
-    <section className='boxGenero'>
-      <span className='boxtitleGender'>
-        <Link to='/IHM/perfil/gender'><p id='titleGen'>{Uword.genero}</p></Link>
-        <Link to='/IHM/perfil/gender'><img className='edit' src={theme == 'light' ? edit : editD} /></Link>
-      </span>
-      <div className='favGen'>
-        <span>
-          <div className='boxGen'>{mostraGender(0)}</div>
-          <div className='boxGen'>{mostraGender(1)}</div>
-        </span>
-        <span>
-          <div className='boxGen'>{mostraGender(2)}</div>
-          <div className='boxGen'>{mostraGender(3)}</div>
-          <div className='boxGen'>{mostraGender(4)}</div>
-        </span>
-        <span>
-          <div className='boxGen'>{mostraGender(5)}</div>
-          <div className='boxGen'>{mostraGender(6)}</div>
-        </span>
-      </div>
-    </section>
-
-    <section className='boxMeulivro'>
-      <span className='boxTitle'>
-        <span>
-          <p id='titleLivro'>{Uword.meusLivros}</p>
-          <Link to='/IHM/perfil/MeusLivros'><img className='edit' src={theme == 'light' ? edit : editD} /></Link>
-        </span>
+      <span className='btPB'>
+        <p onClick={() => { setSelect(false) }} className={`btL ${!select ? 'sets' : null}`}>LIVROS</p>
+        <p onClick={() => { setSelect(true) }} className={`btL ${select ? 'sets' : null}`}>PUBLICAÇÕES</p>
       </span>
 
-      <Link to='/IHM/perfil/MeusLivros' id='link'><MeusLivros meusOrFav={'meus'} livro={livro} comp={'1'} /></Link>
+      {!select ?
+        <Caixa_livros Uword={Uword} theme={theme} livro={livro} livroF={livroF} />
+        : <Caixa_publi />}
 
-    </section>
 
-    <section className='boxMeulivro'>
-      <span className='boxTitle favoo'>
-        <span>
-          <p id='titleLivro'>{Uword.meusFavoritos}</p>
-          <Link to='/IHM/perfil/MeusFavoritos'><img className='edit' src={theme == 'light' ? edit : editD} /></Link>
-        </span>
-      </span>
-
-      <Link to='/IHM/perfil/MeusFavoritos' id='link'><MeusLivros meusOrFav={'fav'} livro={livroF} comp={'2'} /></Link>
-
-    </section>
-
-    <FloatBt />
-  </div>
-);
+      <FloatBt />
+    </div>
+  );
 }
 
 export default Perfil;

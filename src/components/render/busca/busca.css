@@ -27,7 +27,7 @@
 
 .TelaBusca .pessoasBOX {
     width: 100%;
-    height: 100%;
+    min-height: 80%;
     display: block;
     margin-top: 30px;
     padding-bottom: 50px;
@@ -37,6 +37,8 @@
     height: 110px;
     display: flex;
     justify-content: center;
+
+    animation: surge 2s ease;
 }
 
 
@@ -172,7 +174,17 @@
 
 
 }
-@media (max-width: 2560px) and (min-width: 1080px) {
+
+@media (max-width: 1920px) and (min-width: 1440px) {
+    /*estilo pra computadores com até 1920px*/
+    .TelaBusca #titlePerfil {
+        left: 750px; 
+        margin-bottom: -100px;
+        width: 300px;
+    }
+}
+
+@media (max-width: 2560px) and (min-width: 1921px) {
     /*estilo pra computadores com até 2560px*/
     .TelaBusca #titlePerfil {
         left: 43.75%; /*nunca vi uma medida tão específica*/

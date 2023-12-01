@@ -1,6 +1,6 @@
 import React from 'react';
 import './livros.css';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import Selecao from '../../livroSelectGen/select.jsx';
@@ -30,6 +30,7 @@ export default function Livros() {
     const [reload, setReload] = useState(false);
     const [mude, setMude] = useState(false);
     const [att, setAtt] = useState(false);
+    const [Responsed, setResponsed] = useState(false);
 
     const [theme, setTheme] = useState('light');
     const [conta, setConta] = useState(0);
@@ -69,6 +70,25 @@ export default function Livros() {
 
     const [Uword, setUword] = useState('EN');
 
+    const debounce = (func, delay) => {
+        let timeoutId;
+        return function (...args) {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => func(...args), delay);
+        };
+    };
+
+    const debouncedSearch = useCallback(
+        debounce(() => {
+            setLivro('');
+            setResponsed(false);
+            num.current = 0;
+            setMude(true);
+        }, 1000),
+        []
+    );
+
+
 
     const select_idioma = () => {
         let idi = localStorage.getItem('idioma');
@@ -82,6 +102,8 @@ export default function Livros() {
     const Busca = async () => {
         if (Loadi) {
             return;
+        } else if (Livro == 'nao' || (Livro == 'naoM' && num.current != 0)) {
+            return;
         }
 
         setLoad(true);
@@ -90,13 +112,19 @@ export default function Livros() {
             const resposta = await api.enviar(nome, null, null, null, null, num.current);
             if (resposta.ok) {
                 setLivro(resposta.informacoes);
-                num.current += 5;
+                if (resposta.informacoes == 'naoM') {
+                    setResponsed(true);
+                }
+                num.current += 18;
             }
         } else {
             const resposta = await api.enviar(nome, Novo, Finalizado, classificacao, selecao, num.current);
             if (resposta.ok) {
                 setLivro(resposta.informacoes);
-                num.current += 5;
+                if (resposta.informacoes == 'naoM') {
+                    setResponsed(true);
+                }
+                num.current += 18;
             }
         }
 
@@ -192,14 +220,14 @@ export default function Livros() {
     }, []);
 
     useEffect(() => {
-        setMude(true);
-    }, [Novo, Finalizado, nome, classificacao, selecao]);
+        debouncedSearch();
+    }, [Novo, Finalizado, debouncedSearch, nome, classificacao, selecao]);
 
-    
+
     useEffect(() => {
         num.current = 0;
-        setMude(true);
-    }, [Novo, Finalizado, classificacao, selecao]);
+        debouncedSearch();
+    }, [Novo, Finalizado, debouncedSearch, classificacao, selecao]);
 
     useEffect(() => {
         if (att) {
@@ -228,6 +256,7 @@ export default function Livros() {
         }
     }
 
+
     return (
         <div className='TelaLivros'>
             <Noti />
@@ -245,12 +274,14 @@ export default function Livros() {
             </div>
 
             <section className='buscaLivros'>
-                {Livro != '' || reload ? <MostraLivros setAtt={setAtt} Livro={Livro} setReload={setReload} num={num} mude={mude} /> : <p id='notFound'>{Uword.notFound}</p>}
+                {Livro === 'nao' ? <p id='notFound'>{Uword.notFound}</p> : <MostraLivros setAtt={setAtt} Livro={Livro != 'naoM' ? Livro : null} setReload={setReload} num={num} mude={mude} />}
             </section>
 
             <div className='disparador' ref={ref}>
+                {Livro == 'naoM' ? <p id='notMore'>NÃO HÁ MAIS LIVROS! </p> : null}
                 {Loadi ? <Load /> : null}
             </div>
+
 
 
         </div>

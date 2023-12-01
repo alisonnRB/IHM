@@ -12,7 +12,18 @@ import enviar from '../../imgs/enviar.png';
 
 import words from './cardComent.json';
 
+import audioSrc from '../../sounds/curtida.ogg';
+
 export default function Comentarios(props) {
+    const [audio] = useState(new Audio(audioSrc));
+
+    const CurtiPlay = () => {
+      if (!curtido) {
+        audio.play();
+      }
+  
+    };
+
     const [theme, setTheme] = useState('light');
     const [infos, setInfos] = useState('');
     const [data, setData] = useState('');
@@ -30,8 +41,6 @@ export default function Comentarios(props) {
     const [salva, setSalva] = useState(false);
 
     const [nomeRes, setNomeRes] = useState(false);
-
-    const [hover, setHover] = useState(false);
 
     const [curtido, setCurtido] = useState(false);
     const [quantCurti, setQuantCurti] = useState(0);
@@ -232,7 +241,7 @@ export default function Comentarios(props) {
 
                 <div className="btsCurti" >
                     <div className={`boxDEimg ${curtido ? 'c' : ''}`} style={style}>
-                        <img src={theme == 'light' ? like : likeD} className={`core`} onClick={() => { curtir(); setCurt(1); setAuxCurt(!auxCurti);}} />
+                        <img src={theme == 'light' ? like : likeD} className={`core`} onClick={() => { curtir(); CurtiPlay(); setCurt(1); setAuxCurt(!auxCurti);}} />
                     </div>
                     <span className="likeNUM">{quantCurti}</span>
                 </div>

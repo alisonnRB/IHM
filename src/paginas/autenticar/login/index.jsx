@@ -8,23 +8,51 @@ import api_google from "../../../backend/controler/api_loginGoogle";
 
 import { setVariavelGlobal } from '../../../GvarAuth';
 
+import Load from '../../../components/loading/loading.jsx';
+import certo from '../../../imgs/marcado.png';
+import errado from '../../../imgs/xis.jpeg';
+
 
 export default function Login() {
   const [erro, setErro] = useState(null);
   const navigate = useNavigate();
 
+  const [load, setLoad] = useState(false);
+  const [respondido, setRespondido] = useState(false);
+  const [certo_erro, setCerto_erro] = useState('');
+
   async function handleCallbackResponse(response) {
     var userOBJ = response.credential;
 
+    setLoad(true);
+
     const resposta = await api_google.enviar(userOBJ);
+    setRespondido(true);
     if (resposta.ok) {
+
+      setCerto_erro('certo');
       sessionStorage.setItem('session', resposta.informacoes);
-      navigate('/IHM/perfil');
-      setVariavelGlobal(false);
+      setVariavelGlobal(false);;
+      setTimeout(() => {
+        setRespondido(false);
+        setLoad(false);
+        setCerto_erro('');
+        navigate('/IHM/perfil');
+      }
+        , 1000)
+
     } else {
-      setErro(resposta.informacoes)
+      setCerto_erro('erro');
+      setErro(resposta.informacoes);
     }
-  }
+
+    setTimeout(() => {
+      setRespondido(false);
+      setLoad(false);
+      setCerto_erro('');
+    }
+      , 980);
+  };
 
   useEffect(() => {
     /* global google */
@@ -36,11 +64,11 @@ export default function Login() {
     google.accounts.id.renderButton(
       document.getElementById("signInDiv"),
       {
-        type:"icon",
-        shape:"circle",
-        theme:"outline",
-        text:"signin_with",
-        size:"large"
+        type: "icon",
+        shape: "circle",
+        theme: "outline",
+        text: "signin_with",
+        size: "large"
       }
     )
   }, [])
@@ -48,21 +76,38 @@ export default function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    setLoad(true);
+
     //? prepara os valores para enviar a api
     const email = event.target.email.value;
     const senha = event.target.senha.value;
 
     const resposta = await api.enviar(email, senha);
-
-    //TODO salva no localstorage as resposta do server
-
+    setRespondido(true);
     if (resposta.ok) {
+
+      setCerto_erro('certo');
       sessionStorage.setItem('session', resposta.informacoes);
-      navigate('/IHM/perfil');
-      setVariavelGlobal(false);
+      setVariavelGlobal(false);;
+      setTimeout(() => {
+        setRespondido(false);
+        setLoad(false);
+        setCerto_erro('');
+        navigate('/IHM/perfil');
+      }
+        , 1000)
+
     } else {
-      setErro(resposta.informacoes)
+      setCerto_erro('erro');
+      setErro(resposta.informacoes);
     }
+
+    setTimeout(() => {
+      setRespondido(false);
+      setLoad(false);
+      setCerto_erro('');
+    }
+      , 980);
   };
 
   //TODO abre a janela de cadastro caso click
@@ -88,6 +133,14 @@ export default function Login() {
       <span className='rec-log'>
         <p id="recuperar" >Esqueceu a senha?</p>
       </span>
+
+      {load ? <div className={`fundoAWAIT ${certo_erro == 'erro' ? 'err' : null}`}>
+        <Load virar={respondido} />
+        <img src={certo} className={`certinho ${certo_erro == 'certo' ? 'vire' : null}`} />
+        <img src={errado} className={`erradinho ${certo_erro == 'erro' ? 'vire' : null}`} />
+
+        {certo_erro == 'certo' ? <p className='msgC'>BEM VINDO</p> : null}
+      </div> : null}
 
     </>
   );

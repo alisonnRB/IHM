@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from 'react';
+import { useInView } from 'react-intersection-observer';
 import './meusLivros.css';
-import { useEffect } from "react";
-import { useState } from "react";
 
 import FloatBt from "../../../BtFloat/btFloat.jsx";
 import Livro from "../../../cardLivro/cardLivro";
+import Load from "../../../../components/loading/loading.jsx";
 
 import api from "../../../../backend/controler/api_meusLivros";
 
@@ -15,11 +15,38 @@ export default function MeusLivros() {
     const [livro, setLivro] = useState('');
     const [Uword, setUword] = useState('EN');
 
+    const [livros, setLivros] = useState([]);
+    const num = useRef(0);
+    const [ref, inView] = useInView();
+
+    const [Loadi, setLoad] = useState(false);
+
+    let init = false;
+
     const Busca = async () => {
-        const resposta = await api.enviar('i');
+        if (Loadi || livro == 'nao') {
+            return;
+        }
+
+        setLoad(true);
+        const resposta = await api.enviar('i', num.current);
         if (resposta.ok) {
             setLivro(resposta.informacoes);
+            if (resposta.informacoes == 'nao') {
+                setLoad(false);
+                return;
+            } else {
+                setLivros((prevLivros) => [
+                    ...prevLivros,
+                    ...Object.values(resposta.informacoes),
+                ]);
+
+            }
+
+            num.current += 18;
         }
+
+        setLoad(false);
     }
 
 
@@ -28,9 +55,9 @@ export default function MeusLivros() {
         let tempRow = [];
         let count = 0;
 
-        for (let i = 0; i < livro.length; i++) {
+        for (let i = 0; i < livros.length; i++) {
             count++;
-            tempRow.push(<div className="coluna" key={i}><Livro mine={true} info={livro[i]} /></div>);
+            tempRow.push(<div className="coluna" key={i}><Livro mine={true} info={livros[i]} /></div>);
 
             if (count === 3 || i === livro.length - 1) {
                 count = 0;
@@ -46,28 +73,43 @@ export default function MeusLivros() {
     const select_idioma = () => {
         let idi = localStorage.getItem('idioma');
         if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
-          idi = 'EN';
+            idi = 'EN';
         }
         let word = words[idi];
         setUword(word);
-      }
+    }
 
 
     useEffect(() => {
-        Busca();
+        if (!init) {
+            Busca();
+        }
+
+        init = true;
         select_idioma();
         let a = localStorage.getItem('tema');
-        if(a){
-          setTheme(a);
+        if (a) {
+            setTheme(a);
         }
     }, []);
+
+    useEffect(() => {
+        if (inView && !Loadi) {
+            Busca();
+        }
+    }, [inView, Loadi]);
 
     return (
         <div className="boxCardMeusLivro">
             <span id='titlePerfil' className={`${theme == 'light' ? null : 'dark'}`}>{Uword.title}</span>
 
 
-                {renderizarItens()}
+            {renderizarItens()}
+
+            <div className='disparador' ref={ref}>
+                {livro == 'nao' ? <p id='notMore'>NÃO HÁ Novas publicações</p> : null}
+                {Loadi ? <Load /> : null}
+            </div>
 
             <FloatBt />
             <div id="margem"></div>

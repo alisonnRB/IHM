@@ -177,7 +177,25 @@
     }
 }
 
-@media (max-width: 2560px) and (min-width: 1080px) {
+@media (max-width: 1920px) and (min-width: 1440px) {
+    /*estilo pra computadores com até 1920px*/
+    #head-log img:first-child {
+        top: 20%;
+        height: 200%;
+        width: 100%;
+    }
+    
+    #head-log{
+        position: relative;
+        gap:200px;
+        width: 50%;
+        height: 10%;
+        left: 315px;
+        bottom: 65px;
+    }
+}
+
+@media (max-width: 2560px) and (min-width: 1921px) {
     #head-log img:first-child {
         top: 20%;
         height: 100%;

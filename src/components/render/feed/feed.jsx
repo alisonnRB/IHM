@@ -36,7 +36,7 @@ export default function Feed() {
   }, [inView, Loadi]);
 
   const Busca = async () => {
-    if (Loadi) {
+    if (Loadi || publis == 'nao') {
       return;
     }
 
@@ -44,14 +44,18 @@ export default function Feed() {
     const resposta = await api.enviar(num.current);
     if (resposta.ok) {
       setPublis(resposta.informacoes);
+      if (resposta.informacoes == 'nao') {
+        setLoad(false);
+        return;
+      } else {
+        setPublicacoes((prevPublicacoes) => [
+          ...prevPublicacoes,
+          ...Object.values(resposta.informacoes),
+        ]);
 
-      // Adiciona novas publicações ao estado atual
-      setPublicacoes((prevPublicacoes) => [
-        ...prevPublicacoes,
-        ...Object.values(resposta.informacoes),
-      ]);
+        num.current += 20;
+      }
 
-      num.current += 20;
     }
 
 
@@ -77,6 +81,7 @@ export default function Feed() {
       <BtFloat />
 
       <div className='disparador' ref={ref}>
+        {publis == 'nao' ? <p id='notMore'>NÃO HÁ Novas publicações</p> : null}
         {Loadi ? <Load /> : null}
       </div>
     </div>

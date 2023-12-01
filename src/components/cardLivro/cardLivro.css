@@ -9,6 +9,8 @@
     overflow: hidden;
     overflow-y: hidden;
     transition: max-width 1s ease;
+
+    animation: surge 2s ease;
 }
 
 .CardLivro .IMGbox {
@@ -755,9 +757,15 @@
     }
 }
 
-@media (orientation: portrait) {}
+
 
 @media (orientation: landscape) {
     /* Estilos para dispositivos em modo paisagem */
 
+}
+
+@media (max-width: 667px) and (min-width: 375px) {
+    .CardLink .content #capa {
+        width: 100%;
+    }
 }

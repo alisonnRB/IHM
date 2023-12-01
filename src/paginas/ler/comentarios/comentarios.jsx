@@ -10,7 +10,15 @@ import enviar from '../../../imgs/enviar.png';
 
 import words from './comentarios.json';
 
+import audioSrc from '../../../sounds/comentario.ogg';
+
 export default function Comentarios(props) {
+    const [audio] = useState(new Audio(audioSrc));
+
+    const ComentPlay = () => {
+        audio.play();
+    };
+
     const [comentarios, setComentarios] = useState(0);
     const [verMais, setVerMais] = useState('');
 
@@ -69,6 +77,7 @@ export default function Comentarios(props) {
         }
         const response = await api.enviar(props.tipo, props.idLivro, texto, resposta, idResposta, conversa);
         if (response.ok) {
+            ComentPlay();
             setTexto('');
             setComent('');
             setResposta(0);
@@ -79,7 +88,7 @@ export default function Comentarios(props) {
     }
 
     const Busca = async () => {
-        
+
         const response = await apiBusca.enviar(props.idLivro, props.tipo);
         if (response.ok) {
             setComentarios(response.informacoes);
@@ -191,7 +200,7 @@ export default function Comentarios(props) {
         <div id="boxComent">
             <form className="campoComent" onSubmit={(event) => { Comentar(event); }}>
                 <input type="text" value={coment} onChange={(event) => { setComent(event.target.value); setTexto(event.target.value) }} placeholder={Uword.place} />
-                <img id="enviaCom" src={enviar} onClick={(event) => { Comentar(event)}} />
+                <img id="enviaCom" src={enviar} onClick={(event) => { Comentar(event) }} />
             </form>
 
             <div className="comentarios">

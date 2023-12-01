@@ -10,17 +10,20 @@ import diamante from '../../../../imgs/diamante.png';
 
 import api from '../../../../backend/controler/api_info';
 import apiGender from '../../../../backend/controler/api_gender';
-import apiLivros from '../../../../backend/controler/api_meusLivros';
 
 import Seguir from '../../../../backend/controler/api_seguir';
 import Seguindo from '../../../../backend/controler/api_buscaSeguidores';
 
 import FloatBt from '../../../BtFloat/btFloat.jsx';
-import Livro from '../../../cardLivro/cardLivro';
+
+import Caixa_livros from './caixa_livro/caixa_livro.jsx';
+import Caixa_publi from './caixa_publi/caixa_publi.jsx';
 
 import words from './perfisUser.json';
 
 export default function User() {
+    const [select, setSelect] = useState(false);
+    
     const location = useLocation();
     const [idUser, setIdUser] = useState('');
     const id = localStorage.getItem('id');
@@ -36,8 +39,6 @@ export default function User() {
     const [listF, setListF] = useState([]);
     const [name, setName] = useState('');
     const [Perfil, setPerfil] = useState('');
-
-    const [livro, setLivro] = useState([]);
 
     const [Uword, setUword] = useState('EN');
 
@@ -64,16 +65,13 @@ export default function User() {
         if (response.ok) {
             setGeneros(response.informacoes);
         }
-        const livrinhos = await apiLivros.enviar(idUser);
-        if (livrinhos.ok && livrinhos.informacoes[0]) {
-            setLivro(livrinhos.informacoes);
-        }
+
         const responseSeg = await Seguindo.enviar(idUser);
         if (responseSeg.informacoes) {
             setSeguindo(true);
         }
     };
-    
+
 
     const seguir = async () => {
         const resposta = await Seguir.enviar(idUser);
@@ -127,11 +125,6 @@ export default function User() {
         }
     }, [generos, meusGen]);
 
-    useEffect(() => {
-        if (!livro) {
-            Busca()
-        }
-    }, [livro]);
 
     useEffect(() => {
         if (seguidores >= 1000000) {
@@ -161,24 +154,7 @@ export default function User() {
         return generos[parseInt(listF[index]) + 1] ? generos[parseInt(listF[index]) + 1] : '...';
     }
 
-    const renderizarItens = () => {
-        const elementos = [];
-        let tempRow = [];
-        let count = 0;
 
-        for (let i = 0; i < livro.length; i++) {
-            count++;
-            tempRow.push(<div className="coluna" key={i}><Livro mine={false} info={livro[i]} text={'vizualizar em modo leitura'} /></div>);
-
-            if (count === 3 || i === livro.length - 1) {
-                count = 0;
-                elementos.push(<span className="linha" key={i}>{tempRow}</span>);
-                tempRow = [];
-            }
-        }
-
-        return elementos;
-    };
 
 
     return (
@@ -191,7 +167,7 @@ export default function User() {
                         <p>{`@${name}`}</p>
                     </div>
 
-                    <span  className='numS'><img id='medalha' src={medalha} />{seguidoresS}</span>
+                    <span className='numS'><img id='medalha' src={medalha} />{seguidoresS}</span>
 
                     <span className='seguir' onClick={() => { seguir(); setSeguindo(!seguindo) }}>{seguindo ? Uword.seguindo : Uword.seguir}</span>
 
@@ -219,18 +195,12 @@ export default function User() {
                 </div>
             </section>
 
-            <section className='boxMeulivroUser'>
-                <span className='boxTitleUser'>
-                    <span>
-                        <p id='titleLivro'>{Uword.livros}</p>
-                    </span>
-                </span>
-                <div className='livrosUser'>
+            <span className='btPB'>
+                <p onClick={() => { setSelect(false) }} className={`btL ${!select ? 'sets' : null}`}>LIVROS</p>
+                <p onClick={() => { setSelect(true) }} className={`btL ${select ? 'sets' : null}`}>PUBLICAÇÕES</p>
+            </span>
 
-                    {renderizarItens()}
-
-                </div>
-            </section>
+            {!select ? <Caixa_livros idUser={idUser}/> : <Caixa_publi idUser={idUser}/>}
 
             <FloatBt />
         </div>
