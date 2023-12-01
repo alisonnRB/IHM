@@ -215,6 +215,10 @@
     cursor: pointer;
 }
 
+.boxDellPubli.hovered{
+    background-color: #ff3131;
+}
+
 .boxDellPubli p{
     color: var(--letra);
     height: 100%;
