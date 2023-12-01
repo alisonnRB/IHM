@@ -8,6 +8,8 @@ import api from "../../../backend/controler/api_searchFeed";
 import Load from "../../loading/loading.jsx";
 
 export default function Feed() {
+  const [select, setSelect] = useState(false);
+  
   const [theme, setTheme] = useState('light');
   const [publis, setPublis] = useState({});
   const [publicacoes, setPublicacoes] = useState([]);
@@ -73,6 +75,11 @@ export default function Feed() {
     <div className='feed'>
       <Noti />
       <span id='titlePerfil' className={`${theme == 'light' ? null : 'dark'}`}>FEED</span>
+
+      <span className='btPBF'>
+        <p onClick={() => { setSelect(false) }} className={`btLF ${!select ? 'sets' : null}`}>LIVROS</p>
+        <p onClick={() => { setSelect(true) }} className={`btLF ${select ? 'sets' : null}`}>PUBLICAÇÕES</p>
+      </span>
 
       <div className='renderPosts'>
         {gera_posts()}
