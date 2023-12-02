@@ -117,10 +117,13 @@
     border-bottom: solid #0B6E7D 4px;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 576px) and (orientation: portrait) {
 
     /* Estilos para dispositivos com largura máxima de 576px (ex: smartphones em modo retrato) */
 
+    .btPB .btL {
+        font-size: 1em;
+    }
 
     .boxName {
         height: 500px;

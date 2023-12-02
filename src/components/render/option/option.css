@@ -115,7 +115,7 @@
     background-color: var(--exclui-conta);
 }
 
-@media (max-width: 667px) and (min-width: 375px) {
+@media (max-width: 667px) and (min-width: 375px) and (orientation: portrait) {
     .option {
         display: flex;
         flex-direction: column;
@@ -146,7 +146,7 @@
     }
 }
 
-@media (min-width: 360px) and (max-width: 740px) {
+@media (min-width: 360px) and (max-width: 740px) and (orientation: portrait) {
     .option {
         display: flex;
         flex-direction: column;

@@ -241,7 +241,7 @@
         height: 100%;
         width: 40%;
         display: flex;
-        background-color: white;
+        background-color: var(--background);
         align-items: center;
         justify-content: center;
 
