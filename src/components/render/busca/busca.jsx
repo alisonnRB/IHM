@@ -15,7 +15,6 @@ export default function Busca() {
     const [ref, inView] = useInView();
     const [Loadi, setLoad] = useState(false);
     const [usersList, setUsersList] = useState([]);
-    let init = false;
     const [control, setControl] = useState(false);
 
 
@@ -85,12 +84,6 @@ export default function Busca() {
         let a = localStorage.getItem('tema');
         if (a) {
             setTheme(a);
-        }
-
-        if (!init) {
-            Busca();
-
-            init = true;
         }
     }, []);
 
