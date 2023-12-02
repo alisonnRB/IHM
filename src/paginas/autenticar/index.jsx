@@ -13,7 +13,6 @@ export default function Login() {
   return (
     <div id="box">
 
-        <span className='content-log'>
             <div className='card-log'>
                 <span id="head-log">
                     <img src={logo} className='logo-log'/>
@@ -29,7 +28,6 @@ export default function Login() {
                     {!select ? <LoginForm /> : <Cadastro setSelect={setSelect}/>}
                 </div>
             </div>
-        </span>
 
     </div>
   );
