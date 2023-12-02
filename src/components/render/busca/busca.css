@@ -194,3 +194,9 @@
 
 
 }
+
+@media (max-width: 1600px) and (min-width: 1366px) {
+    .TelaBusca #titlePerfil {
+        left: 591px;
+    }
+}

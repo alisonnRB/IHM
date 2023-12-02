@@ -780,3 +780,9 @@
     
     }
 }
+
+@media (max-width: 1600px) and (min-width: 1366px) {
+    .TelaLivros #titlePerfil {
+        left: 591px;
+    }
+}
