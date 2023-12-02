@@ -154,3 +154,10 @@
     }
 }
 
+@media (max-width: 1200px) and (orientation: landscape){
+    .feed .content-notifica {
+        right: 21px;
+        margin-top: 5px;
+    }
+}
+
