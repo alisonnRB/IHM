@@ -1,75 +1,24 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useInView } from 'react-intersection-observer';
 import './feed.css';
-import Card from './cardPost/cardPost';
+
 import BtFloat from '../../BtFloat/btFloat.jsx';
 import Noti from "../../notificacao/notificacao.jsx";
-import api from "../../../backend/controler/api_searchFeed";
-import Load from "../../loading/loading.jsx";
+
+import Seguindo from './seguindo/seguindo.jsx';
+import ForYou from './fy/fy.jsx';
 
 export default function Feed() {
   const [select, setSelect] = useState(false);
-  
-  const [theme, setTheme] = useState('light');
-  const [publis, setPublis] = useState({});
-  const [publicacoes, setPublicacoes] = useState([]);
-  const num = useRef(0);
-  const [ref, inView] = useInView();
 
-  const [Loadi, setLoad] = useState(false);
-  let init = false;
+  const [theme, setTheme] = useState('light');
+
 
   useEffect(() => {
-    if (!init) {
-      Busca();
-    }
-
     let a = localStorage.getItem('tema');
     if (a) {
       setTheme(a);
     }
-    init = true;
   }, []);
-
-  useEffect(() => {
-    if (inView && !Loadi) {
-      Busca();
-    }
-  }, [inView, Loadi]);
-
-  const Busca = async () => {
-    if (Loadi || publis == 'nao') {
-      return;
-    }
-
-    setLoad(true);
-    const resposta = await api.enviar(num.current);
-    if (resposta.ok) {
-      setPublis(resposta.informacoes);
-      if (resposta.informacoes == 'nao') {
-        setLoad(false);
-        return;
-      } else {
-        setPublicacoes((prevPublicacoes) => [
-          ...prevPublicacoes,
-          ...Object.values(resposta.informacoes),
-        ]);
-
-        num.current += 20;
-      }
-
-    }
-
-
-    setLoad(false);
-
-  };
-
-  const gera_posts = () => {
-    return publicacoes.map((post, index) => (
-      <Card key={index} publi={post} />
-    ));
-  };
 
   return (
     <div className='feed'>
@@ -77,20 +26,14 @@ export default function Feed() {
       <span id='titlePerfil' className={`${theme == 'light' ? null : 'dark'}`}>FEED</span>
 
       <span className='btPBF'>
-        <p onClick={() => { setSelect(false) }} className={`btLF ${!select ? 'sets' : null}`}>LIVROS</p>
-        <p onClick={() => { setSelect(true) }} className={`btLF ${select ? 'sets' : null}`}>PUBLICAÇÕES</p>
+        <p onClick={() => { setSelect(false) }} className={`btLF ${!select ? 'sets' : null}`}>SEGUINDO</p>
+        <p onClick={() => { setSelect(true) }} className={`btLF ${select ? 'sets' : null}`}>PARA VOCÊ</p>
       </span>
 
-      <div className='renderPosts'>
-        {gera_posts()}
-      </div>
+      {!select ? <Seguindo /> : <ForYou />}
 
       <BtFloat />
 
-      <div className='disparador' ref={ref}>
-        {publis == 'nao' ? <p id='notMore'>NÃO HÁ Novas publicações</p> : null}
-        {Loadi ? <Load /> : null}
-      </div>
     </div>
   );
 }

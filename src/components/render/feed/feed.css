@@ -48,6 +48,7 @@
     border: solid var(--FY) 2px ;
 
     background-color: var(--background);
+    cursor: pointer;
 }
 
 .btPBF .btLF:first-child{
