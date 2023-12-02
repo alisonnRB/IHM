@@ -23,7 +23,6 @@ import words from './livros.json';
 
 export default function Livros() {
     const num = useRef(0);
-    let init = false;
     const [ref, inView] = useInView();
     const [Loadi, setLoad] = useState(false);
     const [reload, setReload] = useState(false);
@@ -207,10 +206,6 @@ export default function Livros() {
 
     useEffect(() => {
         select_idioma();
-        if (!init) {
-            Busca();
-            init = true;
-        }
 
         let a = localStorage.getItem('tema');
         if (a) {

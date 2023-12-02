@@ -225,6 +225,8 @@ export default function Ler() {
                 <p>{infos.nome && infos.nome != '' ? infos.nome : Uword.autor}</p>
                 {id != userId ? <div className="btSeguir" style={{ backgroundColor: cor }} onClick={() => { seguir(); setSeguido(!seguido) }} >{seguido ? Uword.seguindo : Uword.seguir}</div> : null}
             </div>
+
+            
             <BtFloatH />
         </div>
     );
