@@ -44,6 +44,8 @@ export default function Card(props) {
 
   const [theme, setTheme] = useState('light');
 
+  const [hover, setHover] = useState(false);
+
   //TODo coment function 
   const [openRes, setOpenRes] = useState('');
   const [curtidas, setCurtidas] = useState('');
@@ -244,9 +246,9 @@ export default function Card(props) {
 
           {deletar ? (
             <div className='deletePubli' onClick={(e) => { fechar_dell(e) }}>
-              <span className='boxDellPubli' onClick={(e) => { e.stopPropagation(); dell_Publi() }}>
-                <p>EXCLUIR</p>
-                <div><img src={lixo} /></div>
+              <span className={`boxDellPubli ${hover ? 'hovered' : null}`} onClick={(e) => { e.stopPropagation(); dell_Publi() }}>
+                <p onMouseEnter={()=>{setHover(true)}} onMouseLeave={()=>{setHover(false)}}>EXCLUIR</p>
+                <div onMouseEnter={()=>{setHover(true)}} onMouseLeave={()=>{setHover(false)}}><img src={lixo} /></div>
               </span>
             </div>
           ) : null}

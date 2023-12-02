@@ -63,6 +63,8 @@ const themes = {
       '--borda': '#fff',
       '--header-publi': '#041114',
       '--fundo-msg': '#000000',
+      '--FY': '#13505C',
+      '--letra-FY': '#fff'
    },
    light: {
       '--header-bg': '#B7CFD3',
@@ -114,6 +116,8 @@ const themes = {
       '--borda': '#7EA7AB',
       '--header-publi': 'inherit',
       '--fundo-msg': '#98BEC1',
+      '--FY': '#5CA5B2',
+      '--letra-FY': '#5CA5B2'
    },
 };
 
