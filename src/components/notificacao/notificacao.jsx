@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import './notificacao.css';
 import noti from "../../imgs/notofica.png";
 import Card from "./card/card.jsx";
@@ -10,14 +10,14 @@ import audioSrc from '../../sounds/notificacao.ogg';
 
 export default function Notificações() {
     const [audio] = useState(new Audio(audioSrc));
-
+    const init = useRef(0)
 
     const [isWindowOpen, setIsWindowOpen] = useState(false);
     const [notificar, setNotficar] = useState({});
     const [New, setNew] = useState(false);
 
     useEffect(() => {
-        if (New) {
+        if (New && init.current > 2) {
             audio.play();
         }
     }, [New])
@@ -72,8 +72,9 @@ export default function Notificações() {
             const hasNotifications = resposta.informacoes && typeof resposta.informacoes === 'object' &&
                 (Object.values(resposta.informacoes).some(notifArray => notifArray && notifArray.length > 0));
             setNew(hasNotifications);
-
-        }
+            init.current += 1;
+        } 
+        
     }
 
     const visualizar = async () => {

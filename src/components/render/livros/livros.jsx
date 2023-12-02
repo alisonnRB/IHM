@@ -6,7 +6,6 @@ import { useInView } from 'react-intersection-observer';
 import Selecao from '../../livroSelectGen/select.jsx';
 import Interruptor from '../../interruptor/interruptor';
 import MostraLivros from './mostraLivros/mostraLivros.jsx';
-import Noti from "../../notificacao/notificacao.jsx";
 
 import Load from "../../loading/loading.jsx";
 
@@ -259,7 +258,6 @@ export default function Livros() {
 
     return (
         <div className='TelaLivros'>
-            <Noti />
             <span id='titlePerfil' className={`${theme == 'light' ? null : 'dark'}`}>{Uword.title}</span>
             <div id='pesquisa'>
                 <span className='boxLivros'>

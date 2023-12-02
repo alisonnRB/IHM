@@ -2,7 +2,7 @@ import React from 'react';
 import './optionPage.css';
 import { Link } from 'react-router-dom';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 
 import perfil from '../../imgs/perfil.png';
@@ -26,41 +26,41 @@ import audioSrc from '../../sounds/notificacao.ogg';
 function Barraop() {
 
   const [audio] = useState(new Audio(audioSrc));
-
+  const init = useRef(0);
   const [select, setSelect] = useState(false);
   const [num, setNum] = useState(0);
   const [theme, setTheme] = useState('light');
 
 
-  useEffect(()=>{
-    if(num > 0){
-        audio.play();
+  useEffect(() => {
+    if (num > 0 && init.current > 5) {
+      audio.play();
     }
-},[num])
+  }, [num])
 
   useEffect(() => {
     if (!select) {
       Busca();
     }
     let a = localStorage.getItem('tema');
-    if(a){
+    if (a) {
       setTheme(a);
     }
   }, []);
 
-useEffect(() => {
-  if (!select) {
-    const timeoutId = setTimeout(() => {
-      Busca();
-      if(select){
-        setNum(0);
-      }
-    }, 30000);
+  useEffect(() => {
+    if (!select) {
+      const timeoutId = setTimeout(() => {
+        Busca();
+        if (select) {
+          setNum(0);
+        }
+      }, 30000);
 
-    return () => clearTimeout(timeoutId); // Limpeza do setTimeout
-  }
+      return () => clearTimeout(timeoutId);
+    }
 
-}, [select]);
+  }, [select]);
 
   useEffect(() => {
     if (select) {
@@ -79,8 +79,9 @@ useEffect(() => {
         setNum(resposta.informacoes.Num);
       }
     }
+    init.current += 1;
   }
-  
+
   return (
     //TODO a tag LINK faz o redirecionamento para as rotas de acord com os clicks
     <div id='barra'>

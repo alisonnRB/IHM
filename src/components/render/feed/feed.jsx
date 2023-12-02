@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from 'react';
 import './feed.css';
 
 import BtFloat from '../../BtFloat/btFloat.jsx';
-import Noti from "../../notificacao/notificacao.jsx";
 
 import Seguindo from './seguindo/seguindo.jsx';
 import ForYou from './fy/fy.jsx';
@@ -22,7 +21,6 @@ export default function Feed() {
 
   return (
     <div className='feed'>
-      <Noti />
       <span id='titlePerfil' className={`${theme == 'light' ? null : 'dark'}`}>FEED</span>
 
       <span className='btPBF'>
