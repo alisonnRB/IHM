@@ -2,10 +2,11 @@ import React from "react";
 import './ler.css';
 
 import { useEffect, useState } from "react";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link, useNavigate } from "react-router-dom";
 
 import api from '../../backend/controler/api_info';
 import vision from '../../backend/controler/api_visuL.js';
+import Report from '../../backend/controler/api_reportar.js';
 
 import curtida from '../../backend/controler/api_curtir';
 import curtiram from '../../backend/controler/api_buscaCurtidas';
@@ -23,6 +24,7 @@ import Curti from "../../imgs/coracao.png";
 import Page from "./paginas/page.jsx";
 import BtFloatH from "../escrever/btFloatH/btFloatH";
 
+import alert from "../../imgs/alert.png";
 import words from './ler.json';
 
 import audioSrc from '../../sounds/curtida.ogg';
@@ -31,18 +33,21 @@ export default function Ler() {
     const [audio] = useState(new Audio(audioSrc));
 
     const CurtiPlay = () => {
-      if (!curtido) {
-        audio.play();
-      }
-  
+        if (!curtido) {
+            audio.play();
+        }
+
     };
 
+    const [report, setReport] = useState(false);
+
     const location = useLocation();
+    const navigate = useNavigate();
     const [idLivro, setIdLivro] = useState(0);
     const id = localStorage.getItem('id');
 
     const [userId, setUserId] = useState(0);
-    const [infos, setInfos] = useState('');
+    const [infos, setInfos] = useState('');console.log()
 
     const [cor, setCor] = useState('');
 
@@ -176,6 +181,14 @@ export default function Ler() {
         }
     }
 
+    const Reportar = async (e) => {
+        const value = e.target.value;
+        const resposta = await Report.enviar(value, idLivro);
+        if(resposta.ok){
+            navigate(-1);
+        }
+    }
+
     const styleC = {
         backgroundColor: curtido
             ? ('#FF7070')
@@ -211,9 +224,29 @@ export default function Ler() {
                             }} onMouseLeave={() => { setHoverC(false) }} style={styleC}><img src={Curti} className={curtido ? 'curtiN' : 'curtiS'} /><p className="ps">{Uword.curti}</p></span>
                         </div>
                     </span>
-
                 </div>
+
+                <span className="alerts" onClick={()=>{setReport(true)}}>
+                    <img src={alert} />
+                    <p>REPORTAR</p>
+                </span>
             </header>
+
+            {report ?
+                <div className="fundoAlert" onClick={()=>{setReport(false)}}>
+                    <div className="caixaAlert" onClick={(e)=>{e.stopPropagation()}}>
+                        <span className="titleAlert">
+                            <img src={alert} />
+                        </span>
+                        <div className="contentAlert">
+                            <button className="AlertBT" value='Conteudo inapropriado' onClick={(e)=>{Reportar(e)}}>Conteúdo inapropriado</button>
+                            <button className="AlertBT" value='Plagio' onClick={(e)=>{Reportar(e)}}>Plágio</button>
+                            <button className="AlertBT" value='Violacao dos Direitos Autorais' onClick={(e)=>{Reportar(e)}}>Violação dos Direitos Autorais</button>
+                            <button className="AlertBT" value='incitacao a ilegalidade' onClick={(e)=>{Reportar(e)}}>incitação a ilegalidade</button>
+                        </div>
+                    </div>
+                </div>
+                : null}
 
             <span className="filtro"></span>
             <div className="BOXLER">
@@ -226,7 +259,6 @@ export default function Ler() {
                 {id != userId ? <div className="btSeguir" style={{ backgroundColor: cor }} onClick={() => { seguir(); setSeguido(!seguido) }} >{seguido ? Uword.seguindo : Uword.seguir}</div> : null}
             </div>
 
-            
             <BtFloatH />
         </div>
     );

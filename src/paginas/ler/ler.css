@@ -151,6 +151,82 @@
     animation: girar 1.5s ease;
 }
 
+.alerts{
+    margin-left: 53%;
+    background-color: #FF7070;
+    height: 40px;
+    width: 200px;
+    border-radius: 30px;
+    align-items: center;
+    cursor: pointer;
+}
+.alerts img{
+    margin-left: 10px;
+    height: 80%;
+}
+
+.alerts p{
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-left: 10px;
+}
+
+.fundoAlert{
+    z-index: 200;
+    background-color: #ffffff8c;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.caixaAlert{
+    height: 50vh;
+    width: 40vw;
+    background-color: var(--letra-p);
+    display: block;
+    border: solid 2px #FF7070;
+    border-radius: 20px;
+}
+
+.titleAlert{
+    background-color: #FF7070;
+    height: 25%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
+.titleAlert img{
+    height: 80%;
+}
+
+.contentAlert{
+    gap: 30px;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.AlertBT{
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: var(--background);
+    color: var(--letra);
+}
+
+.AlertBT:hover{
+    background-color: #ff7070a1;
+}
 
 @keyframes girar {
     0% {
