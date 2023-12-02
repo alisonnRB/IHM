@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 import x from '../../../imgs/sair.png';
 import Selecao from '../.././../components/livroSelectGen/select.jsx';
 import api from '../../../backend/controler/api_newLivro';
-import apiInfo from '../../../backend/controler/api_meusLivros';
 
 import livre from '../../../imgs/livre.jpeg';
 import dez from '../../../imgs/dez.jpeg';
