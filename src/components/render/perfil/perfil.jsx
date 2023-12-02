@@ -79,7 +79,7 @@ function Perfil() {
       }
       setName(infos.nome);
       if (infos.fotoPerfil) {
-        setPerfil("http://localhost/imagens/" + infos.fotoPerfil);
+        setPerfil("http://10.1.1.211/imagens/" + infos.fotoPerfil);
       }
       if (infos.seguidores) {
         const seguidores = JSON.parse(infos.seguidores);
