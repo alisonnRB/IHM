@@ -86,13 +86,13 @@
     }
 }
 
+
 @media (max-width: 576px) and (orientation: portrait) {
     #notMore {
         font-size: 1.5em;
         word-break: break-all;
         color: #BACFD1;
         position: relative;
-        bottom: 350px;
     }
 }
 
@@ -152,3 +152,4 @@
         bottom: 10px;
     }
 }
+
