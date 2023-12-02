@@ -85,10 +85,8 @@ export default function NovoLivro() {
 
 
         const resposta = await api.enviar(formData, nameBook, selecao, classificacao);
-
         if (resposta.ok) {
-            const AWid = await apiInfo.enviar("i");
-            const id = AWid.informacoes[Object.keys(AWid.informacoes).length - 1].id;
+            const id = resposta.informacoes;
             navigate(`/IHM/perfil/MeusLivros/escreva?id=${encodeURIComponent(JSON.stringify(id))}`)
         }
 
