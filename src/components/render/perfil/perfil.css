@@ -527,6 +527,12 @@
 
 @media (min-width: 768px) and (max-width: 1180px) and (orientation: portrait) {
     #titleGen, #titleLivro {
-        bottom: 500px;
+        position: relative;
+        top: 50px;
+    }
+
+    .btPB .btL {
+        position: relative;
+        bottom: 50px;
     }
 }

@@ -100,3 +100,20 @@
     }
 
 }
+
+@media (min-width: 768px) and (max-width: 1180px) and (orientation: portrait) {
+    .content-notifica{
+        right: 625px;
+        top: 65px;
+    }
+    
+    .box-notifica{
+        width: 600px;
+    }
+}
+
+@media (min-width: 1181px) and (max-width: 1368px) and (orientation: portrait){
+    .content-notifica{
+        right: 150px;
+    }
+}
