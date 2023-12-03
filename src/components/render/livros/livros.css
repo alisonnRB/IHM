@@ -295,7 +295,9 @@
     #searchImg {
         width: 60px;
     }
-
+    .TelaLivros #notMore{
+        font-size: 1.75em;
+    }
 
 }
 
@@ -379,7 +381,7 @@
 
 }
 
-@media (max-width: 667px) and (min-width: 375px) {
+@media (max-width: 667px) and (min-width: 375px) and (orientation: portrait) {
     .TelaLivros #notMore {
         font-size: 2em;
     }   
@@ -781,9 +783,8 @@
     }
 }
 
-@media(max-width: 1200px) and (orientation: landscape) {
-    .TelaLivros .content-notifica {
-        right: 5px;
-        margin-top: 15%;
+@media (max-width: 1600px) and (min-width: 1366px) {
+    .TelaLivros #titlePerfil {
+        left: 591px;
     }
 }

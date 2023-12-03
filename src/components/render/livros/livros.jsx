@@ -6,7 +6,6 @@ import { useInView } from 'react-intersection-observer';
 import Selecao from '../../livroSelectGen/select.jsx';
 import Interruptor from '../../interruptor/interruptor';
 import MostraLivros from './mostraLivros/mostraLivros.jsx';
-import Noti from "../../notificacao/notificacao.jsx";
 
 import Load from "../../loading/loading.jsx";
 
@@ -24,7 +23,6 @@ import words from './livros.json';
 
 export default function Livros() {
     const num = useRef(0);
-    let init = false;
     const [ref, inView] = useInView();
     const [Loadi, setLoad] = useState(false);
     const [reload, setReload] = useState(false);
@@ -208,10 +206,6 @@ export default function Livros() {
 
     useEffect(() => {
         select_idioma();
-        if (!init) {
-            Busca();
-            init = true;
-        }
 
         let a = localStorage.getItem('tema');
         if (a) {
@@ -259,7 +253,6 @@ export default function Livros() {
 
     return (
         <div className='TelaLivros'>
-            <Noti />
             <span id='titlePerfil' className={`${theme == 'light' ? null : 'dark'}`}>{Uword.title}</span>
             <div id='pesquisa'>
                 <span className='boxLivros'>

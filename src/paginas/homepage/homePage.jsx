@@ -7,6 +7,8 @@ import Render from '../../components/render/render';
 import api from '../../backend/controler/api_info';
 import auth from '../../backend/controler/api_autenticar';
 
+import Noticacao from '../../components/notificacao/notificacao';
+
 function Home() {
   const [infos, setInfos] = useState(null);
 
@@ -42,6 +44,8 @@ function Home() {
           <Render user={infos} />
         </div>
       </div>
+
+      <Noticacao />
     </div>
   );
 }

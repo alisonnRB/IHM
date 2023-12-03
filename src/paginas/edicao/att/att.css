@@ -106,7 +106,7 @@
 }
 
 .Infos #Nome {
-    height: 15%;
+    height: 17%;
     width: 90%;
     align-items: center;
     justify-content: space-between;
@@ -322,6 +322,19 @@
         display: none;
     }
 }
+
+@media (max-width: 576px) and (orientation: landscape){
+    .quad {
+        left: 10px;
+        top: 10px;
+        height: 40px;
+        width: 40px;
+    }
+    .boxNewBookC #selecao {
+        width: 200px;
+    }
+}
+
 
 @media (min-width: 769px) and (max-width: 992px) and (orientation: portrait) {
     .Infos #Nome #dell {
@@ -702,3 +715,4 @@
         height: 115%;
     }
 }
+

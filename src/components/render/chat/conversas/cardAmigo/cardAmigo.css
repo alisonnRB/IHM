@@ -112,3 +112,20 @@
 
 
 }
+
+@media (max-width: 1200px) and (orientation: landscape){
+    .conversas .listaC li {
+        width: 60%;
+        min-width: 60%;
+        height: 7%;
+    }
+
+    .nomes p:last-child {
+        font-size: .7em;
+    }
+
+    .conversas .listaC li img {
+        width: 50px;
+        height: 50px;
+    }
+}

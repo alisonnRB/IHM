@@ -115,7 +115,7 @@
     background-color: var(--exclui-conta);
 }
 
-@media (max-width: 667px) and (min-width: 375px) {
+@media (max-width: 667px) and (min-width: 375px) and (orientation: portrait) {
     .option {
         display: flex;
         flex-direction: column;
@@ -143,6 +143,15 @@
         margin-bottom: -100px;
         width: 300px;
         font-size: 1em;
+    }
+}
+
+@media (min-width: 360px) and (max-width: 740px) and (orientation: portrait) {
+    .option {
+        display: flex;
+        flex-direction: column;
+        padding-top: 20px; 
+        padding-bottom: 50px;         
     }
 }
 
@@ -216,4 +225,31 @@
         color: white;
         background-color: #A6A6A6;
     }
+}
+
+@media (max-width: 1600px) and (min-width: 1366px) {
+    .option #titlePerfil {
+        left: 541px;
+    }
+}
+
+@media (max-width:1200px) and (orientation: landscape){
+    .comport {
+        width: 42%;
+        text-align: center;
+    }
+
+    .option input {
+        text-align: center;
+    }
+    .com label {
+        margin-left: 0px;
+    }
+    #tema {
+        margin:auto
+    }
+    #conta {
+        margin: auto;
+    }
+
 }

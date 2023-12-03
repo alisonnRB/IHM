@@ -275,6 +275,12 @@
     }
 }
 
+@media (max-width: 1600px) and (min-width: 1366px) {
+    #content-aba .abinhaFecha {
+        left: 90px;
+    }
+}
+
 @media (max-width: 1920px) and (min-width: 1440px) {
     /*estilo pra computadores com até 1920px*/
    #content-aba .abinhaFecha{
@@ -284,6 +290,8 @@
     width: 8%;
    }
 }
+
+
 
 @media (max-width: 2560px) and (min-width: 1921px) {
     /*estilo pra computadores com até 2560px*/
@@ -319,3 +327,4 @@
     }
 
 }
+

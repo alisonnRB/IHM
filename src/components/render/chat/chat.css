@@ -13,6 +13,10 @@
     .chat button.main {
         display: none;
     }
+    .chat {
+        background-color: var(--chat-bg);
+        height: calc(100vh + 100px);
+    }
 }
 
 
@@ -84,4 +88,10 @@
         width: 300px;
     }
 
+}
+
+@media (max-width: 1600px) and (min-width: 1366px) {
+    .chat #titlePerfil {
+        left: 591px;
+    }
 }

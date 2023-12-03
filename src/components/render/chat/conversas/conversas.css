@@ -34,3 +34,10 @@
         height: 2px;
     }
 }
+
+@media (max-width: 1200px) and (orientation: landscape){
+    .conversas {
+        height: 100vh;
+    }
+
+}

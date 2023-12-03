@@ -6,7 +6,6 @@ import './busca.css';
 import api from '../../../backend/controler/api_Usuarios';
 
 import CardPessoa from "./cardPessoa/cardPessoa.jsx";
-import Noti from "../../notificacao/notificacao.jsx";
 import Load from "../../loading/loading.jsx";
 
 import words from './busca.json';
@@ -16,7 +15,6 @@ export default function Busca() {
     const [ref, inView] = useInView();
     const [Loadi, setLoad] = useState(false);
     const [usersList, setUsersList] = useState([]);
-    let init = false;
     const [control, setControl] = useState(false);
 
 
@@ -87,12 +85,6 @@ export default function Busca() {
         if (a) {
             setTheme(a);
         }
-
-        if (!init) {
-            Busca();
-
-            init = true;
-        }
     }, []);
 
 
@@ -123,7 +115,6 @@ export default function Busca() {
 
     return (
         <div className='TelaBusca'>
-            <Noti />
             <span id='titlePerfil' className={`${theme == 'light' ? null : 'dark'}`}>{Uword.title}</span>
             <span className='boxLivros'>
                 <input type='text' id='searchText' placeholder={Uword.buscar} value={pesquisa} onChange={(e) => { setPesquisa(e.target.value) }} />

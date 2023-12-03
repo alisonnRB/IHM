@@ -1,6 +1,6 @@
 import React from "react";
 import './cardAmigo.css';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import api from '../../../../../backend/controler/api_info';
 import New from '../../../../../backend/controler/api_novaMSG';
@@ -9,6 +9,8 @@ import audioSrc from '../../../../../sounds/notificacao.ogg';
 
 export default function CardAmigo(props) {
     const [audio] = useState(new Audio(audioSrc));
+
+    const init = useRef(0);
 
     const [user, setUser] = useState({});
     const [info, setInfo] = useState({});
@@ -22,9 +24,11 @@ export default function CardAmigo(props) {
 
 
     useEffect(()=>{
-        if(novasM > 0){
+        if(novasM > 0 && init.current > 2){
             audio.play();
         }
+
+        init.current += 1;
     },[novasM])
 
 

@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 import x from '../../../imgs/sair.png';
 import Selecao from '../.././../components/livroSelectGen/select.jsx';
 import api from '../../../backend/controler/api_newLivro';
-import apiInfo from '../../../backend/controler/api_meusLivros';
 
 import livre from '../../../imgs/livre.jpeg';
 import dez from '../../../imgs/dez.jpeg';
@@ -85,10 +84,8 @@ export default function NovoLivro() {
 
 
         const resposta = await api.enviar(formData, nameBook, selecao, classificacao);
-
         if (resposta.ok) {
-            const AWid = await apiInfo.enviar("i");
-            const id = AWid.informacoes[Object.keys(AWid.informacoes).length - 1].id;
+            const id = resposta.informacoes;
             navigate(`/IHM/perfil/MeusLivros/escreva?id=${encodeURIComponent(JSON.stringify(id))}`)
         }
 

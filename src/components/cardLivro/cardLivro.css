@@ -153,7 +153,7 @@
         display: flex;
         flex-direction: row;
         box-shadow: 0px 0px 20px 0px #13505c80;
-        background-color: #f5f5f5;
+        background-color: var(--card-livro);
         overflow: hidden;
         margin-top: 40px;
         padding-right: 30px;
@@ -190,7 +190,8 @@
 
     .CardLivro .infos #nomeLivro {
         height: 10%;
-        font-size: 1em;
+        font-size: 0.75em;
+        white-space: nowrap;
     }
 
     .CardLivro .infos #VisuLivro {
@@ -213,7 +214,7 @@
     }
 
     #BTs .link .bt {
-        font-size: 0.7em;
+        font-size: 0.6em;
         max-height: 25px;
         max-width: 150px;
         white-space: nowrap;
@@ -226,6 +227,10 @@
         min-height: calc(60% - 13px);
     }
 
+    .CardLivro .infos #nomeLivro {
+        color: var(--letra-g)
+    }
+
 }
 
 @media (max-width: 576px) and (orientation: landscape) {
@@ -234,7 +239,7 @@
         height: 230px;
         max-width: 67vw;
         min-width: 67vw;
-        margin-left: 10%;
+        margin-left: 1%;
         padding: 10px;
         display: flex;
         flex-direction: row;
@@ -256,7 +261,7 @@
     }
 
     .CardLivro .IMGbox #capa {
-        width: calc(100% + 30px);
+        width: calc(100% + 20px);
         bottom: 0;
     }
 

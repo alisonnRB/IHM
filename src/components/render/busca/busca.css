@@ -195,9 +195,27 @@
 
 }
 
-@media(max-width: 1200px) and (orientation: landscape) {
-    .TelaBusca .content-notifica {
-        right: 5px;
-        margin-top: 15%;
+@media (max-width: 1600px) and (min-width: 1366px) {
+    .TelaBusca #titlePerfil {
+        left: 591px;
+    }
+}
+
+@media (max-width: 768px) and (orientation: landscape){
+    #notMore {
+        font-size: 2em;
+    }
+    #notFound {
+        font-size: 2em;
+        text-align: center;
+    }
+}
+@media (min-width: 769px) and (max-width: 1200px) and (orientation: landscape){
+    #notMore {
+        font-size: 4em;
+    }
+    #notFound {
+        font-size: 4em;
+        text-align: center;
     }
 }
