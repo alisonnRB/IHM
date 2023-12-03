@@ -5,7 +5,7 @@
 }
 
 .TelaBusca #titlePerfil {
-    left: 40%;
+    margin: auto;
     margin-bottom: -100px;
     width: 300px;
 }
