@@ -79,7 +79,7 @@
 
 }
 
-@media (min-width: 768px) and (max-width: 992px) {
+@media (min-width: 768px) and (max-width: 1180px) and (orientation: portrait) {
     #barra {
         height: 90px;
         width: 10%;
@@ -87,7 +87,7 @@
 
     #barra img {
         height: 50%;
-        width: 50%;
+        width: 35%;
     }
 
    

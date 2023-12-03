@@ -788,3 +788,9 @@
         left: 591px;
     }
 }
+
+@media (min-width: 768px) and (max-width: 1180px) and (orientation: portrait) {
+    .BOXS .boxSelection.Gener #selecao {
+        font-size: 0.75em;
+    }
+}

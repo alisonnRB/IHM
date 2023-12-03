@@ -585,3 +585,14 @@
         margin-top: 0px;
     }
 }
+@media (min-width: 768px) and (max-width: 1180px) and (orientation: portrait) {
+    #titleGen, #titleLivro {
+        position: relative;
+        top: 50px;
+    }
+
+    .btPB .btL {
+        position: relative;
+        bottom: 50px;
+    }
+}

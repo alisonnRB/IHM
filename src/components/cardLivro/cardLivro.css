@@ -775,3 +775,9 @@
         width: 100%;
     }
 }
+
+@media (min-width: 768px) and (max-width: 1180px) and (orientation: portrait) {
+    .CardLivro{
+        background-color: var(--card-livro);
+    }
+}
