@@ -26,7 +26,7 @@ import Comentarios from '../../../../paginas/ler/comentarios/comentarios.jsx';
 import api from '../../../../backend/controler/api_enqueteVote';
 import dell from '../../../../backend/controler/api_dellPubli.js';
 
-import audioSrc from '../../../../sounds/curtida.ogg';
+import audioSrc from '../../../../sounds/curtida.mp3';
 
 import words from './cardPost.json';
 

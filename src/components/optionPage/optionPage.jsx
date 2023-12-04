@@ -21,7 +21,7 @@ import pessoasD from '../../imgs/busca-dark.png';
 
 import api from '../../backend/controler/api_AllMSG';
 
-import audioSrc from '../../sounds/notificacao.ogg';
+import audioSrc from '../../sounds/notificacao.mp3';
 
 function Barraop() {
 

@@ -27,7 +27,7 @@ import BtFloatH from "../escrever/btFloatH/btFloatH";
 import alert from "../../imgs/alert.png";
 import words from './ler.json';
 
-import audioSrc from '../../sounds/curtida.ogg';
+import audioSrc from '../../sounds/curtida.mp3';
 
 export default function Ler() {
     const [audio] = useState(new Audio(audioSrc));

@@ -6,7 +6,7 @@ import Card from "./card/card.jsx";
 import api from "../../backend/controler/api_notificacao.js";
 import ver from "../../backend/controler/api_visuNotifica.js";
 
-import audioSrc from '../../sounds/notificacao.ogg';
+import audioSrc from '../../sounds/notificacao.mp3';
 import words from './notificacao.json';
 
 export default function Notificações() {

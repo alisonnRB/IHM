@@ -8,7 +8,7 @@ import send from '../../../../imgs/enviar.png';
 import sendD from '../../../../imgs/enviar-preto.png';
 import api from '../../../../backend/controler/api_chats';
 
-import audioSrc from '../../../../sounds/mensagem.ogg';
+import audioSrc from '../../../../sounds/mensagem.mp3';
 
 export default function Mensagem(props) {
   const [audio] = useState(new Audio(audioSrc));

@@ -10,7 +10,7 @@ import enviar from '../../../imgs/enviar.png';
 
 import words from './comentarios.json';
 
-import audioSrc from '../../../sounds/comentario.ogg';
+import audioSrc from '../../../sounds/comentario.mp3';
 
 export default function Comentarios(props) {
     const [audio] = useState(new Audio(audioSrc));

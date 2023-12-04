@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import api from '../../../../../backend/controler/api_info';
 import New from '../../../../../backend/controler/api_novaMSG';
 
-import audioSrc from '../../../../../sounds/notificacao.ogg';
+import audioSrc from '../../../../../sounds/notificacao.mp3';
 
 export default function CardAmigo(props) {
     const [audio] = useState(new Audio(audioSrc));

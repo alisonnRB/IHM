@@ -12,7 +12,7 @@ import enviar from '../../imgs/enviar.png';
 
 import words from './cardComent.json';
 
-import audioSrc from '../../sounds/curtida.ogg';
+import audioSrc from '../../sounds/curtida.mp3';
 
 export default function Comentarios(props) {
     const [audio] = useState(new Audio(audioSrc));
