@@ -239,7 +239,7 @@
         height: 230px;
         max-width: 67vw;
         min-width: 67vw;
-        margin-left: 10%;
+        margin-left: 1%;
         padding: 10px;
         display: flex;
         flex-direction: row;
@@ -261,7 +261,7 @@
     }
 
     .CardLivro .IMGbox #capa {
-        width: calc(100% + 30px);
+        width: calc(100% + 20px);
         bottom: 0;
     }
 
@@ -773,5 +773,11 @@
 @media (max-width: 667px) and (min-width: 375px) {
     .CardLink .content #capa {
         width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1180px) and (orientation: portrait) {
+    .CardLivro{
+        background-color: var(--card-livro);
     }
 }

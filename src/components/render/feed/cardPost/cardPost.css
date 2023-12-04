@@ -476,7 +476,7 @@
     }
 }
 
-@media (min-width: 577px) and  (max-width: 1200px)  and (orientation: landscape) {
+@media (max-width: 1200px)  and (orientation: landscape) {
     /* Estilos para tablets maiores e dispositivos em modo paisagem */
     .cardPost {
         min-height: 200px;
@@ -504,7 +504,7 @@
 
     .publiText {
         padding-top: 20px;
-        font-size: 1.3em;
+        font-size: 2em;
     }
 
     .enqueteTitle {

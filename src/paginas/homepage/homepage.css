@@ -46,6 +46,11 @@
 @media (min-width: 993px) and (max-width: 1200px) {
     /* Estilos para tablets maiores e dispositivos em modo paisagem */
 }
+@media  (max-width: 1200px) and (orientation: landscape){
+    .pagina{
+        height: calc(100%);
+    }
+}
 
 
 @media (min-width: 1201px) {

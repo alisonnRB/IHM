@@ -106,7 +106,7 @@
 }
 
 .Infos #Nome {
-    height: 15%;
+    height: 17%;
     width: 90%;
     align-items: center;
     justify-content: space-between;
@@ -322,6 +322,19 @@
         display: none;
     }
 }
+
+@media (max-width: 576px) and (orientation: landscape){
+    .quad {
+        left: 10px;
+        top: 10px;
+        height: 40px;
+        width: 40px;
+    }
+    .boxNewBookC #selecao {
+        width: 200px;
+    }
+}
+
 
 @media (min-width: 769px) and (max-width: 992px) and (orientation: portrait) {
     .Infos #Nome #dell {
@@ -700,5 +713,12 @@
         justify-content: center;
         width: 26.5%;
         height: 115%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1180px) and (orientation: portrait) {
+    .capaDoLivro .custom-input {
+        margin-left: 210px;
+        width: 50%;
     }
 }

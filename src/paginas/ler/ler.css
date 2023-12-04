@@ -43,8 +43,8 @@
 }
 
 #CurtiL #BOXCURTI {
-    height: 30%;
-    width: 100%;
+    height: 40%;
+    width: 119%;
     align-items: center;
     gap: 20px;
 }
@@ -72,6 +72,7 @@
 #BOXCURTI .BoxVisu span img {
     height: 20px;
     width: 35px;
+
     position: relative;
 }
 
@@ -152,7 +153,7 @@
 }
 
 .alerts{
-    margin-left: 53%;
+    margin-left: 45%;
     background-color: #FF7070;
     height: 40px;
     width: 200px;
@@ -253,29 +254,8 @@
 }
 
 
-@media (max-width: 576px) {
-    .PageLer .btFloat {
-        display: none;
-    }
 
-    .infosAutor {
-        right: 20vw;
 
-    }
-
-    .infosAutor p {
-        display: none;
-    }
-
-    #BOXCURTI .BoxVisu span {
-        width: 100%;
-        justify-content: start;
-    }
-
-    .ps{
-        display: none;
-    }
-}
 
 @media (orientation: portrait) {
 
@@ -310,7 +290,10 @@
 
     #CurtiL #BOXCURTI {
         justify-content: center;
+        margin: auto;
         gap: 20px;
+        height: 40%;
+        width: 90px;
     }
 
     #BOXCURTI .BoxVisu {
@@ -327,7 +310,7 @@
         cursor: pointer;
         background-color: #C4BFB2;
         height: 90%;
-        width: 50%;
+        width: 100%;
         border-radius: 20px;
         align-items: center;
         justify-content: start;
@@ -359,6 +342,95 @@
 
     .PageLer .filtro {
         display: none;
+    }
+
+}
+
+@media (max-width: 576px) {
+    .PageLer .btFloat {
+        display: none;
+    }
+
+    .infosAutor {
+        right: 20vw;
+
+    }
+
+    .infosAutor p {
+        display: none;
+    }
+
+    #BOXCURTI .BoxVisu span {
+        width: 100%;
+        justify-content: start;
+    }
+
+    .ps{
+        display: none;
+    }
+    #BOXCURTI .BoxVisu span img {
+        margin: auto;
+    }
+
+    .PageLer #CurtiL {
+        width:80%;
+        right: 0;
+    }
+
+    .alerts {
+        margin-left: 0%;
+        width: 40px;
+    }
+    .alerts p {
+        display: none;
+    }
+    .alerts img {
+        margin-left: -5px;
+    }
+}
+
+@media (min-width: 576px) and (max-width:1200px) {
+    #CurtiL #BOXCURTI {
+        width: 350px;
+    }
+    .alerts {
+        margin-left: 0%;
+
+    }
+    .PageLer #CurtiL {
+        width: 65%;
+    }
+    
+}
+@media (max-width: 1200px) and (orientation: landscape){
+
+}
+
+@media (max-width:1200px) and (orientation: landscape){
+    .infosAutor {
+        right: -5%;
+        top: 98px;
+    }
+
+    .infosAutor #perfil {
+        border-radius: 50%;
+        height: 80px;
+        width: 80px;
+        cursor: pointer;
+    }
+
+    .alerts {
+        margin-left: 0%;
+        width: 40px;
+    }
+    .alerts p {
+        display: none;
+    }
+    .alerts img {
+        margin-left: -5px;
+    }
+    .PageLer #CurtiL {
+        width: 57%;
     }
 
 }

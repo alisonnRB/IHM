@@ -5,7 +5,7 @@
 }
 
 .TelaLivros #titlePerfil {
-    left: 40%;
+    margin: auto;
     margin-bottom: -100px;
     width: 300px;
 }
@@ -786,5 +786,11 @@
 @media (max-width: 1600px) and (min-width: 1366px) {
     .TelaLivros #titlePerfil {
         left: 591px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1180px) and (orientation: portrait) {
+    .BOXS .boxSelection.Gener #selecao {
+        font-size: 0.75em;
     }
 }

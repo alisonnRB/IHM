@@ -60,6 +60,7 @@
     color: #022227;
     width: 100%;
     display: flex;
+    text-align: center;
     align-items: center;
     justify-content: center;
     font-size: 2.5em;
@@ -218,7 +219,64 @@
 
 @media (orientation: portrait) {}
 
-@media (orientation: landscape) {}
+@media (max-width: 576px) and (orientation: landscape) {
+    .text-f h2 {
+        font-size: 2.0em;
+    }
+
+    .novidades{
+        height: 400px;
+    }
+    .text-novi img {
+        margin-right: 0px;
+    }
+    .text-novi p {
+        padding-right: 0px;
+        text-align: center;
+    }
+    .novi-email input {
+        padding-left: 0px;
+        padding-right: 0px;
+        width: 80vw;
+    }
+    .pc-novi, .text-novi {
+        width: 100%;
+    }
+    .pc-novi {
+        display: none;
+    }
+
+}
+@media (max-width: 992px) and (orientation: landscape) {
+    .text-f h2 {
+        font-size: 2.0em;
+    }
+
+    .novidades{
+        height: 400px;
+    }
+    .text-novi img {
+        margin-right: 0px;
+    }
+    .text-novi p {
+        padding-right: 0px;
+        text-align: center;
+    }
+    .novi-email input {
+        padding-left: 0px;
+        padding-right: 0px;
+        width: 80vw;
+    }
+    .pc-novi, .text-novi {
+        width: 100%;
+    }
+    .pc-novi {
+        display: none;
+    }
+    .HOME{
+        width: 99vw;
+    }
+}
 
 @keyframes sobe-aparece {
     0% {
@@ -482,7 +540,9 @@
     
     @media (orientation: portrait) {}
     
-    @media (orientation: landscape) {}
+    @media (orientation: landscape) {
+        
+    }
     
     @keyframes sobe-aparece {
         0% {

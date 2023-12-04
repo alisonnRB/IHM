@@ -150,3 +150,10 @@
 
 
 }
+
+@media (max-width: 1200px)  and (orientation: landscape) {
+    .mensagem{
+        width: 50vw;
+        height: 100vh;
+    }
+}
