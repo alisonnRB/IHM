@@ -31,14 +31,7 @@ export default function Mensagem(props) {
   const [foto, setFoto] = useState('');
 
   const { lastJsonMessage, sendMessage } = useWebSocket('ws://localhost:8080', {
-    onOpen: () => console.log('a'),
-    onMessage: () => {
-      if (lastJsonMessage) {
-        console.log('recebido');
-      }
-    },
     queryParams: { 'id': id, 'for': infos.id },
-    onError: (event) => { console.error(event); },
     shouldReconnect: (closeEvent) => true,
     reconnectInterval: 3000
   });

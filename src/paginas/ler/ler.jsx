@@ -47,7 +47,7 @@ export default function Ler() {
     const id = localStorage.getItem('id');
 
     const [userId, setUserId] = useState(0);
-    const [infos, setInfos] = useState('');console.log()
+    const [infos, setInfos] = useState('');
 
     const [cor, setCor] = useState('');
 
