@@ -130,10 +130,6 @@ export default function Login() {
 
       </form>
 
-      <span className='rec-log'>
-        <p id="recuperar" >Esqueceu a senha?</p>
-      </span>
-
       {load ? <div className={`fundoAWAIT ${certo_erro == 'erro' ? 'err' : null}`}>
         <Load virar={respondido} />
         <img src={certo} className={`certinho ${certo_erro == 'certo' ? 'vire' : null}`} />
