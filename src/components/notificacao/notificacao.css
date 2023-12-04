@@ -34,7 +34,7 @@
 }
 
 .box-notifica{
-    background-color: black;
+    background-color: var(--dell-publi);
     height: 80vh;
     width: 30vw;
     border-radius: 30px;

@@ -1,0 +1,16 @@
+{
+    "EN": {
+        "edit": "edit",
+        "visu": "View in reading mode"
+    },
+
+    "PT":{
+        "edit": "editar",
+        "visu": "Visualizar em Modo Leitura"
+    },
+
+    "ES": {
+        "edit": "editar",
+        "visu": "Ver en modo lectura"
+    }
+}

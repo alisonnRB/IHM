@@ -7,12 +7,17 @@ import { Link } from "react-router-dom";
 import api from "../../../backend/controler/api_info";
 import apiL from "../../../backend/controler/api_InfosLivro";
 
+import words from './card.json';
+
 export default function Card(props) {
     const [infos, setInfos] = useState({});
     const [user, setUser] = useState({});
 
+    const [Uword, setUword] = useState('EN');
+
     useEffect(() => {
         setInfos(props);
+        select_idioma();
     }, [props])
 
     useEffect(() => {
@@ -20,6 +25,16 @@ export default function Card(props) {
             Busca();
         }
     }, [infos.info])
+
+
+    const select_idioma = () => {
+        let idi = localStorage.getItem('idioma');
+        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+            idi = 'EN';
+        }
+        let word = words[idi];
+        setUword(word);
+    }
 
     const Busca = async () => {
         if (infos.tipo == 'seguidores') {
@@ -49,23 +64,23 @@ export default function Card(props) {
     const Action = () => {
         switch (infos.tipo) {
             case 'seguidores':
-                return 'Começou a seguir você!';
+                return Uword.seguiu;
             case 'curtidas-livro':
-                return "curtiu seu livro!";
+                return Uword.curtiu;
             case "livros-coment":
-                return "Comentou no seu Livro!";
+                return Uword.comentou;
             case "curtidas-coment":
-                return "Curtiu seu Comentario em um livro!";
+                return Uword.curti_coment;
             case "curtidas-publi":
-                return "Curtiu sua Publicação!";
+                return Uword.curti_publi;
             case "curtidas-Pcoment":
-                return "Curtiu seu Comentario em uma Publição!";
+                return Uword.coment_publi;
             case "coment-coment":
-                return "Respondeu seu comentario!";
+                return Uword.reply;
             case "publi":
-                return "Comentou na sua publicação!";
+                return Uword.M_Publi;
             case "favoritos":
-                return "Tem novidades!!";
+                return Uword.Novi;
 
         }
     }

@@ -191,13 +191,13 @@ function Perfil() {
 
 
       <span className='btPB'>
-        <p onClick={() => { setSelect(false) }} className={`btL ${!select ? 'sets' : null}`}>LIVROS</p>
-        <p onClick={() => { setSelect(true) }} className={`btL ${select ? 'sets' : null}`}>PUBLICAÇÕES</p>
+        <p onClick={() => { setSelect(false) }} className={`btL ${!select ? 'sets' : null}`}>{Uword.livros}</p>
+        <p onClick={() => { setSelect(true) }} className={`btL ${select ? 'sets' : null}`}>{Uword.publi}</p>
       </span>
 
       {!select ?
         <Caixa_livros Uword={Uword} theme={theme} livro={livro} livroF={livroF} />
-        : <Caixa_publi />}
+        : <Caixa_publi Uword={Uword} />}
 
 
       <FloatBt />

@@ -122,12 +122,12 @@ export default function Busca() {
             </span>
             <div className="pessoasBOX">
 
-                {users == 'nao' ? <p id='notFound'>Não achamu ninguem</p> : geraUser()}
+                {users == 'nao' ? <p id='notFound'>{Uword.not}</p> : geraUser()}
 
             </div>
 
             <div className='disparador' ref={ref}>
-                {users == 'naoM' ? <p id='notMore'>NÃO HÁ mais Pessoas</p> : null}
+                {users == 'naoM' ? <p id='notMore'>{Uword.noMore}</p> : null}
                 {Loadi ? <Load /> : null}
             </div>
         </div>

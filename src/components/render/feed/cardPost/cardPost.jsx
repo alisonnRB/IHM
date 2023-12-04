@@ -28,6 +28,8 @@ import dell from '../../../../backend/controler/api_dellPubli.js';
 
 import audioSrc from '../../../../sounds/curtida.ogg';
 
+import words from './cardPost.json';
+
 export default function Card(props) {
   const [audio] = useState(new Audio(audioSrc));
 
@@ -62,12 +64,15 @@ export default function Card(props) {
   const [voteEn, setVoteEn] = useState('');
   const [autor, setAutor] = useState('');
 
+  const [Uword, setUword] = useState('EN');
+
 
   const [auxiliar, setAux] = useState(0);
 
 
   useEffect(() => {
     Busca();
+    select_idioma();
     let a = localStorage.getItem('tema');
     if (a) {
       setTheme(a)
@@ -232,6 +237,15 @@ export default function Card(props) {
     }
   }
 
+  const select_idioma = () => {
+    let idi = localStorage.getItem('idioma');
+    if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+        idi = 'EN';
+    }
+    let word = words[idi];
+    setUword(word);
+}
+
   return (
     <>
       <div className='cardPost'>
@@ -247,7 +261,7 @@ export default function Card(props) {
           {deletar ? (
             <div className='deletePubli' onClick={(e) => { fechar_dell(e) }}>
               <span className={`boxDellPubli ${hover ? 'hovered' : null}`} onClick={(e) => { e.stopPropagation(); dell_Publi() }}>
-                <p onMouseEnter={()=>{setHover(true)}} onMouseLeave={()=>{setHover(false)}}>EXCLUIR</p>
+                <p onMouseEnter={()=>{setHover(true)}} onMouseLeave={()=>{setHover(false)}}>{Uword.dell}</p>
                 <div onMouseEnter={()=>{setHover(true)}} onMouseLeave={()=>{setHover(false)}}><img src={lixo} /></div>
               </span>
             </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 
-import Livro from '../../../../cardLivro/cardLivro';
+import Livro from '../../../../cardLivro/cardLivro.jsx';
 import Load from "../../../../../components/loading/loading.jsx";
 import apiLivros from '../../../../../backend/controler/api_meusLivros.js';
 

@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 import './meusLivros.css';
 
 import FloatBt from "../../../BtFloat/btFloat.jsx";
-import Livro from "../../../cardLivro/cardLivro";
+import Livro from "../../../cardLivro/cardLivro.jsx";
 import Load from "../../../../components/loading/loading.jsx";
 
 import api from "../../../../backend/controler/api_meusLivros";

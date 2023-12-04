@@ -14,8 +14,11 @@ import quatorze from '../../imgs/quatorze.jpeg';
 import dezeseis from '../../imgs/dezeseis.jpeg';
 import dezoito from '../../imgs/dezoito.jpeg';
 
+import words from './cardLivro.json';
+
 
 export default function Livro(props) {
+    const [Uword, setUword] = useState('EN');
 
     const [id, setId] = useState('')
     const [fotoCapa, setFotoCapa] = useState('');
@@ -32,6 +35,10 @@ export default function Livro(props) {
     const [curtidas, setCurtidas] = useState(0);
     const [favoritos, setFavoritos] = useState(0);
     const [visus, setVisus] = useState(0);
+
+    useEffect(()=>{
+        select_idioma();
+    },[])
 
     useEffect(() => {
         if(props.info.user_id){
@@ -94,12 +101,11 @@ export default function Livro(props) {
         }
     },[id]);
 
-
     function botao(mine) {
         if (mine == true) {
             return (
                 <Link to={`/IHM/perfil/MeusLivros/escreva?id=${encodeURIComponent(JSON.stringify(livro.id))}`} className="link">
-                    <button className="Edicao bt">Editar</button>
+                    <button className="Edicao bt">{Uword.edit}</button>
                 </Link>
             );
         }
@@ -143,6 +149,14 @@ export default function Livro(props) {
         }
     }, [classificacao]);
 
+    const select_idioma = () => {
+        let idi = localStorage.getItem('idioma');
+        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+            idi = 'EN';
+        }
+        let word = words[idi];
+        setUword(word);
+    }
 
 
 
@@ -179,7 +193,7 @@ export default function Livro(props) {
 
                 <span id="BTs">
 
-                    <Link className="link" to={`/Ler/?id=${encodeURIComponent(JSON.stringify(livro.id))}`}><button className="Read bt">{props.mine? `Visualizar em Modo Leitura`: props.text}</button></Link>
+                    <Link className="link" to={`/Ler/?id=${encodeURIComponent(JSON.stringify(livro.id))}`}><button className="Read bt">{props.mine? Uword.visu : props.text}</button></Link>
 
                     {botao(props.mine)}
 

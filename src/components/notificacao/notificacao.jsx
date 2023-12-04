@@ -7,6 +7,7 @@ import api from "../../backend/controler/api_notificacao.js";
 import ver from "../../backend/controler/api_visuNotifica.js";
 
 import audioSrc from '../../sounds/notificacao.ogg';
+import words from './notificacao.json';
 
 export default function Notificações() {
     const [audio] = useState(new Audio(audioSrc));
@@ -16,6 +17,8 @@ export default function Notificações() {
     const [notificar, setNotficar] = useState({});
     const [New, setNew] = useState(false);
 
+    const [Uword, setUword] = useState('EN');
+
     useEffect(() => {
         if (New && init.current > 2) {
             audio.play();
@@ -24,12 +27,21 @@ export default function Notificações() {
 
     useEffect(() => {
         Busca();
+        select_idioma();
         const intervalId = setInterval(() => {
             Busca();
         }, 30000);
         return () => clearInterval(intervalId);
     }, []);
 
+    const select_idioma = () => {
+        let idi = localStorage.getItem('idioma');
+        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
+            idi = 'EN';
+        }
+        let word = words[idi];
+        setUword(word);
+    }
 
     const handleBackgroundClick = (event) => {
         // Verifica se o clique ocorreu no elemento com a classe "fundo-notifica"
@@ -95,7 +107,7 @@ export default function Notificações() {
             {isWindowOpen && (
                 <div className="fundo-notifica" onClick={(e) => { handleBackgroundClick(e); visualizar(); }}>
                     <div className="box-notifica">
-                        <span className="title-notifica">Notificações</span>
+                        <span className="title-notifica">{Uword.noti}</span>
                         <div className="cards-notifica">
                             {gera_notificacao()}
                         </div>

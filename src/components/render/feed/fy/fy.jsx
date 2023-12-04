@@ -4,9 +4,9 @@ import { useInView } from 'react-intersection-observer';
 import api from "../../../../backend/controler/api_searchFY.js";
 import Load from "../../../loading/loading.jsx";
 
-import Card from '../cardPost/cardPost';
+import Card from '../cardPost/cardPost.jsx';
 
-export default function ForYou() {
+export default function ForYou(props) {
     const [publis, setPublis] = useState({});
     const [publicacoes, setPublicacoes] = useState([]);
     const num = useRef(0);
@@ -70,7 +70,7 @@ export default function ForYou() {
             </div>
 
             <div className='disparador' ref={ref}>
-                {publis == 'nao' ? <p id='notMore'>NÃO HÁ Novas publicações</p> : null}
+                {publis == 'nao' ? <p id='notMore'>{props.Uword.noMore}</p> : null}
                 {Loadi ? <Load /> : null}
             </div>
         </>

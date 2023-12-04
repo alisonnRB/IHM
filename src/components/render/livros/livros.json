@@ -6,7 +6,8 @@
         "classificacao": "PARENTAL RATING",
         "Novo_livro": "NEW BOOKS",
         "finalizado": "FINALIZED",
-        "notFound": "BOOK NOT FOUND :("
+        "notFound": "BOOK NOT FOUND :(",
+        "noMore": "No more publications"
     },
 
     "PT":{
@@ -16,7 +17,8 @@
         "classificacao": "CLASSIFICAÇÃO INDICATIVA",
         "Novo_livro": "LIVROS NOVOS",
         "finalizado": "FINALIZADOS",
-        "notFound": "LIVRO NÃO ENCONTRADO :("
+        "notFound": "LIVRO NÃO ENCONTRADO :(",
+        "noMore": "Não há mais publicações"
     },
 
     "ES": {
@@ -26,6 +28,7 @@
         "classificacao": "CALIFICACIÓN DE LOS PADRES",
         "Novo_livro": "LIBROS NUEVOS",
         "finalizado": "FINALIZADO",
-        "notFound": "LIBRO NO ENCONTRADO :("
+        "notFound": "LIBRO NO ENCONTRADO :(",
+        "noMore": "No más publicaciones"
     }
 }

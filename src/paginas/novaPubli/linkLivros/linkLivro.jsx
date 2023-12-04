@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 
 import api from "../../../backend/controler/api_search";
 
-import Card from "./cardLivro/cardLivro";
+import Card from "./cardLivro/cardLivro.jsx";
 import x from "../../../imgs/cancel.png";
 
 import words from './linkLivro.json';
@@ -135,7 +135,7 @@ export default function LinkLivro(props) {
                 <div className="Buscas">
                     {geraLivros()}
                     <div className="disparato" style={{ height: '300px', width: '50px' }} ref={ref}></div>
-                    {livro == 'naoM' ? <p id='notMore'>NÃO HÁ MAIS LIVROS! </p> : null}
+                    {livro == 'naoM' ? <p id='notMore'>{Uword.noMore}</p> : null}
                     {Loadi ? <Load /> : null}
                 </div>
 

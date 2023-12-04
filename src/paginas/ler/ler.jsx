@@ -228,7 +228,7 @@ export default function Ler() {
 
                 <span className="alerts" onClick={()=>{setReport(true)}}>
                     <img src={alert} />
-                    <p>REPORTAR</p>
+                    <p>{Uword.alert}</p>
                 </span>
             </header>
 
@@ -239,10 +239,10 @@ export default function Ler() {
                             <img src={alert} />
                         </span>
                         <div className="contentAlert">
-                            <button className="AlertBT" value='Conteudo inapropriado' onClick={(e)=>{Reportar(e)}}>Conteúdo inapropriado</button>
-                            <button className="AlertBT" value='Plagio' onClick={(e)=>{Reportar(e)}}>Plágio</button>
-                            <button className="AlertBT" value='Violacao dos Direitos Autorais' onClick={(e)=>{Reportar(e)}}>Violação dos Direitos Autorais</button>
-                            <button className="AlertBT" value='incitacao a ilegalidade' onClick={(e)=>{Reportar(e)}}>incitação a ilegalidade</button>
+                            <button className="AlertBT" value='Conteudo inapropriado' onClick={(e)=>{Reportar(e)}}>{Uword.content}</button>
+                            <button className="AlertBT" value='Plagio' onClick={(e)=>{Reportar(e)}}>{Uword.plagio}</button>
+                            <button className="AlertBT" value='Violacao dos Direitos Autorais' onClick={(e)=>{Reportar(e)}}>{Uword.viola}</button>
+                            <button className="AlertBT" value='incitacao a ilegalidade' onClick={(e)=>{Reportar(e)}}>{Uword.ilegal}</button>
                         </div>
                     </div>
                 </div>

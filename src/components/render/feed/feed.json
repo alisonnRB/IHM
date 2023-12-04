@@ -1,13 +1,19 @@
 {
     "EN": {
-        "Npublicacoes": "THERE ARE NO NEW PUBLICATIONS"
+        "noMore": "No more publications",
+        "segue" : "FOLLOWING",
+        "fy" : "FOR YOU"
     },
 
     "PT":{
-        "Npublicacoes":"NÃO HÁ Novas publicações"
+        "noMore": "Não há mais publicações",
+        "segue" : "SEGUINDO",
+        "fy": "PARA VOCÊ"
     },
 
     "ES": {
-        "Npublicacoes":"NO HAY NUEVAS PUBLICACIONES"
+        "noMore": "No más publicaciones",
+        "segue" : "SIGUIENTE",
+        "fy" : "PARA TI"
     }
 }

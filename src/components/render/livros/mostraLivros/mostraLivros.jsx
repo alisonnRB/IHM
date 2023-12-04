@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Livro from "../../../cardLivro/cardLivro";
+import Livro from "../../../cardLivro/cardLivro.jsx";
 import words from './mostrarLivros.json';
 
 export default function MostraLivros(props) {

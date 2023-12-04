@@ -75,7 +75,7 @@ export default function Caixa_publi(props) {
                 </div>
 
                 <div className='disparador' ref={ref}>
-                    {publis == 'nao' ? <p id='notMore'>NÃO HÁ Novas publicações</p> : null}
+                    {publis == 'nao' ? <p id='notMore'>{props.Uword.noMore}</p> : null}
                     {Loadi ? <Load /> : null}
                 </div>
 

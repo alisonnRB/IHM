@@ -5,7 +5,12 @@
         "curti": "LIKE",
         "seguir": "Follow",
         "seguindo": "Following",
-        "autor": "Author"
+        "autor": "Author",
+        "alert": "REPORT",
+        "content": "Inappropriate content",
+        "plagio" : "Plagiarism",
+        "viola" : "Copyright Infringement",
+        "ilegal": "incitement to illegality"
     },
 
     "PT":{
@@ -14,7 +19,12 @@
         "curti": "CURTIR",
         "seguir": "Seguir",
         "seguindo": "Seguindo",
-        "autor": "Autor"
+        "autor": "Autor",
+        "alert": "REPORTAR",
+        "content": "Conteúdo inapropriado",
+        "plagio" : "Plágio",
+        "viola" : "Violação dos Direitos Autorais",
+        "ilegal": "incitação a ilegalidade"
     },
 
     "ES": {
@@ -23,6 +33,11 @@
         "curti": "ME GUSTA",
         "seguir": "Seguir",
         "seguindo": "Seguiente",
-        "autor": "Autor"
+        "autor": "Autor",
+        "alert": "REPORTAR",
+        "content": "Contenido inapropiado",
+        "plagio" : "Plagio",
+        "viola" : "Infracción de copyright",
+        "ilegal": "incitación a la ilegalidad"
     }
 }
