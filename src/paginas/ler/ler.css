@@ -77,7 +77,7 @@
 }
 
 #BOXCURTI .BoxVisu span:last-child {
-    position: none;
+    position: static;
 }
 
 
@@ -174,7 +174,7 @@
 }
 
 .fundoAlert{
-    z-index: 200;
+    z-index: 210;
     background-color: var(--filtro);
     position: fixed;
     top: 0;
@@ -346,14 +346,14 @@
 
 }
 
-@media (max-width: 576px) {
+@media (max-width: 576px) and (orientation:portrait) {
     .PageLer .btFloat {
         display: none;
     }
 
     .infosAutor {
         right: 20vw;
-
+        margin-right: 80px;
     }
 
     .infosAutor p {
@@ -380,12 +380,21 @@
     .alerts {
         margin-left: 0%;
         width: 40px;
+        margin-top: 75px;
     }
     .alerts p {
         display: none;
     }
     .alerts img {
         margin-left: -5px;
+        top: 200px;
+    }
+    #CurtiL .tituloBox {
+        font-size: 1.5em;
+    }
+
+    #BOXCURTI .BoxVisu span:last-child {
+        margin-right: 180px;
     }
 }
 
@@ -433,4 +442,13 @@
         width: 57%;
     }
 
+}
+
+@media (min-width: 768px) and (max-width: 1180px) and (orientation: portrait) {
+    .infosAutor{
+        margin-right: 180px;
+    }
+    .alerts{
+        margin-top: 90px;
+    }
 }
