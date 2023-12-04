@@ -60,7 +60,7 @@ export default function NovoLivro() {
     useEffect(() => {
         select_idioma();
         let a = localStorage.getItem('tema');
-        if(a){
+        if (a) {
             setTheme(a)
         }
     }, [])
@@ -77,10 +77,15 @@ export default function NovoLivro() {
 
     const enviar = async (event) => {
         event.preventDefault();
+        const nameBook = event.target.livroNome.value;
+        if (!nameBook) {
+            return;
+        }
+
         const formData = new FormData();
         formData.append('image', file);
 
-        const nameBook = event.target.livroNome.value;
+
 
 
         const resposta = await api.enviar(formData, nameBook, selecao, classificacao);
@@ -113,19 +118,19 @@ export default function NovoLivro() {
         return (
             <div className="fundo">
                 <div className="opsClass">
-                    <img className={`imgC ${close}`} src={livre} onClick={()=>{setClassificacao('livre');setClose('close')}}/>
-                    <img className={`imgC ${close}`} src={dez} onClick={()=>{setClassificacao('dez');setClose('close')}}/>
-                    <img className={`imgC ${close}`} src={doze} onClick={()=>{setClassificacao('doze');setClose('close')}}/>
-                    <img className={`imgC ${close}`} src={quatorze} onClick={()=>{setClassificacao('quatorze');setClose('close')}}/>
-                    <img className={`imgC ${close}`} src={dezeseis} onClick={()=>{setClassificacao('dezeseis');setClose('close')}}/>
-                    <img className={`imgC ${close}`} src={dezoito} onClick={()=>{setClassificacao('dezoito');setClose('close')}}/>
+                    <img className={`imgC ${close}`} src={livre} onClick={() => { setClassificacao('livre'); setClose('close') }} />
+                    <img className={`imgC ${close}`} src={dez} onClick={() => { setClassificacao('dez'); setClose('close') }} />
+                    <img className={`imgC ${close}`} src={doze} onClick={() => { setClassificacao('doze'); setClose('close') }} />
+                    <img className={`imgC ${close}`} src={quatorze} onClick={() => { setClassificacao('quatorze'); setClose('close') }} />
+                    <img className={`imgC ${close}`} src={dezeseis} onClick={() => { setClassificacao('dezeseis'); setClose('close') }} />
+                    <img className={`imgC ${close}`} src={dezoito} onClick={() => { setClassificacao('dezoito'); setClose('close') }} />
                 </div>
             </div>
         );
     }
 
-    useEffect(()=>{
-        switch(classificacao){
+    useEffect(() => {
+        switch (classificacao) {
             case 'livre':
                 setVisuClass(livre);
                 break;
@@ -147,14 +152,14 @@ export default function NovoLivro() {
         }
     }, [classificacao]);
 
-    useEffect(()=>{
-        if(close === 'close'){
-            setTimeout(()=>{
+    useEffect(() => {
+        if (close === 'close') {
+            setTimeout(() => {
                 setClose('');
                 setOpenClass(false);
             }, 300)
         }
-    },[close])
+    }, [close])
 
     return (
         <div className="boxNewBookC">
@@ -162,7 +167,7 @@ export default function NovoLivro() {
 
                 <div className="capaDoLivro">
 
-                    <div className="quad" onClick={()=>{setOpenClass(true)}}style={{ backgroundImage: `url(${visuClass})` }}>
+                    <div className="quad" onClick={() => { setOpenClass(true) }} style={{ backgroundImage: `url(${visuClass})` }}>
                         {openClass ? selecionaClass() : null}
                     </div>
 
@@ -188,7 +193,7 @@ export default function NovoLivro() {
                         </div>
 
                         <div className="xis">
-                            <img src={x} onClick={()=>{navigate(-1)}}/>
+                            <img src={x} onClick={() => { navigate(-1) }} />
                         </div>
                     </span>
 
