@@ -1,4 +1,4 @@
-.MAIN{
+.MAIN {
     height: 80px;
     min-width: 98vw;
     max-width: 98vw;
@@ -11,20 +11,22 @@
     z-index: 200;
 }
 
-.caixa-left{
+.caixa-left {
     height: 100%;
     align-items: center;
     gap: 20px;
 }
-#logoMAIN{
+
+#logoMAIN {
     height: 100%;
     width: 150px;
 }
 
-.nos{
+.nos {
     margin-right: 30px;
 }
-.btMA{
+
+.btMA {
     cursor: pointer;
     font-weight: bold;
     font-size: .9em;
@@ -35,13 +37,40 @@
     background-color: #2A7A8D;
     margin-top: 10px;
 }
+
+@media (max-width: 576px) {
+
+
+}
+
+@media (max-width: 992px) and (orientation: portrait) {
+    .MAIN {
+        padding-right: 0;
+        justify-content: center;
+        min-width: 100vw;
+        max-width: 100vw;
+    }
+
+    #logoMAIN {
+        display: none;
+    }
+
+}
+
+
+
+
 @media (max-width: 992px) and (orientation: landscape) {
+
     .caixa-left {
         gap: 2%;
     }
+
     #logoMAIN {
         height: 150%;
         width: 15%;
     }
+
+
 
 }

@@ -8,14 +8,12 @@ function head() {
   //TODO passa como propriedades as informações(user) do usuario para os elementos filhos acessarem
   return (
     <header className='MAIN'>
-        <span className='caixa-left'>
-            <img src={logo} id='logoMAIN'/>
+      <span className='caixa-left'>
+        <img src={logo} id='logoMAIN' />
 
-            <Link to='/login'><button className='btMA'>Login</button></Link>
-            <Link to='/login'><button className='btMA'>Cadastre-se</button></Link>
-        </span>
-
-        <button className='btMA nos'>Sobre nós</button>
+        <Link to='/login'><button className='btMA'>Login</button></Link>
+        <Link to='/login'><button className='btMA'>Cadastre-se</button></Link>
+      </span>
     </header>
   );
 }
