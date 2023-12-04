@@ -580,7 +580,7 @@
 }
 
 @media (max-width: 1200px) and (orientation: landscape){
-    .PERFIL.content-notifica {
+    .PERFIL .content-notifica {
         right: 21px;
         margin-top: 0px;
     }

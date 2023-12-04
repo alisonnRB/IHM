@@ -84,3 +84,54 @@
     flex-direction: column;
     width: 100%;
 }
+
+@media (max-width: 1200px) and (orientation: landscape){
+    #head-log img:first-child {
+        display: none;
+    }
+
+    #head-log {
+        height: 50px;
+    }
+}
+
+@media (max-width: 577px) and (orientation: landscape){
+    #box{
+        height: 180vh;
+        max-height: 180vh;
+        width: 100vw;
+    }
+    
+    .card-log{
+        height: 190vh;
+        width: 100vw;
+    }
+}
+
+@media (min-width: 577px) and (max-width:992px) and (orientation: landscape){
+    #box{
+        height: 160vh;
+        max-height: 160vh;
+        width: 100vw;
+    }
+    
+    .card-log{
+        height: 160vh;
+        width: 100vw;
+    }
+
+}
+
+@media (min-width:992px) and (max-width:1200px) and (orientation: landscape){
+    #box{
+        height: 100vh;
+        max-height: 100vh;
+        width: 100vw;
+    }
+    
+    .card-log{
+        height: 100vh;
+        width: 100vw;
+    }
+
+}
