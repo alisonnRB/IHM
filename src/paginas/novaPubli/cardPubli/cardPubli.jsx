@@ -146,8 +146,7 @@ export default function CardPubli() {
             <span >
                 {livro ?
                     <>
-                        {aba ? <img src={abaX} className="cancelLivro" onMouseEnter={() => { setAba(true) }} onClick={() => { setlivro(false); setLinkLivro('') }} /> : <div style={{ width: '80px' }}></div>}
-                        <div className="campoImgPubli" onMouseLeave={() => { setAba(false) }}>
+                        <div className="campoImgPubli" onMouseLeave={() => { setAba(false) }} onClick={() => { setlivro(false); setLinkLivro('') }}>
                             <img src={linkLivro.imagem} id="capaSelect" onMouseEnter={() => { setAba(true) }} />
                         </div>
                     </>
