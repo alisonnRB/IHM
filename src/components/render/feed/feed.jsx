@@ -7,7 +7,7 @@ import Seguindo from './seguindo/seguindo.jsx';
 import ForYou from './fy/fy.jsx';
 
 export default function Feed() {
-  const [select, setSelect] = useState(false);
+  const [select, setSelect] = useState(true);
 
   const [theme, setTheme] = useState('light');
 

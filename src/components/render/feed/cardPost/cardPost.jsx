@@ -238,11 +238,11 @@ export default function Card(props) {
         <span className='infosPost'>
 
           <span className='publiUser'>
-            <img className='perfilPubli' src={autor.fotoPerfil ? "http://localhost/imagens/" + autor.fotoPerfil : ""} />
-            <Link to={id != autor.id ? `/IHM/Busca/user?id=${encodeURIComponent(JSON.stringify(autor.id))}` : '/perfil'}><p id='nom'>{`@${autor.nome}`}</p></Link>
+            <img className='perfilPubli' src={autor && autor.fotoPerfil ? "http://localhost/imagens/" + autor.fotoPerfil : ""} />
+            <Link to={autor && id != autor.id ? `/IHM/Busca/user?id=${encodeURIComponent(JSON.stringify(autor.id))}` : '/perfil'}><p id='nom'>{`@${autor? autor.nome : '...'}`}</p></Link>
           </span>
 
-          {id === autor.id ? <img src={opPubli} className='opPubli' onClick={() => { setDeletar(true) }} /> : null}
+          {autor && id === autor.id ? <img src={opPubli} className='opPubli' onClick={() => { setDeletar(true) }} /> : null}
 
           {deletar ? (
             <div className='deletePubli' onClick={(e) => { fechar_dell(e) }}>

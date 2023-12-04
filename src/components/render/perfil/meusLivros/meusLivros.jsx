@@ -94,7 +94,7 @@ export default function MeusLivros() {
     }, []);
 
     useEffect(() => {
-        if (inView && !Loadi) {
+        if (inView && !Loadi && livro == 'nao') {
             Busca();
         }
     }, [inView, Loadi]);
