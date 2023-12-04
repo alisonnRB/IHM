@@ -10,6 +10,7 @@
 }
 
 :root {
+    --caixa-name: #000000;
     --header-bg: #B7CFD3;
     --background: #FFFFFF;
     --barra: #EEF7FF;
@@ -45,6 +46,7 @@
     --slideCor2: #7eaeb8;
     --slideCor3: #13505C;
     --hover-barra: #85B2B7;
+    --letra-p: #FFFFFF;
     --letra-g: #3392a6;
     --shadow-search: #BACFD2;
     --shadow-select: #BACFD2;
@@ -55,10 +57,11 @@
     --fundo-barra-cap: #F5F5F5;
     --apagar-cap: #087F97;
     --borda: #7EA7AB;
-    --header-publi: inherit;
+    --header-publi: #B8CED3;
     --fundo-msg: #98BEC1;
     --FY: #5CA5B2;
     --letra-FY: #5CA5B2;
+    --filtro: #ffffff98;
 }
 
 span {

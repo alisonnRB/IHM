@@ -6,17 +6,20 @@ import logo from '../../imgs/logo.png';
 import logoD from '../../imgs/logo-dark.png';
 
 function Header(props) {
-    const [theme, setTheme] = useState(false);
+    const [theme, setTheme] = useState('light');
 
     useEffect(()=>{
         if(props.create){
-            setTheme(true)
+            let a = localStorage.getItem('tema');
+            if(a){
+                setTheme(a);
+            }
         }
     },[props])
 
  return (
     <header>
-        <img id='logoH' src={theme? logoD : logo}></img>
+        <img id='logoH' src={theme == 'dark' ?  logoD : logo}></img>
     </header>
  );
 }

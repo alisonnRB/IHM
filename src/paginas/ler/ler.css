@@ -175,7 +175,7 @@
 
 .fundoAlert{
     z-index: 200;
-    background-color: #ffffff8c;
+    background-color: var(--filtro);
     position: fixed;
     top: 0;
     left: 0;

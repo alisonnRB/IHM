@@ -64,7 +64,8 @@ const themes = {
       '--header-publi': '#041114',
       '--fundo-msg': '#000000',
       '--FY': '#13505C',
-      '--letra-FY': '#fff'
+      '--letra-FY': '#fff',
+      '--filtro': '#00000069'
    },
    light: {
       '--header-bg': '#B7CFD3',
@@ -114,10 +115,11 @@ const themes = {
       '--fundo-barra-cap': "#F5F5F5",
       '--apagar-cap': '#087F97',
       '--borda': '#7EA7AB',
-      '--header-publi': 'inherit',
+      '--header-publi': '#B8CED3',
       '--fundo-msg': '#98BEC1',
       '--FY': '#5CA5B2',
-      '--letra-FY': '#5CA5B2'
+      '--letra-FY': '#5CA5B2',
+      '--filtro': '#ffffff98'
    },
 };
 

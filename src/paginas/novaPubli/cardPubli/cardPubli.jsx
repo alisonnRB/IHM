@@ -53,7 +53,7 @@ export default function CardPubli() {
 
     useEffect(() => {
         select_idioma();
-        let a = localStorage.getItem('light');
+        let a = localStorage.getItem('tema');
         if(a){
             setTheme(a);
         }
@@ -180,8 +180,8 @@ export default function CardPubli() {
             </span>
             <span className={`btPubli ${linkLivro != '' ? 'Com' : ''}`}>
                 <span id="btss">
-                    <img src={livro ? livroT : theme == 'light' ? livroTD : livroF} onClick={() => { setLivro(true) }} />
-                    <img src={enqueteTem ? enqueteT : theme == 'light' ? enqueteTD : enqueteT} onClick={() => { setEnquete(true) }} />
+                    <img src={livro ? livroT : theme == 'dark' ? livroTD : livroF} onClick={() => { setLivro(true) }} />
+                    <img src={enqueteTem ? enqueteT : theme == 'dark' ? enqueteTD : enqueteF} onClick={() => { setEnquete(true) }} />
                 </span>
 
                 <p style={limitTXT >= 260 && limitTXT <= 290? {color: '#DBB931'} : {color: '#FF3131'}} >{limitTXT >= 260 ? `${limitTXT}/306` : null}</p>
