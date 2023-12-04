@@ -52,11 +52,6 @@ export default function Edit(props) {
     const alterar = async (event) => {
         event.preventDefault();
     
-        if (!file) {
-            setRespost('Por favor, selecione uma imagem.');
-            return;
-        }
-    
         const formData = new FormData();
         formData.append('image', file);
     
