@@ -102,9 +102,12 @@
 }
 
 @media(max-width: 1200px) and (orientation: landscape) {
-    .content-notifica {
-        right: 21px;
-        margin-top: -31px;
+    .box-notifica {
+        background-color: black;
+        height: 80vh;
+        width: 70vw;
+        border-radius: 30px;
+        display: block;
     }
 }
 
