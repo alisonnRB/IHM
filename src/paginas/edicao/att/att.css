@@ -509,7 +509,6 @@
     .caixaInter {
         position: absolute;
         bottom: 50px;
-        right: 10px;
         height: 150px;
         width: 150px;
         display: flex;

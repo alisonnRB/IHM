@@ -182,7 +182,8 @@
     }
 }
 
-@media (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
+
+@media (max-width: 768px) and (orientation: landscape) {
     .infosDoLivro .boxLogo{
         display: none;
     }
@@ -206,6 +207,9 @@
         width: 180px;
     }
 }
+
+
+
 @media (min-width: 769px) and (max-width: 992px) and (orientation: landscape){
     .infosDoLivro .boxLogo{
         display: none;

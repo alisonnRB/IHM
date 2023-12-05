@@ -102,6 +102,10 @@
 }
 
 @media(max-width: 1200px) and (orientation: landscape) {
+    .content-notifica{
+        padding: 5px;
+        margin-top: -113px;
+    }
     .box-notifica {
         background-color: black;
         height: 80vh;
@@ -111,9 +115,9 @@
     }
 }
 
-@media (min-width: 768px) and (max-width: 1180px) and (orientation: portrait) {
+@media (min-width: 577px) and (max-width: 1180px) and (orientation: portrait) {
     .content-notifica{
-        right: 625px;
+        left: 120px;
         top: 65px;
     }
     

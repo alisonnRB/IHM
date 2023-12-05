@@ -250,7 +250,7 @@
 }
 @media (min-width: 769px) and (max-width: 992px) and (orientation: landscape){
     .caixaINT{
-        top: 60%;
+        top: 48%;
     }
 
     .caixaMais {

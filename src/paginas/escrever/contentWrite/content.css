@@ -24,7 +24,12 @@
     background-color: var(--background);
 }
 
-@media (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
+@media (max-width: 577px) and (orientation: landscape) {
+    .caixaMais {
+        top: 31%;
+    }
+}
+@media (max-width: 768px) and (orientation: landscape) {
     .content-page{
         margin-top: 100px;
     }

@@ -155,11 +155,23 @@
     }
 }
 
-@media (max-width: 576px) and (orientation: portrait){
+@media (max-width: 1200px) and (orientation: portrait){
+    .comport{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .com{
+        align-items: center;
+        text-align: center;
+    }
+
     .option option, .option select {
         background-color: var(--botão-config);
         border-radius: 30px;
-        right: 35px;
+        right: 0px;
         position: relative;
         height: 40px;
         width: 150px; 
@@ -171,19 +183,19 @@
 
     #sair {
         background-color: var(--sair-conta);
-        right: 35px;
+        right: 0px;
         position: relative;
     }
     
     #excluir {
         background-color: var(--exclui-conta);
-        right: 35px;
+        right: 0px;
         position: relative;
     }
 
     .tema {
         border-radius: 50%;
-        right: 35px;
+        right: 0px;
         position: relative;
         padding: 10px;
         object-fit: scale-down;
@@ -192,11 +204,11 @@
 
     .com label {
         font-size: 1.3em;
-        right: 35px;
+        right: 0px;
         position: relative;
         font-weight: bold;
         margin-bottom: 10px;
-        margin-left: 15px;
+        margin-left: 0px;
         color: var(--letra);
     }
 
@@ -204,11 +216,11 @@
         background-color: var(--botão-config);
         border-radius: 30px;
         height: 40px;
-        width: 175px;
+        width: 100%;
         padding: 3px;
         padding-left: 10px;
         position: relative;
-        right: -15px;
+        right: 0px;
         color: var(--letra-g);
     }    
     
@@ -218,7 +230,7 @@
         border-radius: 30px;
         padding-right: 15px;
         position: relative;
-        right: -15px;
+        right: 0px;
         padding-left: 15px;
         font-weight: bold;
         font-size: .9em;
