@@ -128,7 +128,7 @@
 @media (max-width: 1920px) and (min-width: 1440px) {
     /*estilo pra computadores com até 1920px*/
     .option #titlePerfil {
-        left: 700px; 
+         
         margin-bottom: -100px;
         width: 300px;
     }

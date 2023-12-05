@@ -750,7 +750,7 @@
 @media (max-width: 1920px) and (min-width: 1440px) {
     /*estilo pra computadores com até 1920px*/
     .TelaLivros #titlePerfil {
-        left: 750px; 
+        
         margin-bottom: -100px;
         width: 300px;
     }
@@ -786,9 +786,7 @@
         margin-right: 200px;
     }
 
-    h1 {
-        margin-right: 200px;
-    }
+    
 }
 
 @media (max-width: 1600px) and (min-width: 1366px) {

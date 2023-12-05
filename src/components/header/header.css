@@ -9,8 +9,9 @@ header {
 }
 
 #logoH {
-    height: 200px;
+    height: 100px;
     width: 200px;
+    margin: auto;
 }
 
 
@@ -45,7 +46,7 @@ header {
     /* Estilos para dispositivos desktop (telas maiores) */
     #logoH {
         position: relative;
-        left: 2.5%;
+        margin: auto;
     }
 }
 
@@ -57,7 +58,7 @@ header {
 
     #logoH {
         position: relative;
-        left: 3.2%;
+        
     }
 
 }
@@ -66,13 +67,14 @@ header {
     /*estilo pra computadores com até 2560px*/
     #logoH {
         position: relative;
-        left: 1.6%;
+        
     }
 
 
     #logoH {
-        height: 200px;
+        height: 100px;
         width: 200px;
+
     }
     
 
