@@ -190,7 +190,7 @@
     }
 }
 
-@media (max-width: 2560px) and (min-width: 1921px) {
+@media (min-width: 1900px) {
     #head-log img:first-child {
        width: 200px;
        height: 200px;

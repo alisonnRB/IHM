@@ -297,7 +297,7 @@
 
 
 
-@media (max-width: 2560px) and (min-width: 1921px) {
+@media (min-width: 1900px) {
     /*estilo pra computadores com até 2560px*/
     #content-aba .abinhaFecha{
         position: absolute;
