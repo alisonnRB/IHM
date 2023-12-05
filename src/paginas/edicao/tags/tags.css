@@ -222,3 +222,9 @@
         left: 86%;
     }
 }
+
+@media (min-width: 768px) and (max-width: 1180px) and (orientation: portrait) {
+    .tag {
+        margin-left: 17px;
+    }
+}

@@ -284,7 +284,7 @@
         position: relative;
         font-size: 1em;
         width: 10px;
-        left: 22%;
+        left: 26%;
     }
 
     #notFound {
@@ -780,6 +780,15 @@
         width: 10px;
     
     }
+
+    .BOXS .boxSelection.inter center .toggle {
+        position: relative;
+        margin-right: 200px;
+    }
+
+    h1 {
+        margin-right: 200px;
+    }
 }
 
 @media (max-width: 1600px) and (min-width: 1366px) {
@@ -798,4 +807,18 @@
     .BOXS .boxSelection.Gener #selecao {
         font-size: 0.75em;
     }
+
+    .BOXS .boxSelection .indi {
+        font-size: 0.75em;
+    }
+
+    #notFound{
+        font-size: 3em;
+    }
+
+    .BOXS .boxSelection.inter center h1 {
+        font-size: 0.55em;
+        margin-right: 50px;
+    }
 }
+
