@@ -67,7 +67,7 @@
 
 }
 
-@media (max-width: 2560px) and (min-width: 1440px) {
+@media (min-width: 1900px) {
     /*estilo pra computadores com até 2560px*/
     .boxHome{
         display: block;

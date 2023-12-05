@@ -155,3 +155,8 @@
     }
 }
 
+@media (min-width: 1900px){
+    .optionP{
+        width: 100%;
+    }
+}

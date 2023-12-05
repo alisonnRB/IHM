@@ -5,7 +5,6 @@
 }
 
 .TelaLivros #titlePerfil {
-    margin: auto;
     margin-bottom: -100px;
     width: 300px;
 }
@@ -757,10 +756,10 @@
     }
 }
 
-@media (max-width: 2560px) and (min-width: 1921px) {
+@media (min-width: 1900px) {
     /*estilo pra computadores com até 2560px*/
     .TelaLivros #titlePerfil {
-        left: 43.75%;
+        margin:auto;
         margin-bottom: -100px;
         width: 300px;
     }
@@ -786,6 +785,12 @@
 @media (max-width: 1600px) and (min-width: 1366px) {
     .TelaLivros #titlePerfil {
         left: 591px;
+    }
+}
+
+@media (min-width:1200px) and (max-width:1899px){
+    .TelaLivros #titlePerfil {
+        margin:auto;
     }
 }
 

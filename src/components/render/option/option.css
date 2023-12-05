@@ -6,7 +6,6 @@
 }
 
 .option #titlePerfil {
-    margin: auto;
     margin-bottom: -100px;
     width: 300px;
     font-size: 1em;
@@ -135,16 +134,24 @@
     }
 }
 
-@media (max-width: 2560px) and (min-width: 1921px) {
+@media (min-width: 1900px) {
 
     /*estilo pra computadores com até 2560px*/
     .option #titlePerfil {
-        left: 43.44%;
+        margin:auto;
         margin-bottom: -100px;
         width: 300px;
         font-size: 1em;
     }
+    
 }
+
+@media (min-width:1200px) and (max-width:1899px){
+    .option #titlePerfil {
+        margin:auto;
+    }
+}
+
 
 @media (min-width: 360px) and (max-width: 740px) and (orientation: portrait) {
     .option {
