@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './index.css';
 
 import logo from "../../imgs/logo.png";
-import x from "../../imgs/sair.png";
+import x from "../../imgs/x.png";
 
 import LoginForm from "./login/index.jsx";
 import Cadastro from './forms/form_cadastro.jsx';
 
 export default function Login() {
     const [select, setSelect] = useState(false);
+    const navigate = useNavigate();
+
+    const volta = () => {
+        navigate(-1);
+    }
 
   return (
     <div id="box">
@@ -16,7 +22,7 @@ export default function Login() {
             <div className='card-log'>
                 <span id="head-log">
                     <img src={logo} className='logo-log'/>
-                    <img src={x} className='x-log'/>
+                    <img src={x} className='x-log' onClick={()=>{volta()}}/>
                 </span>
 
                 <span id="bt-log">
