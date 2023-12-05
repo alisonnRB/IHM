@@ -325,7 +325,7 @@
     .BOXS .boxSelection.inter center {
         height: 25%;
         padding: 10px;
-        gap: 20px;
+        gap: 82px;
         width: 100%;
         font-size: .8em;
     }
@@ -479,7 +479,7 @@
     .BOXS .boxSelection.inter center {
         height: 25%;
         padding: 10px;
-        gap: 20px;
+        gap: 85px;
         width: 100%;
         font-size: .8em;
     }
@@ -686,7 +686,7 @@
 
     .BOXS .boxSelection.inter center {
         height: 30%;
-        gap: 20px;
+        gap: 110px;
         width: 100%;
     }
 
