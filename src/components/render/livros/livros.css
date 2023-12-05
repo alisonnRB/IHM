@@ -773,20 +773,6 @@
         padding-left: -80%;
     }
     
-    .BOXS .boxSelection.inter center h1 {
-        position:relative;
-        left: 20%;
-        font-size: 1em;
-        width: 10px;
-    
-    }
-
-    .BOXS .boxSelection.inter center .toggle {
-        position: relative;
-        
-    }
-
-    
 }
 
 @media (max-width: 1600px) and (min-width: 1366px) {
