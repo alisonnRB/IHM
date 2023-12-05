@@ -141,7 +141,29 @@
     }
 }
 
+@media (max-width: 577px)and (orientation: landscape) {
+    
+    .tag {
+        position: relative;
+        height: 98vh;
+        left: 92%;
+        bottom: 65vh !important;
+    }
+
+    .tag.abre {
+        left: 29%;
+    }
+
+    #contentTAG .titleTAG {
+        font-size: 1em;
+    }
+}
+
 @media (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
+    .tag {
+        bottom: 75%;
+        left: 95%;
+    }
     .tag {
         position: relative;
         height: 98vh;
@@ -150,7 +172,7 @@
     }
 
     .tag.abre {
-        left: 35%;
+        left: 40%;
     }
 
     #contentTAG .titleTAG {
@@ -179,14 +201,20 @@
 
 @media (min-width: 769px) and (max-width: 992px) and (orientation: landscape) {
     .tag {
+        bottom: 75%;
+        left: 95%;
+    }
+    
+    .tag.abre {
+        left: 51%;
+    }
+
+    .tag {
         position: relative;
         height: 100vh;
         left: 93%;
     }
 
-    .tag.abre {
-        left: 55%;
-    }
 
     #contentTAG .titleTAG {
         margin-top: 5px;
@@ -205,7 +233,15 @@
         font-size: .5em;
     }
 }
-
+@media (min-width: 993px) and (max-width: 1200px) and (orientation: landscape){
+    .tag {
+        bottom: 100%;
+        left: 95%;
+    }
+    .tag.abre {
+        left: 61%;
+    }
+}
 
 @media (min-width: 993px) and (max-width: 1200px) {
     .tag {
@@ -219,7 +255,16 @@
         left: 98%;
     }
     .tag.abre {
-        left: 86%;
+        left: 80%;
+    }
+}
+@media (min-width: 1200px) and (max-width: 1899px) {
+    .tag {
+        bottom: 100%;
+        left: 96%;
+    }
+    .tag.abre {
+        left: 70%;
     }
 }
 

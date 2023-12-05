@@ -244,6 +244,11 @@
 
 
 @media (orientation: portrait) {
+    .publiText {
+        padding-top: 0px;
+        margin-bottom: 15px;
+        font-size: 1.3em;
+    }
     .cardPost {
         min-height: 200px;
         max-height: 200px;
@@ -478,9 +483,13 @@
 
 @media (max-width: 1200px)  and (orientation: landscape) {
     /* Estilos para tablets maiores e dispositivos em modo paisagem */
+    .publiText {
+        padding-top: 0px;
+        margin-bottom: 15px;
+    }
     .cardPost {
-        min-height: 200px;
-        max-height: 200px;
+        min-height: 250px;
+        max-height: 250px;
         height: 200px;
         width: 98%;
         min-width: 98%;

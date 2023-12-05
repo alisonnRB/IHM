@@ -351,6 +351,14 @@
 }
 
 @media (min-width: 769px) and (max-width: 992px) and (orientation: landscape){
+    #selectColor .contain {
+        margin-right: 100px;
+    }
+
+    .salvaLivro button, #cancel {
+        margin-right: 25px;
+    }
+
     .capaDoLivro #fileBoxC {
         height: 100vh;
         width: 100%;
@@ -398,6 +406,7 @@
     }
 
     .caixaInter {
+        margin-right: 10px;
         position: absolute;
         bottom: 50px;
         right: 10px;
@@ -459,7 +468,15 @@
     }
 }
 
-@media (min-width: 577px) and (max-width: 768px)  and (orientation: landscape) {
+@media (max-width: 768px)  and (orientation: landscape) {
+    #selectColor .contain {
+        margin-right: 50px;
+    }
+
+    .salvaLivro button, #cancel {
+        margin-right: 25px;
+    }
+    
     .capaDoLivro #fileBoxC {
         height: 100vh;
         width: 100%;
@@ -487,6 +504,7 @@
     }
 
     .boxNewBookC #selecao{
+        font-size: 1.2em;
         width: 200px;
     }
 
@@ -568,6 +586,16 @@
 }
 
 @media (min-width: 993px) and (max-width: 1200px)  and (orientation: landscape) {
+    .Infos #Nome #dell {
+        height: 60%;
+    }
+    #selectColor .contain {
+        margin-right: 50px;
+    }
+
+    .salvaLivro button, #cancel {
+        margin-right: 26px;
+    }
     .capaDoLivro #fileBoxC {
         height: 100vh;
         width: 100%;
