@@ -18,7 +18,7 @@ export default {
 
         //TODO faz a requisição
         //! coloque o seu ip ali
-        const response = await fetch('http://localhost/server/create_livro.php', {
+        const response = await fetch('http://literary-ihm.com/server/create_livro.php', {
             method: 'POST',
             body: formData,
         });

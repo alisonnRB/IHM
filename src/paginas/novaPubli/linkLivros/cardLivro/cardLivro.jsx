@@ -14,7 +14,7 @@ export default function CardLink(props) {
 
     useEffect(() => {
         if (livro && livro.imagem) {
-            setFoto("http://localhost/livros/" + livro.user_id + '/' + livro.nome + '_' + livro.id + '/' + livro.imagem);
+            setFoto("http://literary-ihm.com/livros/" + livro.user_id + '/' + livro.nome + '_' + livro.id + '/' + livro.imagem);
         }
     }, [livro]);
 

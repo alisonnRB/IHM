@@ -182,7 +182,7 @@ export default function NovoLivro() {
     useEffect(() => {
         setGen(info.genero);
         if (id && info.nome && info.imagem) {
-            const foto = "http://localhost/livros/" + id + "/" + info.nome + '_' + info.id + '/' + info.imagem;
+            const foto = "http://literary-ihm.com/livros/" + id + "/" + info.nome + '_' + info.id + '/' + info.imagem;
             setImagePreview(foto);
         }
         setNome(info.nome);

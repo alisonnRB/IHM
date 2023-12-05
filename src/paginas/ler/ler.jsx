@@ -132,7 +132,7 @@ export default function Ler() {
 
     useEffect(() => {
         if (infos && infos != '') {
-            setFoto("http://localhost/imagens/" + infos.fotoPerfil);
+            setFoto("http://literary-ihm.com/imagens/" + infos.fotoPerfil);
         }
     }, [infos]);
 
