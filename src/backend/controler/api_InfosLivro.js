@@ -12,21 +12,17 @@ export default {
       
     }
 
-    let user = {
-      id: id,
-      idLivro: idLivro,
-    };
     //? prepara as informações de methodo e cabeçalhos para fazer a requisição
     let requisição = {
-      method: 'POST',
+      method: 'GET',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(user),
     };
+
 
     //TODO faz a requisição
 
     //! coloque o seu ip ali
-    const response = await fetch('http://localhost/server/infoslivros.php', requisição);
+    const response = await fetch(`http://localhost/server/infoslivros.php?idLivro=${idLivro}`, requisição);
 
     //TODO espera a resposta do servidor e armazena para retornar ao cliente
     const data = await response.json();
