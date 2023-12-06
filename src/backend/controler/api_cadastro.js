@@ -22,7 +22,7 @@ export default {
 
     //TODO faz a requisição
     //! coloque o seu ip alii
-    const response = await fetch('http://localhost/server/cadastro.php', requisição);
+    const response = await fetch('http://literary-ihm.com/server/cadastro.php', requisição);
 
     //TODO espera a resposta do servidor e armazena para retornar ao cliente
     const data = await response.json(); //* aguarda um resposta json

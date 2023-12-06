@@ -28,7 +28,7 @@ export default {
       body: JSON.stringify(user),
     };
 
-    const response = await fetch('http://localhost/server/salvaLivros.php', requisição);
+    const response = await fetch('http://literary-ihm.com/server/salvaLivros.php', requisição);
 
     const data = await response.json();
     if (data.informacoes == "não autorizado") {
