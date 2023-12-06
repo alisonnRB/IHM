@@ -27,7 +27,7 @@ export default {
             body: JSON.stringify(user),
         };
 
-        const response = await fetch('http://literary-ihm.com/server/gender.php', requisição);
+        const response = await fetch('http://localhost/server/gender.php', requisição);
 
         const data = await response.json();
         if (data.informacoes == "não autorizado") {

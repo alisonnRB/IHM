@@ -30,7 +30,7 @@ export default function Mensagem(props) {
   const [infos, setinfos] = useState('');
   const [foto, setFoto] = useState('');
 
-  const { lastJsonMessage, sendMessage } = useWebSocket('ws://literary-ihm.com:8080', {
+  const { lastJsonMessage, sendMessage } = useWebSocket('ws://localhost:8080', {
     queryParams: { 'id': id, 'for': infos.id },
     shouldReconnect: (closeEvent) => true,
     reconnectInterval: 3000
@@ -62,7 +62,7 @@ export default function Mensagem(props) {
 
   useEffect(() => {
     if (typeof infos.fotoPerfil == "string") {
-      setFoto("http://literary-ihm.com/imagens/" + infos.fotoPerfil);
+      setFoto("http://localhost/imagens/" + infos.fotoPerfil);
     }
   }, [infos.fotoPerfil]);
 
