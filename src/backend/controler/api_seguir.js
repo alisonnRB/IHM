@@ -24,8 +24,8 @@ export default {
     //TODO faz a requisição
 
     //! coloque o seu ip ali
-    const response = await fetch('http://literary-ihm.com/server/seguir.php', requisição);
-    fetch('http://literary-ihm.com/server/contaSeguidores.php');
+    const response = await fetch('http://localhost/server/seguir.php', requisição);
+    fetch('http://localhost/server/contaSeguidores.php');
 
     //TODO espera a resposta do servidor e armazena para retornar ao cliente
     const data = await response.json();

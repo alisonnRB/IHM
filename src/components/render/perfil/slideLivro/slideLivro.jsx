@@ -64,7 +64,7 @@ export default function MeusLivros(props) {
     const meusLivros = (livros) => {
         const tempRow = [];
         for (let i = 0; i < livros.length; i++) {
-            const a = "http://literary-ihm.com/livros/" + livros[i].user_id + '/';
+            const a = "http://localhost/livros/" + livros[i].user_id + '/';
             tempRow.push(<img key={`livro-${i}`} className='imagemCapa' src={a + livros[i]['nome'] + '_' + livros[i]['id'] + '/' + livros[i]['imagem']} />);
             if (i >= 6) {
                 break;
@@ -77,7 +77,7 @@ export default function MeusLivros(props) {
         
         const tempRow = [];
         for (let i = 0; i < Object.keys(livros).length; i++) {
-            let a = "http://literary-ihm.com/livros/" + livros[i].user_id + '/';
+            let a = "http://localhost/livros/" + livros[i].user_id + '/';
 
             
             tempRow.push(<img key={`livro-${i}`} className='imagemCapa' src={a + livros[i]['nome'] + '_' + livros[i]['id'] + '/' + livros[i]['imagem']} />);

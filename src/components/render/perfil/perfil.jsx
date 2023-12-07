@@ -78,7 +78,7 @@ function Perfil() {
       }
       setName(infos.nome);
       if (infos.fotoPerfil) {
-        setPerfil("http://literary-ihm.com/imagens/" + infos.fotoPerfil);
+        setPerfil("http://localhost/imagens/" + infos.fotoPerfil);
       }
       if (infos.seguidores) {
         const seguidores = JSON.parse(infos.seguidores);
