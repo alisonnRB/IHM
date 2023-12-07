@@ -359,7 +359,7 @@
     }
 }
 
-@media (min-width: 992px) and (max-width: 1200px) and (orientation: portrait){
+@media (min-width: 992px) and (max-width: 1200px) and (orientation: portrait) {
     .cont-frase {
         width: calc(60% / 4);
         margin-right: 40px;
@@ -370,7 +370,7 @@
     .cont-frase h4 {
         font-size: 1.5em;
     }
-    
+
     .cont-frase p {
         font-size: 1em;
     }
