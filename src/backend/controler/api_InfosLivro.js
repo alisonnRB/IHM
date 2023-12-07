@@ -15,14 +15,13 @@ export default {
     //? prepara as informações de methodo e cabeçalhos para fazer a requisição
     let requisição = {
       method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
     };
 
 
     //TODO faz a requisição
 
     //! coloque o seu ip ali
-    const response = await fetch(`http://literary-ihm.com/server/infoslivros.php?idLivro=${idLivro}`, requisição);
+    const response = await fetch(`http://literary-ihm.com/server/infosLivros.php?idLivro=${idLivro}&id=${id}`, requisição);
 
     //TODO espera a resposta do servidor e armazena para retornar ao cliente
     const data = await response.json();
