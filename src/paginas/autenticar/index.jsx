@@ -16,25 +16,25 @@ export default function Login() {
         navigate(-1);
     }
 
-  return (
-    <div id="box">
+    return (
+        <div id="box">
 
             <div className='card-log'>
                 <span id="head-log">
-                    <img src={logo} className='logo-log'/>
-                    <img src={x} className='x-log' onClick={()=>{volta()}}/>
+                    <img src={logo} className='logo-log' />
+                    <img src={x} className='x-log' onClick={() => { volta() }} />
                 </span>
 
                 <span id="bt-log">
-                    <button onClick={()=>{setSelect(false)}} className={`bt-log ${!select ? 'this' : ''}`}>LOG-IN</button>
-                    <button onClick={()=>{setSelect(true)}} className={`bt-log ${select ? 'this' : ''}`}>CADASTRE-SE</button>
+                    <button onClick={() => { setSelect(false) }} className={`bt-log ${!select ? 'this' : ''}`}>LOG-IN</button>
+                    <button onClick={() => { setSelect(true) }} className={`bt-log ${select ? 'this' : ''}`}>CADASTRE-SE</button>
                 </span>
 
                 <div id='cotente-form-log'>
-                    {!select ? <LoginForm /> : <Cadastro setSelect={setSelect}/>}
+                    {!select ? <LoginForm /> : <Cadastro setSelect={setSelect} />}
                 </div>
             </div>
 
-    </div>
-  );
+        </div>
+    );
 }

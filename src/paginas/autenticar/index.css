@@ -1,4 +1,4 @@
-#box{
+#box {
     height: 100vh;
     max-height: 100vh;
     width: 100vw;
@@ -6,55 +6,56 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    
+
     background-color: #E5EDEF;
 }
 
-.content-log{
+.content-log {
     background-color: transparent;
 }
 
-.card-log{
+.card-log {
     height: 95vh;
     width: 35vw;
     display: block;
     border-radius: 10px;
     background-color: #EBEBEB;
-    box-shadow: 0px 0px 20px 0px  rgba(87, 91, 92, 0.397);
+    box-shadow: 0px 0px 20px 0px rgba(87, 91, 92, 0.397);
 }
 
-.invisible-log{
+.invisible-log {
     height: 10px;
     width: 10px;
 }
 
-#head-log{
+#head-log {
     display: flex;
     justify-content: end;
     height: 13%;
     gap: 32%;
 }
 
-#head-log img:first-child{
+#head-log img:first-child {
     position: relative;
+    margin-top: 10px;
     bottom: 35px;
-    height: 135px;
-    width: 135px;
+    height: 105px;
+    width: 105px;
 }
 
-#head-log img:last-child{
+#head-log img:last-child {
     cursor: pointer;
     height: 25px;
     width: 25px;
 }
 
-#bt-log{
+#bt-log {
     height: 10%;
     width: 100%;
     margin-bottom: 5%;
 }
 
-#bt-log .bt-log{
+#bt-log .bt-log {
     background-color: transparent;
     width: 50%;
     padding-top: 6px;
@@ -64,13 +65,13 @@
     font-size: 1.3em;
 }
 
-.bt-log.this{
+.bt-log.this {
     border-top: solid 4px #00647E;
     color: #00414A !important;
     padding-top: 0;
 }
 
-#cotente-form-log{
+#cotente-form-log {
     height: 75%;
     display: flex;
     flex-direction: column;
@@ -79,13 +80,20 @@
     padding-top: 0;
 }
 
-#cotente-form-log .form{
+#cotente-form-log .form {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-@media (max-width: 1200px) and (orientation: landscape){
+@media (max-width:992px) and (orientation: portrait) {
+    #cotente-form-log {
+        padding: 0;
+        padding-top: 0;
+    }
+}
+
+@media (max-width: 1200px) and (orientation: landscape) {
     #head-log img:first-child {
         display: none;
     }
@@ -95,41 +103,41 @@
     }
 }
 
-@media (max-width: 577px) and (orientation: landscape){
-    #box{
+@media (max-width: 577px) and (orientation: landscape) {
+    #box {
         height: 180vh;
         max-height: 180vh;
         width: 100vw;
     }
-    
-    .card-log{
+
+    .card-log {
         height: 190vh;
         width: 100vw;
     }
 }
 
-@media (min-width: 577px) and (max-width:992px) and (orientation: landscape){
-    #box{
+@media (min-width: 577px) and (max-width:992px) and (orientation: landscape) {
+    #box {
         height: 160vh;
         max-height: 160vh;
         width: 100vw;
     }
-    
-    .card-log{
+
+    .card-log {
         height: 160vh;
         width: 100vw;
     }
 
 }
 
-@media (min-width:992px) and (max-width:1200px) and (orientation: landscape){
-    #box{
+@media (min-width:992px) and (max-width:1200px) and (orientation: landscape) {
+    #box {
         height: 100vh;
         max-height: 100vh;
         width: 100vw;
     }
-    
-    .card-log{
+
+    .card-log {
         height: 100vh;
         width: 100vw;
     }
