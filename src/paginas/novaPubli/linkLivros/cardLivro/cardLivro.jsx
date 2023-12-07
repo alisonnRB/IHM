@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 
 
 export default function CardLink(props) {
+    const [semIMG, setSemImg] = useState(false);
     const [livro, setLivro] = useState();
     const [foto, setFoto] = useState('');
 
@@ -14,14 +15,19 @@ export default function CardLink(props) {
 
     useEffect(() => {
         if (livro && livro.imagem) {
+            setSemImg(false);
             setFoto("http://192.168.255.56/livros/" + livro.user_id + '/' + livro.nome + '_' + livro.id + '/' + livro.imagem);
+        }else{
+            setSemImg(true);
         }
     }, [livro]);
+
 
     const selecionar = () => {
         let selecao = {
             'id': livro.id,
             'imagem': foto,
+            'nome': livro.nome
         }
         props.setSelecionado(selecao);
     }
@@ -29,7 +35,13 @@ export default function CardLink(props) {
     return (
         <div className="CardLink" onClick={()=>{selecionar()}}>
             <span className="content">
-                <img src={foto} id="capa" />
+                {semIMG ? null : <img src={foto} id="capa" />}
+
+                {semIMG ?
+                    <div className="noIMAGE">
+                        {livro && livro.nome ? livro.nome : null}
+                    </div> : null}
+
                 <div className="caixaInfo">
                     <span className="boxNome" >{livro && livro.nome? livro.nome : null}</span>
                     <span className="boxSinopse" dangerouslySetInnerHTML={{ __html: livro && livro.sinopse ? livro.sinopse : null }}></span>

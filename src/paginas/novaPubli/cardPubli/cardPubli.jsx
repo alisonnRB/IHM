@@ -23,6 +23,8 @@ import words from './cardPubli.json';
 export default function CardPubli() {
     const navigate = useNavigate();
 
+    const [semIMG, setSemImg] = useState(false);
+
     //TODO conteudo ou não
     const [theme, setTheme] = useState('light');
 
@@ -54,7 +56,7 @@ export default function CardPubli() {
     useEffect(() => {
         select_idioma();
         let a = localStorage.getItem('tema');
-        if(a){
+        if (a) {
             setTheme(a);
         }
     }, [])
@@ -119,7 +121,7 @@ export default function CardPubli() {
     const geraEnquete = () => {
         const list = [];
 
-        for (let i = 0; i < Object.keys(EnqueteS).length; i++) { 
+        for (let i = 0; i < Object.keys(EnqueteS).length; i++) {
             if (EnqueteS[i] != '') {
                 let a = <span className="enqueteB">{EnqueteS[i]}</span>
                 list.push(a);
@@ -128,7 +130,7 @@ export default function CardPubli() {
 
         return list;
     }
-   
+
 
     const publicar = async () => {
         const response = await api.enviar(texto, linkLivro, EnqueteS, titleEnquete);
@@ -136,6 +138,14 @@ export default function CardPubli() {
             navigate(-1);
         }
     }
+
+    useEffect(() => {
+        if (linkLivro && linkLivro.imagem) {
+            setSemImg(false);
+        } else {
+            setSemImg(true);
+        }
+    }, [linkLivro.imagem])
 
     return (
         <div className="cardPubli">
@@ -146,9 +156,11 @@ export default function CardPubli() {
             <span >
                 {livro ?
                     <>
-                        <div className="campoImgPubli" onMouseLeave={() => { setAba(false) }} onClick={() => { setlivro(false); setLinkLivro('') }}>
+                        {semIMG ? <div className="noIMAGE a" onMouseEnter={() => { setAba(true) }} onMouseLeave={() => { setAba(false) }} onClick={() => { setlivro(false); setLinkLivro('') }}>
+                            {linkLivro.nome}
+                        </div> : <div className="campoImgPubli" onMouseLeave={() => { setAba(false) }} onClick={() => { setlivro(false); setLinkLivro('') }}>
                             <img src={linkLivro.imagem} id="capaSelect" onMouseEnter={() => { setAba(true) }} />
-                        </div>
+                        </div>}
                     </>
                     : null}
 
@@ -183,7 +195,7 @@ export default function CardPubli() {
                     <img src={enqueteTem ? enqueteT : theme == 'dark' ? enqueteTD : enqueteF} onClick={() => { setEnquete(true) }} />
                 </span>
 
-                <p style={limitTXT >= 260 && limitTXT <= 290? {color: '#DBB931'} : {color: '#FF3131'}} >{limitTXT >= 260 ? `${limitTXT}/306` : null}</p>
+                <p style={limitTXT >= 260 && limitTXT <= 290 ? { color: '#DBB931' } : { color: '#FF3131' }} >{limitTXT >= 260 ? `${limitTXT}/306` : null}</p>
             </span>
 
             <p id="Publicar" onClick={() => { publicar() }}>{Uword.publicar}</p>

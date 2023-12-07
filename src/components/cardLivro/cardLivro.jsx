@@ -18,6 +18,7 @@ import words from './cardLivro.json';
 
 
 export default function Livro(props) {
+    const [semIMG, setSemImg] = useState(false);
     const [Uword, setUword] = useState('EN');
 
     const [id, setId] = useState('')
@@ -36,12 +37,12 @@ export default function Livro(props) {
     const [favoritos, setFavoritos] = useState(0);
     const [visus, setVisus] = useState(0);
 
-    useEffect(()=>{
+    useEffect(() => {
         select_idioma();
-    },[])
+    }, [])
 
     useEffect(() => {
-        if(props.info.user_id){
+        if (props.info.user_id) {
             setId(props.info.user_id);
         }
         if (props.info && props.info['nome']) {
@@ -56,35 +57,35 @@ export default function Livro(props) {
             setClassificacao(props.info['classificacao']);
         }
 
-        if(props.info && props.info['curtidas']){
+        if (props.info && props.info['curtidas']) {
             let a = props.info['curtidas'];
-            if(props.info['curtidas']>1000000){
-                a = props.info['curtidas']/1000000 + 'M';
+            if (props.info['curtidas'] > 1000000) {
+                a = props.info['curtidas'] / 1000000 + 'M';
             }
-            else if(props.info['curtidas']>1000){
-                a = props.info['curtidas']/1000 + 'K';
+            else if (props.info['curtidas'] > 1000) {
+                a = props.info['curtidas'] / 1000 + 'K';
             }
             setCurtidas(a);
         }
 
-        if(props.info && props.info['favoritos']){
+        if (props.info && props.info['favoritos']) {
             let a = props.info['favoritos'];
-            if(props.info['favoritos']>1000000){
-                a = props.info['favoritos']/1000000 + 'M';
+            if (props.info['favoritos'] > 1000000) {
+                a = props.info['favoritos'] / 1000000 + 'M';
             }
-            else if(props.info['favoritos']>1000){
-                a = props.info['favoritos']/1000 + 'K';
+            else if (props.info['favoritos'] > 1000) {
+                a = props.info['favoritos'] / 1000 + 'K';
             }
             setFavoritos(a);
         }
 
-        if(props.info && props.info['visus']){
+        if (props.info && props.info['visus']) {
             let a = props.info['visus'];
-            if((props.info['visus'])>1000000){
-                a = (props.info['visus'])/1000000 + 'M';
+            if ((props.info['visus']) > 1000000) {
+                a = (props.info['visus']) / 1000000 + 'M';
             }
-            else if((props.info['visus'])>1000){
-                a = (props.info['visus'])/1000 + 'K';
+            else if ((props.info['visus']) > 1000) {
+                a = (props.info['visus']) / 1000 + 'K';
             }
             setVisus(Math.round(a));
         }
@@ -93,13 +94,13 @@ export default function Livro(props) {
 
     }, [props.info]);
 
-    useEffect(()=>{
+    useEffect(() => {
         if (props.info && props.info['imagem'] && id) {
             setFotoCapa("http://192.168.255.56/livros/" + id + '/' + nome + '_' + props.info['id'] + '/' + props.info['imagem']);
         } else {
             setFotoCapa('');
         }
-    },[id]);
+    }, [id]);
 
     function botao(mine) {
         if (mine == true) {
@@ -126,8 +127,8 @@ export default function Livro(props) {
         setAberto('');
     };
 
-    useEffect(()=>{
-        switch(classificacao){
+    useEffect(() => {
+        switch (classificacao) {
             case 'livre':
                 setVisuClass(livre);
                 break;
@@ -158,16 +159,26 @@ export default function Livro(props) {
         setUword(word);
     }
 
-
+    useEffect(() => {
+        if (props.info['imagem']) {
+            setSemImg(false);
+        } else {
+            setSemImg(true);
+        }
+    }, [props.info['imagem']])
 
     return (
         <span className={`CardLivro ${aberto}`} onMouseEnter={() => { TimerAbrir() }} onMouseLeave={() => { TimerCancel() }}>
 
             <div className="IMGbox">
-                <span className="IMGbox_Classifica">
+                <span className="IMGbox_Classifica" >
                     <img id="classifica" src={visuClass} />
                 </span>
-                <img id="capa" src={fotoCapa} />
+                {semIMG ? null : <img id="capa" src={fotoCapa} />}
+                {semIMG ?
+                    <div className="noIMAGE">
+                        {nome}
+                    </div> : null}
             </div>
 
             <div className="infos">
@@ -193,7 +204,7 @@ export default function Livro(props) {
 
                 <span id="BTs">
 
-                    <Link className="link" to={`/Ler/?id=${encodeURIComponent(JSON.stringify(livro.id))}`}><button className="Read bt">{props.mine? Uword.visu : props.text}</button></Link>
+                    <Link className="link" to={`/Ler/?id=${encodeURIComponent(JSON.stringify(livro.id))}`}><button className="Read bt">{props.mine ? Uword.visu : props.text}</button></Link>
 
                     {botao(props.mine)}
 

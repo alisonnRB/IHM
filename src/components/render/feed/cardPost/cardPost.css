@@ -14,7 +14,19 @@
 
     animation: surge 1s ease;
 }
+.cardPost .noIMAGE{
+    cursor: pointer;
+    background-color: white;
+    margin-left: -45px;
+    border-radius: 20px;
+    height: calc(100% + 45px);
+    width: calc(100% + 15px);
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-break: break-all;
+}
 .infosPost {
     height: 100%;
     width: 100%;
@@ -53,6 +65,7 @@
     background-color: white;
     padding: 3px;
     border-radius: 30px;
+    border: 0.5px solid black;
 
     transition: all 1s ease;
 }

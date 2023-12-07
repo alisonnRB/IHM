@@ -17,6 +17,18 @@
     background-color: var(--background);
 
 }
+
+#content-aba .noIMAGE{
+    background-color: white;
+    height: 60%;
+    width: 65%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-break: break-all;
+}
+
 .tela{
     height: 69.3%;
     display: flex;

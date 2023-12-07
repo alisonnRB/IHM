@@ -9,6 +9,15 @@
     border-radius: 10px;
 }
 
+.CardLink .noIMAGE{
+    background-color: white;
+    width: 15%;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-break: break-all;
+}
 
 .CardLink .content{
     height: 100%;

@@ -42,6 +42,7 @@ export default function Card(props) {
 
   };
 
+  const [semIMG, setSemImg] = useState(false);
 
   const id = localStorage.getItem('id');
   const [deletar, setDeletar] = useState(false);
@@ -140,6 +141,13 @@ export default function Card(props) {
     }
   }, [auxiliar]);
 
+  useEffect(() => {
+    if (link.imagem) {
+      setSemImg(false);
+    } else {
+      setSemImg(true);
+    }
+  }, [link.imagem])
 
   const changeVoto = async () => {
     if (enquete.id !== undefined) {
@@ -242,11 +250,11 @@ export default function Card(props) {
   const select_idioma = () => {
     let idi = localStorage.getItem('idioma');
     if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
-        idi = 'EN';
+      idi = 'EN';
     }
     let word = words[idi];
     setUword(word);
-}
+  }
 
   return (
     <>
@@ -254,8 +262,8 @@ export default function Card(props) {
         <span className='infosPost'>
 
           <span className='publiUser'>
-            <img className='perfilPubli' src={autor && autor.fotoPerfil ? "http://192.168.255.56/imagens/" + autor.fotoPerfil : ""} onError={(e) => { e.target.src = noF;}} />
-            <Link to={autor && id != autor.id ? `/IHM/Busca/user?id=${encodeURIComponent(JSON.stringify(autor.id))}` : '/perfil'}><p id='nom'>{`@${autor? autor.nome : '...'}`}</p></Link>
+            <img className='perfilPubli' src={autor && autor.fotoPerfil ? "http://192.168.255.56/imagens/" + autor.fotoPerfil : ""} onError={(e) => { e.target.src = noF; }} />
+            <Link to={autor && id != autor.id ? `/IHM/Busca/user?id=${encodeURIComponent(JSON.stringify(autor.id))}` : '/perfil'}><p id='nom'>{`@${autor ? autor.nome : '...'}`}</p></Link>
           </span>
 
           {autor && id === autor.id ? <img src={opPubli} className='opPubli' onClick={() => { setDeletar(true) }} /> : null}
@@ -263,8 +271,8 @@ export default function Card(props) {
           {deletar ? (
             <div className='deletePubli' onClick={(e) => { fechar_dell(e) }}>
               <span className={`boxDellPubli ${hover ? 'hovered' : null}`} onClick={(e) => { e.stopPropagation(); dell_Publi() }}>
-                <p onMouseEnter={()=>{setHover(true)}} onMouseLeave={()=>{setHover(false)}}>{Uword.dell}</p>
-                <div onMouseEnter={()=>{setHover(true)}} onMouseLeave={()=>{setHover(false)}}><img src={lixo} /></div>
+                <p onMouseEnter={() => { setHover(true) }} onMouseLeave={() => { setHover(false) }}>{Uword.dell}</p>
+                <div onMouseEnter={() => { setHover(true) }} onMouseLeave={() => { setHover(false) }}><img src={lixo} /></div>
               </span>
             </div>
           ) : null}
@@ -272,7 +280,9 @@ export default function Card(props) {
           {link && link != undefined ? <Link to={`/Ler/?id=${encodeURIComponent(JSON.stringify(link.id))}`}>
             <div className='imgLinkBox'>
 
-              <img src={link.imagem ? "http://192.168.255.56/livros/" + link.user_id + '/' + link.nome + '_' + link.id + '/' + link.imagem : ""} className='imgLink' />
+              {semIMG ? <div className="noIMAGE" >
+                {link.nome}
+              </div> : <img src={link.imagem ? "http://192.168.255.56/livros/" + link.user_id + '/' + link.nome + '_' + link.id + '/' + link.imagem : ""} className='imgLink' />}
 
             </div>
           </Link> : null}

@@ -33,6 +33,8 @@ import words from './escrever.json';
 
 
 export default function Escreve() {
+    const [semIMG, setSemImg] = useState(false);
+
     const location = useLocation();
     const [theme, setTheme] = useState('light');
 
@@ -71,13 +73,13 @@ export default function Escreve() {
     const [primeira, setPrimeira] = useState(false);
 
     const [prontos, setProntos] = useState('');
-    
+
     const [Uword, setUword] = useState('EN');
 
     useEffect(() => {
         select_idioma();
         let a = localStorage.getItem('tema');
-        if(a){
+        if (a) {
             setTheme(a);
         }
     }, [])
@@ -275,6 +277,14 @@ export default function Escreve() {
         return list;
     }
 
+    useEffect(() => {
+        if (info.imagem) {
+            setSemImg(false);
+        } else {
+            setSemImg(true);
+        }
+    }, [info.imagem])
+
     const informações = () => {
         return (
             <div id="content-aba">
@@ -290,7 +300,11 @@ export default function Escreve() {
 
                         <div className="boxIMG">
                             <img id="classifica" src={visuClass} />
-                            <img src={`http://192.168.255.56/livros/${id}/${info.nome}_${info.id}/${info.imagem}`} />
+                            {semIMG ? null : <img src={`http://192.168.255.56/livros/${id}/${info.nome}_${info.id}/${info.imagem}`} />}
+                            {semIMG ?
+                                <div className="noIMAGE">
+                                    {info.nome}
+                                </div> : null}
                         </div>
 
                         <div className="boxGEN">
