@@ -94,9 +94,3 @@
         margin:auto;
     }
 }
-
-@media (max-width: 1600px) and (min-width: 1366px) {
-    .chat #titlePerfil {
-        left: 591px;
-    }
-}

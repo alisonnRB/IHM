@@ -33,6 +33,10 @@ export default function Caixa_livros(props) {
                 <Link to='/IHM/perfil/MeusFavoritos' id='link'><MeusLivros meusOrFav={'fav'} livro={props.livroF} comp={'2'} /></Link>
 
             </section>
+
+            <div className="space">
+
+            </div>
         </>
     );
 }

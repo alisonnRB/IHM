@@ -5,6 +5,7 @@
 }
 
 .TelaBusca #titlePerfil {
+    margin: auto;
     margin-bottom: -100px;
     width: 300px;
 }
@@ -160,20 +161,6 @@
 }
 
 
-@media (min-width: 1201px) {
-    /* Estilos para dispositivos desktop (telas maiores) */
-
-}
-
-@media (orientation: portrait) {}
-
-@media (orientation: landscape) {
-    /* Estilos para dispositivos em modo paisagem */
-
-
-
-}
-
 @media (max-width: 1920px) and (min-width: 1440px) {
     /*estilo pra computadores com até 1920px*/
     .TelaBusca #titlePerfil {
@@ -186,7 +173,6 @@
 @media (min-width: 1900px) {
     /*estilo pra computadores com até 2560px*/
     .TelaBusca #titlePerfil {
-        margin:auto; /*margin-left: 1188px;*/
         margin-bottom: -100px;
         width: 300px;
     }
@@ -194,15 +180,10 @@
 
 }
 
-@media (min-width:1200px) and (max-width:1899px){
-    .TelaBusca #titlePerfil {
-        margin:auto;
-    }
-}
 
 @media (max-width: 1600px) and (min-width: 1366px) {
     .TelaBusca #titlePerfil {
-        left: 591px;
+        margin: auto;
     }
 }
 
