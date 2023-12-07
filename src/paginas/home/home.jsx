@@ -28,20 +28,21 @@ function Home() {
     triggerOnce: true,
   })
 
-  setTimeout(() => {
+  const TIME = setTimeout(() => {
     if (tempo == 2) {
       setTempo(0)
     } else {
       setTempo(tempo + 1);
     }
     setControl(true);
-  }, 3010);
+    clearInterval(TIME);
+  }, 5000);
 
-  useEffect(()=>{
-    if(control){
+  useEffect(() => {
+    if (control) {
       setControl(false);
     }
-  },[control])
+  }, [control])
 
   return (
     <div className='HOME'>
@@ -106,7 +107,7 @@ function Home() {
 
         <span className='content-novi'>
           <div className='pc-novi'>
-            {!control ? <img src={list[tempo]}/> : null}
+            {!control ? <img src={list[tempo]} /> : null}
           </div>
 
 
@@ -118,14 +119,6 @@ function Home() {
               tela, sem prejudicar sua experiência!
             </p>
           </div>
-        </span>
-
-        <span className='novi-email'>
-          <label htmlFor="email">Insira seu e-mail para receber novidades!</label>
-          <span>
-            <input type="email" id='email' className='email-novi' />
-            <img src={envia} id="envia" />
-          </span>
         </span>
       </section>
     </div>
