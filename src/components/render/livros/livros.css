@@ -775,11 +775,6 @@
     
 }
 
-@media (max-width: 1600px) and (min-width: 1366px) {
-    .TelaLivros #titlePerfil {
-        left: 591px;
-    }
-}
 
 @media (min-width:1200px) and (max-width:1899px){
     .TelaLivros #titlePerfil {

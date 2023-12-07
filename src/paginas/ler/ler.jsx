@@ -29,6 +29,8 @@ import words from './ler.json';
 
 import audioSrc from '../../sounds/curtida.mp3';
 
+import noF from '../../imgs/perfil.png';
+
 export default function Ler() {
     const [audio] = useState(new Audio(audioSrc));
 
@@ -254,7 +256,7 @@ export default function Ler() {
             </div>
 
             <div className="infosAutor">
-                <Link to={id != infos.id ? `/IHM/Busca/user?id=${encodeURIComponent(JSON.stringify(infos.id))}` : '/IHM/perfil'}><img id="perfil" src={foto} style={{ border: 'solid 4px' + cor }} /></Link>
+                <Link to={id != infos.id ? `/IHM/Busca/user?id=${encodeURIComponent(JSON.stringify(infos.id))}` : '/IHM/perfil'}><img id="perfil" src={foto} onError={(e) => { e.target.src = noF;}} style={{ border: 'solid 4px' + cor }} /></Link>
                 <p>{infos.nome && infos.nome != '' ? infos.nome : Uword.autor}</p>
                 {id != userId ? <div className="btSeguir" style={{ backgroundColor: cor }} onClick={() => { seguir(); setSeguido(!seguido) }} >{seguido ? Uword.seguindo : Uword.seguir}</div> : null}
             </div>

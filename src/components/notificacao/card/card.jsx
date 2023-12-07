@@ -9,6 +9,8 @@ import apiL from "../../../backend/controler/api_InfosLivro";
 
 import words from './card.json';
 
+import noF from '../../../imgs/perfil.png';
+
 export default function Card(props) {
     const [infos, setInfos] = useState({});
     const [user, setUser] = useState({});
@@ -95,7 +97,7 @@ export default function Card(props) {
                     (infos.tipo === 'favoritos' && user.imagem)
                         ? `http://192.168.255.56/livros/${user.user_id}/${user.nome}_${user.id}/${user.imagem}`
                         : (user.fotoPerfil ? `http://192.168.255.56/imagens/${user.fotoPerfil}` : '')
-                } />
+                } onError={(e) => { e.target.src = noF;}} />
             </Link>
             <div className="not-content">
                 <span className="not-nome">{infos.tipo == 'favoritos' ? user.nome : `@${user.nome}`}</span>

@@ -30,6 +30,8 @@ import audioSrc from '../../../../sounds/curtida.mp3';
 
 import words from './cardPost.json';
 
+import noF from '../../../../imgs/perfil.png';
+
 export default function Card(props) {
   const [audio] = useState(new Audio(audioSrc));
 
@@ -252,7 +254,7 @@ export default function Card(props) {
         <span className='infosPost'>
 
           <span className='publiUser'>
-            <img className='perfilPubli' src={autor && autor.fotoPerfil ? "http://192.168.255.56/imagens/" + autor.fotoPerfil : ""} />
+            <img className='perfilPubli' src={autor && autor.fotoPerfil ? "http://192.168.255.56/imagens/" + autor.fotoPerfil : ""} onError={(e) => { e.target.src = noF;}} />
             <Link to={autor && id != autor.id ? `/IHM/Busca/user?id=${encodeURIComponent(JSON.stringify(autor.id))}` : '/perfil'}><p id='nom'>{`@${autor? autor.nome : '...'}`}</p></Link>
           </span>
 

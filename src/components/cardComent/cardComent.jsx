@@ -9,7 +9,7 @@ import like from '../../imgs/like.png';
 import likeD from '../../imgs/like-dark.png';
 import enviar from '../../imgs/enviar.png';
 
-
+import noF from '../../imgs/perfil.png';
 import words from './cardComent.json';
 
 import audioSrc from '../../sounds/curtida.mp3';
@@ -232,7 +232,7 @@ export default function Comentarios(props) {
     return (
         <>
             <span id="comentary">
-                <img className="userComent" src={foto} />
+            <img className="userComent" src={foto} onError={(e) => { e.target.src = noF; }} />
 
                 <div className="boxComent" >
                     <span className="nomeComent">{user.nome && !props.res ? user.nome : `${user.nome} > ${nomeRes}`}</span>

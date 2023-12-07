@@ -14,7 +14,6 @@
 
 #abaDeCap .abaT{
     cursor: pointer;
-    background-color: #F5F5F5;
     min-height: 40px;
     min-width: 170px;
     max-width: 170px;
@@ -26,7 +25,11 @@
     right: -5px;
     white-space: nowrap;
     overflow: hidden;
+    border: 1px solid black;
+}
 
+#abaDeCap span{
+    -webkit-text-stroke: .5px black;
 }
 
 @media (max-width: 576px) {

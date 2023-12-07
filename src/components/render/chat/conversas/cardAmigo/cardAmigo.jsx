@@ -7,6 +7,8 @@ import New from '../../../../../backend/controler/api_novaMSG';
 
 import audioSrc from '../../../../../sounds/notificacao.mp3';
 
+import noF from '../../../../../imgs/perfil.png';
+
 export default function CardAmigo(props) {
     const [audio] = useState(new Audio(audioSrc));
 
@@ -101,7 +103,7 @@ export default function CardAmigo(props) {
 
     return (
         <li className={`${set ? 'set' : null}`} onClick={() => { props.setSelecionado(info); setNovasM(0); }}>
-            <img src={foto} />
+            <img src={foto} onError={(e) => { e.target.src = noF;}}/>
             <div className='nomes'>
                 <p>{info.nome ? `@${info.nome}` : '...'}</p>
             </div>

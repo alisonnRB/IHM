@@ -12,6 +12,7 @@ import Seguindo from '../../../../backend/controler/api_buscaSeguidores';
 
 import words from './cardPessoa.json';
 
+import noF from '../../../../imgs/perfil.png';
 
 function CardPessoa(props) {
     const id = localStorage.getItem('id');
@@ -107,7 +108,7 @@ function CardPessoa(props) {
             <span className="cardPessoa">
                 <div id="perfilPessoa">
                     <Link className="Link" to={id != user.id ? `/IHM/Busca/user?id=${encodeURIComponent(JSON.stringify(user.id))}` : '/IHM/perfil'}>
-                        <img src={user && user.fotoPerfil ? `${'http://192.168.255.56/imagens/' + user.fotoPerfil}` : ""} />
+                        <img src={user && user.fotoPerfil ? `${'http://192.168.255.56/imagens/' + user.fotoPerfil}` : ""} onError={(e) => { e.target.src = noF;}} />
                     </Link>
                 </div>
 

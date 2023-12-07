@@ -20,6 +20,7 @@ import Caixa_livros from './caixa_livro/caixa_livro.jsx';
 import Caixa_publi from './caixa_publi/caixa_publi.jsx';
 
 import words from './perfisUser.json';
+import noF from '../../../../imgs/perfil.png';
 
 export default function User() {
     const [select, setSelect] = useState(false);
@@ -161,7 +162,7 @@ export default function User() {
         <div className='perfilpagep'>
 
             <section className='boxNameUser'>
-                <img id='fotoPerfilUser' src={Perfil} style={Perfil !== '' ? { backgroundColor: 'transparent', backgroundImage: 'none' } : null} />
+                <img id='fotoPerfilUser' src={Perfil} onError={(e) => { e.target.src = noF;}} style={Perfil !== '' ? { backgroundColor: 'transparent', backgroundImage: 'none' } : null} />
                 <div id='medalhasBox'>
                     <div id='nomeUser'>
                         <p>{`@${name}`}</p>

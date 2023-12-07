@@ -124,6 +124,7 @@
 .infosAutor p {
     font-weight: bold;
     color: var(--letra);
+    -webkit-text-stroke: .5px black;
 }
 
 .infosAutor .btSeguir {
@@ -137,6 +138,8 @@
     border-radius: 20px;
     color:var(--letra);
     font-weight: bold;
+    border: 1px black solid;
+    -webkit-text-stroke: .5px black;
 }
 
 .curtiS,
