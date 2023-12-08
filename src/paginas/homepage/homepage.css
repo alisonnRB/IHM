@@ -59,6 +59,9 @@
 }
 
 @media (orientation: portrait) {
+    .boxOnPage::-webkit-scrollbar{
+        width: 0px;
+    }
 }
 
 @media (orientation: landscape) {

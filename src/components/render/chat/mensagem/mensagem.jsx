@@ -30,7 +30,7 @@ export default function Mensagem(props) {
   const [infos, setinfos] = useState('');
   const [foto, setFoto] = useState('');
 
-  const { lastJsonMessage, sendMessage } = useWebSocket('ws://192.168.255.56:8080', {
+  const { lastJsonMessage, sendMessage } = useWebSocket('ws://10.1.1.211:8080', {
     queryParams: { 'id': id, 'for': infos.id },
     shouldReconnect: (closeEvent) => true,
     reconnectInterval: 3000
@@ -62,7 +62,7 @@ export default function Mensagem(props) {
 
   useEffect(() => {
     if (typeof infos.fotoPerfil == "string") {
-      setFoto("http://192.168.255.56/imagens/" + infos.fotoPerfil);
+      setFoto("http://10.1.1.211/imagens/" + infos.fotoPerfil);
     }
   }, [infos.fotoPerfil]);
 

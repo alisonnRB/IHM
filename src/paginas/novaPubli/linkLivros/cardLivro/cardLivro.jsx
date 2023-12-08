@@ -16,7 +16,7 @@ export default function CardLink(props) {
     useEffect(() => {
         if (livro && livro.imagem) {
             setSemImg(false);
-            setFoto("http://192.168.255.56/livros/" + livro.user_id + '/' + livro.nome + '_' + livro.id + '/' + livro.imagem);
+            setFoto("http://10.1.1.211/livros/" + livro.user_id + '/' + livro.nome + '_' + livro.id + '/' + livro.imagem);
         }else{
             setSemImg(true);
         }

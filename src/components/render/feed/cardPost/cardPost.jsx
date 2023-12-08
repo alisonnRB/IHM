@@ -262,7 +262,7 @@ export default function Card(props) {
         <span className='infosPost'>
 
           <span className='publiUser'>
-            <img className='perfilPubli' src={autor && autor.fotoPerfil ? "http://192.168.255.56/imagens/" + autor.fotoPerfil : ""} onError={(e) => { e.target.src = noF; }} />
+            <img className='perfilPubli' src={autor && autor.fotoPerfil ? "http://10.1.1.211/imagens/" + autor.fotoPerfil : ""} onError={(e) => { e.target.src = noF; }} />
             <Link to={autor && id != autor.id ? `/IHM/Busca/user?id=${encodeURIComponent(JSON.stringify(autor.id))}` : '/perfil'}><p id='nom'>{`@${autor ? autor.nome : '...'}`}</p></Link>
           </span>
 
@@ -282,7 +282,7 @@ export default function Card(props) {
 
               {semIMG ? <div className="noIMAGE" >
                 {link.nome}
-              </div> : <img src={link.imagem ? "http://192.168.255.56/livros/" + link.user_id + '/' + link.nome + '_' + link.id + '/' + link.imagem : ""} className='imgLink' />}
+              </div> : <img src={link.imagem ? "http://10.1.1.211/livros/" + link.user_id + '/' + link.nome + '_' + link.id + '/' + link.imagem : ""} className='imgLink' />}
 
             </div>
           </Link> : null}

@@ -6,52 +6,16 @@ header {
     justify-content: center;
     background-color: var(--header-bg);
     height: 90px;
+    width: calc(93% - 10px);
+    padding-left: 7.0%;
+    padding-right: 11px;
 }
 
 #logoH {
-    left: 2.5%;
+    right: 0.5%;
     height: 100px;
     width: 200px;
     margin: auto;
-}
-
-
-@media (max-width: 576px) {
-    /* Estilos para dispositivos com largura máxima de 576px (ex: smartphones em modo retrato) */
-
-}
-
-@media (min-width: 577px) and (max-width: 768px) {
-    /* Estilos para dispositivos com largura entre 577px e 768px (ex: smartphones em modo paisagem e tablets) */
-}
-
-@media (min-width: 769px) and (max-width: 992px) {
-    header{
-        height: 120px;
-    }
-
-    #logoH {
-        height: 250px;
-        width: 250px;
-    }
-}
-
-
-@media (min-width: 993px) and (max-width: 1200px) {
-    /* Estilos para tablets maiores e dispositivos em modo paisagem */
-
-}
-
-
-@media (min-width: 1201px) {
-    /* Estilos para dispositivos desktop (telas maiores) */
-    #logoH {
-        position: relative;
-        margin: auto;
-    }
-}
-
-@media (orientation: portrait) {
 }
 
 @media (orientation: landscape) {
@@ -64,27 +28,17 @@ header {
 
 }
 
-@media (min-width: 1900px) {
-    /*estilo pra computadores com até 2560px*/
-    #logoH {
-        position: relative;
-        
-    }
-
-
-    #logoH {
-        height: 100px;
-        width: 200px;
-
-    }
-    
-
-
-
-}
 @media (max-width: 1200px) and (orientation: landscape) {
     header {
         display: none;
     }
 }
 
+@media (orientation: portrait) {
+    /* Estilos para dispositivos em modo paisagem */
+    header {
+        width: 100vw;
+        padding: 0;
+    }
+
+}
