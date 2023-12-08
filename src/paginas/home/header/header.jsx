@@ -11,8 +11,8 @@ function head() {
       <span className='caixa-left'>
         <img src={logo} id='logoMAIN' />
 
-        <Link to='/login'><button className='btMA'>Login</button></Link>
-        <Link to='/login'><button className='btMA'>Cadastre-se</button></Link>
+        <Link to='/login/?cadView=0'><button className='btMA'>Login</button></Link>
+        <Link to='/login?cadView=1'><button className='btMA'>Cadastre-se</button></Link>
       </span>
     </header>
   );

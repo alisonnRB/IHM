@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './index.css';
 
 import logo from "../../imgs/logo.png";
@@ -11,10 +11,19 @@ import Cadastro from './forms/form_cadastro.jsx';
 export default function Login() {
     const [select, setSelect] = useState(false);
     const navigate = useNavigate();
-
+    const location = useLocation();
     const volta = () => {
         navigate(-1);
     }
+
+    useEffect(() => {
+        const fn = new URLSearchParams(location.search).get('cadView');
+        if(fn === '1'){
+            setSelect(true);
+        }else{
+            setSelect(false);
+        }
+    }, [location]);
 
     return (
         <div id="box">
