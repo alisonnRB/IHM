@@ -11,6 +11,27 @@
     justify-content: center;
 }
 
+.pan{
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    margin-top: 5px;
+}
+.pan .form_pass{
+    height: 100%;
+    width: 100%;
+}
+
+.visualizando{
+    height: 20px;
+    width: 20px;
+    margin-left: -20px;
+    position: relative;
+    right: 10px;
+    bottom: 7px;
+    cursor: pointer;
+}
+
 .fundoAWAIT.err {
     box-shadow: inset 0px 0px 80px 0px red;
     animation: alert .5s linear;

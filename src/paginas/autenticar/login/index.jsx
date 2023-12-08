@@ -12,8 +12,11 @@ import Load from '../../../components/loading/loading.jsx';
 import certo from '../../../imgs/marcado.png';
 import errado from '../../../imgs/xis.jpeg';
 
+import ver from '../../../imgs/visualizar.png';
+import desver from '../../../imgs/desvisualizar.png';
 
 export default function Login() {
+  const [visualizar, setVisualizar] = useState(false);
   const [erro, setErro] = useState(null);
   const navigate = useNavigate();
 
@@ -120,7 +123,7 @@ export default function Login() {
         <input className="form_pass" id='email' type="email" name="email" placeholder="Digite aqui..." />
 
         <label htmlFor="senha">SENHA</label>
-        <input className="form_pass" id='senha' type="password" name="senha" placeholder="Digite aqui..." />
+        <span className='pan'><input className="form_pass" id='senha' type={visualizar? 'text' : 'password'} name="senha" placeholder="Digite aqui..." /><img src={visualizar? desver : ver} onClick={()=>{setVisualizar(!visualizar)}} className='visualizando'/></span>
 
         <span className='contain-butt'>
           <input className="form_button" type="submit" value="ENTRAR" />

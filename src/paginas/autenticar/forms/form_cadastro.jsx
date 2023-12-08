@@ -8,8 +8,13 @@ import errado from '../../../imgs/xis.jpeg';
 
 import api_google from "../../../backend/controler/api_cadastraGoogle";
 
+import ver from '../../../imgs/visualizar.png';
+import desver from '../../../imgs/desvisualizar.png';
+
 //* as propriedades do elemento pai são recebidas no args props
 export default function Cadastro(props) {
+  const [visualizar, setVisualizar] = useState(false);
+  const [visualizar1, setVisualizar1] = useState(false);
   const [Erro, setErro] = useState('');
   const [load, setLoad] = useState(false);
   const [respondido, setRespondido] = useState(false);
@@ -115,10 +120,10 @@ export default function Cadastro(props) {
         <input className="form_pass" id='email' type="email" name="email" placeholder="Digite aqui..." />
 
         <label htmlFor="senha">SENHA</label>
-        <input className="form_pass" id='senha' type="password" name="senha" placeholder="Digite aqui..." />
+        <span className='pan'><input className="form_pass" id='senha' type={visualizar ? 'text' : 'password'} name="senha" placeholder="Digite aqui..." /><img src={visualizar? desver : ver} className='visualizando' onClick={()=>{setVisualizar(!visualizar)}}/></span>
 
         <label htmlFor="confSenha">CONFIRMAR SENHA</label>
-        <input className="form_pass" id='confSenha' type="password" name="confsenha" placeholder="Digite aqui..." />
+        <span className='pan'><input className="form_pass" id='confSenha' type={visualizar1 ? 'text' : 'password'} name="confsenha" placeholder="Digite aqui..." /><img src={visualizar1? desver : ver} onClick={()=>{setVisualizar1(!visualizar1)}} className='visualizando'/></span>
 
 
         <span className='contain-butt'>
