@@ -19,7 +19,7 @@ export default {
       body: JSON.stringify(user),
     };
 
-    const response = await fetch('http://192.168.255.56/server/visus.php', requisição);
+    const response = await fetch('http://literary-ihm.com/server/visus.php', requisição);
 
     const data = await response.json();
     if (data.informacoes == "não autorizado") {

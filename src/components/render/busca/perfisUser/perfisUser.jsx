@@ -106,7 +106,7 @@ export default function User() {
             }
             setName(infos.nome);
             if (infos.fotoPerfil) {
-                setPerfil("http://192.168.255.56/imagens/" + infos.fotoPerfil);
+                setPerfil("http://literary-ihm.com/imagens/" + infos.fotoPerfil);
             }
 
         }

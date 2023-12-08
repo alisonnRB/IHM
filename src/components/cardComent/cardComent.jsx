@@ -187,7 +187,7 @@ export default function Comentarios(props) {
 
     useEffect(() => {
         if (typeof user.fotoPerfil == "string") {
-            setFoto("http://192.168.255.56/imagens/" + user.fotoPerfil);
+            setFoto("http://literary-ihm.com/imagens/" + user.fotoPerfil);
         }
     }, [user.fotoPerfil]);
 

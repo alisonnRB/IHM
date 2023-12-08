@@ -21,7 +21,7 @@ export default {
         };
 
         //! coloque o seu ip ali
-        const response = await fetch('http://192.168.255.56/server/token/auth.php', requisição);
+        const response = await fetch('http://literary-ihm.com/server/token/auth.php', requisição);
 
 
         //TODO espera a resposta do servidor e armazena para retornar ao cliente
