@@ -1,7 +1,7 @@
 #barra {
     display: block;
     height: 100%;
-    width: 120px;
+    width: 7%;
     background-color: var(--barra);
     z-index: 100;
 }

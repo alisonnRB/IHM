@@ -102,6 +102,12 @@
 
 }
 
+@media (min-width: 577px) and (orientation: portrait){
+    .pan{
+        height: 8% !important;
+    }
+}
+
 @media (orientation: portrait) and (max-width: 577px) {
     #head-log img:first-child {
         height: 100%;
@@ -118,7 +124,7 @@
     }
 }
 
-@media (min-width: 577px) and (max-width: 768px) and (orientation: portrait) {
+@media (min-width: 578px) and (max-width: 768px) and (orientation: portrait) {
     #head-log img:first-child {
         height: 100%;
         width: 35%;
@@ -140,7 +146,7 @@
     }
 }
 
-@media (min-width: 768px) and (max-width: 992px) and (orientation: portrait) {
+@media (min-width: 769px) and (max-width: 992px) and (orientation: portrait) {
     #head-log img:first-child {
         height: 100%;
         width: 25%;
@@ -162,7 +168,7 @@
     }
 }
 
-@media (min-width: 992px) and (max-width: 1200px) and (orientation: portrait) {
+@media (min-width: 993px) and (max-width: 1200px) and (orientation: portrait) {
     #head-log img:first-child {
         height: 100%;
         width: 30%;
@@ -182,6 +188,7 @@
         width: 300px;
         height: 50px;
     }
+
 }
 
 @media (min-width: 1201px) and (max-width: 1919px) and (orientation: portrait) {
@@ -236,7 +243,6 @@
     }
 
     .contain-butt {
-        flex-direction: row;
         justify-content: center;
         align-items: center;
     }

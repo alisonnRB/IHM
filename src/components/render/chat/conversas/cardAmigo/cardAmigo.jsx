@@ -76,7 +76,7 @@ export default function CardAmigo(props) {
 
     useEffect(() => {
         if (typeof info.fotoPerfil == "string") {
-            setFoto("http://literary-ihm.com/imagens/" + info.fotoPerfil);
+            setFoto("http://localhost/imagens/" + info.fotoPerfil);
         }
     }, [info.fotoPerfil]);
 
