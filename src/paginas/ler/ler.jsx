@@ -134,7 +134,7 @@ export default function Ler() {
 
     useEffect(() => {
         if (infos && infos != '') {
-            setFoto("http://192.168.255.56/imagens/" + infos.fotoPerfil);
+            setFoto("http://literary-ihm.com/imagens/" + infos.fotoPerfil);
         }
     }, [infos]);
 

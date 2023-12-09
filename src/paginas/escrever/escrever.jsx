@@ -302,7 +302,7 @@ export default function Escreve() {
 
                         <div className="boxIMG">
                             <img id="classifica" src={visuClass} />
-                            {semIMG ? null : <img src={`http://192.168.255.56/livros/${id}/${info.nome}_${info.id}/${info.imagem}`} />}
+                            {semIMG ? null : <img src={`http://literary-ihm.com/livros/${id}/${info.nome}_${info.id}/${info.imagem}`} />}
                             {semIMG ?
                                 <div className="noIMAGE">
                                     {info.nome}

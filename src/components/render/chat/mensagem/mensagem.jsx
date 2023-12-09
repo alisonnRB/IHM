@@ -30,7 +30,7 @@ export default function Mensagem(props) {
   const [infos, setinfos] = useState('');
   const [foto, setFoto] = useState('');
 
-  const { lastJsonMessage, sendMessage } = useWebSocket('ws://192.168.255.56:443', {
+  const { lastJsonMessage, sendMessage } = useWebSocket('ws://literary-ihm.com:443', {
     queryParams: { 'id': id, 'for': infos.id },
     shouldReconnect: (closeEvent) => true,
     reconnectInterval: 3000
@@ -62,7 +62,7 @@ export default function Mensagem(props) {
 
   useEffect(() => {
     if (typeof infos.fotoPerfil == "string") {
-      setFoto("http://192.168.255.56/imagens/" + infos.fotoPerfil);
+      setFoto("http://literary-ihm.com/imagens/" + infos.fotoPerfil);
     }
   }, [infos.fotoPerfil]);
 
@@ -92,7 +92,7 @@ export default function Mensagem(props) {
   const handleEnviarMensagem = (e) => {
     e.preventDefault()
     if (mensagem.trim() !== '') {
-      sendMessage(JSON.stringify({ message: mensagem, for: infos.id, by: id, code: 0 }));
+      sendMessage(JSON.stringify({ message: mensagem, for: infos.id ? infos.id : 0, by: id, code: 0 }));
 
       let msgs = messageHistori;
 

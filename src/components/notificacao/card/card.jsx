@@ -95,8 +95,8 @@ export default function Card(props) {
                 : `/IHM/Busca/user?id=${encodeURIComponent(JSON.stringify(user.id))}`}>
                 <img src={
                     (infos.tipo === 'favoritos' && user.imagem)
-                        ? `http://192.168.255.56/livros/${user.user_id}/${user.nome}_${user.id}/${user.imagem}`
-                        : (user.fotoPerfil ? `http://192.168.255.56/imagens/${user.fotoPerfil}` : '')
+                        ? `http://literary-ihm.com/livros/${user.user_id}/${user.nome}_${user.id}/${user.imagem}`
+                        : (user.fotoPerfil ? `http://literary-ihm.com/imagens/${user.fotoPerfil}` : '')
                 } onError={(e) => { e.target.src = noF;}} />
             </Link>
             <div className="not-content">
