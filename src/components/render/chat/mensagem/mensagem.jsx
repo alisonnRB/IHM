@@ -30,7 +30,7 @@ export default function Mensagem(props) {
   const [infos, setinfos] = useState('');
   const [foto, setFoto] = useState('');
 
-  const { lastJsonMessage, sendMessage } = useWebSocket('ws://192.168.255.56:8080', {
+  const { lastJsonMessage, sendMessage } = useWebSocket('ws://192.168.255.56:443', {
     queryParams: { 'id': id, 'for': infos.id },
     shouldReconnect: (closeEvent) => true,
     reconnectInterval: 3000
