@@ -33,6 +33,7 @@ import words from './escrever.json';
 
 
 export default function Escreve() {
+    const [controle, setControle] = useState(false);
     const [semIMG, setSemImg] = useState(false);
 
     const location = useLocation();
@@ -128,6 +129,7 @@ export default function Escreve() {
             const resposta = await apiEscreve.enviar(content, capSelected, idLivro, titulo);
             if (resposta.ok == true) {
                 Busca();
+                setControle(true);
             }
         } else {
             const resposta = await apiEscreve.enviar(content, ultimo, idLivro, titulo);
@@ -340,6 +342,8 @@ export default function Escreve() {
                 <p>{capSelected == 0 ? Uword.sinopse : Uword.cap + capSelected}</p>
             </span>
             <BarraCap
+                controle={controle}
+                setControle={setControle}
                 setNumCaps={setNumCaps}
                 setCap={setCap}
                 cap={cap}
