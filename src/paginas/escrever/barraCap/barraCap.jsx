@@ -20,7 +20,6 @@ export default function BarraCap(props) {
 
     const [theme, setThemme] = useState('light');
 
-
     const [pronto, setPronto] = useState(false);
     const [listP, setListP] = useState(false);
 
@@ -43,7 +42,6 @@ export default function BarraCap(props) {
         setUword(word);
     }
 
-
     useEffect(() => {
         setNumCaps(props.cap);
     }, [props]);
@@ -60,7 +58,6 @@ export default function BarraCap(props) {
         }
     }, [props.pronto, Selecionado]);
 
-
     useEffect(() => {
         if (typeof props.titulo === 'string') {
 
@@ -70,6 +67,15 @@ export default function BarraCap(props) {
             }
         }
     }, [props.titulo, props.selected]);
+
+    useEffect(()=>{
+        if(props.controle){
+            setSelecionado(numCaps + 1);
+            props.setUltimo(Selecionado);
+            props.setCapSelected(numCaps + 1);
+            props.setControle(false);console.log('a')
+        }
+    },[props.controle])
 
     const Change = async () => {
 
