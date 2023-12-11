@@ -6,13 +6,15 @@ import Mensagem from './mensagem/mensagem';
 import Conversas from './conversas/conversas';
 import BtFloat from '../../BtFloat/btFloat.jsx';
 
-
+import comming from '../../../imgs/comming-soon.png';
 //? comporta os componente que montam a pagina de chats
 
 export default function Chat() {
   const [theme, setTheme] = useState('light');
   const [selecionado, setSelecionado] = useState(0);
   const [att, setAtt] = useState(false);
+
+  const soon = true;
 
   useEffect(()=>{
     let a = localStorage.getItem('tema');
@@ -24,10 +26,10 @@ export default function Chat() {
   return (
     <div className='chat'>
       <span id='titlePerfil' className={`${theme == 'light' ? null : 'dark'}`}>CHAT</span>
-      <span className='contentMSG'>
+      {soon ? <div className='coming'><img src={comming}/></div> : <span className='contentMSG'>
         <Conversas setSelecionado={setSelecionado} setAtt={setAtt} att={att}/>
         <Mensagem selecionado={selecionado} setAtt={setAtt}/>
-      </span>
+      </span>}
 
       <BtFloat />
 

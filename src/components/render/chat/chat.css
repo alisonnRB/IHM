@@ -18,6 +18,16 @@
     }
 }
 
+.coming{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.coming img{
+    height: 350px;
+}
 
 @media (max-width: 576px) {
 
