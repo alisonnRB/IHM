@@ -13,7 +13,7 @@ export default function MeusFav() {
     const [theme, setTheme] = useState('light');
 
     const [livro, setLivro] = useState('');
-    const [Uword, setUword] = useState('en');
+    const [Uword, setUword] = useState("en");
 
     const Busca = async () => {
         const resposta = await api.enviar('i');
@@ -44,8 +44,8 @@ export default function MeusFav() {
 
     const select_idioma = () => {
         let idi = localStorage.getItem('idioma');
-        if (!idi || (idi != 'pt' && idi != 'en' && idi != 'es')) {
-            idi = 'en';
+        if (!idi || (idi != "pt" && idi != "en" && idi != "es")) {
+            idi = "en";
         }
         let word = words[idi];
         setUword(word);

@@ -1,13 +1,11 @@
 {
-    "EN": {
+    "en": {
         "publicar": "PUBLISH"
     },
-
-    "PT":{
+    "pt": {
         "publicar": "PUBLICAR"
     },
-
-    "ES": {
+    "es": {
         "publicar": "PUBLICAR"
     }
 }

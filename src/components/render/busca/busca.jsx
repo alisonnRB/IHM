@@ -23,12 +23,12 @@ export default function Busca() {
 
     const [users, setUsers] = useState('');
 
-    const [Uword, setUword] = useState('en');
+    const [Uword, setUword] = useState("en");
 
     const select_idioma = () => {
         let idi = localStorage.getItem('idioma');
-        if (!idi || (idi != 'pt' && idi != 'en' && idi != 'es')) {
-            idi = 'en';
+        if (!idi || (idi != "pt" && idi != "en" && idi != "es")) {
+            idi = "en";
         }
         let word = words[idi];
         setUword(word);

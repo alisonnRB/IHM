@@ -1,13 +1,11 @@
 {
-    "EN": {
+    "en": {
         "ler": "START READING"
     },
-
-    "PT":{
+    "pt": {
         "ler": "COMEÇAR A LER"
     },
-
-    "ES": {
+    "es": {
         "ler": "EMPIEZA A LEER"
     }
 }

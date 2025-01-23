@@ -1,17 +1,15 @@
 {
-    "EN": {
+    "en": {
         "anexo": "ATTACH BOOK",
         "place": "Search",
         "noMore": "No more books"
     },
-
-    "PT":{
+    "pt": {
         "anexo": "ANEXAR LIVRO",
         "place": "Buscar",
         "noMore": "Não há mais livros"
     },
-
-    "ES": {
+    "es": {
         "anexo": "ADJUNTAR LIBRO",
         "place": "Buscar",
         "noMore": "No más libros"

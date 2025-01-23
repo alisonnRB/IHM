@@ -1,13 +1,11 @@
 {
-    "EN": {
+    "en": {
         "sinopse": "SYNOPSIS"
     },
-
-    "PT":{
+    "pt": {
         "sinopse": "SINOPSE"
     },
-
-    "ES": {
+    "es": {
         "sinopse": "SINOPSIS"
     }
 }

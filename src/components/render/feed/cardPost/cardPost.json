@@ -1,15 +1,11 @@
 {
-    "EN": {
+    "en": {
         "dell": "DELETE"
-
     },
-
-    "PT":{
+    "pt": {
         "dell": "EXCLUIR"
-
     },
-
-    "ES": {
+    "es": {
         "dell": "BORRAR"
     }
 }

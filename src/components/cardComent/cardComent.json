@@ -1,5 +1,5 @@
 {
-    "EN": {
+    "en": {
         "place": "Reply..",
         "reply": "Reply",
         "ano": "year",
@@ -12,8 +12,7 @@
         "dias": "days",
         "ha": "ago"
     },
-
-    "PT":{
+    "pt": {
         "place": "Responder...",
         "reply": "Responder",
         "ano": "ano",
@@ -26,8 +25,7 @@
         "dias": "dias",
         "ha": "há"
     },
-
-    "ES": {
+    "es": {
         "place": "Responder...",
         "reply": "Responder",
         "ano": "año",

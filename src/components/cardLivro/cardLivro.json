@@ -1,15 +1,13 @@
 {
-    "EN": {
+    "en": {
         "edit": "edit",
         "visu": "View in reading mode"
     },
-
-    "PT":{
+    "pt": {
         "edit": "editar",
         "visu": "Visualizar em Modo Leitura"
     },
-
-    "ES": {
+    "es": {
         "edit": "editar",
         "visu": "Ver en modo lectura"
     }

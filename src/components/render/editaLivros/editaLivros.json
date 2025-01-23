@@ -1,15 +1,13 @@
 {
-    "EN": {
+    "en": {
         "title": "NEW BOOK",
         "continuar": "CONTINUE"
     },
-
-    "PT":{
+    "pt": {
         "title": "NOVO LIVRO",
         "continuar": "CONTINUAR"
     },
-
-    "ES": {
+    "es": {
         "title": "NUEVO LIBRO",
         "continuar": "CONTINUAR"
     }

@@ -7,7 +7,7 @@ import words from './editorLan.json';
 const Editor = (props, { placeholder }) => {
   const [content, setContent] = useState('');
 
-  const [Uword, setUword] = useState(words["EN"]);
+  const [Uword, setUword] = useState(words["en"]);
 
   useEffect(() => {
     select_idioma();
@@ -15,8 +15,8 @@ const Editor = (props, { placeholder }) => {
 
   const select_idioma = () => {
     let idi = localStorage.getItem('idioma');
-    if (!idi || (idi != 'pt' && idi != 'en' && idi != 'es')) {
-      idi = 'en';
+    if (!idi || (idi != "pt" && idi != "en" && idi != "es")) {
+      idi = "en";
     }
     let word = words[idi];
     setUword(word);

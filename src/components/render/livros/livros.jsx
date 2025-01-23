@@ -66,7 +66,7 @@ export default function Livros() {
     const [nome, setNome] = useState('');
     const [classificacao, setClassificacao] = useState('');
 
-    const [Uword, setUword] = useState('en');
+    const [Uword, setUword] = useState("en");
 
     const debounce = (func, delay) => {
         let timeoutId;
@@ -90,8 +90,8 @@ export default function Livros() {
 
     const select_idioma = () => {
         let idi = localStorage.getItem('idioma');
-        if (!idi || (idi != 'pt' && idi != 'en' && idi != 'es')) {
-            idi = 'en';
+        if (!idi || (idi != "pt" && idi != "en" && idi != "es")) {
+            idi = "en";
         }
         let word = words[idi];
         setUword(word);

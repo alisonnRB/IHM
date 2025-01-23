@@ -1,13 +1,11 @@
 {
-    "EN": {
+    "en": {
         "escrever": "write..."
     },
-
-    "PT":{
+    "pt": {
         "escrever": "escreva..."
     },
-
-    "ES": {
+    "es": {
         "escrever": "escribir..."
     }
 }

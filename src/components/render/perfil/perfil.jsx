@@ -31,7 +31,7 @@ import Caixa_publi from './caixa_publi/caixa_publi.jsx';
 function Perfil() {
   const [theme, setTheme] = useState('light');
   const [infos, setInfos] = useState(null);
-  const [Uword, setUword] = useState('en');
+  const [Uword, setUword] = useState("en");
 
   const [name, setName] = useState('');
   const [seguidores, setSeguidores] = useState(0);
@@ -143,8 +143,8 @@ function Perfil() {
 
   const select_idioma = () => {
     let idi = localStorage.getItem('idioma');
-    if (!idi || (idi != 'pt' && idi != 'en' && idi != 'es')) {
-      idi = 'en';
+    if (!idi || (idi != "pt" && idi != "en" && idi != "es")) {
+      idi = "en";
     }
     let word = words[idi];
     setUword(word);

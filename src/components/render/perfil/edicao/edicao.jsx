@@ -12,7 +12,7 @@ export default function Edit(props) {
     const [file, setFile] = useState(null);
     const [respost, setRespost] = useState('');
 
-    const [Uword, setUword] = useState('en');
+    const [Uword, setUword] = useState("en");
 
     useEffect(() => {
         select_idioma();
@@ -20,8 +20,8 @@ export default function Edit(props) {
 
     const select_idioma = () => {
         let idi = localStorage.getItem('idioma');
-        if (!idi || (idi != 'pt' && idi != 'en' && idi != 'es')) {
-            idi = 'en';
+        if (!idi || (idi != "pt" && idi != "en" && idi != "es")) {
+            idi = "en";
         }
         let word = words[idi];
         setUword(word);

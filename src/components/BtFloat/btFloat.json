@@ -1,15 +1,13 @@
 {
-    "EN": {
+    "en": {
         "op1": "book",
         "op2": "publi"
     },
-
-    "PT":{
+    "pt": {
         "op1": "livro",
         "op2": "publi"
     },
-
-    "ES": {
+    "es": {
         "op1": "libro",
         "op2": "publi"
     }

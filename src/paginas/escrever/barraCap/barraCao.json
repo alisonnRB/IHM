@@ -1,5 +1,5 @@
 {
-    "EN": {
+    "en": {
         "neWcap": "NEW CHAPTER",
         "message1": "Do you really want to delete this chapter??",
         "message2": "It will be impossible to recover it!!",
@@ -8,8 +8,7 @@
         "sinopse": "SYNOPSIS",
         "pronto": "ready"
     },
-
-    "PT":{
+    "pt": {
         "neWcap": "NOVO CAPÍTULO",
         "message1": "Você realmente quer excluir esse capítulo??",
         "message2": "Será impossível recuperá-lo!!",
@@ -18,8 +17,7 @@
         "sinopse": "SINOPSE",
         "pronto": "pronto"
     },
-
-    "ES": {
+    "es": {
         "neWcap": "NUEVO CAPITULO",
         "message": "¿¿De verdad quieres eliminar este capitulo??",
         "message2": "¡¡Será imposible recuperarlo!!",

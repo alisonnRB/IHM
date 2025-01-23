@@ -1,19 +1,17 @@
 {
-    "EN": {
+    "en": {
         "noMore": "No more publications",
-        "segue" : "FOLLOWING",
-        "fy" : "FOR YOU"
+        "segue": "FOLLOWING",
+        "fy": "FOR YOU"
     },
-
-    "PT":{
+    "pt": {
         "noMore": "Não há mais publicações",
-        "segue" : "SEGUINDO",
+        "segue": "SEGUINDO",
         "fy": "PARA VOCÊ"
     },
-
-    "ES": {
+    "es": {
         "noMore": "No más publicaciones",
-        "segue" : "SIGUIENTE",
-        "fy" : "PARA TI"
+        "segue": "SIGUIENTE",
+        "fy": "PARA TI"
     }
 }

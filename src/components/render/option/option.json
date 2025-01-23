@@ -1,10 +1,10 @@
 {
-    "EN": {
+    "en": {
         "title": "SETTINGS",
         "idioma": "LANGUAGE",
-        "PT": "PORTUGUESE",
-        "EN": "ENGLISH",
-        "ES": "SPANISH",
+        "pt": "PORTUGUESE",
+        "en": "ENGLISH",
+        "es": "SPANISH",
         "tema": "THEME",
         "alterar": "CHANGE PASSWORD",
         "atual": "CURENT PASSWORD",
@@ -15,13 +15,12 @@
         "sair": "LOGGOUT",
         "excluir": "DELETE"
     },
-
-    "PT":{
+    "pt": {
         "title": "CONFIGURAÇÕES",
         "idioma": "IDIOMA",
-        "PT": "PORTUGUÊS",
-        "EN": "INGLÊS",
-        "ES": "ESPANHOL",
+        "pt": "PORTUGUÊS",
+        "en": "INGLÊS",
+        "es": "ESPANHOL",
         "tema": "TEMA",
         "alterar": "ALTERAR SENHA",
         "atual": "SENHA ATUAL",
@@ -32,13 +31,12 @@
         "sair": "SAIR",
         "excluir": "EXCLUIR"
     },
-
-    "ES": {
+    "es": {
         "title": "AJUSTES",
         "idioma": "IDIOMA",
-        "PT": "PORTUGUÉS",
-        "EN": "INGLÉS",
-        "ES": "ESPAÑOL",
+        "pt": "PORTUGUÉS",
+        "en": "INGLÉS",
+        "es": "ESPAÑOL",
         "tema": "TEMA",
         "alterar": "CAMBIAR CONTRASEÑA",
         "atual": "CONTRASEÑA ACTUAL",

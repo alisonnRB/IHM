@@ -13,8 +13,8 @@ export default {
 
     let idioma = localStorage.getItem("idioma");
 
-    if (!idioma || (idioma != 'pt' && idioma != 'en' && idioma != 'es')) {
-      idioma = 'en';
+    if (!idioma || (idioma != "pt" && idioma != "en" && idioma != "es")) {
+      idioma = "en";
     }
 
     formData.append('id', id);

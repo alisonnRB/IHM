@@ -24,7 +24,7 @@ export default function Option() {
   const [typeA, setTypeA] = useState('');
 
   const [tema, setTema] = useState('light');
-  const [idioma, setIdioma] = useState('en');
+  const [idioma, setIdioma] = useState("en");
 
 
   const [senhaAntiga, setSenhaAntiga] = useState('');
@@ -36,7 +36,7 @@ export default function Option() {
 
   const [abreWindow, setAbreWindow] = useState(false);
 
-  const [Uword, setUword] = useState('en');
+  const [Uword, setUword] = useState("en");
 
   useEffect(() => {
     select_idioma();
@@ -45,8 +45,8 @@ export default function Option() {
 
   const select_idioma = () => {
     let idi = localStorage.getItem('idioma');
-    if (!idi || (idi != 'pt' && idi != 'en' && idi != 'es')) {
-      idi = 'en';
+    if (!idi || (idi != "pt" && idi != "en" && idi != "es")) {
+      idi = "en";
     }
     let word = words[idi];
     setUword(word);
@@ -117,9 +117,9 @@ export default function Option() {
         <div className="com">
           <label htmlFor="idioma">{Uword.idioma}</label>
           <select value={idioma} onChange={(e) => { change_idioma(e) }} name="idioma" id="idioma">
-            <option value="PT" className="idi">{Uword.PT}</option>
-            <option value="EN" className="idi">{Uword.EN}</option>
-            <option value="ES" className="idi">{Uword.ES}</option>
+            <option value="pt" className="idi">{Uword.PT}</option>
+            <option value="en" className="idi">{Uword.EN}</option>
+            <option value="es" className="idi">{Uword.ES}</option>
           </select>
         </div>
 

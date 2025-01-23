@@ -10,7 +10,7 @@ import words from './warning.json';
 
 export default function Warning(props) {
     const navigate = useNavigate();
-    const [Uword, setUword] = useState('en');
+    const [Uword, setUword] = useState("en");
 
     useEffect(() => {
         select_idioma();
@@ -18,8 +18,8 @@ export default function Warning(props) {
 
     const select_idioma = () => {
         let idi = localStorage.getItem('idioma');
-        if (!idi || (idi != 'pt' && idi != 'en' && idi != 'es')) {
-            idi = 'en';
+        if (!idi || (idi != "pt" && idi != "en" && idi != "es")) {
+            idi = "en";
         }
         let word = words[idi];
         setUword(word);

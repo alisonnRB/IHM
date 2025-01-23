@@ -1,13 +1,11 @@
 {
-    "EN": {
+    "en": {
         "title": "MY BOOKS"
     },
-
-    "PT":{
+    "pt": {
         "title": "MEUS LIVROS"
     },
-
-    "ES": {
+    "es": {
         "title": "MIS LIBROS"
     }
 }

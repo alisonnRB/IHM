@@ -1,13 +1,11 @@
 {
-    "EN": {
+    "en": {
         "place": "Write a comment..."
     },
-
-    "PT":{
+    "pt": {
         "place": "Escreva um comentário..."
     },
-
-    "ES": {
+    "es": {
         "place": "Escribir un comentario..."
     }
 }

@@ -1,13 +1,11 @@
 {
-    "EN": {
+    "en": {
         "title": "SELECT GENRES"
     },
-
-    "PT":{
+    "pt": {
         "title": "SELECIONAR GÊNEROS"
     },
-
-    "ES": {
+    "es": {
         "title": "SELECCIONAR GÉNEROS"
     }
 }

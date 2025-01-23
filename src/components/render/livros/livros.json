@@ -1,5 +1,5 @@
 {
-    "EN": {
+    "en": {
         "title": "BOOKS",
         "buscar": "SEARCH",
         "filtros": "FILTERS",
@@ -9,8 +9,7 @@
         "notFound": "BOOK NOT FOUND :(",
         "noMore": "No more publications"
     },
-
-    "PT":{
+    "pt": {
         "title": "LIVROS",
         "buscar": "BUSCAR",
         "filtros": "FILTROS",
@@ -20,8 +19,7 @@
         "notFound": "LIVRO NÃO ENCONTRADO :(",
         "noMore": "Não há mais publicações"
     },
-
-    "ES": {
+    "es": {
         "title": "LIBROS",
         "buscar": "BUSCAR",
         "filtros": "FILTROS",

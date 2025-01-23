@@ -1,13 +1,11 @@
 {
-    "EN": {
+    "en": {
         "title": "MY FAVORITES"
     },
-
-    "PT":{
+    "pt": {
         "title": "MEUS FAVORITOS"
     },
-
-    "ES": {
+    "es": {
         "title": "MIS FAVORITOS"
     }
 }

@@ -1,15 +1,11 @@
 {
-    "EN": {
+    "en": {
         "noti": "NOTIFICATIONS"
-
     },
-
-    "PT":{
+    "pt": {
         "noti": "NOTIFICAÇÔES"
-
     },
-
-    "ES": {
+    "es": {
         "noti": "NOTIFICACIONES"
     }
 }

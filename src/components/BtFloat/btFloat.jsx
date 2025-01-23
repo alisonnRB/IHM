@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import words from './btFloat.json';
 
 export default function FloatBt() {
-    const [Uword, setUword] = useState('en');
+    const [Uword, setUword] = useState("en");
 
     function toggleFAB(fab) {
         if (document.querySelector(fab).classList.contains('show')) {
@@ -22,8 +22,8 @@ export default function FloatBt() {
 
     const select_idioma = () => {
         let idi = localStorage.getItem('idioma');
-        if (!idi || (idi != 'pt' && idi != 'en' && idi != 'es')) {
-            idi = 'en';
+        if (!idi || (idi != "pt" && idi != "en" && idi != "es")) {
+            idi = "en";
         }
         let word = words[idi];
         setUword(word);
