@@ -17,7 +17,7 @@ export default function Tags(props) {
 
     const [att, setAtt] = useState(false);
 
-    const [Uword, setUword] = useState('EN');
+    const [Uword, setUword] = useState('en');
 
     useEffect(() => {
         select_idioma();
@@ -25,8 +25,8 @@ export default function Tags(props) {
 
     const select_idioma = () => {
         let idi = localStorage.getItem('idioma');
-        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
-            idi = 'EN';
+        if (!idi || (idi != 'pt' && idi != 'en' && idi != 'es')) {
+            idi = 'en';
         }
         let word = words[idi];
         setUword(word);
@@ -101,16 +101,16 @@ export default function Tags(props) {
     }
 
     return (
-        <div className={`tag ${abreTag? 'abre' : null}`}>
+        <div className={`tag ${abreTag ? 'abre' : null}`}>
             <span className='abaTAG' onClick={() => { setAbreTag(!abreTag) }}>
-                <img id="fechaTAG" src={abreTag ? abre : fecha}/>
+                <img id="fechaTAG" src={abreTag ? abre : fecha} />
             </span>
 
             <div id="contentTAG">
                 <span className="titleTAG"> TAGS </span>
                 <form className="criaTAG" onSubmit={(event) => { updateValue(event, novaTag, 'chave') }}>
                     <input type="text" name="tag" placeholder={Uword.escrever} value={novaTag} onChange={(e) => { setNovaTag(e.target.value) }} />
-                    <img id="enviaTAG" src={enviar} onClick={(event) => { updateValue(event, novaTag, 'chave') }}/>
+                    <img id="enviaTAG" src={enviar} onClick={(event) => { updateValue(event, novaTag, 'chave') }} />
                 </form>
                 <span className="contTAG"> <p>{`${conta}/10`}</p> </span>
                 <div className="mostraTAG">

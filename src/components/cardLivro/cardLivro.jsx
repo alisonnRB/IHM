@@ -19,7 +19,7 @@ import words from './cardLivro.json';
 
 export default function Livro(props) {
     const [semIMG, setSemImg] = useState(false);
-    const [Uword, setUword] = useState('EN');
+    const [Uword, setUword] = useState('en');
 
     const [id, setId] = useState('')
     const [fotoCapa, setFotoCapa] = useState('');
@@ -152,8 +152,8 @@ export default function Livro(props) {
 
     const select_idioma = () => {
         let idi = localStorage.getItem('idioma');
-        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
-            idi = 'EN';
+        if (!idi || (idi != 'pt' && idi != 'en' && idi != 'es')) {
+            idi = 'en';
         }
         let word = words[idi];
         setUword(word);

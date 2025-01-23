@@ -90,7 +90,7 @@ export default function NovoLivro() {
     const [publico, setPublico] = useState(false);
     const [finalizado, setFinalizado] = useState(false);
 
-    const [Uword, setUword] = useState('EN');
+    const [Uword, setUword] = useState('en');
 
     useEffect(() => {
         select_idioma();
@@ -102,8 +102,8 @@ export default function NovoLivro() {
 
     const select_idioma = () => {
         let idi = localStorage.getItem('idioma');
-        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
-            idi = 'EN';
+        if (!idi || (idi != 'pt' && idi != 'en' && idi != 'es')) {
+            idi = 'en';
         }
         let word = words[idi];
         setUword(word);

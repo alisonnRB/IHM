@@ -32,12 +32,12 @@ export default function Selecao(props) {
 
     });
 
-    const [Uword, setUword] = useState('EN');
+    const [Uword, setUword] = useState('en');
 
     useEffect(() => {
         select_idioma();
         Busca();
-        if(props.Quantos){
+        if (props.Quantos) {
             setQuantos(props.Quantos);
         }
     }, []);
@@ -48,7 +48,7 @@ export default function Selecao(props) {
             for (let i = 0; i < props.Gen.length; i++) {
                 if (!isNaN(props.Gen[i])) {
                     let ind = parseInt(props.Gen[i]);
-                    if(!isNaN(props.Gen[i + 1])){
+                    if (!isNaN(props.Gen[i + 1])) {
                         ind = ind + props.Gen[i + 1];
                         i = i + 1;
                     }
@@ -82,8 +82,8 @@ export default function Selecao(props) {
 
     const select_idioma = () => {
         let idi = localStorage.getItem('idioma');
-        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
-            idi = 'EN';
+        if (!idi || (idi != 'pt' && idi != 'en' && idi != 'es')) {
+            idi = 'en';
         }
         let word = words[idi];
         setUword(word);

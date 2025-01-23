@@ -24,7 +24,7 @@ export default function Option() {
   const [typeA, setTypeA] = useState('');
 
   const [tema, setTema] = useState('light');
-  const [idioma, setIdioma] = useState('EN');
+  const [idioma, setIdioma] = useState('en');
 
 
   const [senhaAntiga, setSenhaAntiga] = useState('');
@@ -36,21 +36,21 @@ export default function Option() {
 
   const [abreWindow, setAbreWindow] = useState(false);
 
-  const [Uword, setUword] = useState('EN');
+  const [Uword, setUword] = useState('en');
 
-    useEffect(() => {
-        select_idioma();
-        verify_tipoConta();
-    }, [])
+  useEffect(() => {
+    select_idioma();
+    verify_tipoConta();
+  }, [])
 
-    const select_idioma = () => {
-        let idi = localStorage.getItem('idioma');
-        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
-            idi = 'EN';
-        }
-        let word = words[idi];
-        setUword(word);
+  const select_idioma = () => {
+    let idi = localStorage.getItem('idioma');
+    if (!idi || (idi != 'pt' && idi != 'en' && idi != 'es')) {
+      idi = 'en';
     }
+    let word = words[idi];
+    setUword(word);
+  }
 
   useEffect(() => {
     qual_tema();
@@ -103,7 +103,7 @@ export default function Option() {
 
   const verify_tipoConta = async () => {
     const resposta = await verify.enviar();
-    if(resposta.ok){
+    if (resposta.ok) {
       setTypeA(resposta.informacoes);
     }
   }
@@ -126,8 +126,8 @@ export default function Option() {
         <div className="com">
           <label htmlFor="tema">{Uword.tema}</label>
           <span id='tema'>
-            <img src={tema == 'light' ? sol : solD} className="tema" onClick={() => { localStorage.setItem('tema', 'light'); window.location.reload() }} style={tema === 'light' ? tema == 'light' ? {backgroundColor: '#EBECF0' } : {backgroundColor: '#023440'} : null} />
-            <img src={tema == 'light' ? lua : luaD} className="tema" onClick={() => { localStorage.setItem('tema', 'dark'); window.location.reload() }} style={tema === 'dark' ? tema == 'light' ? {backgroundColor: '#EBECF0' } : {backgroundColor: '#023440'}: null} />
+            <img src={tema == 'light' ? sol : solD} className="tema" onClick={() => { localStorage.setItem('tema', 'light'); window.location.reload() }} style={tema === 'light' ? tema == 'light' ? { backgroundColor: '#EBECF0' } : { backgroundColor: '#023440' } : null} />
+            <img src={tema == 'light' ? lua : luaD} className="tema" onClick={() => { localStorage.setItem('tema', 'dark'); window.location.reload() }} style={tema === 'dark' ? tema == 'light' ? { backgroundColor: '#EBECF0' } : { backgroundColor: '#023440' } : null} />
           </span>
         </div>
 
@@ -151,7 +151,7 @@ export default function Option() {
             <button id='excluir' onClick={() => { setAbreWindow(true) }}>{Uword.excluir}</button>
           </span>
 
-          {abreWindow ? typeA == 'google' ? <WarningG  setAbre={setAbreWindow}/> : <Warning setAbre={setAbreWindow} /> : null}
+          {abreWindow ? typeA == 'google' ? <WarningG setAbre={setAbreWindow} /> : <Warning setAbre={setAbreWindow} /> : null}
         </div>
 
       </div>

@@ -10,31 +10,31 @@ import words from './warning.json';
 
 export default function Warning(props) {
     const navigate = useNavigate();
-    const [Uword, setUword] = useState('EN');
-    
+    const [Uword, setUword] = useState('en');
+
     useEffect(() => {
         select_idioma();
     }, [])
 
     const select_idioma = () => {
         let idi = localStorage.getItem('idioma');
-        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
-            idi = 'EN';
+        if (!idi || (idi != 'pt' && idi != 'en' && idi != 'es')) {
+            idi = 'en';
         }
         let word = words[idi];
         setUword(word);
     }
 
-    const Dell = async () =>{
+    const Dell = async () => {
         const resposta = await api.enviar();
-        if(resposta.ok){
+        if (resposta.ok) {
             sessionStorage.clear();
             localStorage.clear();
             navigate('/');
         }
     }
 
-    return(
+    return (
         <div className='boxWarning'>
 
             <div className='warning'>
@@ -43,8 +43,8 @@ export default function Warning(props) {
                 </div>
 
                 <span className='warningBts'>
-                    <button className='Wbt canc' onClick={()=>{props.setAbre(false)}}>{Uword.cancelar}</button>
-                    <button className='Wbt dell' onClick={()=>{Dell()}}>{Uword.excluir}</button>
+                    <button className='Wbt canc' onClick={() => { props.setAbre(false) }}>{Uword.cancelar}</button>
+                    <button className='Wbt dell' onClick={() => { Dell() }}>{Uword.excluir}</button>
                 </span>
             </div>
 

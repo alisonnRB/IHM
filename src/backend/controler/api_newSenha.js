@@ -14,8 +14,8 @@ export default {
 
     let idioma = localStorage.getItem("idioma");
 
-    if (!idioma || (idioma != 'PT' && idioma != 'EN' && idioma != 'ES')) {
-      idioma = 'EN';
+    if (!idioma || (idioma != 'pt' && idioma != 'en' && idioma != 'es')) {
+      idioma = 'en';
     }
 
     let user = {

@@ -37,20 +37,20 @@ export default function Gender(props) {
     const [conta, setConta] = useState(0);
     const [generos, setgeneros] = useState('');
 
-    const [Uword, setUword] = useState('EN');
+    const [Uword, setUword] = useState('en');
 
     useEffect(() => {
         select_idioma();
         let a = localStorage.getItem('tema');
-        if(a){
+        if (a) {
             setTheme(a);
         }
     }, [])
 
     const select_idioma = () => {
         let idi = localStorage.getItem('idioma');
-        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
-            idi = 'EN';
+        if (!idi || (idi != 'pt' && idi != 'en' && idi != 'es')) {
+            idi = 'en';
         }
         let word = words[idi];
         setUword(word);
@@ -69,8 +69,8 @@ export default function Gender(props) {
 
     const alterar = async (e) => {
         e.preventDefault();
-        const response =  await apiEdit.enviar(selecao);
-        if(response.ok){
+        const response = await apiEdit.enviar(selecao);
+        if (response.ok) {
             Navigate(-1);
         }
     }
@@ -78,7 +78,7 @@ export default function Gender(props) {
     return (
         <div className='boxGender'>
             <span id='boxTittleGender'>
-                <Link to='/IHM/perfil' id='linkVolta'><img src={theme == 'light' ? volta : voltaD } id='imgVoltaG' /></Link>
+                <Link to='/IHM/perfil' id='linkVolta'><img src={theme == 'light' ? volta : voltaD} id='imgVoltaG' /></Link>
                 <p>{Uword.generos}</p>
                 <p>{conta + '/7'}</p>
             </span>

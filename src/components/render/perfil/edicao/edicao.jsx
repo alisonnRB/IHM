@@ -12,7 +12,7 @@ export default function Edit(props) {
     const [file, setFile] = useState(null);
     const [respost, setRespost] = useState('');
 
-    const [Uword, setUword] = useState('EN');
+    const [Uword, setUword] = useState('en');
 
     useEffect(() => {
         select_idioma();
@@ -20,8 +20,8 @@ export default function Edit(props) {
 
     const select_idioma = () => {
         let idi = localStorage.getItem('idioma');
-        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
-            idi = 'EN';
+        if (!idi || (idi != 'pt' && idi != 'en' && idi != 'es')) {
+            idi = 'en';
         }
         let word = words[idi];
         setUword(word);
@@ -32,36 +32,36 @@ export default function Edit(props) {
     const handleImageChange = (event) => {
         const file = event.target.files[0];
         setFile(file);
-    
+
         const reader = new FileReader();
-    
+
         reader.onloadend = () => {
             setImagePreview(reader.result);
         };
-    
+
         if (file) {
             reader.readAsDataURL(file);
         } else {
             setImagePreview(null); // Adicione esta linha para lidar com nenhum arquivo selecionado
         }
     };
-    
+
 
 
     //TODO manda para a api para que seja feito o update no banco de dados
     const alterar = async (event) => {
         event.preventDefault();
-    
+
         const formData = new FormData();
         formData.append('image', file);
-    
+
         const userName = event.target.newName.value;
-    
+
         const resposta = await api.enviar(formData, userName);
-    
+
         setFile(null);
         setImagePreview(null);
-    
+
         if (resposta.ok) {
             props.fecharEdicao(true);
         } else {

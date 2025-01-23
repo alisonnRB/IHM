@@ -13,7 +13,7 @@ export default function Feed() {
   const [select, setSelect] = useState(true);
 
   const [theme, setTheme] = useState('light');
-  const [Uword, setUword] = useState('EN');
+  const [Uword, setUword] = useState('en');
 
 
   useEffect(() => {
@@ -26,8 +26,8 @@ export default function Feed() {
 
   const select_idioma = () => {
     let idi = localStorage.getItem('idioma');
-    if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
-      idi = 'EN';
+    if (!idi || (idi != 'pt' && idi != 'en' && idi != 'es')) {
+      idi = 'en';
     }
     let word = words[idi];
     setUword(word);
@@ -42,7 +42,7 @@ export default function Feed() {
         <p onClick={() => { setSelect(true) }} className={`btLF ${select ? 'sets' : null}`}>{Uword.fy}</p>
       </span>
 
-      {!select ? <Seguindo Uword={Uword}/> : <ForYou Uword={Uword}/>}
+      {!select ? <Seguindo Uword={Uword} /> : <ForYou Uword={Uword} />}
 
       <BtFloat />
 

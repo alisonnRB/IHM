@@ -23,20 +23,20 @@ export default function BarraCap(props) {
     const [pronto, setPronto] = useState(false);
     const [listP, setListP] = useState(false);
 
-    const [Uword, setUword] = useState('EN');
+    const [Uword, setUword] = useState('en');
 
     useEffect(() => {
         select_idioma();
         let a = localStorage.getItem('tema');
-        if(a){
+        if (a) {
             setThemme(a);
         }
     }, [])
 
     const select_idioma = () => {
         let idi = localStorage.getItem('idioma');
-        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
-            idi = 'EN';
+        if (!idi || (idi != 'pt' && idi != 'en' && idi != 'es')) {
+            idi = 'en';
         }
         let word = words[idi];
         setUword(word);
@@ -68,14 +68,14 @@ export default function BarraCap(props) {
         }
     }, [props.titulo, props.selected]);
 
-    useEffect(()=>{
-        if(props.controle){
+    useEffect(() => {
+        if (props.controle) {
             setSelecionado(numCaps + 1);
             props.setUltimo(Selecionado);
             props.setCapSelected(numCaps + 1);
-            props.setControle(false);console.log('a')
+            props.setControle(false); console.log('a')
         }
-    },[props.controle])
+    }, [props.controle])
 
     const Change = async () => {
 
@@ -87,23 +87,23 @@ export default function BarraCap(props) {
     const capitulos = () => {
 
         const list = [];
-    
-            for (let i = 1; i <= numCaps; i++) {
-                let a = <div id="content" key={i}>
-                    <span className={`${Selecionado === i ? 'Selecionado' : ''}`} onClick={() => {
-                        props.setUltimo(Selecionado);
-                        props.setSave(true);
-                        props.setCapSelected(i);
-                        setSelecionado(i);
-                    }}>
-                        {!titulo[i] ? Uword.neWcap : titulo[i]}
 
-                    </span>
-                    <div className={`abaApaga ${Selecionado === i && Selecionado != 0 ? 'Selecionado' : 'some'}`} onClick={() => { setWindow(true) }}><img src={theme == 'light' ? lixo : lixoD} /></div>
-                    {listP && listP[i] == 1 ? <div className={`prontiCAP ${theme == 'light' ? null : 'dark'}`}></div> : null}
-                </div>;
-                list.push(a);
-            
+        for (let i = 1; i <= numCaps; i++) {
+            let a = <div id="content" key={i}>
+                <span className={`${Selecionado === i ? 'Selecionado' : ''}`} onClick={() => {
+                    props.setUltimo(Selecionado);
+                    props.setSave(true);
+                    props.setCapSelected(i);
+                    setSelecionado(i);
+                }}>
+                    {!titulo[i] ? Uword.neWcap : titulo[i]}
+
+                </span>
+                <div className={`abaApaga ${Selecionado === i && Selecionado != 0 ? 'Selecionado' : 'some'}`} onClick={() => { setWindow(true) }}><img src={theme == 'light' ? lixo : lixoD} /></div>
+                {listP && listP[i] == 1 ? <div className={`prontiCAP ${theme == 'light' ? null : 'dark'}`}></div> : null}
+            </div>;
+            list.push(a);
+
         }
         return list;
     }

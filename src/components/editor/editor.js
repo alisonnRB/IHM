@@ -9,18 +9,18 @@ const Editor = (props, { placeholder }) => {
 
   const [Uword, setUword] = useState(words["EN"]);
 
-    useEffect(() => {
-        select_idioma();
-    }, []);
+  useEffect(() => {
+    select_idioma();
+  }, []);
 
-    const select_idioma = () => {
-        let idi = localStorage.getItem('idioma');
-        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
-            idi = 'EN';
-        }
-        let word = words[idi];
-        setUword(word);
+  const select_idioma = () => {
+    let idi = localStorage.getItem('idioma');
+    if (!idi || (idi != 'pt' && idi != 'en' && idi != 'es')) {
+      idi = 'en';
     }
+    let word = words[idi];
+    setUword(word);
+  }
 
   useEffect(() => {
     props.setContent(content);
@@ -49,7 +49,7 @@ const Editor = (props, { placeholder }) => {
     () => ({
       readonly: false,
       placeholder: placeholder || Uword.placed,
-      ignoreDebounce: true, 
+      ignoreDebounce: true,
     }),
     [placeholder, Uword]
   );

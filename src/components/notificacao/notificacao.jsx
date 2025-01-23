@@ -17,7 +17,7 @@ export default function Notificações() {
     const [notificar, setNotficar] = useState({});
     const [New, setNew] = useState(false);
 
-    const [Uword, setUword] = useState('EN');
+    const [Uword, setUword] = useState('en');
 
     useEffect(() => {
         if (New && init.current > 2) {
@@ -36,8 +36,8 @@ export default function Notificações() {
 
     const select_idioma = () => {
         let idi = localStorage.getItem('idioma');
-        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
-            idi = 'EN';
+        if (!idi || (idi != 'pt' && idi != 'en' && idi != 'es')) {
+            idi = 'en';
         }
         let word = words[idi];
         setUword(word);
@@ -85,8 +85,8 @@ export default function Notificações() {
                 (Object.values(resposta.informacoes).some(notifArray => notifArray && notifArray.length > 0));
             setNew(hasNotifications);
             init.current += 1;
-        } 
-        
+        }
+
     }
 
     const visualizar = async () => {

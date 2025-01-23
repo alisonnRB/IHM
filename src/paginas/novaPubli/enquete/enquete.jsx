@@ -19,7 +19,7 @@ export default function Enquete(props) {
 
     const [title, setTitle] = useState('');
 
-    const [Uword, setUword] = useState('EN');
+    const [Uword, setUword] = useState('en');
 
     useEffect(() => {
         select_idioma();
@@ -27,8 +27,8 @@ export default function Enquete(props) {
 
     const select_idioma = () => {
         let idi = localStorage.getItem('idioma');
-        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
-            idi = 'EN';
+        if (!idi || (idi != 'pt' && idi != 'en' && idi != 'es')) {
+            idi = 'en';
         }
         let word = words[idi];
         setUword(word);
@@ -62,10 +62,10 @@ export default function Enquete(props) {
 
     useEffect(() => {
         if (content != '') {
-            if(content[2] != ''){
+            if (content[2] != '') {
                 setMais1(true);
             }
-            if(content[3] != ''){
+            if (content[3] != '') {
                 setMais2(true);
             }
         }
@@ -92,7 +92,7 @@ export default function Enquete(props) {
                             value={content[0]}
                             onChange={(e) => handleInputChange(e, 0, 'insert')}
                         />
-                        <div className='apagaEn' onClick={()=>{handleInputChange('', 0, '')}}>X</div>
+                        <div className='apagaEn' onClick={() => { handleInputChange('', 0, '') }}>X</div>
                     </span>
 
                     <span>
@@ -102,7 +102,7 @@ export default function Enquete(props) {
                             value={content[1]}
                             onChange={(e) => handleInputChange(e, 1, 'insert')}
                         />
-                        <div className='apagaEn' onClick={()=>{handleInputChange('', 1, '')}}>X</div>
+                        <div className='apagaEn' onClick={() => { handleInputChange('', 1, '') }}>X</div>
                     </span>
 
                     {mais1 ? <span>
@@ -112,18 +112,18 @@ export default function Enquete(props) {
                             value={content[2]}
                             onChange={(e) => handleInputChange(e, 2, 'insert')}
                         />
-                        <div className='apagaEn' onClick={()=>{handleInputChange('', 2, ''); setMais1(false) }}>X</div>
-                    </span> : <img className='mais' src={mais} onClick={()=>{setMais1(true)}}/>}
+                        <div className='apagaEn' onClick={() => { handleInputChange('', 2, ''); setMais1(false) }}>X</div>
+                    </span> : <img className='mais' src={mais} onClick={() => { setMais1(true) }} />}
 
-                    {mais2? <span>
+                    {mais2 ? <span>
                         <input
                             type="text"
                             className="enqueteBox"
                             value={content[3]}
                             onChange={(e) => handleInputChange(e, 3, 'insert')}
                         />
-                        <div className='apagaEn' onClick={()=>{handleInputChange('', 3, ''); setMais2(false)}}>X</div>
-                    </span> : <img className='mais' src={mais} onClick={()=>{setMais2(true)}}/>}
+                        <div className='apagaEn' onClick={() => { handleInputChange('', 3, ''); setMais2(false) }}>X</div>
+                    </span> : <img className='mais' src={mais} onClick={() => { setMais2(true) }} />}
 
 
                     <p id='pronto' onClick={() => { save() }}>{Uword.pronto}</p>

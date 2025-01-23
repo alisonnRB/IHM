@@ -13,7 +13,7 @@ import words from './meusLivros.json';
 export default function MeusLivros() {
     const [theme, setTheme] = useState('light');
     const [livro, setLivro] = useState('');
-    const [Uword, setUword] = useState('EN');
+    const [Uword, setUword] = useState('en');
 
     const [livros, setLivros] = useState([]);
     const num = useRef(0);
@@ -72,8 +72,8 @@ export default function MeusLivros() {
 
     const select_idioma = () => {
         let idi = localStorage.getItem('idioma');
-        if (!idi || (idi != 'PT' && idi != 'EN' && idi != 'ES')) {
-            idi = 'EN';
+        if (!idi || (idi != 'pt' && idi != 'en' && idi != 'es')) {
+            idi = 'en';
         }
         let word = words[idi];
         setUword(word);
