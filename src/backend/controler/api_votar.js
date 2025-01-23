@@ -27,8 +27,8 @@ export default {
     //TODO faz a requisição
 
     //! coloque o seu ip ali
-    const response = await fetch('http://server-ihm.onrender.com/server/votar.php', requisição);
-    const resposta = await fetch('http://server-ihm.onrender.com/server/contaVotos.php', requisição);
+    const response = await fetch('https://server-ihm.onrender.com/server/votar.php', requisição);
+    const resposta = await fetch('https://server-ihm.onrender.com/server/contaVotos.php', requisição);
 
     //TODO espera a resposta do servidor e armazena para retornar ao cliente
     const data = await response.json();

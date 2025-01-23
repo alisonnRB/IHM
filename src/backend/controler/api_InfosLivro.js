@@ -21,7 +21,7 @@ export default {
     //TODO faz a requisição
 
     //! coloque o seu ip ali
-    const response = await fetch(`http://server-ihm.onrender.com/server/infosLivros.php?idLivro=${idLivro}&id=${id}`, requisição);
+    const response = await fetch(`https://server-ihm.onrender.com/server/infosLivros.php?idLivro=${idLivro}&id=${id}`, requisição);
 
     //TODO espera a resposta do servidor e armazena para retornar ao cliente
     const data = await response.json();

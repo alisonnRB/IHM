@@ -187,7 +187,7 @@ export default function Comentarios(props) {
 
     useEffect(() => {
         if (typeof user.fotoPerfil == "string") {
-            setFoto("http://server-ihm.onrender.com/imagens/" + user.fotoPerfil);
+            setFoto("https://server-ihm.onrender.com/imagens/" + user.fotoPerfil);
         }
     }, [user.fotoPerfil]);
 

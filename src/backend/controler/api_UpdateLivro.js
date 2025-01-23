@@ -25,7 +25,7 @@ export default {
 
         //TODO faz a requisição
         //! coloque o seu ip ali
-        const response = await fetch('http://server-ihm.onrender.com/server/UpdateLivro.php', {
+        const response = await fetch('https://server-ihm.onrender.com/server/UpdateLivro.php', {
             method: 'POST',
             body: formData,
         });

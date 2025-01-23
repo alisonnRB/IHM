@@ -16,7 +16,7 @@ export default function CardLink(props) {
     useEffect(() => {
         if (livro && livro.imagem) {
             setSemImg(false);
-            setFoto("http://server-ihm.onrender.com/livros/" + livro.user_id + '/' + livro.nome + '_' + livro.id + '/' + livro.imagem);
+            setFoto("https://server-ihm.onrender.com/livros/" + livro.user_id + '/' + livro.nome + '_' + livro.id + '/' + livro.imagem);
         } else {
             setSemImg(true);
         }

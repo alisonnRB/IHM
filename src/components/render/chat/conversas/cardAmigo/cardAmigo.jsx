@@ -76,7 +76,7 @@ export default function CardAmigo(props) {
 
     useEffect(() => {
         if (typeof info.fotoPerfil == "string") {
-            setFoto("http://server-ihm.onrender.com/imagens/" + info.fotoPerfil);
+            setFoto("https://server-ihm.onrender.com/imagens/" + info.fotoPerfil);
         }
     }, [info.fotoPerfil]);
 

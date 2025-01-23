@@ -23,7 +23,7 @@ export default {
       body: JSON.stringify(user),
     };
 
-    const response = await fetch('http://server-ihm.onrender.com/server/DellCap.php', requisição);
+    const response = await fetch('https://server-ihm.onrender.com/server/DellCap.php', requisição);
 
     const data = await response.json();
     if (data.informacoes == "não autorizado") {

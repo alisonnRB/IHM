@@ -134,7 +134,7 @@ export default function Ler() {
 
     useEffect(() => {
         if (infos && infos != '') {
-            setFoto("http://server-ihm.onrender.com/imagens/" + infos.fotoPerfil);
+            setFoto("https://server-ihm.onrender.com/imagens/" + infos.fotoPerfil);
         }
     }, [infos]);
 

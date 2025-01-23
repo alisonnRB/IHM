@@ -62,7 +62,7 @@ export default function Mensagem(props) {
 
   useEffect(() => {
     if (typeof infos.fotoPerfil == "string") {
-      setFoto("http://server-ihm.onrender.com/imagens/" + infos.fotoPerfil);
+      setFoto("https://server-ihm.onrender.com/imagens/" + infos.fotoPerfil);
     }
   }, [infos.fotoPerfil]);
 

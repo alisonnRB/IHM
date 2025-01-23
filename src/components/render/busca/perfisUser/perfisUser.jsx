@@ -106,7 +106,7 @@ export default function User() {
             }
             setName(infos.nome);
             if (infos.fotoPerfil) {
-                setPerfil("http://server-ihm.onrender.com/imagens/" + infos.fotoPerfil);
+                setPerfil("https://server-ihm.onrender.com/imagens/" + infos.fotoPerfil);
             }
 
         }

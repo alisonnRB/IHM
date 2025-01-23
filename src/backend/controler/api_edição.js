@@ -23,7 +23,7 @@ export default {
 
     //TODO faz a requisição
     //! coloque o seu ip ali
-    const response = await fetch('http://server-ihm.onrender.com/server/config_perfil.php', {
+    const response = await fetch('https://server-ihm.onrender.com/server/config_perfil.php', {
       method: 'POST',
       body: formData,
     });
