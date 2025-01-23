@@ -9,8 +9,8 @@ export default {
         if (!id) {
             setVariavelGlobal(false);
             await auth.enviar();
-            
-          }
+
+        }
 
         formData.append('id', id);
         formData.append('color', color);
@@ -25,7 +25,7 @@ export default {
 
         //TODO faz a requisição
         //! coloque o seu ip ali
-        const response = await fetch('http://localhost/server/UpdateLivro.php', {
+        const response = await fetch('http://server-ihm.onrender.com/server/UpdateLivro.php', {
             method: 'POST',
             body: formData,
         });

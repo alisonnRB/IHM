@@ -7,12 +7,12 @@ export default {
         if (!id) {
             setVariavelGlobal(false);
             await auth.enviar();
-            
-          }
-          
+
+        }
+
         let idioma = localStorage.getItem("idioma");
 
-        if(!idioma || (idioma != 'PT' && idioma != 'EN' && idioma != 'ES')){
+        if (!idioma || (idioma != 'PT' && idioma != 'EN' && idioma != 'ES')) {
             idioma = 'EN';
         }
 
@@ -27,7 +27,7 @@ export default {
             body: JSON.stringify(user),
         };
 
-        const response = await fetch('http://localhost/server/gender.php', requisição);
+        const response = await fetch('http://server-ihm.onrender.com/server/gender.php', requisição);
 
         const data = await response.json();
         if (data.informacoes == "não autorizado") {

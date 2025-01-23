@@ -10,9 +10,9 @@ export default {
     }
 
     let user = {
-        id: id,
-        denuncia: denuncia,
-        idLivro: idLivro
+      id: id,
+      denuncia: denuncia,
+      idLivro: idLivro
     };
 
     let requisição = {
@@ -21,9 +21,9 @@ export default {
       body: JSON.stringify(user),
     };
 
-   
 
-    const response = await fetch('http://localhost/server/reporte.php', requisição);
+
+    const response = await fetch('http://server-ihm.onrender.com/server/reporte.php', requisição);
 
     const data = await response.json();
     if (data.informacoes == "não autorizado") {

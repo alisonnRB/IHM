@@ -3,21 +3,21 @@ import { setVariavelGlobal } from "../../GvarAuth";
 
 export default {
   //? prepara o objeto para enviar no padrão RESTful
-  enviar: async (senhaAntiga , NovaSenha, tipo) => {
+  enviar: async (senhaAntiga, NovaSenha, tipo) => {
 
     const id = sessionStorage.getItem('session');
     if (!id) {
       setVariavelGlobal(false);
       await auth.enviar();
-      
+
     }
 
     let idioma = localStorage.getItem("idioma");
 
-    if(!idioma || (idioma != 'PT' && idioma != 'EN' && idioma != 'ES')){
-        idioma = 'EN';
+    if (!idioma || (idioma != 'PT' && idioma != 'EN' && idioma != 'ES')) {
+      idioma = 'EN';
     }
-    
+
     let user = {
       id: id,
       senhaAntiga: senhaAntiga,
@@ -36,7 +36,7 @@ export default {
     //TODO faz a requisição
 
     //! coloque o seu ip ali
-    const response = await fetch('http://localhost/server/newSenha.php', requisição);
+    const response = await fetch('http://server-ihm.onrender.com/server/newSenha.php', requisição);
 
 
     //TODO espera a resposta do servidor e armazena para retornar ao cliente

@@ -302,7 +302,7 @@ export default function Escreve() {
 
                         <div className="boxIMG">
                             <img id="classifica" src={visuClass} />
-                            {semIMG ? null : <img src={`http://localhost/livros/${id}/${info.nome}_${info.id}/${info.imagem}`} />}
+                            {semIMG ? null : <img src={`http://server-ihm.onrender.com/livros/${id}/${info.nome}_${info.id}/${info.imagem}`} />}
                             {semIMG ?
                                 <div className="noIMAGE">
                                     {info.nome}

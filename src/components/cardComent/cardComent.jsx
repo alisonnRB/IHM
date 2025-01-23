@@ -18,10 +18,10 @@ export default function Comentarios(props) {
     const [audio] = useState(new Audio(audioSrc));
 
     const CurtiPlay = () => {
-      if (!curtido) {
-        audio.play();
-      }
-  
+        if (!curtido) {
+            audio.play();
+        }
+
     };
 
     const [theme, setTheme] = useState('light');
@@ -187,7 +187,7 @@ export default function Comentarios(props) {
 
     useEffect(() => {
         if (typeof user.fotoPerfil == "string") {
-            setFoto("http://localhost/imagens/" + user.fotoPerfil);
+            setFoto("http://server-ihm.onrender.com/imagens/" + user.fotoPerfil);
         }
     }, [user.fotoPerfil]);
 
@@ -232,7 +232,7 @@ export default function Comentarios(props) {
     return (
         <>
             <span id="comentary">
-            <img className="userComent" src={foto} onError={(e) => { e.target.src = noF; }} />
+                <img className="userComent" src={foto} onError={(e) => { e.target.src = noF; }} />
 
                 <div className="boxComent" >
                     <span className="nomeComent">{user.nome && !props.res ? user.nome : `${user.nome} > ${nomeRes}`}</span>
@@ -241,7 +241,7 @@ export default function Comentarios(props) {
 
                 <div className="btsCurti" >
                     <div className={`boxDEimg ${curtido ? 'c' : ''}`} style={style}>
-                        <img src={theme == 'light' ? like : likeD} className={`core`} onClick={() => { curtir(); CurtiPlay(); setCurt(1); setAuxCurt(!auxCurti);}} />
+                        <img src={theme == 'light' ? like : likeD} className={`core`} onClick={() => { curtir(); CurtiPlay(); setCurt(1); setAuxCurt(!auxCurti); }} />
                     </div>
                     <span className="likeNUM">{quantCurti}</span>
                 </div>

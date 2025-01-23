@@ -4,7 +4,7 @@ export default {
     //? prepara o objeto para enviar no padrão RESTful
     enviar: async () => {
         let token = sessionStorage.getItem('session');
-        if(!token){
+        if (!token) {
             setVariavelGlobal(true);
             window.location.reload();
         }
@@ -21,7 +21,7 @@ export default {
         };
 
         //! coloque o seu ip ali
-        const response = await fetch('http://localhost/server/token/auth.php', requisição);
+        const response = await fetch('http://server-ihm.onrender.com/server/token/auth.php', requisição);
 
 
         //TODO espera a resposta do servidor e armazena para retornar ao cliente
@@ -34,7 +34,7 @@ export default {
                 setVariavelGlobal(false);
             }
             return data;
-        }catch(e){
+        } catch (e) {
             setVariavelGlobal(true);
             window.location.reload();
         }

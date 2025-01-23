@@ -10,7 +10,7 @@ export default {
     }
 
     let user = {
-        id: id,
+      id: id,
     };
 
     let requisição = {
@@ -19,7 +19,7 @@ export default {
       body: JSON.stringify(user),
     };
 
-    const response = await fetch('http://localhost/server/account_type.php', requisição);
+    const response = await fetch('http://server-ihm.onrender.com/server/account_type.php', requisição);
 
     const data = await response.json();
     if (data.informacoes == "não autorizado") {

@@ -24,7 +24,7 @@ import noF from '../../../../imgs/perfil.png';
 
 export default function User() {
     const [select, setSelect] = useState(false);
-    
+
     const location = useLocation();
     const [idUser, setIdUser] = useState('');
     const id = localStorage.getItem('id');
@@ -106,7 +106,7 @@ export default function User() {
             }
             setName(infos.nome);
             if (infos.fotoPerfil) {
-                setPerfil("http://localhost/imagens/" + infos.fotoPerfil);
+                setPerfil("http://server-ihm.onrender.com/imagens/" + infos.fotoPerfil);
             }
 
         }
@@ -162,7 +162,7 @@ export default function User() {
         <div className='perfilpagep'>
 
             <section className='boxNameUser'>
-                <img id='fotoPerfilUser' src={Perfil} onError={(e) => { e.target.src = noF;}} style={Perfil !== '' ? { backgroundColor: 'transparent', backgroundImage: 'none' } : null} />
+                <img id='fotoPerfilUser' src={Perfil} onError={(e) => { e.target.src = noF; }} style={Perfil !== '' ? { backgroundColor: 'transparent', backgroundImage: 'none' } : null} />
                 <div id='medalhasBox'>
                     <div id='nomeUser'>
                         <p>{`@${name}`}</p>
@@ -201,7 +201,7 @@ export default function User() {
                 <p onClick={() => { setSelect(true) }} className={`btL ${select ? 'sets' : null}`}>PUBLICAÇÕES</p>
             </span>
 
-            {!select ? <Caixa_livros idUser={idUser}/> : <Caixa_publi idUser={idUser}/>}
+            {!select ? <Caixa_livros idUser={idUser} /> : <Caixa_publi idUser={idUser} />}
 
             <FloatBt />
         </div>

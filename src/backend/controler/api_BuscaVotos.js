@@ -8,7 +8,7 @@ export default {
     if (!id) {
       setVariavelGlobal(false);
       await auth.enviar();
-      
+
     }
     let user = {
       id_user: id,
@@ -24,7 +24,7 @@ export default {
     //TODO faz a requisição
 
     //! coloque o seu ip ali
-    const response = await fetch('http://localhost/server/busca_votos.php', requisição);
+    const response = await fetch('http://server-ihm.onrender.com/server/busca_votos.php', requisição);
 
     //TODO espera a resposta do servidor e armazena para retornar ao cliente
     const data = await response.json();

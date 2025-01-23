@@ -7,8 +7,8 @@ export default {
         if (!id) {
             setVariavelGlobal(false);
             await auth.enviar();
-            
-          }
+
+        }
         //? prepara o objeto para enviar no padrão RESTful
         let user = {
             id: id
@@ -25,7 +25,7 @@ export default {
         };
         //TODO faz a requisição
         //! coloque o seu ip ali
-        const response = await fetch('http://localhost/server/meusFavoritos.php', requisição);
+        const response = await fetch('http://server-ihm.onrender.com/server/meusFavoritos.php', requisição);
 
 
         //TODO espera a resposta do servidor e armazena para retornar ao cliente

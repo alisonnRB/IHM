@@ -4,12 +4,12 @@ import { setVariavelGlobal } from "../../GvarAuth";
 export default {
   //? prepara o objeto para enviar no padrão RESTful
   enviar: async (texto, linkLivro, EnqueteS, titleEnquete) => {
-    
+
     const id = sessionStorage.getItem('session');
     if (!id) {
       setVariavelGlobal(false);
       await auth.enviar();
-      
+
     }
 
     let user = {
@@ -30,7 +30,7 @@ export default {
     //TODO faz a requisição
 
     //! coloque o seu ip ali
-    const response = await fetch('http://localhost/server/publicar.php', requisição);
+    const response = await fetch('http://server-ihm.onrender.com/server/publicar.php', requisição);
 
 
     //TODO espera a resposta do servidor e armazena para retornar ao cliente

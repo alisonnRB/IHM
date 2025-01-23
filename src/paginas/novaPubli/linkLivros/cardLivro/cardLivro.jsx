@@ -16,8 +16,8 @@ export default function CardLink(props) {
     useEffect(() => {
         if (livro && livro.imagem) {
             setSemImg(false);
-            setFoto("http://localhost/livros/" + livro.user_id + '/' + livro.nome + '_' + livro.id + '/' + livro.imagem);
-        }else{
+            setFoto("http://server-ihm.onrender.com/livros/" + livro.user_id + '/' + livro.nome + '_' + livro.id + '/' + livro.imagem);
+        } else {
             setSemImg(true);
         }
     }, [livro]);
@@ -33,7 +33,7 @@ export default function CardLink(props) {
     }
 
     return (
-        <div className="CardLink" onClick={()=>{selecionar()}}>
+        <div className="CardLink" onClick={() => { selecionar() }}>
             <span className="content">
                 {semIMG ? null : <img src={foto} id="capa" />}
 
@@ -43,7 +43,7 @@ export default function CardLink(props) {
                     </div> : null}
 
                 <div className="caixaInfo">
-                    <span className="boxNome" >{livro && livro.nome? livro.nome : null}</span>
+                    <span className="boxNome" >{livro && livro.nome ? livro.nome : null}</span>
                     <span className="boxSinopse" dangerouslySetInnerHTML={{ __html: livro && livro.sinopse ? livro.sinopse : null }}></span>
                 </div>
             </span>

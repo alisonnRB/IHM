@@ -134,7 +134,7 @@ export default function Ler() {
 
     useEffect(() => {
         if (infos && infos != '') {
-            setFoto("http://localhost/imagens/" + infos.fotoPerfil);
+            setFoto("http://server-ihm.onrender.com/imagens/" + infos.fotoPerfil);
         }
     }, [infos]);
 
@@ -186,7 +186,7 @@ export default function Ler() {
     const Reportar = async (e) => {
         const value = e.target.value;
         const resposta = await Report.enviar(value, idLivro);
-        if(resposta.ok){
+        if (resposta.ok) {
             navigate(-1);
         }
     }
@@ -228,23 +228,23 @@ export default function Ler() {
                     </span>
                 </div>
 
-                <span className="alerts" onClick={()=>{setReport(true)}}>
+                <span className="alerts" onClick={() => { setReport(true) }}>
                     <img src={alert} />
                     <p>{Uword.alert}</p>
                 </span>
             </header>
 
             {report ?
-                <div className="fundoAlert" onClick={()=>{setReport(false)}}>
-                    <div className="caixaAlert" onClick={(e)=>{e.stopPropagation()}}>
+                <div className="fundoAlert" onClick={() => { setReport(false) }}>
+                    <div className="caixaAlert" onClick={(e) => { e.stopPropagation() }}>
                         <span className="titleAlert">
                             <img src={alert} />
                         </span>
                         <div className="contentAlert">
-                            <button className="AlertBT" value='Conteudo inapropriado' onClick={(e)=>{Reportar(e)}}>{Uword.content}</button>
-                            <button className="AlertBT" value='Plagio' onClick={(e)=>{Reportar(e)}}>{Uword.plagio}</button>
-                            <button className="AlertBT" value='Violacao dos Direitos Autorais' onClick={(e)=>{Reportar(e)}}>{Uword.viola}</button>
-                            <button className="AlertBT" value='incitacao a ilegalidade' onClick={(e)=>{Reportar(e)}}>{Uword.ilegal}</button>
+                            <button className="AlertBT" value='Conteudo inapropriado' onClick={(e) => { Reportar(e) }}>{Uword.content}</button>
+                            <button className="AlertBT" value='Plagio' onClick={(e) => { Reportar(e) }}>{Uword.plagio}</button>
+                            <button className="AlertBT" value='Violacao dos Direitos Autorais' onClick={(e) => { Reportar(e) }}>{Uword.viola}</button>
+                            <button className="AlertBT" value='incitacao a ilegalidade' onClick={(e) => { Reportar(e) }}>{Uword.ilegal}</button>
                         </div>
                     </div>
                 </div>
@@ -256,7 +256,7 @@ export default function Ler() {
             </div>
 
             <div className="infosAutor">
-                <Link to={id != infos.id ? `/IHM/Busca/user?id=${encodeURIComponent(JSON.stringify(infos.id))}` : '/IHM/perfil'}><img id="perfil" src={foto} onError={(e) => { e.target.src = noF;}} style={{ border: 'solid 4px' + cor }} /></Link>
+                <Link to={id != infos.id ? `/IHM/Busca/user?id=${encodeURIComponent(JSON.stringify(infos.id))}` : '/IHM/perfil'}><img id="perfil" src={foto} onError={(e) => { e.target.src = noF; }} style={{ border: 'solid 4px' + cor }} /></Link>
                 <p>{infos.nome && infos.nome != '' ? infos.nome : Uword.autor}</p>
                 {id != userId ? <div className="btSeguir" style={{ backgroundColor: cor }} onClick={() => { seguir(); setSeguido(!seguido) }} >{seguido ? Uword.seguindo : Uword.seguir}</div> : null}
             </div>

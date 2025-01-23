@@ -14,7 +14,7 @@ export default function Mensagem(props) {
   const [audio] = useState(new Audio(audioSrc));
 
   const escrevePlay = () => {
-      audio.play();
+    audio.play();
   };
 
   const id = localStorage.getItem('id');
@@ -30,7 +30,7 @@ export default function Mensagem(props) {
   const [infos, setinfos] = useState('');
   const [foto, setFoto] = useState('');
 
-  const { lastJsonMessage, sendMessage } = useWebSocket('ws://localhost:8080', {
+  const { lastJsonMessage, sendMessage } = useWebSocket('ws://server-ihm.onrender.com:8080', {
     queryParams: { 'id': id, 'for': infos.id },
     shouldReconnect: (closeEvent) => true,
     reconnectInterval: 3000
@@ -55,14 +55,14 @@ export default function Mensagem(props) {
       Busca();
     }
     let a = localStorage.getItem('tema');
-    if(a){
+    if (a) {
       settheme(a);
     }
   }, [infos])
 
   useEffect(() => {
     if (typeof infos.fotoPerfil == "string") {
-      setFoto("http://localhost/imagens/" + infos.fotoPerfil);
+      setFoto("http://server-ihm.onrender.com/imagens/" + infos.fotoPerfil);
     }
   }, [infos.fotoPerfil]);
 
@@ -82,7 +82,7 @@ export default function Mensagem(props) {
         msgs[Object.keys(msgs).length] = obj;
         setMessageHistori(msgs);
         setNew(!New);
-      }else{
+      } else {
         props.setAtt(true);
       }
     }
@@ -142,7 +142,7 @@ export default function Mensagem(props) {
   }
 
   return (
-    <div className='mensagem' style={visivel ? null : {visibility:'hidden'}}>
+    <div className='mensagem' style={visivel ? null : { visibility: 'hidden' }}>
 
       <span className='perfilMsg'>
         <img src={foto} />

@@ -5,7 +5,7 @@ export default {
   //? prepara o objeto para enviar no padrão RESTful
   enviar: async () => {
     const id = sessionStorage.getItem('session');
-    
+
     if (!id) {
       setVariavelGlobal(false);
       await auth.enviar();
@@ -13,8 +13,8 @@ export default {
 
     let idioma = localStorage.getItem("idioma");
 
-    if(!idioma || (idioma != 'PT' && idioma != 'EN' && idioma != 'ES')){
-        idioma = 'EN';
+    if (!idioma || (idioma != 'PT' && idioma != 'EN' && idioma != 'ES')) {
+      idioma = 'EN';
     }
 
     let user = {
@@ -32,7 +32,7 @@ export default {
     //TODO faz a requisição
 
     //! coloque o seu ip ali
-    const response = await fetch('http://localhost/server/dellContaG.php', requisição);
+    const response = await fetch('http://server-ihm.onrender.com/server/dellContaG.php', requisição);
 
     //TODO espera a resposta do servidor e armazena para retornar ao cliente
     const data = await response.json();

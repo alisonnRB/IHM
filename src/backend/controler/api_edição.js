@@ -8,13 +8,13 @@ export default {
     if (!id) {
       setVariavelGlobal(false);
       await auth.enviar();
-      
+
     }
 
     let idioma = localStorage.getItem("idioma");
 
-    if(!idioma || (idioma != 'PT' && idioma != 'EN' && idioma != 'ES')){
-        idioma = 'EN';
+    if (!idioma || (idioma != 'PT' && idioma != 'EN' && idioma != 'ES')) {
+      idioma = 'EN';
     }
 
     formData.append('id', id);
@@ -23,7 +23,7 @@ export default {
 
     //TODO faz a requisição
     //! coloque o seu ip ali
-    const response = await fetch('http://localhost/server/config_perfil.php', {
+    const response = await fetch('http://server-ihm.onrender.com/server/config_perfil.php', {
       method: 'POST',
       body: formData,
     });

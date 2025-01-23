@@ -8,8 +8,8 @@ export default {
         if (!id) {
             setVariavelGlobal(false);
             await auth.enviar();
-            
-          }
+
+        }
         //? recebe um objeto formData e adiciona as informações que faltam 
         formData.append('id', id);
         formData.append('nome', nome);
@@ -18,7 +18,7 @@ export default {
 
         //TODO faz a requisição
         //! coloque o seu ip ali
-        const response = await fetch('http://localhost/server/create_livro.php', {
+        const response = await fetch('http://server-ihm.onrender.com/server/create_livro.php', {
             method: 'POST',
             body: formData,
         });

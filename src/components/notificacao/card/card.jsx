@@ -95,9 +95,9 @@ export default function Card(props) {
                 : `/IHM/Busca/user?id=${encodeURIComponent(JSON.stringify(user.id))}`}>
                 <img src={
                     (infos.tipo === 'favoritos' && user.imagem)
-                        ? `http://localhost/livros/${user.user_id}/${user.nome}_${user.id}/${user.imagem}`
-                        : (user.fotoPerfil ? `http://localhost/imagens/${user.fotoPerfil}` : '')
-                } onError={(e) => { e.target.src = noF;}} />
+                        ? `http://server-ihm.onrender.com/livros/${user.user_id}/${user.nome}_${user.id}/${user.imagem}`
+                        : (user.fotoPerfil ? `http://server-ihm.onrender.com/imagens/${user.fotoPerfil}` : '')
+                } onError={(e) => { e.target.src = noF; }} />
             </Link>
             <div className="not-content">
                 <span className="not-nome">{infos.tipo == 'favoritos' ? user.nome : `@${user.nome}`}</span>

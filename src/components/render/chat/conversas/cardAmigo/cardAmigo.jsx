@@ -25,13 +25,13 @@ export default function CardAmigo(props) {
     const [att, setAtt] = useState(false);
 
 
-    useEffect(()=>{
-        if(novasM > 0 && init.current > 2){
+    useEffect(() => {
+        if (novasM > 0 && init.current > 2) {
             audio.play();
         }
 
         init.current += 1;
-    },[novasM])
+    }, [novasM])
 
 
     useEffect(() => {
@@ -49,7 +49,7 @@ export default function CardAmigo(props) {
     useEffect(() => {
         if (!att) {
             props.setAtt(false);
-        }else{
+        } else {
             MSG();
         }
     }, [att])
@@ -76,7 +76,7 @@ export default function CardAmigo(props) {
 
     useEffect(() => {
         if (typeof info.fotoPerfil == "string") {
-            setFoto("http://localhost/imagens/" + info.fotoPerfil);
+            setFoto("http://server-ihm.onrender.com/imagens/" + info.fotoPerfil);
         }
     }, [info.fotoPerfil]);
 
@@ -103,7 +103,7 @@ export default function CardAmigo(props) {
 
     return (
         <li className={`${set ? 'set' : null}`} onClick={() => { props.setSelecionado(info); setNovasM(0); }}>
-            <img src={foto} onError={(e) => { e.target.src = noF;}}/>
+            <img src={foto} onError={(e) => { e.target.src = noF; }} />
             <div className='nomes'>
                 <p>{info.nome ? `@${info.nome}` : '...'}</p>
             </div>

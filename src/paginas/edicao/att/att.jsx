@@ -95,7 +95,7 @@ export default function NovoLivro() {
     useEffect(() => {
         select_idioma();
         let a = localStorage.getItem('tema');
-        if(a){
+        if (a) {
             setTheme(a)
         }
     }, [])
@@ -182,7 +182,7 @@ export default function NovoLivro() {
     useEffect(() => {
         setGen(info.genero);
         if (id && info.nome && info.imagem) {
-            const foto = "http://localhost/livros/" + id + "/" + info.nome + '_' + info.id + '/' + info.imagem;
+            const foto = "http://server-ihm.onrender.com/livros/" + id + "/" + info.nome + '_' + info.id + '/' + info.imagem;
             setImagePreview(foto);
         }
         setNome(info.nome);
@@ -329,7 +329,7 @@ export default function NovoLivro() {
 
             </form >
 
-            <Tag tags={tags} setTags={setTags}/>
+            <Tag tags={tags} setTags={setTags} />
 
 
             <button id="cancel" onClick={() => { navigate(-1) }}>{Uword.cancelar}</button>

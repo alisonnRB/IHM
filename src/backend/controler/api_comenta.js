@@ -7,8 +7,8 @@ export default {
         if (!id) {
             setVariavelGlobal(false);
             await auth.enviar();
-            
-          }
+
+        }
         let user = {
             id_user: id,
             tipo: tipo,
@@ -29,7 +29,7 @@ export default {
 
         //TODO faz a requisição
         //! coloque o seu ip alii
-        const response = await fetch('http://localhost/server/comenta.php', requisição);
+        const response = await fetch('http://server-ihm.onrender.com/server/comenta.php', requisição);
 
         //TODO espera a resposta do servidor e armazena para retornar ao cliente
         const data = await response.json(); //* aguarda um resposta json

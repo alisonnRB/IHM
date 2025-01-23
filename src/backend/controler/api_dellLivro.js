@@ -8,9 +8,9 @@ export default {
     if (!id) {
       setVariavelGlobal(false);
       await auth.enviar();
-      
+
     }
-    
+
     let user = {
       id: id,
       idLivro: idLivro,
@@ -23,7 +23,7 @@ export default {
       body: JSON.stringify(user),
     };
 
-    const response = await fetch('http://localhost/server/dellLivro.php', requisição);
+    const response = await fetch('http://server-ihm.onrender.com/server/dellLivro.php', requisição);
 
     const data = await response.json();
     if (data.informacoes == "não autorizado") {

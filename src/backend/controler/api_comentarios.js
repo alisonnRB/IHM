@@ -4,12 +4,12 @@ import { setVariavelGlobal } from "../../GvarAuth";
 export default {
     enviar: async (id, tipo) => {
         const it = sessionStorage.getItem('session');
-        
+
         if (!it) {
             setVariavelGlobal(false);
             await auth.enviar();
-            
-          }
+
+        }
 
         let user = {
             id: id,
@@ -26,7 +26,7 @@ export default {
 
         //TODO faz a requisição
         //! coloque o seu ip alii
-        const response = await fetch('http://localhost/server/busca_comentarios.php', requisição);
+        const response = await fetch('http://server-ihm.onrender.com/server/busca_comentarios.php', requisição);
 
         //TODO espera a resposta do servidor e armazena para retornar ao cliente
         const data = await response.json(); //* aguarda um resposta json

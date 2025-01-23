@@ -7,8 +7,8 @@ export default {
         if (!id) {
             setVariavelGlobal(false);
             await auth.enviar();
-            
-          }
+
+        }
         let user = {
             id: id,
             idUser: idUser,
@@ -26,7 +26,7 @@ export default {
         };
         //TODO faz a requisição
         //! coloque o seu ip ali
-        const response = await fetch('http://localhost/server/meusLivros.php', requisição);
+        const response = await fetch('http://server-ihm.onrender.com/server/meusLivros.php', requisição);
         //TODO espera a resposta do servidor e armazena para retornar ao cliente
         const data = await response.json(); //* aguarda um resposta json
         if (data.informacoes == "não autorizado") {
