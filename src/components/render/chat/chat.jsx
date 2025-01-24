@@ -14,21 +14,21 @@ export default function Chat() {
   const [selecionado, setSelecionado] = useState(0);
   const [att, setAtt] = useState(false);
 
-  const soon = true;
+  const soon = false;
 
-  useEffect(()=>{
+  useEffect(() => {
     let a = localStorage.getItem('tema');
-    if(a){
+    if (a) {
       setTheme(a);
     }
-  },[])
+  }, [])
 
   return (
     <div className='chat'>
       <span id='titlePerfil' className={`${theme == 'light' ? null : 'dark'}`}>CHAT</span>
-      {soon ? <div className='coming'><img src={comming}/></div> : <span className='contentMSG'>
-        <Conversas setSelecionado={setSelecionado} setAtt={setAtt} att={att}/>
-        <Mensagem selecionado={selecionado} setAtt={setAtt}/>
+      {soon ? <div className='coming'><img src={comming} /></div> : <span className='contentMSG'>
+        <Conversas setSelecionado={setSelecionado} setAtt={setAtt} att={att} />
+        <Mensagem selecionado={selecionado} setAtt={setAtt} />
       </span>}
 
       <BtFloat />
