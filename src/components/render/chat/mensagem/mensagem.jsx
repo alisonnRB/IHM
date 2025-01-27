@@ -38,6 +38,8 @@ export default function Mensagem(props) {
 
   const Busca = async () => {
     const resposta = await api.enviar(infos.id);
+    console.log(resposta)
+    console.log(infos.id)
     if (resposta.ok) {
       setMessageHistori(resposta.informacoes);
     }
