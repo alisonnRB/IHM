@@ -30,16 +30,23 @@ export default function Mensagem(props) {
   const [infos, setinfos] = useState('');
   const [foto, setFoto] = useState('');
 
-  const { lastJsonMessage, sendMessage } = useWebSocket('wss://server-ihm.onrender.com:8080', {
-    queryParams: { 'id': id, 'for': infos.id },
+  const { lastJsonMessage, sendMessage, readyState } = useWebSocket('wss://server-ihm.onrender.com:8080', {
+    queryParams: { id, for: infos.id },
     shouldReconnect: (closeEvent) => true,
-    reconnectInterval: 3000
+    reconnectInterval: 3000,
+    onError: (event) => {
+      console.error("Erro na conexão WebSocket:", event);
+    },
   });
+
+  useEffect(() => {
+    if (readyState === WebSocket.CLOSED) {
+      console.error("Conexão WebSocket fechada.");
+    }
+  }, [readyState]);
 
   const Busca = async () => {
     const resposta = await api.enviar(infos.id);
-    console.log(resposta)
-    console.log(infos.id)
     if (resposta.ok) {
       setMessageHistori(resposta.informacoes);
     }
