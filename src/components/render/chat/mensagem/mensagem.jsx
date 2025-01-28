@@ -30,7 +30,7 @@ export default function Mensagem(props) {
   const [infos, setinfos] = useState('');
   const [foto, setFoto] = useState('');
 
-  const { lastJsonMessage, sendMessage, readyState } = useWebSocket('wss://server-ihm.onrender.com:8080', {
+  const { lastJsonMessage, sendMessage, readyState } = useWebSocket('wss://server-ihm.onrender.com:10000', {
     queryParams: { id, for: infos.id },
     shouldReconnect: (closeEvent) => true,
     reconnectInterval: 3000,
