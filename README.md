@@ -1,71 +1,100 @@
-# Getting Started with Create React App
+# 📚 IHM - Rede Social para Leitores
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Bem-vindo ao **IHM**, uma plataforma social dedicada aos amantes da leitura! Aqui, você pode compartilhar textos, interagir com outros leitores, publicar resenhas e encontrar pessoas interessadas em trocar livros.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🌟 Funcionalidades
 
-### `npm start`
+- 📖 **Publicação de Textos**: Compartilhe suas histórias, crônicas, poemas e muito mais.
+- 💬 **Interação Social**: Comente, curta e troque ideias com outros leitores.
+- 📝 **Resenhas de Livros**: Publique e leia opiniões sobre seus livros favoritos.
+- 🔄 **Troca de Livros**: Conecte-se com pessoas interessadas em realizar trocas de exemplares.
 
-Runs the app in the development mode.\
+---
 
-Open [https://literary-ihm.com:3000](https://literary-ihm.com:3000) to view it in your browser.
+## 🛠️ Tecnologias Utilizadas
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Frontend:** React.js
+- **Gerenciamento de Pacotes:** npm
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📂 Estrutura do Projeto
 
-### `npm run build`
+```
+IHM/
+├── public/                 # Arquivos públicos
+├── src/                    # Código-fonte principal
+│   ├── components/         # Componentes React reutilizáveis
+│   ├── pages/              # Páginas da aplicação
+│   ├── services/           # Serviços e integração com APIs
+│   ├── styles/             # Estilização e temas
+│   └── App.js              # Componente principal da aplicação
+├── .gitignore              # Arquivos e pastas ignorados pelo Git
+├── README.md               # Documentação do projeto
+├── package-lock.json       # Controle de versões das dependências
+└── package.json            # Configuração do projeto e dependências
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🚀 Como Rodar o Projeto
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 📌 Requisitos
 
-### `npm run eject`
+Antes de iniciar, certifique-se de ter instalado:
+- Node.js (versão mais recente recomendada)
+- npm (gerenciador de pacotes do Node.js)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 🔧 Passos para Instalação
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/alisonnRB/IHM.git
+   cd IHM
+   ```
+2. **Instale as dependências:**
+   ```bash
+   npm install
+   ```
+3. **Inicie o servidor de desenvolvimento:**
+   ```bash
+   npm start
+   ```
+   A aplicação estará disponível em [http://localhost:3000](http://localhost:3000).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🧪 Scripts Disponíveis
 
-## Learn More
+Dentro do diretório do projeto, você pode executar:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **`npm start`**: Inicia a aplicação em modo de desenvolvimento.
+- **`npm test`**: Executa os testes da aplicação.
+- **`npm run build`**: Gera uma versão otimizada para produção.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 🤝 Contribuição
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Contribuições são bem-vindas! Para contribuir:
 
-### Analyzing the Bundle Size
+1. Faça um fork do projeto.
+2. Crie uma branch para sua feature: `git checkout -b minha-feature`.
+3. Faça suas alterações e commit: `git commit -m 'Minha nova feature'`.
+4. Envie para o branch original: `git push origin minha-feature`.
+5. Abra um pull request.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 📄 Licença
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+📩 **Contato**: Para dúvidas ou sugestões, abra uma issue ou entre em contato com o desenvolvedor.
 
-### Deployment
+🚀 *Happy Coding & Boa Leitura!* 📚
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
